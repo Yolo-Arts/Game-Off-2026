@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cl2twy81spmbb"]
+
+[ext_resource type="Script" uid="uid://bhdcda7l3hgpm" path="res://AutoLoads/sound_manager.gd" id="1_35e10"]
+[ext_resource type="AudioStream" uid="uid://bddgp4rr8y56e" path="res://Audio/SFX_Resources/MenuBtnPressedRandomizer.tres" id="2_35e10"]
+[ext_resource type="AudioStream" uid="uid://5lr77gteyirm" path="res://Audio/SFX_Resources/NormalButtonRandomizer.tres" id="4_i86m2"]
+[ext_resource type="AudioStream" uid="uid://bt5qxyher3fsk" path="res://Audio/UIBtnSFX/RetroBtnSFX/Retro10.mp3" id="6_i86m2"]
+[ext_resource type="AudioStream" uid="uid://c8qwwlsgbawma" path="res://Audio/Music/_investigation.wav" id="7_2ty25"]
+
+[node name="SoundManager" type="Node" unique_id=1135687308]
+script = ExtResource("1_35e10")
+
+[node name="SFX" type="Node" parent="." unique_id=1842101396]
+
+[node name="UIBtnSounds" type="Node" parent="SFX" unique_id=6147134]
+
+[node name="MenuBtnPressed" type="AudioStreamPlayer" parent="SFX/UIBtnSounds" unique_id=29815258]
+stream = ExtResource("2_35e10")
+bus = &"SFX"
+
+[node name="NormalBtnPressed" type="AudioStreamPlayer" parent="SFX/UIBtnSounds" unique_id=1045687845]
+stream = ExtResource("4_i86m2")
+bus = &"SFX"
+
+[node name="uiSfxTest" type="AudioStreamPlayer" parent="SFX/UIBtnSounds" unique_id=1391241352]
+stream = ExtResource("6_i86m2")
+bus = &"SFX"
+
+[node name="Music" type="Node" parent="." unique_id=1300249542]
+
+[node name="bgmPlaceholder" type="AudioStreamPlayer" parent="Music" unique_id=1683587719]
+stream = ExtResource("7_2ty25")
+bus = &"Music"

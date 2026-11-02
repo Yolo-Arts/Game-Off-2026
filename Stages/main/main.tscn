@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cqguftua63irx"]
+
+[ext_resource type="Script" uid="uid://d2vtev2v6ovu3" path="res://Stages/main/main.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Player/player.tscn" id="1_jjgbg"]
+
+[node name="Main" type="Node2D" unique_id=1485435742]
+script = ExtResource("1_bo1nx")
+
+[node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
+position = Vector2(957, 482)

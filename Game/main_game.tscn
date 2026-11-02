@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bd8pw5g1pc7gb"]
+
+[ext_resource type="Script" uid="uid://c2613f8x5vj6g" path="res://Game/Managers/stage_controller.gd" id="1_kxtph"]
+[ext_resource type="Script" uid="uid://now2sdxyg1yo" path="res://Game/Managers/bulletin_controller.gd" id="1_welsx"]
+[ext_resource type="Script" uid="uid://bgp1cbwstmloy" path="res://Game/Managers/music_controller.gd" id="3_1iqn0"]
+[ext_resource type="Script" uid="uid://cjpfi8480l5h1" path="res://Game/Managers/sfx_controller.gd" id="4_o2gyw"]
+
+[node name="MainGame" type="Node" unique_id=35583829]
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1208827721]
+
+[node name="BulletinController" type="Node" parent="UILayer" unique_id=1789201587]
+script = ExtResource("1_welsx")
+
+[node name="StageController" type="Node" parent="." unique_id=559222550]
+script = ExtResource("1_kxtph")
+
+[node name="MusicController" type="AudioStreamPlayer" parent="." unique_id=2131579621]
+script = ExtResource("3_1iqn0")
+
+[node name="SfxController" type="Node" parent="." unique_id=1201352419]
+script = ExtResource("4_o2gyw")

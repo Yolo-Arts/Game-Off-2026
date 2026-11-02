@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bjv85426u1d6m"]
+
+[ext_resource type="Script" uid="uid://cds551slgusep" path="res://Stages/main_menu/start_screen.gd" id="1_trqcy"]
+
+[node name="StartScreen" type="Control" unique_id=1519650878]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trqcy")
+
+[node name="ButtonMargins" type="MarginContainer" parent="." unique_id=441461745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ButtonVbox" type="VBoxContainer" parent="ButtonMargins" unique_id=223443417]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="PlayBtn" type="Button" parent="ButtonMargins/ButtonVbox" unique_id=239855471]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = " Play"
+alignment = 0
+
+[node name="OptionsBtn" type="Button" parent="ButtonMargins/ButtonVbox" unique_id=1611742752]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = " Options"
+alignment = 0
+
+[node name="QuitBtn" type="Button" parent="ButtonMargins/ButtonVbox" unique_id=909389772]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = " Quit"
+alignment = 0
+
+[node name="FloatingText" type="RichTextLabel" parent="." unique_id=1077152814]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -82.0
+offset_right = -29.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]Yolo[/wave]"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="ButtonMargins/ButtonVbox/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="ButtonMargins/ButtonVbox/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="ButtonMargins/ButtonVbox/QuitBtn" to="." method="_on_quit_btn_pressed"]

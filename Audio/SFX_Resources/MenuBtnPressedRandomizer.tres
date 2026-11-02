@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bddgp4rr8y56e"]
+
+[ext_resource type="AudioStream" uid="uid://tnhiws4tdj2p" path="res://Audio/UIBtnSFX/RetroBtnSFX/Retro8.mp3" id="1_pwre7"]
+[ext_resource type="AudioStream" uid="uid://662i7ee2w662" path="res://Audio/UIBtnSFX/RetroBtnSFX/Retro9.mp3" id="2_8c2vk"]
+
+[resource]
+random_pitch = 1.2
+streams_count = 2
+stream_0/stream = ExtResource("1_pwre7")
+stream_1/stream = ExtResource("2_8c2vk")
