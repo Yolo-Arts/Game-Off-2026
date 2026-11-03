@@ -10,3 +10,6 @@ signal MUS_play_music
 
 signal SFX_play_sfx
 signal SFX_play_dynamic_sfx
+
+signal stats_changed(stats: PlayerStats)
+signal stat_changed(stat_name: String)

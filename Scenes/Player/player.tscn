@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://d24vo6ypfc6of" path="res://Scenes/Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_l8h54"]
+[ext_resource type="Resource" uid="uid://876uytm3ioix" path="res://Resources/Items/default_player_stats.tres" id="2_htcer"]
+[ext_resource type="Script" uid="uid://dve1ktyxyi1gw" path="res://Scenes/Player/ItemManager/item_manager.gd" id="2_xpcdj"]
+[ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=2000429350]
 script = ExtResource("1_4ntmi")
+_default_stats = ExtResource("2_htcer")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ItemManager" type="Node" parent="." unique_id=935040993]
+script = ExtResource("2_xpcdj")
+metadata/_custom_type_script = "uid://dve1ktyxyi1gw"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1759838389]
+script = ExtResource("3_mtuoh")
+metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
 texture = ExtResource("1_l8h54")
