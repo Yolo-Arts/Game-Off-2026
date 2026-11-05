@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dve1ktyxyi1gw" path="res://Scenes/Player/ItemManager/item_manager.gd" id="2_xpcdj"]
 [ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
 
-[node name="Player" type="CharacterBody2D" unique_id=2000429350]
+[node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["player"]]
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")
 

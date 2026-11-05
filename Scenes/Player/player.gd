@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var movement_component: PlayerMovementComponent = $MovementComponent
 
 var can_steer: bool = true
-
+var can_control_speed: bool = true
 func _ready() -> void:
 	item_manager.setup(_default_stats)
 	movement_component.setup(self)

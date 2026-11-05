@@ -4,6 +4,7 @@ extends Node
 var player: Player
 var speed: float = 0.0
 var steer: float = 0.0
+
 func setup(_player: Player) -> void:
 	player = _player
 
@@ -23,12 +24,12 @@ func _physics_process(delta: float) -> void:
 		steer = get_steer_input()
 		
 	player.rotation += steer * stats.steering_speed * delta
-	speed = move_toward(speed, get_thrust_input() * stats.max_speed, delta * stats.acceleration)
 	
-	if get_thrust_input() == 1.0:
-		speed = move_toward(speed, stats.max_speed, delta * stats.acceleration)
-	else:
-		speed = move_toward(speed, 0.0, delta * stats.deacceleration)
+	if player.can_control_speed:
+		if get_thrust_input() == 1.0:
+			speed = move_toward(speed, stats.max_speed, delta * stats.acceleration)
+		elif get_thrust_input() == -1.0:
+			speed = move_toward(speed, 0.0, delta * stats.deacceleration)
 		
 	player.velocity = -player.transform.y * speed
 	player.move_and_slide()

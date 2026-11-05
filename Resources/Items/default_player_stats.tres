@@ -6,4 +6,5 @@
 script = ExtResource("1_y22of")
 max_speed = 2000.0
 acceleration = 200.0
+deacceleration = 800.0
 metadata/_custom_type_script = "uid://glq4nadax2py"
