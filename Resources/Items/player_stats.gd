@@ -1,6 +1,7 @@
 class_name PlayerStats extends Resource
 
 @export var max_health: float = 100.0
+@export var invincibility_duration_seconds: float = 1.0
 @export var damage: float = 10.0
 @export var max_speed: float = 600.0
 @export var steering_speed: float = 2 * PI

@@ -2,7 +2,8 @@ class_name BulletinConfig
 
 enum Keys{
 	PauseMenu,
-	SettingsMenu
+	SettingsMenu,
+	HUD
 }
 
 
@@ -12,5 +13,6 @@ static func get_bulletin(bulletin_key:Keys) -> Node:
 
 const BULLETIN_PATHS := {
 	Keys.PauseMenu : "res://UI/pause_screen.tscn",
-	Keys.SettingsMenu : "res://UI/settings_menu.tscn"
+	Keys.SettingsMenu : "res://UI/settings_menu.tscn",
+	Keys.HUD : "res://UI/prototype_hud.tscn"
 }
