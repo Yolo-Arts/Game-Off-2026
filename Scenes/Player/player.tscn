@@ -5,8 +5,17 @@
 [ext_resource type="Resource" uid="uid://876uytm3ioix" path="res://Resources/Items/default_player_stats.tres" id="2_htcer"]
 [ext_resource type="Script" uid="uid://dve1ktyxyi1gw" path="res://Scenes/Player/ItemManager/item_manager.gd" id="2_xpcdj"]
 [ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://d0qnxevy216rr" path="res://Scenes/Player/health_component.gd" id="5_dd0ac"]
 
-[node name="Player" type="CharacterBody2D" unique_id=2000429350]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
+size = Vector2(128, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86vig"]
+size = Vector2(134, 136)
+
+[node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["player"]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")
 
@@ -18,5 +27,21 @@ metadata/_custom_type_script = "uid://dve1ktyxyi1gw"
 script = ExtResource("3_mtuoh")
 metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
 
+[node name="HealthComponent" type="Node" parent="." unique_id=1697897628]
+script = ExtResource("5_dd0ac")
+metadata/_custom_type_script = "uid://d0qnxevy216rr"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
 texture = ExtResource("1_l8h54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807931546]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_bi0sn")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1561643526 groups=["player_hurtbox"]]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=526628552]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_86vig")

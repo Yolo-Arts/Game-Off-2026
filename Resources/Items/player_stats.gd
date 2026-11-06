@@ -1,10 +1,12 @@
 class_name PlayerStats extends Resource
 
 @export var max_health: float = 100.0
+@export var invincibility_duration_seconds: float = 1.0
 @export var damage: float = 10.0
 @export var max_speed: float = 600.0
 @export var steering_speed: float = 2 * PI
 @export var acceleration: float = 80.0
+@export var deacceleration: float = 200.0
 @export var minimum_attack_speed: float = 200.0
 @export var attack_cooldown: float = 0.5
 @export var critical_chance: float = 0.10

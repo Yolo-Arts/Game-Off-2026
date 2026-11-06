@@ -1,10 +1,27 @@
 [gd_scene format=3 uid="uid://cqguftua63irx"]
 
-[ext_resource type="Script" uid="uid://d2vtev2v6ovu3" path="res://Stages/main/main.gd" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Player/player.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://cbcwu5b7ayjr7" path="res://Stages/main/main.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="3_7bma3"]
+[ext_resource type="Texture2D" uid="uid://bwas2n2oefqp5" path="res://Assets/ProgrammerArt/spike.png" id="4_vhgat"]
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
 
 [node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
 position = Vector2(957, 482)
+
+[node name="EnemyHitbox" type="Area2D" parent="." unique_id=1773718433]
+script = ExtResource("3_7bma3")
+enabled = true
+damage = 10.0
+metadata/_custom_type_script = "uid://b6g202tvlwed1"
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyHitbox" unique_id=500770926]
+texture_filter = 1
+position = Vector2(521, 283)
+scale = Vector2(8.125, 7.9375)
+texture = ExtResource("4_vhgat")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyHitbox" unique_id=1945291821]
+polygon = PackedVector2Array(452, 345, 520, 218, 585, 346)
