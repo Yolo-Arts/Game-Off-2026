@@ -8,6 +8,28 @@ extends Resource
 @export var modifiers: Array[StatModifier] = []
 @export var effect_scene: PackedScene
 
+@export_group("skill tree stuff")
+@export var max_level: int = 1
+@export var base_cost: int
+@export var cost_growth: float = 1.2
+
+var level: int = 0
+var unlocked := false
+var parents: Array[ItemData] = []
+var children: Array[ItemData] = []
+
+func cost() -> int:
+	return int(base_cost * pow(cost_growth, level))
+
+func is_maxed() -> bool:
+	return level >= max_level
+
+func try_unlock() -> void:
+	for p in parents:
+		if p.level == 0:
+			return
+	unlocked = true
+
 func get_stats_display_string() -> String:
 	var stat_string: String = ""
 	

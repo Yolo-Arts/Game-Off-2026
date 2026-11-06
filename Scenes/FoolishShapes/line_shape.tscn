@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://2vp7ipwx1mw5"]
+
+[ext_resource type="Script" uid="uid://b03aqdugj55x6" path="res://Scenes/FoolishShapes/line_shape.gd" id="1_1l6x3"]
+
+[node name="LineShape" type="Node2D" unique_id=1434494599]
+script = ExtResource("1_1l6x3")

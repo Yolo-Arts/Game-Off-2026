@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcq6mijbwgbfk"]
+
+[ext_resource type="Script" uid="uid://c137d276pf5jk" path="res://Scenes/FoolishShapes/rectangle_shape.gd" id="1_i36hb"]
+
+[node name="RectangleShape" type="Node2D" unique_id=1116119712]
+script = ExtResource("1_i36hb")

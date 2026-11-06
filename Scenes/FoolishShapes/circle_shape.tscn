@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cb5xkulwx5sx5"]
+
+[ext_resource type="Script" uid="uid://u2mnetshf4pe" path="res://Scenes/FoolishShapes/circle_shape.gd" id="1_8ho4q"]
+
+[node name="CircleShape" type="Node2D" unique_id=1164930925]
+script = ExtResource("1_8ho4q")

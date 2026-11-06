@@ -3,7 +3,11 @@ class_name ItemManager extends Node
 var base_stats: PlayerStats
 var current_stats: PlayerStats
 var collected_items: Array[ItemData] = []
+
+# ItemEffect is basically a logical node that does anything based on conditions of any kind
 var active_effects: Array[ItemEffect] = []
+
+# an upgrade that changes during the game
 var dynamic_modifiers: Array[StatModifier] = []
 
 func setup(_base_stats: PlayerStats) -> void:
@@ -12,7 +16,7 @@ func setup(_base_stats: PlayerStats) -> void:
 
 func register_dynamic_modifier(mod: StatModifier) -> void:
 	dynamic_modifiers.append(mod)
-
+ 
 func unregister_dynamic_modifier(mod: StatModifier) -> void:
 	dynamic_modifiers.erase(mod)
 	recalculate()

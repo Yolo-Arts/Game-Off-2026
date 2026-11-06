@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cpttyhyn0dsuw"]
+
+[ext_resource type="Script" uid="uid://drl7m5cqpl7px" path="res://Scenes/FoolishShapes/polygon_shape.gd" id="1_qurea"]
+
+[node name="PolygonShape" type="Node2D" unique_id=251563042]
+script = ExtResource("1_qurea")
