@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://do4uq2uieplq2"]
+
+[ext_resource type="Script" uid="uid://c4o8rn7yjlc13" path="res://Game/EnemyComponents/Enemy.gd" id="1_u5s2g"]
+[ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="2_3pmhw"]
+[ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_efgs1"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="4_qs8s8"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="5_kt2l8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6lt"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=437048349 groups=["Enemies"]]
+script = ExtResource("1_u5s2g")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2109919344]
+script = ExtResource("2_3pmhw")
+max_health = 10.0
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1159865020]
+script = ExtResource("3_efgs1")
+speed = 150.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=933571517]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kt2l8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_5v6lt")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=357307482 node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_qs8s8")
+enabled = true
+enemy = NodePath("..")
+damage = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=573603964]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_5v6lt")

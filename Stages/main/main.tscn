@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="3_7bma3"]
 [ext_resource type="Texture2D" uid="uid://bwas2n2oefqp5" path="res://Assets/ProgrammerArt/spike.png" id="4_vhgat"]
+[ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="5_vhgat"]
+[ext_resource type="PackedScene" uid="uid://4j2flum1a4by" path="res://Game/Collectables/collectable.tscn" id="6_n62w3"]
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
@@ -25,3 +27,9 @@ texture = ExtResource("4_vhgat")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyHitbox" unique_id=1945291821]
 polygon = PackedVector2Array(452, 345, 520, 218, 585, 346)
+
+[node name="Enemy" parent="." unique_id=437048349 instance=ExtResource("5_vhgat")]
+position = Vector2(400, 572)
+
+[node name="Collectable" parent="." unique_id=1985064384 instance=ExtResource("6_n62w3")]
+position = Vector2(306, 246)
