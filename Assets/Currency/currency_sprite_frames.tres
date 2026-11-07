@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://7t6o256c4f24"]
+
+[ext_resource type="Texture2D" uid="uid://bcy3jr32vit3q" path="res://Assets/Currency/currency-Sheet.png" id="1_sh35k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1l3p"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awji3"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6in1"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp6mm"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1l3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awji3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6in1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp6mm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
