@@ -25,6 +25,7 @@ signal player_invincible
 signal player_vincible
 signal player_dead
 
-# TO DO -> Create a resource for the enemy information and another signal to account knockback
-signal player_hit(amount: float, source: Node)
+signal player_hit(source: DamageSource)
 signal player_died
+
+signal player_shifted(shift_color: DamageSource.ShiftColor)

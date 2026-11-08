@@ -13,10 +13,12 @@ func setup(_player: Player) -> void:
 	EventSystem.health_changed.emit(current_health, max_health)
 	EventSystem.stat_changed.connect(_on_stat_changed)
 
+## Updates health when the health stat changes
 func _on_stat_changed(stat: String) -> void:
 	if stat == "max_health":
 		update_health()
 
+## Updates the health from [PlayerStats]
 func update_health() -> void:
 	var current_stats: PlayerStats = player.get_current_stats()
 	max_health = current_stats.max_health
@@ -35,11 +37,14 @@ func remove_invincibility(source: StringName) -> void:
 	if not is_invincible():
 		EventSystem.player_vincible.emit()
 
-func take_damage(amount: float, _source: Node = null) -> bool:
+func take_damage(source: DamageSource) -> bool:
 	if is_invincible() or current_health <= 0:
 		return false
-	
-	current_health = clamp(current_health - amount, 0.0, max_health)
+	if source.shift_color == player.shift_color and \
+	player.movement_component.speed >= player.get_current_stats().minimum_attack_speed:
+		return false
+		
+	current_health = clamp(current_health - source.damage, 0.0, max_health)
 	EventSystem.health_reduced.emit(current_health)
 	if current_health <= 0:
 		EventSystem.player_died.emit()
