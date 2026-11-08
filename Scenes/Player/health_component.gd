@@ -41,7 +41,7 @@ func take_damage(source: DamageSource) -> bool:
 	if is_invincible() or current_health <= 0:
 		return false
 	if source.shift_color == player.shift_color and \
-	player.movement_component.speed >= player.get_current_stats().minimum_attack_speed:
+	player.can_ram():
 		return false
 		
 	current_health = clamp(current_health - source.damage, 0.0, max_health)

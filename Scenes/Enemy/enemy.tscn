@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://do4uq2uieplq2"]
 
-[ext_resource type="Script" uid="uid://c4o8rn7yjlc13" path="res://Game/EnemyComponents/Enemy.gd" id="1_u5s2g"]
+[ext_resource type="Script" uid="uid://c4o8rn7yjlc13" path="res://Game/EnemyComponents/enemy.gd" id="1_u5s2g"]
 [ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="2_3pmhw"]
 [ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_efgs1"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="4_qs8s8"]
@@ -15,7 +15,9 @@ shift_color = 0
 damage = 10.0
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
-[node name="Enemy" type="CharacterBody2D" unique_id=437048349 groups=["Enemies"]]
+[node name="Enemy" type="CharacterBody2D" unique_id=437048349 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_u5s2g")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=2109919344]

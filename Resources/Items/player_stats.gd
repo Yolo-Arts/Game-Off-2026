@@ -7,7 +7,7 @@ class_name PlayerStats extends Resource
 @export var steering_speed: float = 2 * PI
 @export var acceleration: float = 80.0
 @export var deacceleration: float = 200.0
-@export var minimum_attack_speed: float = 200.0
+@export var minimum_ram_speed: float = 200.0
 @export var attack_cooldown: float = 0.5
 @export var critical_chance: float = 0.10
 @export var critical_damage_multiplier: float = 1.5

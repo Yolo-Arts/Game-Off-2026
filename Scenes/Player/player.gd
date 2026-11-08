@@ -4,18 +4,22 @@ class_name Player extends CharacterBody2D
 @onready var item_manager: ItemManager = $ItemManager
 @onready var movement_component: PlayerMovementComponent = $MovementComponent
 @onready var health_component: PlayerHealthComponent = $HealthComponent
+@onready var hitbox: PlayerHitbox = $Hitbox
 
 var can_steer: bool = true
 var can_control_speed: bool = true
 var can_shift: bool = true
 var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.BLUE
 
+
 func _ready() -> void:
 	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
 	EventSystem.player_hit.connect(_on_player_hit)
 	item_manager.setup(_default_stats)
 	movement_component.setup(self)
+	hitbox.setup(self, true)
 	health_component.setup(self)
+	
 
 func _on_player_hit(damage_source: DamageSource) -> void:
 	health_component.take_damage(damage_source)
@@ -39,3 +43,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift") and can_shift:
 		shift_active_color()
 		EventSystem.player_shifted.emit(shift_color)
+
+func can_ram() -> bool:
+	return movement_component.speed >= get_current_stats().minimum_ram_speed
