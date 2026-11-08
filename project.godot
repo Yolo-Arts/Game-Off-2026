@@ -29,6 +29,8 @@ TransitionManager="*res://AutoLoads/transition_manager.tscn"
 EventSystem="*uid://8dn3brnlxu36"
 SkillTreeUpgrades="*uid://hskqssjcjwnd"
 FoolishShapes="*uid://bsabrecpt50dq"
+Enums="*uid://c4tybj7xxhftq"
+TweenManager="*uid://cehhhv0jc8uo0"
 
 [display]
 
@@ -49,6 +51,7 @@ folder_colors={
 "res://Game/Config/": "red",
 "res://Resources/": "gray",
 "res://Scenes/": "pink",
+"res://Scripts/": "gray",
 "res://Shaders/": "purple",
 "res://Stages/": "pink",
 "res://UI/": "green"
@@ -101,5 +104,6 @@ shift={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
