@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c244yl55i628w" path="res://Assets/ProgrammerArt/bar_under.png" id="2_g3khc"]
 [ext_resource type="Texture2D" uid="uid://d2gk0m5tasunu" path="res://Assets/ProgrammerArt/progress.png" id="3_nsjb6"]
 [ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="4_kynxj"]
+[ext_resource type="Texture2D" uid="uid://b17pq178napp7" path="res://Assets/ProgrammerArt/EnergyBar.png" id="5_kynxj"]
+[ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="5_nsjb6"]
 
 [node name="PrototypeHUD" type="Control" unique_id=1426870665]
 layout_mode = 3
@@ -25,3 +27,14 @@ texture_progress = ExtResource("3_nsjb6")
 script = ExtResource("4_kynxj")
 event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
 metadata/_custom_type_script = "uid://dqollry410r2i"
+
+[node name="EnergyBar" type="TextureProgressBar" parent="." unique_id=1343348312]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 256.0
+offset_bottom = 136.0
+value = 100.0
+texture_under = ExtResource("2_g3khc")
+texture_progress = ExtResource("5_kynxj")
+script = ExtResource("5_nsjb6")
+event_bus_signal = Array[StringName]([&"energy_changed", &"energy_increased", &"energy_reduced"])

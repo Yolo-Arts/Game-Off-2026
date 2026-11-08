@@ -4,7 +4,9 @@ class_name Player extends CharacterBody2D
 @onready var item_manager: ItemManager = $ItemManager
 @onready var movement_component: PlayerMovementComponent = $MovementComponent
 @onready var health_component: PlayerHealthComponent = $HealthComponent
+@onready var energy_component: PlayerEnergyComponent = $EnergyComponent
 @onready var hitbox: PlayerHitbox = $Hitbox
+
 
 var can_steer: bool = true
 var can_control_speed: bool = true
@@ -19,6 +21,7 @@ func _ready() -> void:
 	movement_component.setup(self)
 	hitbox.setup(self, true)
 	health_component.setup(self)
+	energy_component.setup(self)
 	
 
 func _on_player_hit(damage_source: DamageSource) -> void:
@@ -43,6 +46,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift") and can_shift:
 		shift_active_color()
 		EventSystem.player_shifted.emit(shift_color)
+	
+	if event.is_action_pressed("Ram") and can_ram():
+		ram()
+		energy_component.reduce_energy(get_current_stats().energy_ram_cost)
 
 func can_ram() -> bool:
 	return movement_component.speed >= get_current_stats().minimum_ram_speed
+
+func ram():
+	pass

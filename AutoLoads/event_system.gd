@@ -21,6 +21,10 @@ signal player_healed(amount: float)
 signal health_increased(current: float)
 signal health_reduced(current: float)
 
+signal energy_changed(new_energy: float, new_max_energy: float)
+signal energy_increased(current: float)
+signal energy_reduced(current: float)
+
 signal player_invincible
 signal player_vincible
 signal player_dead

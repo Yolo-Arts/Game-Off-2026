@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dve1ktyxyi1gw" path="res://Scenes/Player/ItemManager/item_manager.gd" id="2_xpcdj"]
 [ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://d0qnxevy216rr" path="res://Scenes/Player/health_component.gd" id="5_dd0ac"]
+[ext_resource type="Script" uid="uid://b5shriynv50ye" path="res://Scenes/Player/energy_component.gd" id="6_jlvik"]
 [ext_resource type="Script" uid="uid://bbdb481tg70y4" path="res://Scenes/Player/hitbox_component.gd" id="7_0u5uq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
@@ -33,6 +34,9 @@ metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
 [node name="HealthComponent" type="Node" parent="." unique_id=1697897628]
 script = ExtResource("5_dd0ac")
 metadata/_custom_type_script = "uid://d0qnxevy216rr"
+
+[node name="EnergyComponent" type="Node" parent="." unique_id=2136465283]
+script = ExtResource("6_jlvik")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
 texture = ExtResource("1_l8h54")
