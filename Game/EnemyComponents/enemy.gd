@@ -2,7 +2,9 @@ class_name Enemy extends CharacterBody2D
 
 @onready var health_component: EnemyHealthComponent = $HealthComponent
 @onready var movement_component: EnemyMovementComponent = $MovementComponent
-# @onready var HitboxComponent : EnemyHitbox = $HitboxComponent
+@export var enemy_stats: EnemyStats
+@onready var hitbox: EnemyHitbox = $Hitbox
+
 
 
 
@@ -10,6 +12,7 @@ class_name Enemy extends CharacterBody2D
 func _ready() -> void:
 	health_component.setup(self)
 	movement_component.setup(self)
+	hitbox.setup(self, enemy_stats)
 	
 func _process(delta: float) -> void:
 	

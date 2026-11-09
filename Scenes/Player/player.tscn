@@ -60,3 +60,5 @@ metadata/_custom_type_script = "uid://bbdb481tg70y4"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2141517331]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_pi45h")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=334270243]

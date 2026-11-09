@@ -47,12 +47,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		shift_active_color()
 		EventSystem.player_shifted.emit(shift_color)
 	
-	if event.is_action_pressed("Ram") and can_ram():
-		ram()
-		energy_component.reduce_energy(get_current_stats().energy_ram_cost)
+	#if event.is_action_pressed("Ram") and can_ram():
+	#	ram()
+	#	energy_component.reduce_energy(get_current_stats().energy_ram_cost)
 
 func can_ram() -> bool:
 	return movement_component.speed >= get_current_stats().minimum_ram_speed
 
-func ram():
+func shoot():
 	pass

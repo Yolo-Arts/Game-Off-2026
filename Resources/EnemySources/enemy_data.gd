@@ -1,5 +1,11 @@
 class_name EnemyData extends Resource
 
-@export var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
-@export var enemy_damage_type: DamageSource.DamageSourceType = DamageSource.DamageSourceType.ENEMY
-@export var damage: float = 0.0
+@export var enemy_id: StringName
+@export var enemy_name: String
+@export var enemy_scene: PackedScene
+@export var base_enemy_stats: EnemyStats = EnemyStats.new()
+@export var spawn_weight: float = 1.0
+@export var is_enemy: bool = true
+
+enum EnemyType {COLOR, NONE}
+@export var enemy_type: EnemyType
