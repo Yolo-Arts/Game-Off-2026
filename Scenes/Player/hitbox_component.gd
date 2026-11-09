@@ -20,4 +20,3 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if enemy:
 		enemy.health_component.take_damage(enemy.health_component.current_health)
-	

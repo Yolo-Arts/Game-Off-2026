@@ -5,20 +5,13 @@ class_name Enemy extends CharacterBody2D
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
 
-
-
-
-
 func _ready() -> void:
 	health_component.setup(self)
 	movement_component.setup(self)
 	hitbox.setup(self, enemy_stats)
 	
 func _process(delta: float) -> void:
-	
-	#For testing and debugging 
-	if(Input.is_key_pressed(KEY_O)): 
-		health_component.take_damage(5)
+	pass
 	
 func _exit_tree() -> void:
 	

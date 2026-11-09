@@ -3,16 +3,9 @@
 [ext_resource type="Script" uid="uid://cbcwu5b7ayjr7" path="res://Stages/main/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="3_7bma3"]
-[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="4_bbrnd"]
 [ext_resource type="Texture2D" uid="uid://bwas2n2oefqp5" path="res://Assets/ProgrammerArt/spike.png" id="4_vhgat"]
 [ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="5_vhgat"]
 [ext_resource type="PackedScene" uid="uid://4j2flum1a4by" path="res://Game/Collectables/collectable.tscn" id="6_n62w3"]
-
-[sub_resource type="Resource" id="Resource_d40jh"]
-script = ExtResource("4_bbrnd")
-enemy_damage_type = 1
-damage = 10.0
-metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
@@ -23,7 +16,6 @@ position = Vector2(957, 482)
 [node name="EnemyHitbox" type="Area2D" parent="." unique_id=1773718433]
 script = ExtResource("3_7bma3")
 enabled = true
-enemy_data = SubResource("Resource_d40jh")
 metadata/_custom_type_script = "uid://b6g202tvlwed1"
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyHitbox" unique_id=500770926]
