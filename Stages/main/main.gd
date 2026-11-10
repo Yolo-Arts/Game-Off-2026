@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var camera = %Camera2D
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		#Globals.open_pause_menu()
@@ -7,3 +9,4 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	EventSystem.MUS_play_music.emit(MusicConfig.Keys.BGMPlaceHolder2)
+	TweenManager.camera = camera

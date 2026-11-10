@@ -32,6 +32,7 @@ func _ready() -> void:
 
 func _on_player_hit(damage_source: DamageSource) -> void:
 	health_component.take_damage(damage_source)
+	TweenManager.camera.shake(0.25, 20, 15)
 
 func get_current_stats() -> PlayerStats:
 	return item_manager.current_stats
