@@ -111,11 +111,13 @@ func _refresh_content() -> void:
 
 	upgrade_name_label.text = _item.display_name
 
-	var description := _item.description
+	var description := _item.get_description_text()
 	var stats := _item.get_stats_display_string().strip_edges()
 	if not stats.is_empty():
 		description += "\n\n" + stats
-	upgrade_description_label.text = "[center]" + description
+	var description_bbcode := "[center]" + description
+	if upgrade_description_label.text != description_bbcode:  
+		upgrade_description_label.text = description_bbcode
 
 	var maxed := _item.is_maxed()
 	var dimmed := not maxed and not SkillTreeUpgrades.can_buy(_item)

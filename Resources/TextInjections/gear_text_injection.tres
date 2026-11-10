@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TextInjection" format=3 uid="uid://b1omd5fd2f50m"]
+
+[ext_resource type="Texture2D" uid="uid://cwd7w8v22ql0w" path="res://Assets/Currency/Gear/gears.tres" id="1_05h62"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="2_th4j3"]
+
+[resource]
+script = ExtResource("2_th4j3")
+text = "GEARS"
+color = Color(0.78, 0.8, 0.85, 1)
+font_size = 28
+icon = ExtResource("1_05h62")
+icon_size = Vector2i(32, 32)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
