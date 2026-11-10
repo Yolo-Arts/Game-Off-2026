@@ -7,7 +7,13 @@
 [ext_resource type="Script" uid="uid://d0qnxevy216rr" path="res://Scenes/Player/health_component.gd" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://b5shriynv50ye" path="res://Scenes/Player/energy_component.gd" id="6_jlvik"]
 [ext_resource type="Script" uid="uid://bbdb481tg70y4" path="res://Scenes/Player/hitbox_component.gd" id="7_0u5uq"]
+[ext_resource type="Texture2D" uid="uid://cmy4nq6ehejrb" path="res://Assets/Particles/ParticleCircle.png" id="7_gk6dx"]
+[ext_resource type="Texture2D" uid="uid://bexin1dtcgn5t" path="res://Assets/Particles/ParticleRoundedSquare.png" id="7_jhyir"]
 [ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="7_jlvik"]
+
+[sub_resource type="Curve" id="Curve_sckgu"]
+_data = [Vector2(0, 1), 0.0, 0.12181573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
 size = Vector2(128, 129)
@@ -38,8 +44,31 @@ metadata/_custom_type_script = "uid://d0qnxevy216rr"
 [node name="EnergyComponent" type="Node" parent="." unique_id=2136465283]
 script = ExtResource("6_jlvik")
 
+[node name="LeftEngineParticles" type="CPUParticles2D" parent="." unique_id=1096323586]
+unique_name_in_owner = true
+position = Vector2(-34, 44)
+amount = 64
+texture = ExtResource("7_jhyir")
+lifetime = 1.5
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_sckgu")
+
+[node name="RightEngineParticles" type="CPUParticles2D" parent="." unique_id=2096385599]
+unique_name_in_owner = true
+position = Vector2(38, 44)
+amount = 64
+texture = ExtResource("7_gk6dx")
+lifetime = 1.5
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_sckgu")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
 unique_name_in_owner = true
+scale = Vector2(4, 4)
 texture = ExtResource("7_jlvik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807931546]

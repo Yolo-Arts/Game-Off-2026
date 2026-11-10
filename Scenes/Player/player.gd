@@ -8,6 +8,8 @@ class_name Player extends CharacterBody2D
 @onready var hitbox: PlayerHitbox = $Hitbox
 
 @onready var sprite = %Sprite2D
+@onready var left_engine_particles = %LeftEngineParticles
+@onready var right_engine_particles = %RightEngineParticles
 
 var can_steer: bool = true
 var can_control_speed: bool = true
@@ -42,8 +44,12 @@ func shift_active_color() -> void:
 		DamageSource.ShiftColor.BLUE:
 			shift_color = DamageSource.ShiftColor.RED
 			sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)
+			left_engine_particles.color = Color(1.0, 0.0, 0.0, 1.0)
+			right_engine_particles.color = Color(1.0, 0.0, 0.0, 1.0)
 		DamageSource.ShiftColor.RED:
 			sprite.modulate = Color(0.169, 0.416, 1.0, 1.0)
+			left_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
+			right_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			shift_color = DamageSource.ShiftColor.BLUE
 		_:
 			shift_color = DamageSource.ShiftColor.BLUE
