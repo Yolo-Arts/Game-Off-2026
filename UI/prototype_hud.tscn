@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ddfmqyi0u7r18"]
+
+[ext_resource type="Script" uid="uid://cndbr06dlux5j" path="res://UI/Bulletins/bulletin.gd" id="1_knhoa"]
+[ext_resource type="Texture2D" uid="uid://c244yl55i628w" path="res://Assets/ProgrammerArt/bar_under.png" id="2_g3khc"]
+[ext_resource type="Texture2D" uid="uid://d2gk0m5tasunu" path="res://Assets/ProgrammerArt/progress.png" id="3_nsjb6"]
+[ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="4_kynxj"]
+
+[node name="PrototypeHUD" type="Control" unique_id=1426870665]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knhoa")
+metadata/_custom_type_script = "uid://cndbr06dlux5j"
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1274850675]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_under = ExtResource("2_g3khc")
+texture_progress = ExtResource("3_nsjb6")
+script = ExtResource("4_kynxj")
+event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
+metadata/_custom_type_script = "uid://dqollry410r2i"

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://byp58l2fxjbl6"]
+
+[ext_resource type="Texture2D" uid="uid://bwas2n2oefqp5" path="res://Assets/ProgrammerArt/spike.png" id="1_graww"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_nwdwc"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="2_dkuga"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_graww"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("1_nwdwc")
+stat = "damage"
+add = 5.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_d3qot"]
+script = ExtResource("1_nwdwc")
+stat = "luck"
+add = 2.0
+mult = 1.5
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_4wmoy"]
+script = ExtResource("2_graww")
+initial_price = 20
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_qx6h1"]
+script = ExtResource("2_graww")
+currency = 1
+initial_price = 4
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[resource]
+script = ExtResource("2_dkuga")
+id = "tes"
+display_name = "item"
+icon = ExtResource("1_graww")
+modifiers = Array[ExtResource("1_nwdwc")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
+max_level = 3
+shape_type = 1
+price_data_array = Array[ExtResource("2_graww")]([SubResource("Resource_4wmoy"), SubResource("Resource_qx6h1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

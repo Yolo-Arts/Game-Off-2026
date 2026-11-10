@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://uslc8623am40"]
+
+[ext_resource type="PackedScene" uid="uid://c8elrsqfmf3n7" path="res://Scenes/SkillTree/skill_tree.tscn" id="1_fewt0"]
+[ext_resource type="Script" uid="uid://cwckifb8fonv" path="res://Scenes/UpgradeView/upgrade_view.gd" id="1_nak5f"]
+[ext_resource type="PackedScene" uid="uid://b2csbwetpiepa" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.tscn" id="2_40fe1"]
+
+[node name="UpgradeView" type="Node2D" unique_id=1833710032]
+script = ExtResource("1_nak5f")
+currency_count_control = ExtResource("2_40fe1")
+
+[node name="SkillTree" parent="." unique_id=167548131 instance=ExtResource("1_fewt0")]
+
+[node name="Control" type="Control" parent="." unique_id=533925870]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=100231474]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=659220441]
+layout_mode = 2
+
+[node name="CurrencyMarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1271561838]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer" unique_id=1801141977]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CurrencyContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer" unique_id=1051391979]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="CurrencyCountContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer/CurrencyContainer" unique_id=227528752]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20

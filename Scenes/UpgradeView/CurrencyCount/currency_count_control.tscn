@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b2csbwetpiepa"]
+
+[ext_resource type="Script" uid="uid://bkjygxosbqt63" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.gd" id="1_bvk3i"]
+[ext_resource type="Script" uid="uid://c137d276pf5jk" path="res://Scenes/FoolishShapes/rectangle_shape.gd" id="1_putyo"]
+[ext_resource type="SpriteFrames" uid="uid://7t6o256c4f24" path="res://Assets/Currency/currency_sprite_frames.tres" id="2_siydu"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="3_siydu"]
+
+[node name="CurrencyCountControl" type="HBoxContainer" unique_id=1429204241]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 8
+script = ExtResource("1_bvk3i")
+
+[node name="RectangleShape" type="Node2D" parent="." unique_id=1355365187]
+unique_name_in_owner = true
+script = ExtResource("1_putyo")
+size = Vector2(140, 60)
+edge_color = Color(1, 0.85, 0.3, 1)
+fill_color = Color(1, 0.8509804, 0.3019608, 0.15686275)
+metadata/_custom_type_script = "uid://c137d276pf5jk"
+
+[node name="Control" type="Control" parent="." unique_id=420744381]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=1035364635]
+unique_name_in_owner = true
+position = Vector2(30, 28)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_siydu")
+animation = &"Stars"
+
+[node name="MainAnchor" type="Node2D" parent="Control/AnimatedSprite2D" unique_id=1254623908]
+unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="." unique_id=403219173]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+offset_transform_enabled = true
+theme = ExtResource("3_siydu")
+theme_override_font_sizes/font_size = 28
+text = "00"
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="." unique_id=2103430601]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2

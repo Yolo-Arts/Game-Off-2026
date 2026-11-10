@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bee43vl1ngfbv"]
+
+[ext_resource type="Texture2D" uid="uid://c4yl1rk2vmk1o" path="res://Assets/Logo/TempLogo.svg" id="1_4wmoy"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_vum37"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_4wmoy"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="2_6qo12"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("1_vum37")
+stat = "damage"
+add = 5.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_d3qot"]
+script = ExtResource("1_vum37")
+stat = "luck"
+add = 2.0
+mult = 1.5
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_o3kst"]
+script = ExtResource("2_4wmoy")
+initial_price = 3
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[resource]
+script = ExtResource("2_6qo12")
+id = "tes"
+display_name = "item"
+icon = ExtResource("1_4wmoy")
+modifiers = Array[ExtResource("1_vum37")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
+max_level = 4
+price_data_array = Array[ExtResource("2_4wmoy")]([SubResource("Resource_o3kst")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

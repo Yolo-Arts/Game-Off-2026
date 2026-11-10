@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dnrt63vv5tc8j"]
+
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_27ivj"]
+[ext_resource type="Texture2D" uid="uid://g130xocyhoff" path="res://Assets/Logo/game-off.png" id="1_vchlk"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="2_37tmm"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_7v07d"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("1_27ivj")
+stat = "damage"
+add = 5.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_d3qot"]
+script = ExtResource("1_27ivj")
+stat = "luck"
+add = 2.0
+mult = 1.5
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_7v07d")
+initial_price = 1
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[resource]
+script = ExtResource("2_37tmm")
+id = "tes"
+display_name = "item"
+description = "Something Something Something"
+icon = ExtResource("1_vchlk")
+modifiers = Array[ExtResource("1_27ivj")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
+max_level = 2
+price_data_array = Array[ExtResource("3_7v07d")]([SubResource("Resource_muvpr")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

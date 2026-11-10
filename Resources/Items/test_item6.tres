@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cphv1jm3tjg4x"]
+
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_nvqmc"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="2_qjf6t"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("1_nvqmc")
+stat = "damage"
+add = 5.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_d3qot"]
+script = ExtResource("1_nvqmc")
+stat = "luck"
+add = 2.0
+mult = 1.5
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[resource]
+script = ExtResource("2_qjf6t")
+id = "tes"
+display_name = "item"
+modifiers = Array[ExtResource("1_nvqmc")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://6iwp86vxcb1n"]
+
+[ext_resource type="Script" uid="uid://630s663lxivf" path="res://UI/SkillTreeTooltip/PriceBarContainer/price_bar_container.gd" id="1_f1l3p"]
+[ext_resource type="Script" uid="uid://c137d276pf5jk" path="res://Scenes/FoolishShapes/rectangle_shape.gd" id="1_wj0r8"]
+[ext_resource type="SpriteFrames" uid="uid://7t6o256c4f24" path="res://Assets/Currency/currency_sprite_frames.tres" id="2_8qlc6"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="4_awji3"]
+
+[node name="PriceBarContainer" type="HBoxContainer" unique_id=1772997264]
+offset_right = 424.0
+offset_bottom = 50.0
+size_flags_vertical = 4
+mouse_filter = 2
+alignment = 1
+script = ExtResource("1_f1l3p")
+
+[node name="RectangleShape" type="Node2D" parent="." unique_id=1626942534]
+unique_name_in_owner = true
+script = ExtResource("1_wj0r8")
+size = Vector2(150, 50)
+edge_color = Color(0.3238051, 0.82986456, 0.9348958, 1)
+fill_color = Color(0.3254902, 0.83137256, 0.93333334, 0.25490198)
+metadata/_custom_type_script = "uid://c137d276pf5jk"
+
+[node name="RectangleShape2" type="Node2D" parent="." unique_id=2058031069]
+unique_name_in_owner = true
+script = ExtResource("1_wj0r8")
+size = Vector2(424, 50)
+edge_color = Color(0.3238051, 0.82986456, 0.9348958, 1)
+fill_color = Color(0, 0, 0, 0)
+metadata/_custom_type_script = "uid://c137d276pf5jk"
+
+[node name="Control" type="Control" parent="." unique_id=2030551242]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartCurrencySymbol" type="AnimatedSprite2D" parent="Control" unique_id=1612032955]
+unique_name_in_owner = true
+position = Vector2(40, 25)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_8qlc6")
+animation = &"Stars"
+autoplay = "Gears"
+
+[node name="Control3" type="Control" parent="." unique_id=1619646504]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="CurrencyPriceLabel" type="Label" parent="Control3" unique_id=2120775520]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -9.0
+offset_right = 15.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_awji3")
+theme_override_font_sizes/font_size = 28
+text = "00000000 / 00000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="." unique_id=1633625300]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="StartCurrencySymbol2" type="AnimatedSprite2D" parent="Control2" unique_id=1454142708]
+unique_name_in_owner = true
+position = Vector2(0, 25)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_8qlc6")
+animation = &"Gears"
+autoplay = "Gears"

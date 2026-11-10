@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c8elrsqfmf3n7"]
+
+[ext_resource type="Script" uid="uid://c2r8qyj0qw3jb" path="res://Scenes/SkillTree/skill_tree.gd" id="1_ycyhv"]
+[ext_resource type="PackedScene" uid="uid://c5dlivgf2cka8" path="res://Scenes/SkillTree/UpgradeButton/upgrade_button.tscn" id="2_tq623"]
+[ext_resource type="PackedScene" uid="uid://bffcg055gw2g" path="res://UI/SkillTreeTooltip/upgrade_descriptor_view.tscn" id="3_a2lps"]
+
+[node name="SkillTree" type="Node2D" unique_id=167548131]
+script = ExtResource("1_ycyhv")
+button_scene = ExtResource("2_tq623")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1899229782]
+unique_name_in_owner = true
+
+[node name="Lines" type="Node2D" parent="Pivot" unique_id=11247803]
+unique_name_in_owner = true
+
+[node name="Buttons" type="Node2D" parent="Pivot" unique_id=1351882517]
+unique_name_in_owner = true
+
+[node name="UpgradeDescriptorView" parent="Pivot" unique_id=389307255 instance=ExtResource("3_a2lps")]
+unique_name_in_owner = true

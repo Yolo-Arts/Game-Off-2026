@@ -32,4 +32,5 @@ func _on_main_menu_btn_pressed() -> void:
 	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MenuBtnPressed)
 	EventSystem.STA_change_stage.emit(StageConfig.Keys.MainMenu)
 	EventSystem.BUL_destroy_bulletin.emit(BulletinConfig.Keys.PauseMenu)
+	EventSystem.BUL_destroy_all_bulletins.emit()
 	

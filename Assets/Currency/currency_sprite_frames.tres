@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://7t6o256c4f24"]
+
+[ext_resource type="Texture2D" uid="uid://bcy3jr32vit3q" path="res://Assets/Currency/currency-Sheet.png" id="1_sh35k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh35k"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73xhy"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyo6s"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojsg0"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhihf"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daja0"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we7w6"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcbat"]
+atlas = ExtResource("1_sh35k")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh35k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73xhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyo6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojsg0")
+}],
+"loop": 1,
+"name": &"Gears",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhihf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daja0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we7w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcbat")
+}],
+"loop": 1,
+"name": &"Stars",
+"speed": 3.0
+}]
