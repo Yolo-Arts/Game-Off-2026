@@ -12,5 +12,6 @@ script = ExtResource("2_6dm12")
 
 [node name="TextureButton" type="Button" parent="." unique_id=1040523963]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 128.0
+offset_bottom = 128.0
+expand_icon = true

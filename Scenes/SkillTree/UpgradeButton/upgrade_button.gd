@@ -2,7 +2,8 @@ class_name UpgradeButton
 extends Node2D
 
 
-const SIZE := Vector2(48, 48)
+const SIZE := Vector2(128, 128)
+const ICON_SIZE := 48
 
 # TODO: Pick better colors later.
 const COLOR_MAXED := Color(1.0, 0.8, 0.2)
@@ -13,9 +14,9 @@ const COLOR_TRACK := Color(1.0, 1.0, 1.0, 0.502)
 const RING_GAP := 5.0    
 const RING_WIDTH := 5.0
 
-const POLYGON_RADIUS := 34.0  
-const CIRCLE_RADIUS := 30.0
-const SQUARE_SIZE := 48.0
+const POLYGON_RADIUS := 48.0  
+const CIRCLE_RADIUS := 40.0
+const SQUARE_SIZE := 64.0
 const CIRCLE_RING_SIDES := 64  
 
 const POLYGON_START_ANGLE := -PI * 0.5
@@ -43,7 +44,7 @@ func _ready() -> void:
 	texture_button.icon = item.icon
 	texture_button.expand_icon = true
 	texture_button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	texture_button.add_theme_constant_override("icon_max_width", 28)
+	texture_button.add_theme_constant_override("icon_max_width", ICON_SIZE)
 	texture_button.mouse_entered.connect(func(): hovered.emit(item))
 	texture_button.mouse_exited.connect(func(): unhovered.emit(item))
 	texture_button.pressed.connect(func(): pressed_item.emit(item))
