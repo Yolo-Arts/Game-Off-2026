@@ -39,12 +39,8 @@ func _ready() -> void:
 
 	_sprite_base_scale = start_animated_sprite_2d.scale
 	for sprite in [start_animated_sprite_2d, end_animated_sprite_2d]:
-		# The SpriteFrames needs an animation named exactly like the currency ("Gears", "Stars").
-		if sprite.sprite_frames and sprite.sprite_frames.has_animation(_currency_data.name):
-			sprite.animation = _currency_data.name
-			sprite.play()
 		sprite.modulate = color
-
+	
 	hide()
 
 

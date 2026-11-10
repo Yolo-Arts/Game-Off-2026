@@ -48,7 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP: f = 1.1
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN: f = 1.0 / 1.1
 		if f != 1.0:
-			var new_scale := clampf(pivot.scale.x * f, 0.8, 1.3)
+			var new_scale := clampf(pivot.scale.x * f, 0.8, 1.5)
 			var real = new_scale / pivot.scale.x
 			var m := get_local_mouse_position()
 			pivot.position = m + (pivot.position - m) * real

@@ -150,14 +150,14 @@ func _layout_panel() -> void:
 	var show_above := bottom_screen_y > (viewport_height - 10.0)
 
 	if show_above:
-		margin_container.add_theme_constant_override("margin_top", 35)
-		margin_container.add_theme_constant_override("margin_bottom", 65)
+		margin_container.add_theme_constant_override("margin_top", 30)
+		margin_container.add_theme_constant_override("margin_bottom", 55)
 		margin_container.position.y = -margin_container.size.y
 		_rectangle_anchor_ratio = Vector2(0.5, 1.0)
 		fully_upgraded_rectangle_shape.position.y = -6.0
 	else:
-		margin_container.add_theme_constant_override("margin_top", 65)
-		margin_container.add_theme_constant_override("margin_bottom", 35)
+		margin_container.add_theme_constant_override("margin_top", 55)
+		margin_container.add_theme_constant_override("margin_bottom", 30)
 		margin_container.position.y = 0.0
 		_rectangle_anchor_ratio = Vector2(0.5, 0.0)
 		fully_upgraded_rectangle_shape.position.y = 6.0

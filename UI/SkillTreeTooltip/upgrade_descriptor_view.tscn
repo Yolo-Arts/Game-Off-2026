@@ -5,11 +5,6 @@
 [ext_resource type="Script" uid="uid://c137d276pf5jk" path="res://Scenes/FoolishShapes/rectangle_shape.gd" id="2_sfkqr"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="4_muvpr"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_sckgu"]
-color = Color(1, 1, 1, 1)
-grow_begin = -5.0
-grow_end = -5.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_sckgu"]
 font_size = 42
 outline_size = 4
@@ -77,6 +72,10 @@ offset_bottom = 215.0
 grow_horizontal = 2
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PivotControl/ClippingRectangleShape/MarginContainer" unique_id=1821471009]
 unique_name_in_owner = true
@@ -101,19 +100,10 @@ offset_right = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_muvpr")
+theme_override_font_sizes/font_size = 28
 text = "Upgrade Title"
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="PricebarContainer" type="VBoxContainer" parent="PivotControl/ClippingRectangleShape/MarginContainer/VBoxContainer" unique_id=359723876]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-
-[node name="HSeparator" type="HSeparator" parent="PivotControl/ClippingRectangleShape/MarginContainer/VBoxContainer" unique_id=1791017365]
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_sckgu")
 
 [node name="UpgradeDescriptionLabel" type="RichTextLabel" parent="PivotControl/ClippingRectangleShape/MarginContainer/VBoxContainer" unique_id=32686947]
 unique_name_in_owner = true
@@ -122,6 +112,12 @@ mouse_filter = 2
 theme = ExtResource("4_muvpr")
 bbcode_enabled = true
 fit_content = true
+
+[node name="PricebarContainer" type="VBoxContainer" parent="PivotControl/ClippingRectangleShape/MarginContainer/VBoxContainer" unique_id=359723876]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
 
 [node name="FullyUpgradedRectangleShape" type="Node2D" parent="PivotControl" unique_id=364504900]
 unique_name_in_owner = true
