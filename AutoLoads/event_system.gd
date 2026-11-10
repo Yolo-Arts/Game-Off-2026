@@ -33,3 +33,6 @@ signal player_hit(source: DamageSource)
 signal player_died
 
 signal player_shifted(shift_color: DamageSource.ShiftColor)
+
+signal enemy_spawned(enemy: Node2D)
+signal request_spawn_enemy(enemy: EnemyData)

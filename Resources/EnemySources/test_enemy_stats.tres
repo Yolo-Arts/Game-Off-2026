@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://dalnaxqkf7c2a"]
+
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="1_fuhsb"]
+
+[resource]
+script = ExtResource("1_fuhsb")
+damage = 10.0
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
