@@ -65,5 +65,9 @@ func spawn_enemy(enemy_data: EnemyData, enemy_position: Vector2) -> void:
 			push_error("Enemy stated as enemy, but is not -> ", enemy_data.enemy_id, " ", enemy_data.enemy_name)
 			return
 		enemy.enemy_stats = enemy_data.base_enemy_stats.duplicate()
+		if enemy_data.enemy_type == EnemyData.EnemyType.COLOR:
+			enemy.enemy_stats.shift_color = [DamageSource.ShiftColor.RED, DamageSource.ShiftColor.BLUE].pick_random()
+			
+	
 	add_child(enemy)
 	

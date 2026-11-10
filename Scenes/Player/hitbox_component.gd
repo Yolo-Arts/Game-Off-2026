@@ -18,5 +18,5 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	var enemy: Enemy = body as Enemy
 	
-	if enemy:
+	if enemy and enemy.enemy_stats.shift_color == player.shift_color:
 		enemy.health_component.take_damage(enemy.health_component.current_health)

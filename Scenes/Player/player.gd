@@ -17,11 +17,14 @@ var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.BLUE
 func _ready() -> void:
 	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
 	EventSystem.player_hit.connect(_on_player_hit)
+	
 	item_manager.setup(_default_stats)
 	movement_component.setup(self)
 	hitbox.setup(self, true)
 	health_component.setup(self)
 	energy_component.setup(self)
+	
+	EventSystem.player_shifted.emit(shift_color)
 	
 
 func _on_player_hit(damage_source: DamageSource) -> void:
@@ -37,7 +40,9 @@ func shift_active_color() -> void:
 	match shift_color:
 		DamageSource.ShiftColor.BLUE:
 			shift_color = DamageSource.ShiftColor.RED
+			$Sprite2D.modulate = Color(1, 0.2, 0.2)
 		DamageSource.ShiftColor.RED:
+			$Sprite2D.modulate = Color(1, 1, 1)
 			shift_color = DamageSource.ShiftColor.BLUE
 		_:
 			shift_color = DamageSource.ShiftColor.BLUE
