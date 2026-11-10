@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @onready var energy_component: PlayerEnergyComponent = $EnergyComponent
 @onready var hitbox: PlayerHitbox = $Hitbox
 
+@onready var sprite = %Sprite2D
 
 var can_steer: bool = true
 var can_control_speed: bool = true
@@ -40,9 +41,9 @@ func shift_active_color() -> void:
 	match shift_color:
 		DamageSource.ShiftColor.BLUE:
 			shift_color = DamageSource.ShiftColor.RED
-			$Sprite2D.modulate = Color(1, 0.2, 0.2)
+			sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)
 		DamageSource.ShiftColor.RED:
-			$Sprite2D.modulate = Color(1, 1, 1)
+			sprite.modulate = Color(0.169, 0.416, 1.0, 1.0)
 			shift_color = DamageSource.ShiftColor.BLUE
 		_:
 			shift_color = DamageSource.ShiftColor.BLUE

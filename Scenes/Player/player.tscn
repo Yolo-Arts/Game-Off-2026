@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ceb1pfyorany7"]
 
 [ext_resource type="Script" uid="uid://d24vo6ypfc6of" path="res://Scenes/Player/player.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_l8h54"]
 [ext_resource type="Resource" uid="uid://876uytm3ioix" path="res://Resources/Items/default_player_stats.tres" id="2_htcer"]
 [ext_resource type="Script" uid="uid://dve1ktyxyi1gw" path="res://Scenes/Player/ItemManager/item_manager.gd" id="2_xpcdj"]
 [ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://d0qnxevy216rr" path="res://Scenes/Player/health_component.gd" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://b5shriynv50ye" path="res://Scenes/Player/energy_component.gd" id="6_jlvik"]
 [ext_resource type="Script" uid="uid://bbdb481tg70y4" path="res://Scenes/Player/hitbox_component.gd" id="7_0u5uq"]
+[ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="7_jlvik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
 size = Vector2(128, 129)
@@ -39,7 +39,8 @@ metadata/_custom_type_script = "uid://d0qnxevy216rr"
 script = ExtResource("6_jlvik")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
-texture = ExtResource("1_l8h54")
+unique_name_in_owner = true
+texture = ExtResource("7_jlvik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807931546]
 position = Vector2(0, -0.5)
