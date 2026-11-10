@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbcwu5b7ayjr7" path="res://Stages/main/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="2_oajci"]
 [ext_resource type="Script" uid="uid://0jg8dve4yjgc" path="res://Scenes/Player/camera_2d.gd" id="3_t30ik"]
 [ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="5_vhgat"]
 [ext_resource type="PackedScene" uid="uid://4j2flum1a4by" path="res://Game/Collectables/collectable.tscn" id="6_n62w3"]
@@ -21,6 +22,13 @@ metadata/_custom_type_script = "uid://d25cy6pylx3w5"
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248161557]
+texture_repeat = 2
+scale = Vector2(5, 5)
+texture = ExtResource("2_oajci")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
 position = Vector2(957, 482)
