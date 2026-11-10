@@ -2,7 +2,7 @@ class_name UpgradeButton
 extends Node2D
 
 
-const SIZE := Vector2(128, 128)
+const SIZE := Vector2(96, 96)
 const ICON_SIZE := 48
 
 # TODO: Pick better colors later.

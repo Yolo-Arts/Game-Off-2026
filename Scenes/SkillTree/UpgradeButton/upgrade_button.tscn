@@ -14,4 +14,5 @@ script = ExtResource("2_6dm12")
 unique_name_in_owner = true
 offset_right = 128.0
 offset_bottom = 128.0
+mouse_default_cursor_shape = 2
 expand_icon = true
