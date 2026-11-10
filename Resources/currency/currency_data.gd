@@ -1,6 +1,7 @@
 class_name CurrencyData
 extends Resource
 
+#signal update_amount
 signal amount_changed
 signal insufficient_amount_triggered
 
@@ -9,13 +10,16 @@ signal insufficient_amount_triggered
 @export var color: Color = Color.WHITE
 
 var amount: int = 0
-
+var currency_count_node: Node2D
+var is_visible: bool = false
 
 func add(value: int) -> void:
 	if value == 0:
 		return
 	amount += value
 	amount_changed.emit()
+	
+	is_visible = true
 
 
 func can_afford(cost: int) -> bool:

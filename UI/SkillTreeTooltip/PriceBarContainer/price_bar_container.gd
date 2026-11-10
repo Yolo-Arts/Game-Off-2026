@@ -15,8 +15,6 @@ var _sprite_base_scale: Vector2
 var _pulse_tween: Tween
 var _shake_tween: Tween
 
-
-## Call BEFORE add_child().
 func inject_currency_data(currency_data: CurrencyData) -> void:
 	_currency_data = currency_data
 

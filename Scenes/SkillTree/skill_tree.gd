@@ -33,7 +33,7 @@ func _ready() -> void:
 
 	# TODO: remove these lines when actual currency system is added (from playing game)
 	Currencies.add(Enums.CurrencyType.GEAR, 100)
-	Currencies.add(Enums.CurrencyType.STAR, 500)
+	Currencies.add(Enums.CurrencyType.STAR, 5)
 
 	SkillTreeUpgrades.changed.connect(_refresh)
 	Currencies.changed.connect(_refresh)
