@@ -6,7 +6,7 @@ class_name EnemySpawner extends Node2D
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @export var enemy_spawn_timer: Timer
 
-# TODO Differentiate enemy colors on spawn
+# TODO Add a wave and formation system
 
 func _ready() -> void:
 	enemy_spawn_timer.wait_time = stage_data.spawn_interval

@@ -6,5 +6,5 @@
 script = ExtResource("1_fuhsb")
 shift_color = 0
 damage = 10.0
-opposite_speed = 500.0
+opposite_speed = 2000.0
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
