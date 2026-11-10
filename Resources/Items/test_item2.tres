@@ -25,11 +25,23 @@ script = ExtResource("3_7v07d")
 initial_price = 1
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
+[sub_resource type="Resource" id="Resource_46oyc"]
+script = ExtResource("5_o3kst")
+text = "HI"
+color = Color(0.85882354, 0.5233456, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[sub_resource type="Resource" id="Resource_0c384"]
+script = ExtResource("5_o3kst")
+text = "THIRD INJECTION"
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
 [resource]
 script = ExtResource("2_37tmm")
 id = "tes"
 display_name = "item"
-description = "Damge increased by [20%] and luck is increased by {GEARS}. {HI}"
+description = "Damage increased by [20%] and luck is increased by {GEARS}. {HI}
+{THIRD INJECTION}"
 icon = ExtResource("1_vchlk")
 modifiers = Array[ExtResource("1_27ivj")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
 max_level = 3
@@ -37,5 +49,5 @@ price_data_array = Array[ExtResource("3_7v07d")]([SubResource("Resource_muvpr")]
 initial_increment_value = 0.2
 increment_value = 0.2
 is_increment_percentage = true
-text_injections = Array[ExtResource("5_o3kst")]([ExtResource("6_46oyc")])
+text_injections = Array[ExtResource("5_o3kst")]([ExtResource("6_46oyc"), SubResource("Resource_46oyc"), SubResource("Resource_0c384")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"
