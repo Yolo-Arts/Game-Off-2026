@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://jro4c7pebhqb"]
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_dpxiy"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_354lq"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="2_q3lpy"]
 
 [sub_resource type="Resource" id="Resource_354lq"]
@@ -16,9 +17,15 @@ add = 2.0
 mult = 1.5
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("2_354lq")
+initial_price = 2
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
 [resource]
 script = ExtResource("2_q3lpy")
 id = "tes"
 display_name = "item"
 modifiers = Array[ExtResource("1_dpxiy")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
+price_data_array = Array[ExtResource("2_354lq")]([SubResource("Resource_muvpr")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

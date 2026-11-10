@@ -55,6 +55,7 @@ func _ready() -> void:
 
 	Currencies.changed.connect(_refresh_content)
 	SkillTreeUpgrades.changed.connect(_on_upgrades_changed)
+	margin_container.minimum_size_changed.connect(_on_content_min_size_changed)
 
 	_hide_upgrade()
 
@@ -89,6 +90,11 @@ func play_cannot_buy() -> void:
 	_feedback_tween.tween_property(self, "rotation_degrees", 1.5, 0.1)
 	_feedback_tween.tween_property(self, "rotation_degrees", 0.0, 0.05)
 	_feedback_tween.parallel().tween_property(foreground_rectangle_shape, "edge_color", Color.WHITE, 0.1)
+
+
+func _on_content_min_size_changed() -> void:
+	if _item != null:
+		_layout_panel()
 
 
 func _on_upgrades_changed() -> void:
@@ -142,7 +148,7 @@ func _layout_panel() -> void:
 		return
 	
 	margin_container.size.y = 0.0
-	var panel_size := margin_container.size
+	var panel_size := margin_container.size.max(margin_container.get_combined_minimum_size())
 	
 	# Flips tooltip position depending on button node location on screen.
 	var node_screen_origin := get_global_transform_with_canvas().origin
