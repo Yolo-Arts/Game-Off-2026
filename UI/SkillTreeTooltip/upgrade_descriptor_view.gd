@@ -97,7 +97,7 @@ func _on_upgrades_changed() -> void:
 	_refresh_content()
 	_layout_panel() 
 
-# Populates the tooltip with ItemData details.'
+# Populates the tooltip with ItemData details.
 func _refresh_content() -> void:
 	if _item == null:
 		return
@@ -141,18 +141,21 @@ func _layout_panel() -> void:
 	if _item == null or _item != current_item:
 		return
 	
+	margin_container.size.y = 0.0
+	var panel_size := margin_container.size
+	
 	# Flips tooltip position depending on button node location on screen.
 	var node_screen_origin := get_global_transform_with_canvas().origin
 	var node_scale := get_global_transform_with_canvas().get_scale()
 	var viewport_height := get_viewport_rect().size.y
-	var bottom_screen_y := node_screen_origin.y + margin_container.size.y * absf(node_scale.y)
+	var bottom_screen_y := node_screen_origin.y + panel_size.y * absf(node_scale.y)
 	
 	var show_above := bottom_screen_y > (viewport_height - 10.0)
 
 	if show_above:
 		margin_container.add_theme_constant_override("margin_top", 30)
 		margin_container.add_theme_constant_override("margin_bottom", 55)
-		margin_container.position.y = -margin_container.size.y
+		margin_container.position.y = -panel_size.y
 		_rectangle_anchor_ratio = Vector2(0.5, 1.0)
 		fully_upgraded_rectangle_shape.position.y = -6.0
 	else:
@@ -168,12 +171,12 @@ func _layout_panel() -> void:
 	var target_label_y := margin_container.position.y
 	
 	_size_tween = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	_size_tween.tween_property(level_label_pivot, "position:x", margin_container.size.x - 20.0, 0.2)
+	_size_tween.tween_property(level_label_pivot, "position:x", panel_size.x - 20.0, 0.2)
 	_size_tween.tween_property(level_label_pivot, "position:y", target_label_y, 0.2)
-	_size_tween.tween_property(background_rectangle_shape, "size", margin_container.size, 0.2)
-	_size_tween.tween_property(clipping_rectangle_shape, "size", margin_container.size, 0.2)
-	_size_tween.tween_property(foreground_rectangle_shape, "size", margin_container.size, 0.2)
-	_size_tween.tween_property(fully_upgraded_rectangle_shape, "size", margin_container.size - 12 * Vector2.ONE, 0.2)
+	_size_tween.tween_property(background_rectangle_shape, "size", panel_size, 0.2)
+	_size_tween.tween_property(clipping_rectangle_shape, "size", panel_size, 0.2)
+	_size_tween.tween_property(foreground_rectangle_shape, "size", panel_size, 0.2)
+	_size_tween.tween_property(fully_upgraded_rectangle_shape, "size", panel_size - 12 * Vector2.ONE, 0.2)
 	_size_tween.tween_property(level_label, "scale", Vector2.ONE, 0.2).set_delay(0.15)
 
 

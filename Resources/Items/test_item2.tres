@@ -18,6 +18,11 @@ add = 2.0
 mult = 1.5
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_7v07d")
+initial_price = 1
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
 [resource]
 script = ExtResource("2_37tmm")
 id = "tes"
@@ -25,4 +30,6 @@ display_name = "item"
 description = "Something Something Something"
 icon = ExtResource("1_vchlk")
 modifiers = Array[ExtResource("1_27ivj")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
+max_level = 2
+price_data_array = Array[ExtResource("3_7v07d")]([SubResource("Resource_muvpr")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"
