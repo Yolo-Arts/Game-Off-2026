@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dif3uhtxy7q4u"]
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_81jfc"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_ovgtx"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="2_v0viu"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_kjlqj"]
 
 [sub_resource type="Resource" id="Resource_354lq"]
 script = ExtResource("1_81jfc")
@@ -20,5 +22,6 @@ metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 script = ExtResource("2_v0viu")
 id = "tes"
 display_name = "item"
+icon = ExtResource("1_ovgtx")
 modifiers = Array[ExtResource("1_81jfc")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

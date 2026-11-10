@@ -31,6 +31,7 @@ SkillTreeUpgrades="*uid://hskqssjcjwnd"
 FoolishShapes="*uid://bsabrecpt50dq"
 Enums="*uid://c4tybj7xxhftq"
 TweenManager="*uid://cehhhv0jc8uo0"
+Currencies="*uid://dg3blil8j5tvx"
 
 [display]
 
@@ -51,7 +52,6 @@ folder_colors={
 "res://Game/Config/": "red",
 "res://Resources/": "gray",
 "res://Scenes/": "pink",
-"res://Scripts/": "gray",
 "res://Shaders/": "purple",
 "res://Stages/": "pink",
 "res://UI/": "green"

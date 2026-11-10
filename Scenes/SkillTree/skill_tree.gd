@@ -8,6 +8,7 @@ const FAN := deg_to_rad(40.0)
 @onready var pivot = %Pivot
 @onready var lines_root = %Lines
 @onready var buttons_root = %Buttons
+@onready var description_view: UpgradeDescriptionView = %UpgradeDescriptorView
 
 # Holds the position of centers. A dictionary of ItemData and Vector2
 var _centers := {}
@@ -29,7 +30,13 @@ func _ready() -> void:
 		item.try_unlock()
 	
 	_build_visuals()
+
+	# TODO: remove these lines when actual currency system is added (from playing game)
+	Currencies.add(Enums.CurrencyType.GEAR, 100)
+	Currencies.add(Enums.CurrencyType.STAR, 500)
+
 	SkillTreeUpgrades.changed.connect(_refresh)
+	Currencies.changed.connect(_refresh)
 	_refresh()
 
 # Handles zooming and panning.
@@ -105,8 +112,12 @@ func _build_visuals() -> void:
 		var btn := button_scene.instantiate() as UpgradeButton
 		btn.item = item
 		btn.position = _centers[item]
-		buttons_root.add_child(btn)
 		_buttons[item] = btn
+		btn.hovered.connect(_on_item_hovered)
+		btn.unhovered.connect(_on_item_unhovered)
+		btn.pressed_item.connect(_on_item_pressed)
+		
+		buttons_root.add_child(btn)
 		
 		if item.parents.is_empty():
 			_add_line(Vector2.ZERO, _centers[item], item)
@@ -129,3 +140,22 @@ func _refresh() -> void:
 		_buttons[item].refresh()
 	for line in _lines:
 		line["node"].visible = line["child"].unlocked
+
+
+func _on_item_hovered(item: ItemData) -> void:
+	_buttons[item].z_index = 20  # draw the hovered button above the description view
+	description_view.show_for(item, _buttons[item].global_position)
+
+
+func _on_item_unhovered(item: ItemData) -> void:
+	_buttons[item].z_index = 0
+	description_view.hide_for(item)
+
+
+func _on_item_pressed(item: ItemData) -> void:
+	if item.is_maxed():
+		return
+	if SkillTreeUpgrades.buy(item):
+		description_view.play_buy()
+	else:
+		description_view.play_cannot_buy()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bffcg055gw2g"]
 
 [ext_resource type="Script" uid="uid://25fxvvba0vhp" path="res://UI/SkillTreeTooltip/upgrade_descriptor_view.gd" id="1_ecnlo"]
+[ext_resource type="PackedScene" uid="uid://6iwp86vxcb1n" path="res://UI/SkillTreeTooltip/PriceBarContainer/price_bar_container.tscn" id="2_muvpr"]
 [ext_resource type="Script" uid="uid://c137d276pf5jk" path="res://Scenes/FoolishShapes/rectangle_shape.gd" id="2_sfkqr"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_sckgu"]
@@ -28,8 +29,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ecnlo")
+packed_pricebar = ExtResource("2_muvpr")
 
 [node name="PivotControl" type="Control" parent="." unique_id=1535388526]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -75,6 +78,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PivotControl/ClippingRectangleShape/MarginContainer" unique_id=1821471009]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 25
@@ -99,7 +103,7 @@ text = "Upgrade Title"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="PriceBarContainer" type="VBoxContainer" parent="PivotControl/ClippingRectangleShape/MarginContainer/VBoxContainer" unique_id=359723876]
+[node name="PricebarContainer" type="VBoxContainer" parent="PivotControl/ClippingRectangleShape/MarginContainer/VBoxContainer" unique_id=359723876]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2

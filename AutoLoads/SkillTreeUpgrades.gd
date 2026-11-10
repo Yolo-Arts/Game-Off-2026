@@ -36,20 +36,19 @@ const TREE = [
 	#["test_item16"],
 ]
 
-var currency := 100
-
 func can_buy(item: ItemData) -> bool:
-	# TODO implement proper currency check
-	if item.unlocked and not item.is_maxed() and currency >= item.cost():
+	if item.unlocked and not item.is_maxed() and Currencies.can_afford(item.get_prices()):
 		return true
 	else:
 		return false
-
+ 
 func buy(item: ItemData) -> bool:
-	if not can_buy(item):
+	if not item.unlocked or item.is_maxed():
 		return false
 	
-	currency -= item.cost()
+	if not Currencies.try_spend(item.get_prices()):
+		return false
+	
 	item.level += 1
 	
 	for child in item.children:
