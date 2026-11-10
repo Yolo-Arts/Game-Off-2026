@@ -3,6 +3,7 @@ class_name UpgradeDescriptionView
 
 # skill_tree.gd calls show_for() , hide_for() , play_buy() , play_cannot_buy().
 
+# TODO: Pick better colors later
 const COLOR_DIM := Color(0.5, 0.5, 0.5)
 const COLOR_MAXED := Color(1.0, 0.8, 0.2)
 const COLOR_BOUGHT := Color(0.324, 0.83, 0.935)

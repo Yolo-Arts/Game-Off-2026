@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://uslc8623am40"]
+
+[ext_resource type="PackedScene" uid="uid://c8elrsqfmf3n7" path="res://Scenes/SkillTree/skill_tree.tscn" id="1_fewt0"]
+
+[node name="UpgradeView" type="Node2D" unique_id=1833710032]
+
+[node name="SkillTree" parent="." unique_id=167548131 instance=ExtResource("1_fewt0")]

@@ -1,11 +1,15 @@
 class_name UpgradeButton
 extends Node2D
 
+
 const SIZE := Vector2(48, 48)
+
+# TODO: Pick better colors later.
 const COLOR_MAXED := Color(1.0, 0.8, 0.2)
 const COLOR_DIM := Color(0.5, 0.5, 0.5)
 const COLOR_PROGRESS := Color(0.164, 1.0, 0.164, 1.0)
 const COLOR_TRACK := Color(1.0, 1.0, 1.0, 0.502)
+
 const RING_GAP := 5.0    
 const RING_WIDTH := 5.0
 
