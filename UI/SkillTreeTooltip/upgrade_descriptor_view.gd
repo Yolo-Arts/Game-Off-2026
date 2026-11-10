@@ -46,13 +46,11 @@ func _ready() -> void:
 		new_pricebar.inject_currency_data(currency_data)
 		pricebar_container.add_child(new_pricebar)
 
-	# Draw above every button except the hovered one (the skill tree raises that button to z_index 20).
 	z_index = 10
 
 	fully_upgraded_rectangle_shape.edge_color = COLOR_MAXED
 	fully_upgraded_rectangle_shape.hide()
 
-	# The panel must never steal mouse input from the buttons underneath it.
 	_ignore_mouse(self)
 
 	Currencies.changed.connect(_refresh_content)
@@ -61,7 +59,6 @@ func _ready() -> void:
 	_hide_upgrade()
 
 
-## anchor_global_position is the on-screen (global) position of the hovered button.
 func show_for(item: ItemData, anchor_global_position: Vector2) -> void:
 	_item = item
 	global_position = anchor_global_position
@@ -71,7 +68,6 @@ func show_for(item: ItemData, anchor_global_position: Vector2) -> void:
 
 
 func hide_for(item: ItemData) -> void:
-	# Ignore stale "unhover" events from a button that is no longer the shown one.
 	if item == _item:
 		_hide_upgrade()
 
@@ -101,7 +97,7 @@ func _on_upgrades_changed() -> void:
 	_refresh_content()
 	_layout_panel() 
 
-# Populates the tooltip with ItemData details.
+# Populates the tooltip with ItemData details.'
 func _refresh_content() -> void:
 	if _item == null:
 		return
@@ -144,7 +140,7 @@ func _layout_panel() -> void:
 	
 	if _item == null or _item != current_item:
 		return
-
+	
 	# Flips tooltip position depending on button node location on screen.
 	var node_screen_origin := get_global_transform_with_canvas().origin
 	var node_scale := get_global_transform_with_canvas().get_scale()
@@ -165,12 +161,12 @@ func _layout_panel() -> void:
 		margin_container.position.y = 0.0
 		_rectangle_anchor_ratio = Vector2(0.5, 0.0)
 		fully_upgraded_rectangle_shape.position.y = 6.0
-
+		
 	if _size_tween != null:
 		_size_tween.kill()
-
-	var target_label_y := -margin_container.size.y if show_above else margin_container.size.y
-
+		
+	var target_label_y := margin_container.position.y
+	
 	_size_tween = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	_size_tween.tween_property(level_label_pivot, "position:x", margin_container.size.x - 20.0, 0.2)
 	_size_tween.tween_property(level_label_pivot, "position:y", target_label_y, 0.2)
