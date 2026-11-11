@@ -10,10 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://cmy4nq6ehejrb" path="res://Assets/Particles/ParticleCircle.png" id="7_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://bexin1dtcgn5t" path="res://Assets/Particles/ParticleRoundedSquare.png" id="7_jhyir"]
 [ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="7_jlvik"]
+[ext_resource type="Shader" uid="uid://ca0g4euwnf0hm" path="res://Shaders/outline_shader.gdshader" id="9_74mp2"]
 
 [sub_resource type="Curve" id="Curve_sckgu"]
 _data = [Vector2(0, 1), 0.0, 0.12181573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhyir"]
+shader = ExtResource("9_74mp2")
+shader_parameter/allow_out_of_bounds = true
+shader_parameter/outline_thickness = 1.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
 size = Vector2(128, 129)
@@ -68,6 +75,7 @@ scale_amount_curve = SubResource("Curve_sckgu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_jhyir")
 scale = Vector2(4, 4)
 texture = ExtResource("7_jlvik")
 
