@@ -26,14 +26,14 @@ func _ready() -> void:
 		var dir := Vector2.UP.rotated(i * TAU / roots.size())
 		_layout(roots[i], null, Vector2.ZERO, dir)
 	
-	for item in _centers:
-		item.try_unlock()
+	#for item in _centers:
+		#item.try_unlock()
 	
 	_build_visuals()
-
+	
 	# TODO: remove these lines when actual currency system is added (from playing game)
-	Currencies.add(Enums.CurrencyType.GEAR, 100)
-	Currencies.add(Enums.CurrencyType.STAR, 5)
+	#Currencies.add(Enums.CurrencyType.GEAR, 100)
+	#Currencies.add(Enums.CurrencyType.STAR, 5)
 
 	SkillTreeUpgrades.changed.connect(_refresh)
 	Currencies.changed.connect(_refresh)
@@ -56,17 +56,22 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # populates _centers 
 func _layout(entry: Array, parent: ItemData, parent_pos: Vector2, dir: Vector2) -> void:
-	var item := load(SkillTreeUpgrades.ITEM_PATH % entry[0]) as ItemData
+	#var item := load(SkillTreeUpgrades.ITEM_PATH % entry[0]) as ItemData
+	
+	var item = SkillTreeUpgrades.get_item(entry[0])
+	if item == null:
+		return
+	
 	var is_new := not _centers.has(item)
 	
-	if is_new:
-		item.parents.clear()
-		item.children.clear()
-		item.unlocked = false
+	#if is_new:
+		#item.parents.clear()
+		#item.children.clear()
+		#item.unlocked = false
 	
-	if parent and not parent.children.has(item):
-		parent.children.append(item)
-		item.parents.append(parent)
+	#if parent and not parent.children.has(item):
+		#parent.children.append(item)
+		#item.parents.append(parent)
 	
 	if not is_new:
 		if parent and item.parents.size() >= 2:

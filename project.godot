@@ -27,12 +27,13 @@ SoundManager="res://AutoLoads/sound_manager.tscn"
 Globals="*res://AutoLoads/Globals.gd"
 TransitionManager="*res://AutoLoads/transition_manager.tscn"
 EventSystem="*uid://8dn3brnlxu36"
+Currencies="*uid://dg3blil8j5tvx"
 SkillTreeUpgrades="*uid://hskqssjcjwnd"
 FoolishShapes="*uid://bsabrecpt50dq"
 Enums="*uid://c4tybj7xxhftq"
 TweenManager="*uid://cehhhv0jc8uo0"
-Currencies="*uid://dg3blil8j5tvx"
 Pickups="*uid://b3yk8nkadg2cx"
+SaveManager="*uid://nip5aet78q1k"
 
 [display]
 

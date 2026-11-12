@@ -1,8 +1,10 @@
 extends Node2D
 
+@export var currency_count_control: PackedScene
+
 @onready var camera = %Camera2D
 @onready var currency_count_container = %CurrencyCountContainer
-@export var currency_count_control: PackedScene
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
