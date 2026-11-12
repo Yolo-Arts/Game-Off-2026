@@ -25,3 +25,7 @@ func _on_skill_tree_button_pressed():
 	process_mode = PROCESS_MODE_DISABLED
 	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MenuBtnPressed)
 	EventSystem.STA_change_stage.emit(StageConfig.Keys.UpgradeView)
+
+
+func _on_reset_save_button_pressed():
+	SaveManager.reset_save_data()
