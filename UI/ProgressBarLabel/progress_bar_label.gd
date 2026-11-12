@@ -1,4 +1,5 @@
 extends Label
+class_name ProgressBarLabel
 
 var parent
 var event_bus_signal: Array[StringName]
@@ -15,11 +16,8 @@ func _ready():
 		if EventSystem.has_signal(sig):
 			EventSystem.connect(sig, _stat_changed)
 	
-	
 	if parent == null: return
 	
-	text = "%d/%d" % [parent.value, parent.max_value]
 
 func _stat_changed(new_value: float, new_max: float = parent.max_value) -> void:
-	print("Hi")
-	text = "%d/%d" % [new_value, new_max]
+	pass

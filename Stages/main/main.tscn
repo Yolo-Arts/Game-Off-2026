@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="17_1b66h"]
 [ext_resource type="PackedScene" uid="uid://ch5aqpwcbnv7e" path="res://UI/ProgressBarLabel/progress_bar_label.tscn" id="17_r2vng"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="18_0ptnc"]
+[ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="19_r2vng"]
 
 [sub_resource type="Resource" id="Resource_bi0sn"]
 script = ExtResource("9_qfemd")
@@ -97,7 +98,7 @@ texture_progress = ExtResource("15_r2vng")
 script = ExtResource("15_guytx")
 event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
 
-[node name="ProgressBarLabel" parent="HUD/MarginContainer/VBoxContainer/FuelProgressBar" unique_id=1147571644 instance=ExtResource("17_r2vng")]
+[node name="FuelProgressBarLabel" parent="HUD/MarginContainer/VBoxContainer/FuelProgressBar" unique_id=1147571644 instance=ExtResource("17_r2vng")]
 layout_mode = 0
 offset_left = 554.0
 offset_top = 17.0
@@ -106,6 +107,7 @@ offset_bottom = 47.0
 theme = ExtResource("18_0ptnc")
 theme_override_font_sizes/font_size = 28
 text = "100/1000"
+script = ExtResource("19_r2vng")
 
 [node name="EnergyBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer" unique_id=1845865454]
 layout_mode = 2
