@@ -1,11 +1,63 @@
 [gd_scene format=3 uid="uid://bd8pw5g1pc7gb"]
 
+[ext_resource type="Shader" uid="uid://djslefgmniqk7" path="res://Shaders/CTRShader.gdshader" id="1_76wv5"]
 [ext_resource type="Script" uid="uid://c2613f8x5vj6g" path="res://Game/Managers/stage_controller.gd" id="1_kxtph"]
 [ext_resource type="Script" uid="uid://now2sdxyg1yo" path="res://Game/Managers/bulletin_controller.gd" id="1_welsx"]
+[ext_resource type="Shader" uid="uid://cx24ib3436kw7" path="res://Shaders/GlitchScreenShader.gdshader" id="2_dj6w8"]
 [ext_resource type="Script" uid="uid://bgp1cbwstmloy" path="res://Game/Managers/music_controller.gd" id="3_1iqn0"]
 [ext_resource type="Script" uid="uid://cjpfi8480l5h1" path="res://Game/Managers/sfx_controller.gd" id="4_o2gyw"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sckgu"]
+shader = ExtResource("1_76wv5")
+shader_parameter/wobble_speed = 0.1
+shader_parameter/wobble_frequency = 0.30000001425
+shader_parameter/wobble_strength = 0.5
+shader_parameter/fisheye = 0.250000011875
+shader_parameter/brighten = 0.650000030875
+shader_parameter/scanline_count = 240.0000114
+shader_parameter/scanline_movespeed = 0.50000002375
+shader_parameter/horizontal_scanline_strength = 0.4
+shader_parameter/vertical_scanline_strength = 0.02000000095
+shader_parameter/chromatic = 2.0
+shader_parameter/ghosting = 0.05
+shader_parameter/vignette = 0.050000002375
+shader_parameter/edge_color = Color(0.03137255, 0.03137255, 0.03137255, 1)
+shader_parameter/bloomRadius = 1.0
+shader_parameter/bloomThreshold = 1.0
+shader_parameter/bloomIntensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwgso"]
+shader = ExtResource("2_dj6w8")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 240.0
+shader_parameter/shake_color_rate = 0.01
+
 [node name="MainGame" type="Node" unique_id=35583829]
+
+[node name="ScreenCanvas" type="CanvasLayer" parent="." unique_id=1702263429]
+layer = 99
+
+[node name="CRT" type="ColorRect" parent="ScreenCanvas" unique_id=1370886087]
+material = SubResource("ShaderMaterial_sckgu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="ScreenCanvas" unique_id=543747691]
+
+[node name="Glitch" type="ColorRect" parent="ScreenCanvas" unique_id=702985524]
+visible = false
+material = SubResource("ShaderMaterial_kwgso")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1208827721]
 
