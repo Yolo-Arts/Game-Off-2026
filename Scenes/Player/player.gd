@@ -6,6 +6,7 @@ class_name Player extends CharacterBody2D
 @onready var health_component: PlayerHealthComponent = $HealthComponent
 @onready var energy_component: PlayerEnergyComponent = $EnergyComponent
 @onready var hitbox: PlayerHitbox = $Hitbox
+@onready var state_machine: StateMachine = $StateMachine
 
 @onready var sprite = %Sprite2D
 @onready var left_engine_particles = %LeftEngineParticles
@@ -14,7 +15,7 @@ class_name Player extends CharacterBody2D
 var can_steer: bool = true
 var can_control_speed: bool = true
 var can_shift: bool = true
-var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.BLUE
+var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
 
 
 func _ready() -> void:
@@ -26,13 +27,19 @@ func _ready() -> void:
 	hitbox.setup(self, true)
 	health_component.setup(self)
 	energy_component.setup(self)
+	state_machine.initialize(self, &"normal")
 	
 	EventSystem.player_shifted.emit(shift_color)
+	shift_active_color()
 	
 
 func _on_player_hit(damage_source: DamageSource) -> void:
 	health_component.take_damage(damage_source)
-	TweenManager.camera.shake(0.25, 20, 15)
+	
+	if damage_source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
+		TweenManager.camera.shake(0.25, 20, 15)
+	
+	
 
 func get_current_stats() -> PlayerStats:
 	return item_manager.current_stats
@@ -53,6 +60,9 @@ func shift_active_color() -> void:
 			right_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			shift_color = DamageSource.ShiftColor.BLUE
 		_:
+			left_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
+			right_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
+			sprite.modulate = Color(0.169, 0.416, 1.0, 1.0)
 			shift_color = DamageSource.ShiftColor.BLUE
 
 func _unhandled_input(event: InputEvent) -> void:

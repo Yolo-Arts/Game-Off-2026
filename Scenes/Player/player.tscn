@@ -4,6 +4,9 @@
 [ext_resource type="Resource" uid="uid://876uytm3ioix" path="res://Resources/Items/default_player_stats.tres" id="2_htcer"]
 [ext_resource type="Script" uid="uid://dve1ktyxyi1gw" path="res://Scenes/Player/ItemManager/item_manager.gd" id="2_xpcdj"]
 [ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://grs1kfqrof0u" path="res://Game/StateMachine/state_machine.gd" id="3_oikmp"]
+[ext_resource type="Script" uid="uid://cfxyvwwsdume6" path="res://Scenes/Player/States/normal.gd" id="4_06tpx"]
+[ext_resource type="Script" uid="uid://1d02a4dxhlmd" path="res://Scenes/Player/States/player_state.gd" id="5_7g0yx"]
 [ext_resource type="Script" uid="uid://d0qnxevy216rr" path="res://Scenes/Player/health_component.gd" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://b5shriynv50ye" path="res://Scenes/Player/energy_component.gd" id="6_jlvik"]
 [ext_resource type="Script" uid="uid://bbdb481tg70y4" path="res://Scenes/Player/hitbox_component.gd" id="7_0u5uq"]
@@ -36,12 +39,28 @@ collision_layer = 2
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")
 
+[node name="StateMachine" type="Node" parent="." unique_id=2124341260]
+script = ExtResource("3_oikmp")
+debug = true
+metadata/_custom_type_script = "uid://grs1kfqrof0u"
+
+[node name="Normal" type="Node" parent="StateMachine" unique_id=44844742]
+script = ExtResource("4_06tpx")
+id = &"normal"
+metadata/_custom_type_script = "uid://1d02a4dxhlmd"
+
+[node name="Knockback" type="Node" parent="StateMachine" unique_id=1250372079]
+script = ExtResource("5_7g0yx")
+id = &"knockback"
+metadata/_custom_type_script = "uid://1d02a4dxhlmd"
+
 [node name="ItemManager" type="Node" parent="." unique_id=935040993]
 script = ExtResource("2_xpcdj")
 metadata/_custom_type_script = "uid://dve1ktyxyi1gw"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1759838389]
 script = ExtResource("3_mtuoh")
+decay_coefficient = 1.2
 metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1697897628]

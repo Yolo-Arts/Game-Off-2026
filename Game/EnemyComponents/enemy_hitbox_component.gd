@@ -24,7 +24,7 @@ func apply_hit() -> void:
 	var areas: Array[Area2D] = get_overlapping_areas()
 	for area in areas:
 		if area.is_in_group("player_hurtbox"):
-			var damage_source := DamageSource.new(enemy_stats.damage, enemy_stats.enemy_damage_type, enemy_stats.shift_color, enemy)
+			var damage_source := DamageSource.new(enemy_stats.damage, enemy_stats.knockback, enemy_stats.enemy_damage_type, enemy_stats.shift_color, enemy)
 			EventSystem.player_hit.emit(damage_source)
 			return
 	
