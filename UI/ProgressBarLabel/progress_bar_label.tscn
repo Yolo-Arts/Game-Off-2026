@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ch5aqpwcbnv7e"]
+
+[ext_resource type="Script" uid="uid://ej62it1gcalq" path="res://UI/ProgressBarLabel/progress_bar_label.gd" id="1_188bg"]
+
+[node name="ProgressBarLabel" type="Label" unique_id=1147571644]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "100 / 1000"
+script = ExtResource("1_188bg")
