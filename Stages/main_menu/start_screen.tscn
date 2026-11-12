@@ -42,7 +42,7 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 flat = false
-btn_text = "Play"
+btn_text = "Clicky Btn"
 
 [node name="PlayBtn" type="Button" parent="ButtonMargins/ButtonVbox" unique_id=239855471]
 custom_minimum_size = Vector2(150, 50)

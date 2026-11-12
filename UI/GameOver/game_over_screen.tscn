@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://dtt84sqeea7cj"]
+
+[ext_resource type="Texture2D" uid="uid://oifcljy6ay0o" path="res://Assets/UI/GameOverScreen/GameOverWhiteFade.png" id="1_g1glf"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="2_m6qc7"]
+[ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="3_m6qc7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sckgu"]
+bg_color = Color(0, 0, 0, 0.49411765)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6qc7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6ss3"]
+
+[node name="GameOverScreen" type="Control" unique_id=1086539672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1943034851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.09411765)
+
+[node name="GameOverWhiteFade" type="TextureRect" parent="." unique_id=1701627115]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1074.0
+offset_top = 151.0
+offset_right = 1075.0
+offset_bottom = 259.0
+grow_horizontal = 2
+texture = ExtResource("1_g1glf")
+
+[node name="GameOverLabel" type="Label" parent="GameOverWhiteFade" unique_id=1988683068]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -37.0
+offset_right = 231.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_m6qc7")
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 70
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="GameOverLabel2" type="Label" parent="." unique_id=982256095]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.5
+offset_top = -74.0
+offset_right = 436.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_m6qc7")
+theme_override_font_sizes/font_size = 42
+text = "Acquired Resources"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1224477322]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.5
+offset_top = 12.0
+offset_right = 372.5
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 107
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=946989231]
+custom_minimum_size = Vector2(745, 215)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sckgu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1786612528]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 82
+
+[node name="RetryButton" parent="VBoxContainer/HBoxContainer" unique_id=352476746 instance=ExtResource("3_m6qc7")]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6qc7")
+font_size = 28
+btn_text = "Retry"
+outline_color = Color(1, 1, 1, 1)
+main_color = Color(0, 0, 0, 0.49411765)
+
+[node name="UpgradesButton" parent="VBoxContainer/HBoxContainer" unique_id=2143546587 instance=ExtResource("3_m6qc7")]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t6ss3")
+font_size = 28
+btn_text = "Upgrades"
+outline_color = Color(1, 1, 1, 1)
+main_color = Color(0, 0, 0, 0.49411765)

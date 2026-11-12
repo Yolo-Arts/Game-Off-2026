@@ -2,7 +2,10 @@
 class_name TextButton
 extends MyButton
 
+
+
 @onready var label: RichTextLabel = %RichTextLabel
+@export var font_size: int = 28
 @export var btn_text: String = "" :
 	set(val):
 		btn_text = val
@@ -16,6 +19,7 @@ func _ready() -> void:
 	super._ready()
 	resized.connect(_on_resized)
 	label.resized.connect(update_label_size)
+	label.add_theme_font_size_override("normal_font_size", font_size)
 
 # Workaround for 0.5 pixel issue when centering
 func update_label_size() -> void:
