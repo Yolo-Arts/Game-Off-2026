@@ -34,6 +34,8 @@ Enums="*uid://c4tybj7xxhftq"
 TweenManager="*uid://cehhhv0jc8uo0"
 Pickups="*uid://b3yk8nkadg2cx"
 SaveManager="*uid://nip5aet78q1k"
+Springer="*uid://c54ar5ruv21ib"
+Jumper="*uid://drl1w7q3t8w6x"
 
 [display]
 
@@ -56,6 +58,7 @@ folder_colors={
 "res://Game/Config/": "red",
 "res://Resources/": "gray",
 "res://Scenes/": "pink",
+"res://Scripts/": "gray",
 "res://Shaders/": "purple",
 "res://Stages/": "pink",
 "res://UI/": "green"

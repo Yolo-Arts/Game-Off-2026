@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dytafitex3lpj"]
+
+[ext_resource type="Script" uid="uid://ivoaqsd0wqll" path="res://UI/Buttons/my_button.gd" id="1_u4syi"]
+
+[node name="MyButton" type="Button" unique_id=352476746]
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("1_u4syi")
+main_color = Color(0.27058825, 0.47843137, 0.9647059, 1)
+
+[node name="Visuals" type="Control" parent="." unique_id=710163769]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

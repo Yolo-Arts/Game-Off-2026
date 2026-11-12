@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bn4rm16rtdieg"]
+
+[ext_resource type="PackedScene" uid="uid://dytafitex3lpj" path="res://UI/Buttons/my_button.tscn" id="1_uj356"]
+[ext_resource type="Script" uid="uid://ck6ltd2gx65ln" path="res://UI/Buttons/text_button.gd" id="2_ufsi7"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="3_43tcl"]
+
+[node name="TextButton" unique_id=352476746 instance=ExtResource("1_uj356")]
+script = ExtResource("2_ufsi7")
+btn_text = ""
+
+[node name="Visuals" parent="." index="0" unique_id=710163769]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Visuals" index="0" unique_id=495629418]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_right = 1.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_43tcl")
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true
+scroll_active = false
