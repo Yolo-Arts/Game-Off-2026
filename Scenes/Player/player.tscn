@@ -61,6 +61,7 @@ metadata/_custom_type_script = "uid://dve1ktyxyi1gw"
 [node name="MovementComponent" type="Node" parent="." unique_id=1759838389]
 script = ExtResource("3_mtuoh")
 decay_coefficient = 1.2
+knockback_decay_coefficient = 10.0
 metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1697897628]

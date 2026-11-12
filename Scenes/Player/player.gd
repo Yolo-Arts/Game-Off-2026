@@ -67,7 +67,7 @@ func shift_active_color() -> void:
 			left_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			right_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			shift_color = DamageSource.ShiftColor.BLUE
-		_:
+		DamageSource.ShiftColor.NONE:
 			left_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			right_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			sprite.modulate = Color(0.169, 0.416, 1.0, 1.0)
