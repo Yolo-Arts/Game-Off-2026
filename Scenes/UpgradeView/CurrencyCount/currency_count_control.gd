@@ -45,8 +45,15 @@ func _update_count() -> void :
 	if !_data.is_visible: return
 
 	show()
-
+	
+	var color_to_change: Color
+	if _data.amount > _current_value:
+		color_to_change = Color(0.484, 1.0, 0.0, 1.0)
+	else:
+		color_to_change = Color(1.0, 0.0, 0.0, 1.0)
+	
 	_current_value = _data.amount
+	
 	label.text = add_spaces_to_number("%d" % _current_value)
 	
 	rectangle_shape.size.x = 140 + (label.size.x - 41)
@@ -54,7 +61,7 @@ func _update_count() -> void :
 	TweenManager.scale_up_and_down(animated_sprite_2d, 2.5, 2.0, 0.1, 0.1)
 	TweenManager.scale_up_and_down(self, 1.25, 1.0, 0.1, 0.1)
 	TweenManager.scale_up_and_down(label, 1.25, 1.0, 0.1, 0.1)
-	TweenManager.flash(label, Color.RED, Color.WHITE, 0.25, 0.025)
+	TweenManager.flash(label, color_to_change, Color.WHITE, 0.25, 0.025)
 
 func _on_insufficient_amount_triggered() -> void :
 	if !is_visible_in_tree(): return

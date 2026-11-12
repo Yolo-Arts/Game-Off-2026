@@ -18,7 +18,7 @@ var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.BLUE
 
 
 func _ready() -> void:
-	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
+	#EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
 	EventSystem.player_hit.connect(_on_player_hit)
 	
 	item_manager.setup(_default_stats)

@@ -27,10 +27,11 @@ func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _exit_tree() -> void:
+func die() -> void:
 	#var collectable := load("res://Game/Collectables/collectable.tscn")
 	#var test = collectable.instantiate()
 	#test.position = position
 	
+	# TODO Add enemy death SFX
 	Pickups.spawn(Enums.CurrencyType.GEAR, global_position, 1)
-	
+	queue_free()

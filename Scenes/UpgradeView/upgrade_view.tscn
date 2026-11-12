@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8elrsqfmf3n7" path="res://Scenes/SkillTree/skill_tree.tscn" id="1_fewt0"]
 [ext_resource type="Script" uid="uid://cwckifb8fonv" path="res://Scenes/UpgradeView/upgrade_view.gd" id="1_nak5f"]
 [ext_resource type="PackedScene" uid="uid://b2csbwetpiepa" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.tscn" id="2_40fe1"]
+[ext_resource type="PackedScene" uid="uid://defbvjgax4sr8" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_container.tscn" id="4_o3nr1"]
 
 [node name="UpgradeView" type="Node2D" unique_id=1833710032]
 script = ExtResource("1_nak5f")
@@ -52,7 +53,6 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="CurrencyCountContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer/CurrencyContainer" unique_id=227528752]
+[node name="CurrencyCountContainer" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer/CurrencyContainer" unique_id=17007720 instance=ExtResource("4_o3nr1")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 20

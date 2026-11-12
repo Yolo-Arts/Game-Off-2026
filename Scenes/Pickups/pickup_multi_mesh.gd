@@ -40,6 +40,10 @@ func _ready() -> void:
 func _exit_tree() -> void:
 	if Performance.has_custom_monitor(MONITOR_ID):
 		Performance.remove_custom_monitor(MONITOR_ID)
+	if Pickups.spawn_requested.is_connected(_add_pickup_instance):
+		Pickups.spawn_requested.disconnect(_add_pickup_instance)
+	if Pickups.despawn_all_requested.is_connected(_on_despawn_all_pickups):
+		Pickups.despawn_all_requested.disconnect(_on_despawn_all_pickups)
 
 func _setup_multimesh() -> void:
 	var new_multimesh := MultiMesh.new()
@@ -81,6 +85,9 @@ func collect_in_radius(center: Vector2, radius: float) -> void:
 
 
 func _add_pickup_instance(currency_data: CurrencyData, spawn_position: Vector2) -> void:
+	if not is_inside_tree():
+		return
+	
 	if _pickup_instance_dictionary.size() >= max_pickups:
 		_queue_currency(currency_data.type, Pickups.value_per_pickup)
 		return
