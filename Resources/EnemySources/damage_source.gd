@@ -13,3 +13,4 @@ func _init(_damage: float, _knockback: float, _damage_type: DamageSourceType, _s
 	damage_type = _damage_type
 	shift_color = _shift_color
 	source_node = _source_node
+	knockback = _knockback

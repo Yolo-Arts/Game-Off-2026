@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://grs1kfqrof0u" path="res://Game/StateMachine/state_machine.gd" id="3_oikmp"]
 [ext_resource type="Script" uid="uid://cfxyvwwsdume6" path="res://Scenes/Player/States/normal.gd" id="4_06tpx"]
-[ext_resource type="Script" uid="uid://1d02a4dxhlmd" path="res://Scenes/Player/States/player_state.gd" id="5_7g0yx"]
+[ext_resource type="Script" uid="uid://da88luic16eyb" path="res://Scenes/Player/States/frozen.gd" id="5_7g0yx"]
 [ext_resource type="Script" uid="uid://d0qnxevy216rr" path="res://Scenes/Player/health_component.gd" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://b5shriynv50ye" path="res://Scenes/Player/energy_component.gd" id="6_jlvik"]
 [ext_resource type="Script" uid="uid://bbdb481tg70y4" path="res://Scenes/Player/hitbox_component.gd" id="7_0u5uq"]
@@ -49,9 +49,9 @@ script = ExtResource("4_06tpx")
 id = &"normal"
 metadata/_custom_type_script = "uid://1d02a4dxhlmd"
 
-[node name="Knockback" type="Node" parent="StateMachine" unique_id=1250372079]
+[node name="Frozen" type="Node" parent="StateMachine" unique_id=1250372079]
 script = ExtResource("5_7g0yx")
-id = &"knockback"
+id = &"frozen"
 metadata/_custom_type_script = "uid://1d02a4dxhlmd"
 
 [node name="ItemManager" type="Node" parent="." unique_id=935040993]

@@ -34,10 +34,18 @@ func _ready() -> void:
 	
 
 func _on_player_hit(damage_source: DamageSource) -> void:
-	health_component.take_damage(damage_source)
+	if not health_component.take_damage(damage_source): return
 	
 	if damage_source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
 		TweenManager.camera.shake(0.25, 20, 15)
+		#state_machine.request_transition(&"frozen")
+		print(damage_source.knockback)
+		if damage_source.source_node != null:
+			
+			movement_component.current_knockback = damage_source.knockback * (damage_source.source_node.global_position.direction_to(global_position))
+		#await get_tree().create_timer(2.0).timeout
+		#state_machine.request_transition(&"normal")
+		
 	
 	
 

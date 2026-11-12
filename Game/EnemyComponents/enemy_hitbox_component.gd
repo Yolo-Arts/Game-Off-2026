@@ -14,6 +14,7 @@ func setup(_enemy: Node2D, _enemy_stats: EnemyStats, _enabled: bool = true) -> v
 	enabled = _enabled
 	enemy = _enemy
 	enemy_stats = _enemy_stats
+	
 	assert(enemy_stats != null, "NULL ENEMY STATS")
 	
 func apply_hit() -> void:
