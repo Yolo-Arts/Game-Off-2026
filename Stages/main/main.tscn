@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="8_oajci"]
 [ext_resource type="Resource" uid="uid://bskyx75x7b3nd" path="res://Resources/EnemySources/test_enemy.tres" id="9_oajci"]
 [ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="9_qfemd"]
+[ext_resource type="PackedScene" uid="uid://deqbh4jesur4l" path="res://Scenes/Pickups/pickup_multi_mesh.tscn" id="11_qfemd"]
 
 [sub_resource type="Resource" id="Resource_bi0sn"]
 script = ExtResource("9_qfemd")
@@ -35,6 +36,7 @@ position = Vector2(957, 482)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1520117509]
 unique_name_in_owner = true
+zoom = Vector2(0.7, 0.7)
 script = ExtResource("3_t30ik")
 
 [node name="Enemy" parent="." unique_id=437048349 instance=ExtResource("5_vhgat")]
@@ -50,3 +52,6 @@ enemy_spawn_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Timer" type="Timer" parent="EnemySpawner" unique_id=1152519534]
+
+[node name="PickupMultiMesh" parent="." unique_id=370772807 instance=ExtResource("11_qfemd")]
+mesh_size = Vector2(16, 16)

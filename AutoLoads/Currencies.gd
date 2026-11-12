@@ -6,14 +6,15 @@ signal changed
 var _by_type: Dictionary = {}
 
 func _init() -> void:
-	_register(Enums.CurrencyType.GEAR, "Gears", Color(0.78, 0.8, 0.85))
-	_register(Enums.CurrencyType.STAR, "Stars", Color(1.0, 0.85, 0.3))
+	_register(Enums.CurrencyType.GEAR, "Gears", Color(0.78, 0.8, 0.85), 0)
+	_register(Enums.CurrencyType.STAR, "Stars", Color(1.0, 0.85, 0.3), 1)
 
-func _register(type: Enums.CurrencyType, display_name: String, color: Color) -> void:
+func _register(type: Enums.CurrencyType, display_name: String, color: Color, sprite_index: int) -> void:
 	var currency := CurrencyData.new()
 	currency.type = type
 	currency.name = display_name
 	currency.color = color
+	currency.sprite_index = sprite_index
 	currency.amount_changed.connect(changed.emit)
 	_by_type[type] = currency
 

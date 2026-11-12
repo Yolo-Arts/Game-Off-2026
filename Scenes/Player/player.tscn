@@ -24,7 +24,7 @@ size = Vector2(134, 136)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi45h"]
 size = Vector2(138, 141)
 
-[node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["pickup_collector", "player"]]
 collision_layer = 2
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")

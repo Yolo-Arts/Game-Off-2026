@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://deqbh4jesur4l"]
+
+[ext_resource type="Script" uid="uid://dk4fudsdxrh2i" path="res://Scenes/Pickups/pickup_multi_mesh.gd" id="1_jnfa7"]
+[ext_resource type="Shader" uid="uid://cokx7meboiim8" path="res://Shaders/pickup.gdshader" id="1_qfh6x"]
+[ext_resource type="Texture2D" uid="uid://bcy3jr32vit3q" path="res://Assets/Currency/currency-Sheet.png" id="2_q4qvs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qaolu"]
+shader = ExtResource("1_qfh6x")
+shader_parameter/total_columns = 8
+shader_parameter/frames_per_animation = 4
+shader_parameter/animation_fps = 8.0
+
+[node name="PickupMultiMesh" type="MultiMeshInstance2D" unique_id=370772807]
+texture_filter = 1
+material = SubResource("ShaderMaterial_qaolu")
+texture = ExtResource("2_q4qvs")
+script = ExtResource("1_jnfa7")

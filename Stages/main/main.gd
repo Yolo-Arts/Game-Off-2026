@@ -10,3 +10,9 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	EventSystem.MUS_play_music.emit(MusicConfig.Keys.BGMPlaceHolder2)
 	TweenManager.camera = camera
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.keycode == KEY_T:
+		var spot := get_global_mouse_position()
+		Pickups.spawn(Enums.CurrencyType.GEAR, spot, 5000)
+		Pickups.spawn(Enums.CurrencyType.STAR, spot, 1)
