@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://beuvgl2j7nkpr"]
+
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="1_5bo03"]
+
+[resource]
+script = ExtResource("1_5bo03")
+shift_color = 0
+damage = 2.5
+is_asteroid = true
+metadata/_custom_type_script = "uid://cee3blfn2lg47"

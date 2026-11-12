@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://tcayyyo8vqmr"]
+
+[ext_resource type="Script" uid="uid://cjpbks8yc5y71" path="res://Game/EnemyComponents/Enemy.gd" id="1_xqjsx"]
+[ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="2_cw7ap"]
+[ext_resource type="Resource" uid="uid://beuvgl2j7nkpr" path="res://Resources/EnemySources/asteroid_stats.tres" id="2_dtwxs"]
+[ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_dtwxs"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="4_6lyxk"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="5_h26ra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x367r"]
+
+[node name="Asteroid" type="CharacterBody2D" unique_id=1610074024]
+script = ExtResource("1_xqjsx")
+enemy_stats = ExtResource("2_dtwxs")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=195846641]
+script = ExtResource("2_cw7ap")
+max_health = 10.0
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1739489937]
+script = ExtResource("3_dtwxs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1734241083]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6lyxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1249235883]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_x367r")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1705212416 node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_h26ra")
+enemy = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=160470350]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_x367r")

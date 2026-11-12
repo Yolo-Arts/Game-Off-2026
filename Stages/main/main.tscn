@@ -5,20 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="2_oajci"]
 [ext_resource type="Script" uid="uid://0jg8dve4yjgc" path="res://Scenes/Player/camera_2d.gd" id="3_t30ik"]
 [ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="5_vhgat"]
-[ext_resource type="PackedScene" uid="uid://4j2flum1a4by" path="res://Game/Collectables/collectable.tscn" id="6_n62w3"]
 [ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="7_t30ik"]
-[ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="8_oajci"]
-[ext_resource type="Resource" uid="uid://bskyx75x7b3nd" path="res://Resources/EnemySources/test_enemy.tres" id="9_oajci"]
-[ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="9_qfemd"]
-
-[sub_resource type="Resource" id="Resource_bi0sn"]
-script = ExtResource("9_qfemd")
-stage_id = &"test"
-stage_name = "testtest"
-enemies = Array[ExtResource("8_oajci")]([ExtResource("9_oajci")])
-stage_boss = null
-spawn_interval = 1.0
-metadata/_custom_type_script = "uid://d25cy6pylx3w5"
+[ext_resource type="Resource" uid="uid://bv0v3yn6xhpes" path="res://Resources/Formations/test_stage.tres" id="8_nc7ud"]
+[ext_resource type="PackedScene" uid="uid://tcayyyo8vqmr" path="res://Scenes/Enemy/asteroid.tscn" id="9_t30ik"]
+[ext_resource type="Resource" uid="uid://beuvgl2j7nkpr" path="res://Resources/EnemySources/asteroid_stats.tres" id="10_oajci"]
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
@@ -40,13 +30,14 @@ script = ExtResource("3_t30ik")
 [node name="Enemy" parent="." unique_id=437048349 instance=ExtResource("5_vhgat")]
 position = Vector2(400, 572)
 
-[node name="Collectable" parent="." unique_id=1985064384 instance=ExtResource("6_n62w3")]
-position = Vector2(306, 246)
-
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1241958606 node_paths=PackedStringArray("enemy_spawn_timer")]
 script = ExtResource("7_t30ik")
-stage_data = SubResource("Resource_bi0sn")
+stage_data = ExtResource("8_nc7ud")
 enemy_spawn_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Timer" type="Timer" parent="EnemySpawner" unique_id=1152519534]
+
+[node name="Asteroid" parent="." unique_id=1610074024 groups=["enemies"] instance=ExtResource("9_t30ik")]
+position = Vector2(1378, 153)
+enemy_stats = ExtResource("10_oajci")

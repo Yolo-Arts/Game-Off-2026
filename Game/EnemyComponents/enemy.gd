@@ -6,6 +6,7 @@ class_name Enemy extends CharacterBody2D
 @onready var hitbox: EnemyHitbox = $Hitbox
 
 func _ready() -> void:
+	add_to_group("enemies")
 	health_component.setup(self)
 	movement_component.setup(self)
 	hitbox.setup(self, enemy_stats)
@@ -26,9 +27,9 @@ func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func _exit_tree() -> void:
+#func _exit_tree() -> void:
 	
-	var collectable := load("res://Game/Collectables/collectable.tscn")
-	var test = collectable.instantiate()
-	test.position = position
+	#var collectable := load("res://Game/Collectables/collectable.tscn")
+	#var test = collectable.instantiate()
+	#test.position = position
 	
