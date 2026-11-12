@@ -29,3 +29,5 @@ func shake(object: Object, intensity: float = 1.0, duration: float = 1.0) -> voi
 	await tween.finished
 	
 	object.position = initial_position
+
+var camera

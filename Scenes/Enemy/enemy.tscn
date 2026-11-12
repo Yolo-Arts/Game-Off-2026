@@ -23,6 +23,7 @@ max_health = 10.0
 script = ExtResource("3_efgs1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=933571517]
+unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_kt2l8")
 

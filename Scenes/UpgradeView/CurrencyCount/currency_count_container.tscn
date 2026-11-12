@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://defbvjgax4sr8"]
+
+[node name="CurrencyCountContainer" type="VBoxContainer" unique_id=17007720]
+theme_override_constants/separation = 20

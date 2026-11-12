@@ -2,12 +2,22 @@
 
 [ext_resource type="Script" uid="uid://cbcwu5b7ayjr7" path="res://Stages/main/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="2_oajci"]
+[ext_resource type="Script" uid="uid://0jg8dve4yjgc" path="res://Scenes/Player/camera_2d.gd" id="3_t30ik"]
 [ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="5_vhgat"]
 [ext_resource type="PackedScene" uid="uid://4j2flum1a4by" path="res://Game/Collectables/collectable.tscn" id="6_n62w3"]
 [ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="7_t30ik"]
 [ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="8_oajci"]
 [ext_resource type="Resource" uid="uid://bskyx75x7b3nd" path="res://Resources/EnemySources/test_enemy.tres" id="9_oajci"]
 [ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="9_qfemd"]
+[ext_resource type="PackedScene" uid="uid://deqbh4jesur4l" path="res://Scenes/Pickups/pickup_multi_mesh.tscn" id="11_qfemd"]
+[ext_resource type="PackedScene" uid="uid://b2csbwetpiepa" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.tscn" id="12_hyxu5"]
+[ext_resource type="Texture2D" uid="uid://c244yl55i628w" path="res://Assets/ProgrammerArt/bar_under.png" id="13_2mnvh"]
+[ext_resource type="PackedScene" uid="uid://defbvjgax4sr8" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_container.tscn" id="13_ion2p"]
+[ext_resource type="Texture2D" uid="uid://d2gk0m5tasunu" path="res://Assets/ProgrammerArt/progress.png" id="14_plu5u"]
+[ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="15_guytx"]
+[ext_resource type="Texture2D" uid="uid://b17pq178napp7" path="res://Assets/ProgrammerArt/EnergyBar.png" id="16_33khn"]
+[ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="17_1b66h"]
 
 [sub_resource type="Resource" id="Resource_bi0sn"]
 script = ExtResource("9_qfemd")
@@ -20,9 +30,22 @@ metadata/_custom_type_script = "uid://d25cy6pylx3w5"
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
+currency_count_control = ExtResource("12_hyxu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248161557]
+texture_repeat = 2
+scale = Vector2(5, 5)
+texture = ExtResource("2_oajci")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
 position = Vector2(957, 482)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1520117509]
+unique_name_in_owner = true
+zoom = Vector2(0.7, 0.7)
+script = ExtResource("3_t30ik")
 
 [node name="Enemy" parent="." unique_id=437048349 instance=ExtResource("5_vhgat")]
 position = Vector2(400, 572)
@@ -37,3 +60,50 @@ enemy_spawn_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Timer" type="Timer" parent="EnemySpawner" unique_id=1152519534]
+
+[node name="PickupMultiMesh" parent="." unique_id=370772807 instance=ExtResource("11_qfemd")]
+mesh_size = Vector2(16, 16)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1511900576]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=316964686]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=238998696]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="HealthBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer" unique_id=1892308537]
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("13_2mnvh")
+texture_progress = ExtResource("14_plu5u")
+script = ExtResource("15_guytx")
+event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
+metadata/_custom_type_script = "uid://dqollry410r2i"
+
+[node name="EnergyBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer" unique_id=1845865454]
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("13_2mnvh")
+texture_progress = ExtResource("16_33khn")
+script = ExtResource("17_1b66h")
+event_bus_signal = Array[StringName]([&"energy_changed", &"energy_increased", &"energy_reduced"])
+
+[node name="CurrencyCountContainer" parent="HUD/MarginContainer/VBoxContainer" unique_id=17007720 instance=ExtResource("13_ion2p")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2

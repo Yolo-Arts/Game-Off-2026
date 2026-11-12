@@ -1,6 +1,8 @@
 class_name CurrencyData
 extends Resource
 
+@export var sprite_index: int = 0
+
 #signal update_amount
 signal amount_changed
 signal insufficient_amount_triggered
