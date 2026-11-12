@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7m7fllnbcly6"
-path="res://.godot/imported/FuelProgressOver.png-2108d5bd7472361baa58171e8344b764.ctex"
+uid="uid://ggpt1pqm7wmc"
+path="res://.godot/imported/BatteryOver.png-9f6469a761e4bcc7dc47a64bf163d1b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/FuelProgressBar/FuelProgressOver.png"
-dest_files=["res://.godot/imported/FuelProgressOver.png-2108d5bd7472361baa58171e8344b764.ctex"]
+source_file="res://Assets/UI/HUD/BatteryProgressBar/BatteryOver.png"
+dest_files=["res://.godot/imported/BatteryOver.png-9f6469a761e4bcc7dc47a64bf163d1b0.ctex"]
 
 [params]
 

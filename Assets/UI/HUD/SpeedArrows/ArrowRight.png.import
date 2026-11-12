@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq7aga4jy50af"
-path="res://.godot/imported/FuelProgressUnder.png-4b737793ed03fbe274cae2f443b17814.ctex"
+uid="uid://cfxu5xou3v81d"
+path="res://.godot/imported/ArrowRight.png-7dc6759538a8220485db88aa6b264aa7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/FuelProgressBar/FuelProgressUnder.png"
-dest_files=["res://.godot/imported/FuelProgressUnder.png-4b737793ed03fbe274cae2f443b17814.ctex"]
+source_file="res://Assets/UI/HUD/SpeedArrows/ArrowRight.png"
+dest_files=["res://.godot/imported/ArrowRight.png-7dc6759538a8220485db88aa6b264aa7.ctex"]
 
 [params]
 
