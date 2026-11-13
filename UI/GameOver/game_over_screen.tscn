@@ -4,18 +4,7 @@
 [ext_resource type="Script" uid="uid://c38ceajvkhsiq" path="res://UI/GameOver/game_over_screen.gd" id="1_t6ss3"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="2_m6qc7"]
 [ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="3_m6qc7"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sckgu"]
-bg_color = Color(0, 0, 0, 0.49411765)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
+[ext_resource type="StyleBox" uid="uid://cbr5i3fybxrbl" path="res://Assets/UITheme/style_box_flat.tres" id="4_hwhak"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwhak"]
 
@@ -104,10 +93,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 107
 
-[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=946989231]
+[node name="Panel" type="PanelContainer" parent="VBoxContainer" unique_id=1851292515]
 custom_minimum_size = Vector2(745, 215)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_sckgu")
+theme_override_styles/panel = ExtResource("4_hwhak")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1786612528]
 layout_mode = 2

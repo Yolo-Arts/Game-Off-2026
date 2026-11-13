@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://r5nfu41sp77g"]
+
+[ext_resource type="Texture2D" uid="uid://cwd7w8v22ql0w" path="res://Assets/Currency/Gear/gears.tres" id="1_sssqc"]
+[ext_resource type="Script" uid="uid://b5sna52x5p5su" path="res://UI/GameOver/GameOverCurrencyCountControl/game_over_currency_count_control.gd" id="1_tvuje"]
+[ext_resource type="SpriteFrames" uid="uid://7t6o256c4f24" path="res://Assets/Currency/currency_sprite_frames.tres" id="2_tvuje"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="3_givxp"]
+
+[node name="game_over_currency_count_control" type="VBoxContainer" unique_id=100001631]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tvuje")
+
+[node name="CurrencyIcon" type="TextureRect" parent="." unique_id=1798703922]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-1.815, 0)
+offset_transform_scale = Vector2(2, 2)
+texture = ExtResource("1_sssqc")
+
+[node name="CurrencyLabel" type="Label" parent="." unique_id=1194721109]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_givxp")
+theme_override_font_sizes/font_size = 28
+text = "20.7k"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1632946937]
+visible = false
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=2114639116]
+visible = false
+position = Vector2(18, 0)
+sprite_frames = ExtResource("2_tvuje")
+animation = &"Gears"

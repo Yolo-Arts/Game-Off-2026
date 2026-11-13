@@ -2,6 +2,14 @@ extends Bulletin
 @onready var retry_button = %RetryButton
 @onready var upgrades_button = %UpgradesButton
 
+
+
+func initialize(prompt) -> void:
+	#if prompt is String:
+		#prompt_text = "E\n" + prompt
+	
+	pass
+
 func _ready() -> void:
 	SaveManager.save_data()
 	retry_button.pressed.connect(retry_pressed)
