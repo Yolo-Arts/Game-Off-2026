@@ -4,9 +4,10 @@ class_name Enemy extends CharacterBody2D
 @onready var movement_component: EnemyMovementComponent = $MovementComponent
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
-@onready var sprite_2d = %Sprite2D
+@onready var sprite_2d = $Sprite2D
 
 func _ready() -> void:
+	add_to_group("enemies")
 	health_component.setup(self)
 	movement_component.setup(self)
 	hitbox.setup(self, enemy_stats)
@@ -36,7 +37,7 @@ func die() -> void:
 	#var collectable := load("res://Game/Collectables/collectable.tscn")
 	#var test = collectable.instantiate()
 	#test.position = position
-	
+
 	# TODO Add enemy death SFX
 	Pickups.spawn(Enums.CurrencyType.GEAR, global_position, enemy_stats.drop)
 	queue_free()

@@ -40,6 +40,7 @@ shader_parameter/shake_color_rate = 0.010000000475
 layer = 99
 
 [node name="CRT" type="ColorRect" parent="ScreenCanvas" unique_id=1370886087]
+visible = false
 material = SubResource("ShaderMaterial_sckgu")
 anchors_preset = 15
 anchor_right = 1.0
