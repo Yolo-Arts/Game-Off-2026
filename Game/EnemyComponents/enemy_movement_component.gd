@@ -16,9 +16,8 @@ func _process(delta: float) -> void:
 		return
 	var player : Node2D = get_tree().get_first_node_in_group("player")
 	if player:
-		dir = enemy.global_position.direction_to(player.global_position)
-		
-	enemy.rotation = dir.angle()
+		enemy.look_at(player.global_position)
+		enemy.rotate(PI/2)
 	
 	var target_movement_velocity = current_speed * -enemy.transform.y
 	var move_lerp_factor: float = 1.0 - exp(-decay_coefficient * delta)
