@@ -1,18 +1,18 @@
 extends Node
 class_name EnemyHealthComponent
 
-@export var max_health: float
 var current_health: float
-var invincibility_sources: Dictionary[StringName, bool] = {}
-var body: Enemy
+var enemy: Enemy
 
 func setup(_enemy: Enemy) -> void: 
-	body = _enemy
+	enemy = _enemy
+	current_health = enemy.enemy_stats.max_health
 
 
-func take_damage(damage: float) -> void: 
-	print(damage) 
-	current_health = clampf(current_health - damage,0 , max_health)
+func take_damage(source: DamageSource) -> void: 
+	if source.shift_color != enemy.enemy_stats.shift_color:
+		return
+	current_health = clampf(current_health - source.damage,0 , enemy.enemy_stats.max_health)
 	if(current_health <= 0):
 		get_parent().die() #Does all the shindiggery it needs to in the 
 		

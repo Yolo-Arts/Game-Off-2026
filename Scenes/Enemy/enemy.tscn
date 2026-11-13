@@ -17,7 +17,6 @@ enemy_stats = ExtResource("2_gx76c")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=2109919344]
 script = ExtResource("2_3pmhw")
-max_health = 10.0
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1159865020]
 script = ExtResource("3_efgs1")

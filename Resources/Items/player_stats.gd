@@ -1,6 +1,7 @@
 class_name PlayerStats extends Resource
 
 @export var max_health: float = 100.0
+@export var health_usage_per_second: float = 1.0
 @export var max_energy: float = 100.0
 @export var energy_increase: float = 10.0
 @export var energy_ram_cost: float = 20.0
@@ -16,7 +17,7 @@ class_name PlayerStats extends Resource
 @export var critical_damage_multiplier: float = 1.5
 @export var luck: float  = 1.0
 @export var healing_efficiency: float = 1.0
-
+@export var knockback: float = 500.0
 
 
 func get_computed_damage() -> float:

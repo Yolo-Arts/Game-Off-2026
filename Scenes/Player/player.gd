@@ -15,6 +15,7 @@ class_name Player extends CharacterBody2D
 var can_steer: bool = true
 var can_control_speed: bool = true
 var can_shift: bool = true
+var can_reduce_health: bool = true
 var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
 
 
@@ -31,23 +32,19 @@ func _ready() -> void:
 	
 	EventSystem.player_shifted.emit(shift_color)
 	shift_active_color()
-	
+
+func _process(delta: float) -> void:
+	reduce_health(delta)
+
 
 func _on_player_hit(damage_source: DamageSource) -> void:
 	if not health_component.take_damage(damage_source): return
 	
 	if damage_source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
 		TweenManager.camera.shake(0.25, 20, 15)
-		#state_machine.request_transition(&"frozen")
-		print(damage_source.knockback)
 		if damage_source.source_node != null:
-			
 			movement_component.current_knockback = damage_source.knockback * (damage_source.source_node.global_position.direction_to(global_position))
-		#await get_tree().create_timer(2.0).timeout
-		#state_machine.request_transition(&"normal")
-		
-	
-	
+			
 
 func get_current_stats() -> PlayerStats:
 	return item_manager.current_stats
@@ -83,7 +80,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	#	energy_component.reduce_energy(get_current_stats().energy_ram_cost)
 
 func can_ram() -> bool:
-	return movement_component.speed >= get_current_stats().minimum_ram_speed
+	return velocity.length() >= get_current_stats().minimum_ram_speed
 
+func reduce_health(delta: float) -> void:
+	if not can_reduce_health: return
+	EventSystem.player_hit.emit(DamageSource.new(get_current_stats().health_usage_per_second * delta, 0.0, DamageSource.DamageSourceType.AUTO_DAMAGE, DamageSource.ShiftColor.NONE, null))
 func shoot():
 	pass

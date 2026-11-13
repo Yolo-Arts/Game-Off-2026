@@ -27,11 +27,10 @@ func _physics_process(delta: float) -> void:
 	if player.can_control_speed:
 		if get_thrust_input() == 1.0:
 			speed = stats.max_speed
+			player.can_reduce_health = true
 		else:
 			speed = 0
-			#speed = move_toward(speed, stats.max_speed, delta * stats.acceleration)
-		#elif get_thrust_input() == -1.0:
-			#speed = move_toward(speed, 0.0, delta * stats.deacceleration)
+			player.can_reduce_health = false
 			
 	var target_movement_velocity = speed * -player.transform.y
 	var move_lerp_factor: float = 1.0 - exp(-decay_coefficient * delta)
