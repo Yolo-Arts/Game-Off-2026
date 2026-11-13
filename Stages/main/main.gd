@@ -30,3 +30,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		var spot := get_global_mouse_position()
 		Pickups.spawn(Enums.CurrencyType.GEAR, spot, 40)
 		Pickups.spawn(Enums.CurrencyType.STAR, spot, 10)
+	
+	if event is InputEventKey and event.pressed and event.keycode == KEY_G:
+		EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen)
+	
+	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
+		EventSystem.BUL_destroy_bulletin.emit(BulletinConfig.Keys.GameOverScreen)

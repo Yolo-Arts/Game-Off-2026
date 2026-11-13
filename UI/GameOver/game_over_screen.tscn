@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtt84sqeea7cj"]
 
 [ext_resource type="Texture2D" uid="uid://oifcljy6ay0o" path="res://Assets/UI/GameOverScreen/GameOverWhiteFade.png" id="1_g1glf"]
+[ext_resource type="Script" uid="uid://c38ceajvkhsiq" path="res://UI/GameOver/game_over_screen.gd" id="1_t6ss3"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="2_m6qc7"]
 [ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="3_m6qc7"]
 
@@ -16,9 +17,9 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6qc7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwhak"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6ss3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1uq1"]
 
 [node name="GameOverScreen" type="Control" unique_id=1086539672]
 layout_mode = 3
@@ -27,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_t6ss3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1943034851]
 layout_mode = 1
@@ -113,20 +115,22 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 82
 
 [node name="RetryButton" parent="VBoxContainer/HBoxContainer" unique_id=352476746 instance=ExtResource("3_m6qc7")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_m6qc7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hwhak")
 font_size = 28
 btn_text = "Retry"
 outline_color = Color(1, 1, 1, 1)
 main_color = Color(0, 0, 0, 0.49411765)
 
 [node name="UpgradesButton" parent="VBoxContainer/HBoxContainer" unique_id=2143546587 instance=ExtResource("3_m6qc7")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_t6ss3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r1uq1")
 font_size = 28
 btn_text = "Upgrades"
 outline_color = Color(1, 1, 1, 1)

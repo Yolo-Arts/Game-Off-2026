@@ -61,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1208827721]
+layer = 2
 
 [node name="BulletinController" type="Node" parent="UILayer" unique_id=1789201587]
 script = ExtResource("1_welsx")
