@@ -15,6 +15,9 @@ func inject_data(data: CurrencyData) -> void :
 func initial_setup() -> void:
 	await get_tree().process_frame
 	_current_value = _data.amount
+	
+	if _data.amount < 1:
+		visible = false
 	currency_label.text = add_spaces_to_number("%d" % _current_value)
 	currency_icon.modulate = _data.color
 
