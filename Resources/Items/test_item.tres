@@ -7,15 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_354lq"]
 script = ExtResource("1_dpxiy")
-stat = "damage"
-add = 5.0
-metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
-
-[sub_resource type="Resource" id="Resource_d3qot"]
-script = ExtResource("1_dpxiy")
-stat = "luck"
-add = 2.0
-mult = 1.5
+stat = "max_health"
+add = 50.0
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]
@@ -28,6 +21,6 @@ script = ExtResource("2_q3lpy")
 id = "eng1"
 display_name = "Better Engine"
 description = "More Engine"
-modifiers = Array[ExtResource("1_dpxiy")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])
+modifiers = Array[ExtResource("1_dpxiy")]([SubResource("Resource_354lq")])
 price_data_array = Array[ExtResource("2_354lq")]([SubResource("Resource_muvpr")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

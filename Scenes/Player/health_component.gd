@@ -20,6 +20,7 @@ func _on_stat_changed(stat: String) -> void:
 
 ## Updates the health from [PlayerStats]
 func update_health() -> void:
+
 	var current_stats: PlayerStats = player.get_current_stats()
 	max_health = current_stats.max_health
 	EventSystem.health_changed.emit(current_health, max_health)

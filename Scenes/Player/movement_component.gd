@@ -26,8 +26,11 @@ func _physics_process(delta: float) -> void:
 	
 	if player.can_control_speed:
 		dir = get_input_vector()
-			
-	var target_movement_velocity = player.get_current_stats().max_speed * dir.rotated(player.rotation)
+	if dir == Vector2.ZERO:
+		player.can_reduce_health = false
+	else:
+		player.can_reduce_health = true
+	var target_movement_velocity = stats.max_speed * dir.rotated(player.rotation)
 	var move_lerp_factor: float = 1.0 - exp(-decay_coefficient * delta)
 	var active_movement_velocity = player.velocity.lerp(target_movement_velocity, move_lerp_factor)
 	var kb_lerp_factor: float = 1.0 - exp(-knockback_decay_coefficient * delta)

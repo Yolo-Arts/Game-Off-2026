@@ -28,10 +28,11 @@ func _ready() -> void:
 	item_manager.setup(_default_stats)
 	movement_component.setup(self)
 	hitbox.setup(self, true)
-	health_component.setup(self)
+	
 	energy_component.setup(self)
 	state_machine.initialize(self, &"normal")
 	shoot_component.setup(self)
+	health_component.setup(self)
 	
 	EventSystem.player_shifted.emit(shift_color)
 	shift_active_color()

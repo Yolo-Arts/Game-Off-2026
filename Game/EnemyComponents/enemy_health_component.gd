@@ -19,8 +19,8 @@ func take_damage(source: DamageSource) -> void:
 	if source.shift_color != enemy.enemy_stats.shift_color and source.shift_color != DamageSource.ShiftColor.NONE:
 		return
 	current_health = clampf(current_health - source.damage,0 , enemy.enemy_stats.max_health)
-	damage_numbers.display_val(source.damage, enemy.position)
+	damage_numbers.display_val(source.damage, enemy.global_position)
 	if(current_health <= 0):
-		get_parent().die() #Does all the shindiggery it needs to in the 
+		enemy.die() #Does all the shindiggery it needs to in the 
 		
 	

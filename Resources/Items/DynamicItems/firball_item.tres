@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://tsi4b3nsbf65"]
+
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_0qgx0"]
+[ext_resource type="PackedScene" uid="uid://dvgqeif4vsbn" path="res://Resources/Items/DynamicItems/fire_ball_effect.tscn" id="1_yjpmq"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_yjpmq"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_j0udg"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_omijx"]
+
+[sub_resource type="Resource" id="Resource_bnue5"]
+script = ExtResource("2_yjpmq")
+initial_price = 10
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_jnm0b"]
+script = ExtResource("4_omijx")
+text = "luck"
+color = Color(0, 0.6652901, 0.40142882, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("3_j0udg")
+id = "explosion"
+display_name = "EXPLOSION"
+description = "Each shot has a chance based on {luck} to deal 500 flat damage to the enemy."
+effect_scene = ExtResource("1_yjpmq")
+price_data_array = Array[ExtResource("2_yjpmq")]([SubResource("Resource_bnue5")])
+initial_increment_value = 10.0
+text_injections = Array[ExtResource("4_omijx")]([SubResource("Resource_jnm0b")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

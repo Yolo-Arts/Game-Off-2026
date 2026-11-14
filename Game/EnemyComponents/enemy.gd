@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 
 func take_damage(damage_source: DamageSource) -> void:
 	health_component.take_damage(damage_source)
+	EventSystem.enemy_hit.emit(self, damage_source)
 	if damage_source.source_node:
 		movement_component.current_knockback = damage_source.knockback * damage_source.source_node.global_position.direction_to(global_position)
 
