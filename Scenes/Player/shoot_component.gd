@@ -3,17 +3,20 @@ class_name PlayerShootComponent extends Node
 @export var bullet_scene: PackedScene
 @export var enabled: bool =  true
 var player: Player
-
+var shoot_cooldown: float = 0.0
 func setup(_player: Player) -> void:
 	player = _player
 	
+func _process(delta: float) -> void:
+	shoot_cooldown -= delta
 	
-func _unhandled_input(event: InputEvent) -> void:
+func _physics_process(delta: float) -> void:
 	if not player or not enabled:
 		return
-	if event.is_action_pressed("shoot") and player.can_shoot:
+	if Input.is_action_pressed("shoot") and player.can_shoot and shoot_cooldown <= 0.0:
 		shoot(bullet_scene)
-		
+	if Input.is_key_pressed(KEY_E):
+		player.energy_component.increase_energy(100.0)
 func shoot(scene: PackedScene) -> void:
 	if player.energy_component.current_energy < player.get_current_stats().shot_cost:
 		return
@@ -23,6 +26,7 @@ func shoot(scene: PackedScene) -> void:
 		bullet.global_position = player.global_position + 32 * -player.transform.y
 		get_tree().current_scene.add_child(bullet)
 		player.energy_component.reduce_energy(player.get_current_stats().shot_cost)
+		shoot_cooldown = 1/player.get_current_stats().shots_per_second
 
 		
 

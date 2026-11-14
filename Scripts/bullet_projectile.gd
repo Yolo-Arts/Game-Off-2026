@@ -30,5 +30,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if projectile_stats.enemy:
 		if body.is_in_group("player"):
 			EventSystem.player_hit.emit(damage)
+		queue_free()
 	elif body.has_method("take_damage"):
 		body.take_damage(damage)
+		queue_free()
+	
