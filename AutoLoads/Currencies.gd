@@ -4,6 +4,8 @@ signal changed
 
 # Dictionary[Enums.CurrencyType, CurrencyData]
 var _by_type: Dictionary = {}
+var round_data: Dictionary = {}
+
 
 func _init() -> void:
 	_register(Enums.CurrencyType.GEAR, "Gears", Color(0.78, 0.8, 0.85), 0)
@@ -14,13 +16,19 @@ func _ready() -> void:
 	SaveManager.data_loaded.connect(_on_data_loaded)
 
 func _register(type: Enums.CurrencyType, display_name: String, color: Color, sprite_index: int) -> void:
+	var total_currency := _create_currency(type, display_name, color, sprite_index)
+	total_currency.amount_changed.connect(changed.emit)
+	_by_type[type] = total_currency
+	
+	round_data[type] = _create_currency(type, display_name, color, sprite_index)
+
+func _create_currency(type: Enums.CurrencyType, display_name: String, color: Color, sprite_index: int) -> CurrencyData:
 	var currency := CurrencyData.new()
 	currency.type = type
 	currency.name = display_name
 	currency.color = color
 	currency.sprite_index = sprite_index
-	currency.amount_changed.connect(changed.emit)
-	_by_type[type] = currency
+	return currency
 
 func _on_data_saved() -> void:
 	SaveManager.data.currency_amounts.clear()
@@ -47,6 +55,8 @@ func get_amount(type: Enums.CurrencyType) -> int:
 
 func add(type: Enums.CurrencyType, value: int) -> void:
 	get_currency(type).add(value)
+	
+	round_data[type].add(value)
 
 ## Dictionary[Enums.CurrencyType, int]
 func can_afford(prices: Dictionary) -> bool:
@@ -71,3 +81,7 @@ func try_spend(prices: Dictionary) -> bool:
 		get_currency(type).spend(prices[type])
 	
 	return true
+
+func reset_round_data() -> void:
+	for currency: CurrencyData in round_data.values():
+		currency.amount = 0

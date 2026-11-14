@@ -30,6 +30,7 @@ func _ready() -> void :
 
 func initial_setup() -> void:
 	_current_value = _data.amount
+	
 	label.text = add_spaces_to_number("%d" % _current_value)
 	rectangle_shape.size.x = 170 + (label.size.x - 25)
 	rectangle_shape.edge_color = _data.color

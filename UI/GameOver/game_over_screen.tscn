@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://oifcljy6ay0o" path="res://Assets/UI/GameOverScreen/GameOverWhiteFade.png" id="1_g1glf"]
 [ext_resource type="Script" uid="uid://c38ceajvkhsiq" path="res://UI/GameOver/game_over_screen.gd" id="1_t6ss3"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="2_m6qc7"]
+[ext_resource type="PackedScene" uid="uid://r5nfu41sp77g" path="res://UI/GameOver/GameOverCurrencyCountControl/game_over_currency_count_control.tscn" id="2_r1uq1"]
 [ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="3_m6qc7"]
 [ext_resource type="StyleBox" uid="uid://cbr5i3fybxrbl" path="res://Assets/UITheme/style_box_flat.tres" id="4_hwhak"]
 
@@ -18,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t6ss3")
+gave_over_currency_count_control = ExtResource("2_r1uq1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1943034851]
 layout_mode = 1
@@ -97,6 +99,13 @@ theme_override_constants/separation = 107
 custom_minimum_size = Vector2(745, 215)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_hwhak")
+
+[node name="currency_count_container" type="HBoxContainer" parent="VBoxContainer/Panel" unique_id=387250833]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 95
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1786612528]
 layout_mode = 2
