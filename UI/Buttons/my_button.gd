@@ -12,11 +12,11 @@ const DISABLED_COLOR: Color = Color("6c6c6c")
 		outline_color = val
 		if outline_rid:
 			RenderingServer.canvas_item_set_self_modulate(outline_rid, outline_color)
-@export var inline_color: Color = MyColors.BG :
+@export var hover_color: Color = MyColors.BG :
 	set(val):
-		inline_color = val
+		hover_color = val
 		if inline_rid:
-			RenderingServer.canvas_item_set_self_modulate(inline_rid, inline_color)
+			RenderingServer.canvas_item_set_self_modulate(inline_rid, hover_color)
 @export var main_color: Color = MyColors.BG :
 	set(val):
 		main_color = val
@@ -57,7 +57,7 @@ func _ready() -> void:
 	RenderingServer.canvas_item_set_parent(inline_rid, visuals_rid)
 	RenderingServer.canvas_item_add_rect(inline_rid,
 			Rect2(Vector2.ZERO, Vector2(1,1)), Color.WHITE)
-	RenderingServer.canvas_item_set_self_modulate(inline_rid, inline_color)
+	RenderingServer.canvas_item_set_self_modulate(inline_rid, hover_color)
 	
 	main_rid = RenderingServer.canvas_item_create()
 	RenderingServer.canvas_item_set_parent(main_rid, visuals_rid)

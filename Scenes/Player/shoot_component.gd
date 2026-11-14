@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		shoot(bullet_scene)
 	if Input.is_key_pressed(KEY_E):
 		player.energy_component.increase_energy(100.0)
+
 func shoot(scene: PackedScene) -> void:
 	if player.energy_component.current_energy < player.get_current_stats().shot_cost:
 		return
