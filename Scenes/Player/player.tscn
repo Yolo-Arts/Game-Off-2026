@@ -4,6 +4,9 @@
 [ext_resource type="Resource" uid="uid://876uytm3ioix" path="res://Resources/Items/default_player_stats.tres" id="2_htcer"]
 [ext_resource type="Script" uid="uid://dve1ktyxyi1gw" path="res://Scenes/Player/ItemManager/item_manager.gd" id="2_xpcdj"]
 [ext_resource type="Script" uid="uid://cl3bqv10f2aoe" path="res://Scenes/Player/movement_component.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://grs1kfqrof0u" path="res://Game/StateMachine/state_machine.gd" id="3_oikmp"]
+[ext_resource type="Script" uid="uid://cfxyvwwsdume6" path="res://Scenes/Player/States/normal.gd" id="4_06tpx"]
+[ext_resource type="Script" uid="uid://da88luic16eyb" path="res://Scenes/Player/States/frozen.gd" id="5_7g0yx"]
 [ext_resource type="Script" uid="uid://d0qnxevy216rr" path="res://Scenes/Player/health_component.gd" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://b5shriynv50ye" path="res://Scenes/Player/energy_component.gd" id="6_jlvik"]
 [ext_resource type="Script" uid="uid://bbdb481tg70y4" path="res://Scenes/Player/hitbox_component.gd" id="7_0u5uq"]
@@ -11,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bexin1dtcgn5t" path="res://Assets/Particles/ParticleRoundedSquare.png" id="7_jhyir"]
 [ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="7_jlvik"]
 [ext_resource type="Shader" uid="uid://ca0g4euwnf0hm" path="res://Shaders/outline_shader.gdshader" id="9_74mp2"]
+[ext_resource type="Script" uid="uid://b0efshm7v61nt" path="res://Scenes/Player/shoot_component.gd" id="9_dey5f"]
+[ext_resource type="PackedScene" uid="uid://bkcbh4japqh01" path="res://Scenes/bullet_projectile.tscn" id="10_r5xpd"]
 
 [sub_resource type="Curve" id="Curve_sckgu"]
 _data = [Vector2(0, 1), 0.0, 0.12181573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -31,10 +36,25 @@ size = Vector2(134, 136)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi45h"]
 size = Vector2(138, 141)
 
-[node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["pickup_collector", "player"]]
 collision_layer = 2
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")
+
+[node name="StateMachine" type="Node" parent="." unique_id=2124341260]
+script = ExtResource("3_oikmp")
+debug = true
+metadata/_custom_type_script = "uid://grs1kfqrof0u"
+
+[node name="Normal" type="Node" parent="StateMachine" unique_id=44844742]
+script = ExtResource("4_06tpx")
+id = &"normal"
+metadata/_custom_type_script = "uid://1d02a4dxhlmd"
+
+[node name="Frozen" type="Node" parent="StateMachine" unique_id=1250372079]
+script = ExtResource("5_7g0yx")
+id = &"frozen"
+metadata/_custom_type_script = "uid://1d02a4dxhlmd"
 
 [node name="ItemManager" type="Node" parent="." unique_id=935040993]
 script = ExtResource("2_xpcdj")
@@ -42,11 +62,17 @@ metadata/_custom_type_script = "uid://dve1ktyxyi1gw"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1759838389]
 script = ExtResource("3_mtuoh")
+decay_coefficient = 1.2
+knockback_decay_coefficient = 24.0
 metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1697897628]
 script = ExtResource("5_dd0ac")
 metadata/_custom_type_script = "uid://d0qnxevy216rr"
+
+[node name="ShootComponent" type="Node" parent="." unique_id=141930101]
+script = ExtResource("9_dey5f")
+bullet_scene = ExtResource("10_r5xpd")
 
 [node name="EnergyComponent" type="Node" parent="." unique_id=2136465283]
 script = ExtResource("6_jlvik")

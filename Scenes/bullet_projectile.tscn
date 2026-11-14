@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bkcbh4japqh01"]
+
+[ext_resource type="Script" uid="uid://b8ok1jmop2wag" path="res://Scripts/bullet_projectile.gd" id="1_p8svv"]
+[ext_resource type="Shader" uid="uid://dj2fkbxdtqfqr" path="res://Shaders/laser_shader.gdshader" id="2_yl444"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bi0sn"]
+shader = ExtResource("2_yl444")
+shader_parameter/glow_intensity = 6.0
+shader_parameter/core_width = 0.5
+shader_parameter/core_length = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
+size = Vector2(158, 20)
+
+[node name="BulletProjectile" type="Area2D" unique_id=719386157]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_p8svv")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=244807317]
+material = SubResource("ShaderMaterial_bi0sn")
+points = PackedVector2Array(0, 0, 163, 0)
+width = 20.0
+default_color = Color(0, 1, 0.3019608, 1)
+texture_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1378069603]
+position = Vector2(79, 0)
+shape = SubResource("RectangleShape2D_bi0sn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

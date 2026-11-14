@@ -11,7 +11,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 func _ready() -> void:
 	enemy_spawn_timer.wait_time = stage_data.spawn_interval
 	enemy_spawn_timer.timeout.connect(spawn_next_formation)
-	#enemy_spawn_timer.start()
+	enemy_spawn_timer.start()
 	
 	
 func _process(delta: float) -> void:

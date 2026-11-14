@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bjv85426u1d6m"]
 
 [ext_resource type="Script" uid="uid://cds551slgusep" path="res://Stages/main_menu/start_screen.gd" id="1_trqcy"]
+[ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="2_2pgg3"]
 
 [node name="StartScreen" type="Control" unique_id=1519650878]
 layout_mode = 3
@@ -23,11 +24,25 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
+[node name="Reset Save Button" type="Button" parent="ButtonMargins" unique_id=699370948]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = " RESET SAVE DATA (BE CAREFUL!!!!!!!!!) "
+alignment = 0
+
 [node name="ButtonVbox" type="VBoxContainer" parent="ButtonMargins" unique_id=223443417]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 20
+
+[node name="TextButton" parent="ButtonMargins/ButtonVbox" unique_id=352476746 instance=ExtResource("2_2pgg3")]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+flat = false
+btn_text = "Clicky Btn"
 
 [node name="PlayBtn" type="Button" parent="ButtonMargins/ButtonVbox" unique_id=239855471]
 custom_minimum_size = Vector2(150, 50)
@@ -75,6 +90,7 @@ text = "[wave amp=50.0 freq=5.0 connected=1]Yolo[/wave]"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[connection signal="pressed" from="ButtonMargins/Reset Save Button" to="." method="_on_reset_save_button_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/OptionsBtn" to="." method="_on_options_btn_pressed"]

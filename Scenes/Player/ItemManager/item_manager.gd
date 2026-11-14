@@ -12,6 +12,8 @@ var dynamic_modifiers: Array[StatModifier] = []
 
 func setup(_base_stats: PlayerStats) -> void:
 	base_stats = _base_stats
+	for item in SkillTreeUpgrades.get_purchased_items():
+		add_item(item)
 	recalculate()
 
 func register_dynamic_modifier(mod: StatModifier) -> void:
@@ -39,9 +41,10 @@ func recalculate() -> void:
 	var mults: Dictionary[String, float] = {}
 	
 	for item in collected_items:
+		var stacks := maxi(item.level, 1)
 		for mod in item.modifiers:
-			adds[mod.stat] = adds.get(mod.stat, 0.0) + mod.add
-			mults[mod.stat] = mults.get(mod.stat, 1.0) * mod.mult
+			adds[mod.stat] = adds.get(mod.stat, 0.0) + (mod.add * stacks)
+			mults[mod.stat] = mults.get(mod.stat, 1.0) * pow(mod.mult, stacks)
 		
 	for mod in dynamic_modifiers:
 		adds[mod.stat] = adds.get(mod.stat, 0.0) + mod.add

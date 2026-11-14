@@ -204,6 +204,7 @@ _data = {
 }
 
 [node name="TransitionManager" type="CanvasLayer" unique_id=1818378741]
+layer = 2
 script = ExtResource("1_004wo")
 
 [node name="FadeInBlack" type="ColorRect" parent="." unique_id=1552849414]
