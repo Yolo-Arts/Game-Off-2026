@@ -53,6 +53,7 @@ func take_damage(source: DamageSource) -> bool:
 	EventSystem.health_reduced.emit(current_health)
 	if current_health <= 0:
 		EventSystem.player_died.emit()
+		
 	elif source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
 		_start_iframes()
 	return true

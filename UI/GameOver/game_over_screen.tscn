@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="3_m6qc7"]
 [ext_resource type="StyleBox" uid="uid://cbr5i3fybxrbl" path="res://Assets/UITheme/style_box_flat.tres" id="4_hwhak"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwhak"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdumq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1uq1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qvyo"]
 
 [node name="GameOverScreen" type="Control" unique_id=1086539672]
 layout_mode = 3
@@ -117,7 +117,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hwhak")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rdumq")
 font_size = 28
 btn_text = "Retry"
 outline_color = Color(1, 1, 1, 1)
@@ -128,7 +128,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_r1uq1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qvyo")
 font_size = 28
 btn_text = "Upgrades"
 outline_color = Color(1, 1, 1, 1)

@@ -18,6 +18,9 @@ func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 	
+	if player.is_dead:
+		return
+	
 	var stats: PlayerStats = player.get_current_stats()
 	
 	if player.can_steer:

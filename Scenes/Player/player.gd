@@ -9,6 +9,8 @@ class_name Player extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var shoot_component: PlayerShootComponent = $ShootComponent
 
+const PLAYER_BLUE = preload("uid://bfyyfydip84o")
+const PLAYER_RED = preload("uid://q05o5crt88n5")
 @onready var sprite = %Sprite2D
 @onready var left_engine_particles = %LeftEngineParticles
 @onready var right_engine_particles = %RightEngineParticles
@@ -19,11 +21,12 @@ var can_shift: bool = true
 var can_reduce_health: bool = true
 var can_shoot: bool = true
 var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
-
+var is_dead: bool = false
 
 func _ready() -> void:
 	#EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
 	EventSystem.player_hit.connect(_on_player_hit)
+	EventSystem.player_died.connect(die)
 	
 	item_manager.setup(_default_stats)
 	movement_component.setup(self)
@@ -60,18 +63,20 @@ func shift_active_color() -> void:
 	match shift_color:
 		DamageSource.ShiftColor.BLUE:
 			shift_color = DamageSource.ShiftColor.RED
-			sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)
+			#sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)
+			sprite.texture = PLAYER_RED
 			left_engine_particles.color = Color(1.0, 0.0, 0.0, 1.0)
 			right_engine_particles.color = Color(1.0, 0.0, 0.0, 1.0)
 		DamageSource.ShiftColor.RED:
-			sprite.modulate = Color(0.169, 0.416, 1.0, 1.0)
+			#sprite.modulate = Color(0.169, 0.416, 1.0, 1.0)
+			sprite.texture = PLAYER_BLUE
 			left_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			right_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			shift_color = DamageSource.ShiftColor.BLUE
 		DamageSource.ShiftColor.NONE:
+			sprite.texture = PLAYER_BLUE
 			left_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
 			right_engine_particles.color = Color(0.169, 0.416, 1.0, 1.0)
-			sprite.modulate = Color(0.169, 0.416, 1.0, 1.0)
 			shift_color = DamageSource.ShiftColor.BLUE
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -91,3 +96,9 @@ func reduce_health(delta: float) -> void:
 	EventSystem.player_hit.emit(DamageSource.new(get_current_stats().health_usage_per_second * delta, 0.0, DamageSource.DamageSourceType.AUTO_DAMAGE, DamageSource.ShiftColor.NONE, null))
 func shoot():
 	pass
+
+func die() -> void:
+	is_dead = true
+	state_machine.initialize(self, &"frozen")
+	
+	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen)
