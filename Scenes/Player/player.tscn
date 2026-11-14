@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bexin1dtcgn5t" path="res://Assets/Particles/ParticleRoundedSquare.png" id="7_jhyir"]
 [ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="7_jlvik"]
 [ext_resource type="Shader" uid="uid://ca0g4euwnf0hm" path="res://Shaders/outline_shader.gdshader" id="9_74mp2"]
+[ext_resource type="Script" uid="uid://b0efshm7v61nt" path="res://Scenes/Player/shoot_component.gd" id="9_dey5f"]
+[ext_resource type="PackedScene" uid="uid://bkcbh4japqh01" path="res://Scenes/bullet_projectile.tscn" id="10_r5xpd"]
 
 [sub_resource type="Curve" id="Curve_sckgu"]
 _data = [Vector2(0, 1), 0.0, 0.12181573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -61,12 +63,16 @@ metadata/_custom_type_script = "uid://dve1ktyxyi1gw"
 [node name="MovementComponent" type="Node" parent="." unique_id=1759838389]
 script = ExtResource("3_mtuoh")
 decay_coefficient = 1.2
-knockback_decay_coefficient = 10.0
+knockback_decay_coefficient = 24.0
 metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1697897628]
 script = ExtResource("5_dd0ac")
 metadata/_custom_type_script = "uid://d0qnxevy216rr"
+
+[node name="ShootComponent" type="Node" parent="." unique_id=141930101]
+script = ExtResource("9_dey5f")
+bullet_scene = ExtResource("10_r5xpd")
 
 [node name="EnergyComponent" type="Node" parent="." unique_id=2136465283]
 script = ExtResource("6_jlvik")

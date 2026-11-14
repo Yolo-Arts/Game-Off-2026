@@ -11,7 +11,7 @@ func setup(_enemy: Enemy) -> void:
 
 
 func take_damage(source: DamageSource) -> void: 
-	if source.shift_color != enemy.enemy_stats.shift_color:
+	if source.shift_color != enemy.enemy_stats.shift_color and source.shift_color != DamageSource.ShiftColor.NONE:
 		return
 	current_health = clampf(current_health - source.damage,0 , enemy.enemy_stats.max_health)
 

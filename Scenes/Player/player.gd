@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @onready var energy_component: PlayerEnergyComponent = $EnergyComponent
 @onready var hitbox: PlayerHitbox = $Hitbox
 @onready var state_machine: StateMachine = $StateMachine
+@onready var shoot_component: PlayerShootComponent = $ShootComponent
 
 @onready var sprite = %Sprite2D
 @onready var left_engine_particles = %LeftEngineParticles
@@ -16,6 +17,7 @@ var can_steer: bool = true
 var can_control_speed: bool = true
 var can_shift: bool = true
 var can_reduce_health: bool = true
+var can_shoot: bool = true
 var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
 
 
@@ -29,6 +31,7 @@ func _ready() -> void:
 	health_component.setup(self)
 	energy_component.setup(self)
 	state_machine.initialize(self, &"normal")
+	shoot_component.setup(self)
 	
 	EventSystem.player_shifted.emit(shift_color)
 	shift_active_color()
