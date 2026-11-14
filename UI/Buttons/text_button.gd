@@ -2,8 +2,6 @@
 class_name TextButton
 extends MyButton
 
-
-
 @onready var label: RichTextLabel = %RichTextLabel
 @export var font_size: int = 28
 @export var btn_text: String = "" :

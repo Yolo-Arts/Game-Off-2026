@@ -18,3 +18,7 @@ func setup_currency_count_container(dict: Dictionary) -> void:
 
 func _on_back_to_main_menu_button_pressed():
 	EventSystem.STA_change_stage.emit(StageConfig.Keys.MainMenu)
+
+
+func _on_play_button_pressed():
+	EventSystem.STA_change_stage.emit(StageConfig.Keys.Main)

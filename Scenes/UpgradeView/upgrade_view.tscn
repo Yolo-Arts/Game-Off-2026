@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://cwckifb8fonv" path="res://Scenes/UpgradeView/upgrade_view.gd" id="1_nak5f"]
 [ext_resource type="PackedScene" uid="uid://b2csbwetpiepa" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.tscn" id="2_40fe1"]
 [ext_resource type="PackedScene" uid="uid://defbvjgax4sr8" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_container.tscn" id="4_o3nr1"]
+[ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="5_47o1m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oh1o5"]
 
 [node name="UpgradeView" type="Node2D" unique_id=1833710032]
 script = ExtResource("1_nak5f")
@@ -24,47 +27,67 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=100231474]
+[node name="TopLeftMarginContainer" type="MarginContainer" parent="Control" unique_id=100231474]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=659220441]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TopLeftMarginContainer" unique_id=659220441]
 layout_mode = 2
 
-[node name="CurrencyMarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1271561838]
+[node name="CurrencyMarginContainer" type="MarginContainer" parent="Control/TopLeftMarginContainer/HBoxContainer" unique_id=1271561838]
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer" unique_id=1801141977]
+[node name="ColorRect" type="ColorRect" parent="Control/TopLeftMarginContainer/HBoxContainer/CurrencyMarginContainer" unique_id=1801141977]
 visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CurrencyContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer" unique_id=1051391979]
+[node name="CurrencyContainer" type="MarginContainer" parent="Control/TopLeftMarginContainer/HBoxContainer/CurrencyMarginContainer" unique_id=1051391979]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="CurrencyCountContainer" parent="Control/MarginContainer/HBoxContainer/CurrencyMarginContainer/CurrencyContainer" unique_id=17007720 instance=ExtResource("4_o3nr1")]
+[node name="CurrencyCountContainer" parent="Control/TopLeftMarginContainer/HBoxContainer/CurrencyMarginContainer/CurrencyContainer" unique_id=17007720 instance=ExtResource("4_o3nr1")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BackToMainMenuButton" type="Button" parent="Control" unique_id=635906879]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=340632271]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -96.0
-offset_bottom = 31.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="BackToMainMenuButton" type="Button" parent="Control/MarginContainer" unique_id=635906879]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 text = "Main Menu"
 
-[connection signal="pressed" from="Control/BackToMainMenuButton" to="." method="_on_back_to_main_menu_button_pressed"]
+[node name="PlayButton" parent="Control/MarginContainer" unique_id=352476746 instance=ExtResource("5_47o1m")]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oh1o5")
+font_size = 28
+btn_text = "Play"
+main_color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Control/MarginContainer/BackToMainMenuButton" to="." method="_on_back_to_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
