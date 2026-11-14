@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="StageInfo" format=3 uid="uid://bv0v3yn6xhpes"]
 
 [ext_resource type="Script" uid="uid://c45khilp7njnm" path="res://Resources/formation.gd" id="1_1nq3w"]
-[ext_resource type="Resource" uid="uid://dbx1fx86vvxkm" path="res://Resources/Formations/test_formation.tres" id="2_jxfbv"]
-[ext_resource type="Resource" uid="uid://darox8ho85fmo" path="res://Resources/Formations/asteroid_formation.tres" id="3_h01no"]
+[ext_resource type="Resource" uid="uid://darox8ho85fmo" path="res://Resources/Formations/formationA.tres" id="2_76kes"]
 [ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="4_6akss"]
 
 [resource]
 script = ExtResource("4_6akss")
 stage_id = &"TestStage"
 stage_name = "ULTIMATESTAGEOFDOOM"
-formations = Array[ExtResource("1_1nq3w")]([ExtResource("3_h01no"), ExtResource("3_h01no"), ExtResource("2_jxfbv"), ExtResource("2_jxfbv")])
+formations = Array[ExtResource("1_1nq3w")]([ExtResource("2_76kes"), ExtResource("2_76kes"), ExtResource("2_76kes"), ExtResource("2_76kes")])
 stage_boss = null
 metadata/_custom_type_script = "uid://d25cy6pylx3w5"

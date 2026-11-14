@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="5_vhgat"]
 [ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="7_t30ik"]
 [ext_resource type="Resource" uid="uid://bv0v3yn6xhpes" path="res://Resources/Formations/test_stage.tres" id="8_nc7ud"]
+[ext_resource type="PackedScene" uid="uid://uxagcyc6b5cn" path="res://Scenes/DamageNumbers/damage_number_manager.tscn" id="9_oajci"]
 [ext_resource type="PackedScene" uid="uid://tcayyyo8vqmr" path="res://Scenes/Enemy/asteroid.tscn" id="9_t30ik"]
-[ext_resource type="Resource" uid="uid://beuvgl2j7nkpr" path="res://Resources/EnemySources/asteroid_stats.tres" id="10_oajci"]
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
@@ -20,6 +20,8 @@ texture = ExtResource("2_oajci")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 10000)
 
+[node name="DamageNumberManager" parent="." unique_id=994567822 groups=["damage_number"] instance=ExtResource("9_oajci")]
+
 [node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
 position = Vector2(957, 482)
 
@@ -30,7 +32,7 @@ script = ExtResource("3_t30ik")
 [node name="Enemy" parent="." unique_id=437048349 instance=ExtResource("5_vhgat")]
 position = Vector2(400, 572)
 
-[node name="EnemySpawner" type="Node2D" parent="." unique_id=1241958606 node_paths=PackedStringArray("enemy_spawn_timer")]
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=1241958606 node_paths=PackedStringArray("enemy_spawn_timer") groups=["damage_number"]]
 script = ExtResource("7_t30ik")
 stage_data = ExtResource("8_nc7ud")
 enemy_spawn_timer = NodePath("Timer")
@@ -40,4 +42,3 @@ metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Asteroid" parent="." unique_id=1610074024 groups=["enemies"] instance=ExtResource("9_t30ik")]
 position = Vector2(1378, 153)
-enemy_stats = ExtResource("10_oajci")

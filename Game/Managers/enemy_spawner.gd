@@ -48,8 +48,9 @@ func spawn_next_formation() -> void:
 	if(stage_data.current_wave - 1 >= stage_data.formations.size()):
 		return 
 	var form = stage_data.formations[stage_data.current_wave - 1]
-	for num in form.count: 
-		attempt_spawn_enemy(form.enemy)
+	for enemy in form.enemies.keys(): # iterates through all enemies in a formation
+		for x in form.enemies[enemy]: #iterates through the number of specific enemies spawned in a formation 
+			attempt_spawn_enemy(enemy)
 	stage_data.current_wave += 1
 	
 	
@@ -72,13 +73,6 @@ func attempt_spawn_enemy(enemy: EnemyData) -> bool:
 
 func spawn_enemy(enemy_data: EnemyData, enemy_position: Vector2) -> void:
 	var enemy: Node2D = enemy_data.enemy_scene.instantiate()
-	
-	
-	print(" ")
-	print(enemy_data.enemy_name)
-	print(enemy_data.base_enemy_stats.is_asteroid)
-	
-	
 	enemy.global_position = enemy_position
 	if enemy_data.is_enemy:
 		enemy = enemy as Enemy
