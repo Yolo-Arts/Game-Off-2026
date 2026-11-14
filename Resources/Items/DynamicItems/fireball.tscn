@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://tvhigoehob6k"]
+
+[ext_resource type="Shader" uid="uid://1hujd55t452n" path="res://Shaders/fireballshader.gdshader" id="1_du5p6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bi0sn"]
+shader = ExtResource("1_du5p6")
+shader_parameter/time = 0.0
+shader_parameter/frame_scope = 3.0
+shader_parameter/use_system_time = true
+shader_parameter/time_accel = 5.0
+
+[node name="Fireball" type="ColorRect" unique_id=680977506]
+material = SubResource("ShaderMaterial_bi0sn")
+custom_minimum_size = Vector2(500, 500)
+offset_right = 500.0
+offset_bottom = 500.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-250, -250)

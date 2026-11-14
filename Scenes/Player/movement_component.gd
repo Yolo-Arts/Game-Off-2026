@@ -6,13 +6,13 @@ extends Node
 var current_knockback: Vector2
 
 var player: Player
-var speed: float = 0.0
+var dir: Vector2
 
 func setup(_player: Player) -> void:
 	player = _player
 
-func get_thrust_input() -> float:
-	return Input.get_axis("move_down", "move_up")
+func get_input_vector() -> Vector2:
+	return Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 func _physics_process(delta: float) -> void:
 	if player == null:
@@ -25,15 +25,12 @@ func _physics_process(delta: float) -> void:
 		player.rotate(PI/2)
 	
 	if player.can_control_speed:
-		if get_thrust_input() == 1.0:
-			speed = stats.max_speed
-		else:
-			speed = 0
-			#speed = move_toward(speed, stats.max_speed, delta * stats.acceleration)
-		#elif get_thrust_input() == -1.0:
-			#speed = move_toward(speed, 0.0, delta * stats.deacceleration)
-			
-	var target_movement_velocity = speed * -player.transform.y
+		dir = get_input_vector()
+	if dir == Vector2.ZERO:
+		player.can_reduce_health = false
+	else:
+		player.can_reduce_health = true
+	var target_movement_velocity = stats.max_speed * dir.rotated(player.rotation)
 	var move_lerp_factor: float = 1.0 - exp(-decay_coefficient * delta)
 	var active_movement_velocity = player.velocity.lerp(target_movement_velocity, move_lerp_factor)
 	var kb_lerp_factor: float = 1.0 - exp(-knockback_decay_coefficient * delta)

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dr3f28jl3tl7y"]
+
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_ovp4h"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_cbj2r"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_jkpby"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_1ato2"]
+
+[sub_resource type="Resource" id="Resource_7ajje"]
+script = ExtResource("1_ovp4h")
+stat = "luck"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_in31q"]
+script = ExtResource("2_cbj2r")
+initial_price = 2
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_xv8jl"]
+script = ExtResource("4_1ato2")
+text = "Luck"
+color = Color(0.30276436, 0.65693116, 5.7756904e-07, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("3_jkpby")
+id = "luckup"
+display_name = "Luck UP"
+description = "{Luck} increased [+1]"
+modifiers = Array[ExtResource("1_ovp4h")]([SubResource("Resource_7ajje")])
+max_level = 5
+shape_type = 0
+price_data_array = Array[ExtResource("2_cbj2r")]([SubResource("Resource_in31q")])
+increment_value = 1.0
+text_injections = Array[ExtResource("4_1ato2")]([SubResource("Resource_xv8jl")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

@@ -40,7 +40,7 @@ metadata/_custom_type_script = "uid://bigogxmuptah4"
 script = ExtResource("2_37tmm")
 id = "tes"
 display_name = "item"
-description = "Damage increased by [20%] and luck is increased by {GEARS}. {HI}
+description = "Luck increased by [20%] and luck is increased by {GEARS}. {HI}
 {THIRD INJECTION}"
 icon = ExtResource("1_vchlk")
 modifiers = Array[ExtResource("1_27ivj")]([SubResource("Resource_354lq"), SubResource("Resource_d3qot")])

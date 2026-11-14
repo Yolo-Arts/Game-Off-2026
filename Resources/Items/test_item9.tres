@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dnfrw7oagd00y"]
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_elkdr"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_37nqw"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="2_eig37"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_pn76b"]
 
 [sub_resource type="Resource" id="Resource_354lq"]
 script = ExtResource("1_elkdr")

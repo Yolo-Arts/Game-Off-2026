@@ -14,9 +14,11 @@ func setup(_player: Player, enable: bool = true) -> void:
 	enabled = enable
 	
 func _on_body_entered(body: Node2D) -> void:
-	if !enabled or not player.can_ram():
+	if !enabled:
 		return
-	var enemy: Enemy = body as Enemy
-	
-	if enemy and enemy.enemy_stats.shift_color == player.shift_color:
-		enemy.health_component.take_damage(enemy.health_component.current_health)
+	var stats: PlayerStats = player.get_current_stats()
+	var damage_source := DamageSource.new(stats.get_computed_damage(), stats.knockback, DamageSource.DamageSourceType.PLAYER, player.shift_color, player)
+	if not player.can_ram():
+		damage_source.damage = 0
+	if body.has_method(&"take_damage"):
+		body.take_damage(damage_source)

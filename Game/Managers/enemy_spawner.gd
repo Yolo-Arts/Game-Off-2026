@@ -10,9 +10,15 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	enemy_spawn_timer.wait_time = stage_data.spawn_interval
-	enemy_spawn_timer.timeout.connect(spawn_random_enemy)
+	enemy_spawn_timer.timeout.connect(spawn_next_formation)
 	enemy_spawn_timer.start()
-
+	
+	
+func _process(delta: float) -> void:
+	#Debugging purposes
+	if(Input.is_key_pressed(KEY_M)): 
+		enemy_spawn_timer.start()
+	
 ## Returns a random [EnemyData] from weighted from [Array][[EnemyData]]
 func pick_enemy(enemies: Array[EnemyData]) -> EnemyData:
 	var weights: PackedFloat32Array = PackedFloat32Array()
@@ -38,6 +44,16 @@ func spawn_random_enemy() -> bool:
 	return attempt_spawn_enemy(random_enemy)
 	
 	
+func spawn_next_formation() -> void: 
+	if(stage_data.current_wave - 1 >= stage_data.formations.size()):
+		return 
+	var form = stage_data.formations[stage_data.current_wave - 1]
+	for enemy in form.enemies.keys(): # iterates through all enemies in a formation
+		for x in form.enemies[enemy]: #iterates through the number of specific enemies spawned in a formation 
+			attempt_spawn_enemy(enemy)
+	stage_data.current_wave += 1
+	
+	
 func attempt_spawn_enemy(enemy: EnemyData) -> bool:
 	var initial_spawn_angle: float = spawn_angle_increment * randi_range(0, int(2 * PI / spawn_angle_increment))
 	var spawn_angle = initial_spawn_angle
@@ -57,7 +73,6 @@ func attempt_spawn_enemy(enemy: EnemyData) -> bool:
 
 func spawn_enemy(enemy_data: EnemyData, enemy_position: Vector2) -> void:
 	var enemy: Node2D = enemy_data.enemy_scene.instantiate()
-	
 	enemy.global_position = enemy_position
 	if enemy_data.is_enemy:
 		enemy = enemy as Enemy

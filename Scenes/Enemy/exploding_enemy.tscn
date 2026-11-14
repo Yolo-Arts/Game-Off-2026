@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://45by558fouoc"]
+
+[ext_resource type="Script" uid="uid://cjpbks8yc5y71" path="res://Game/EnemyComponents/enemy.gd" id="1_hu2sy"]
+[ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="1_te7ln"]
+[ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="2_hu2sy"]
+[ext_resource type="Script" uid="uid://16pk50m15nj5" path="res://Game/EnemyComponents/explosion_component.gd" id="3_b37ud"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="4_oj0ct"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="5_roqgb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5v6lt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwb6w"]
+
+[node name="ExplodingEnemy" type="CharacterBody2D" unique_id=418278051]
+script = ExtResource("1_hu2sy")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1107878066]
+script = ExtResource("1_te7ln")
+max_health = 10.0
+
+[node name="MovementComponent" type="Node" parent="." unique_id=756280916]
+script = ExtResource("2_hu2sy")
+
+[node name="ExplosionRadius" type="Area2D" parent="." unique_id=82243402]
+script = ExtResource("3_b37ud")
+radius_size = 30.0
+explosion_damage = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRadius" unique_id=1230779232]
+scale = Vector2(30, 30)
+shape = SubResource("CircleShape2D_5v6lt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2047765992]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_oj0ct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975323349]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_rwb6w")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2136403000]
+script = ExtResource("5_roqgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2020498754]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_rwb6w")

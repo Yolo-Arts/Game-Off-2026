@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://uxagcyc6b5cn"]
+
+[ext_resource type="Script" uid="uid://bl1sg1aajbh4w" path="res://Scenes/DamageNumbers/damage_number_manager.gd" id="1_dn8ij"]
+[ext_resource type="PackedScene" uid="uid://b2taxvjpf6513" path="res://Scenes/DamageNumbers/damage_number.tscn" id="2_x7vfs"]
+
+[node name="DamageNumberManager" type="Node2D" unique_id=988172252]
+script = ExtResource("1_dn8ij")
+number_scene = ExtResource("2_x7vfs")

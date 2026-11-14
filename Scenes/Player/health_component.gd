@@ -20,6 +20,7 @@ func _on_stat_changed(stat: String) -> void:
 
 ## Updates the health from [PlayerStats]
 func update_health() -> void:
+
 	var current_stats: PlayerStats = player.get_current_stats()
 	max_health = current_stats.max_health
 	EventSystem.health_changed.emit(current_health, max_health)
@@ -38,8 +39,12 @@ func remove_invincibility(source: StringName) -> void:
 		EventSystem.player_vincible.emit()
 
 func take_damage(source: DamageSource) -> bool:
-	if is_invincible() or current_health <= 0:
+	if current_health <= 0:
 		return false
+	if is_invincible():
+		if source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
+			return false
+	
 	if source.shift_color == player.shift_color and \
 	player.can_ram():
 		return false
@@ -48,7 +53,7 @@ func take_damage(source: DamageSource) -> bool:
 	EventSystem.health_reduced.emit(current_health)
 	if current_health <= 0:
 		EventSystem.player_died.emit()
-	else:
+	elif source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
 		_start_iframes()
 	return true
 

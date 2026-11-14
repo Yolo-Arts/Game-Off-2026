@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dvgqeif4vsbn"]
+
+[ext_resource type="Script" uid="uid://cmw6ep2aknfuo" path="res://Resources/Items/DynamicItems/fireball_item_effect.gd" id="1_flppe"]
+[ext_resource type="PackedScene" uid="uid://tvhigoehob6k" path="res://Resources/Items/DynamicItems/fireball.tscn" id="2_uam7l"]
+
+[node name="FireBallEffect" type="Node" unique_id=1324162200]
+script = ExtResource("1_flppe")
+fireball_scene = ExtResource("2_uam7l")
+metadata/_custom_type_script = "uid://cycgxxkql4lhh"

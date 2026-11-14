@@ -4,9 +4,10 @@ class_name Enemy extends CharacterBody2D
 @onready var movement_component: EnemyMovementComponent = $MovementComponent
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
-@onready var sprite_2d = %Sprite2D
+@onready var sprite_2d = $Sprite2D
 
 func _ready() -> void:
+	add_to_group("enemies")
 	health_component.setup(self)
 	movement_component.setup(self)
 	hitbox.setup(self, enemy_stats)
@@ -27,11 +28,17 @@ func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
 func _process(delta: float) -> void:
 	pass
 
+func take_damage(damage_source: DamageSource) -> void:
+	health_component.take_damage(damage_source)
+	EventSystem.enemy_hit.emit(self, damage_source)
+	if damage_source.source_node:
+		movement_component.current_knockback = damage_source.knockback * damage_source.source_node.global_position.direction_to(global_position)
+
 func die() -> void:
 	#var collectable := load("res://Game/Collectables/collectable.tscn")
 	#var test = collectable.instantiate()
 	#test.position = position
-	
+
 	# TODO Add enemy death SFX
-	Pickups.spawn(Enums.CurrencyType.GEAR, global_position, 1)
+	Pickups.spawn(Enums.CurrencyType.GEAR, global_position, enemy_stats.drop)
 	queue_free()
