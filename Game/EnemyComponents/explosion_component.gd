@@ -16,7 +16,7 @@ func explode() -> void:
 		else: if(target.is_in_group("Player")): 
 			var player = target as Player
 			if(body.enemy_stats.shift_color == player.shift_color): 
-				var damage_source := DamageSource.new(explosion_damage, body.enemy_stats.enemy_damage_type, body.enemy_stats.shift_color, body)
+				# var damage_source := DamageSource.new(explosion_damage, body.enemy_stats.enemy_damage_type, body.enemy_stats.shift_color, body)
 				EventSystem.player_hit.emit(damage_source)
 				
 		

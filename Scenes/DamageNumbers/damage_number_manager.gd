@@ -9,7 +9,6 @@ var free_nums: Array[damage_number] = []
 func _ready() -> void: 
 	for i in pool_size: 
 		var num: damage_number = number_scene.instantiate()
-		num.scale = Vector2(1.5,1.5)
 		num.hide()
 		num.complete.connect(_reclaim)
 		add_child(num)

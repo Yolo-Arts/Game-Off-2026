@@ -5,9 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="2_oajci"]
 [ext_resource type="Script" uid="uid://0jg8dve4yjgc" path="res://Scenes/Player/camera_2d.gd" id="3_t30ik"]
 [ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="7_t30ik"]
-[ext_resource type="Resource" uid="uid://bv0v3yn6xhpes" path="res://Resources/Formations/test_stage.tres" id="8_nc7ud"]
 [ext_resource type="PackedScene" uid="uid://uxagcyc6b5cn" path="res://Scenes/DamageNumbers/damage_number_manager.tscn" id="9_oajci"]
-[ext_resource type="PackedScene" uid="uid://tcayyyo8vqmr" path="res://Scenes/Enemy/asteroid.tscn" id="9_t30ik"]
 [ext_resource type="PackedScene" uid="uid://deqbh4jesur4l" path="res://Scenes/Pickups/pickup_multi_mesh.tscn" id="11_qfemd"]
 [ext_resource type="PackedScene" uid="uid://b2csbwetpiepa" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.tscn" id="12_hyxu5"]
 [ext_resource type="Texture2D" uid="uid://c244yl55i628w" path="res://Assets/ProgrammerArt/bar_under.png" id="13_2mnvh"]
@@ -21,7 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://ch5aqpwcbnv7e" path="res://UI/ProgressBarLabel/progress_bar_label.tscn" id="17_r2vng"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="18_0ptnc"]
 [ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="19_r2vng"]
-[ext_resource type="Resource" uid="uid://bv0v3yn6xhpes" path="res://Resources/Formations/test_stage.tres" id="20_guytx"]
+[ext_resource type="Script" uid="uid://c45khilp7njnm" path="res://Resources/formation.gd" id="20_33khn"]
+[ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="21_1b66h"]
+[ext_resource type="Resource" uid="uid://darox8ho85fmo" path="res://Resources/Formations/formationA.tres" id="21_r2vng"]
+
+[sub_resource type="Resource" id="Resource_1htc4"]
+script = ExtResource("21_1b66h")
+formations = Array[ExtResource("20_33khn")]([ExtResource("21_r2vng"), ExtResource("21_r2vng"), ExtResource("21_r2vng"), ExtResource("21_r2vng")])
+stage_boss = null
+metadata/_custom_type_script = "uid://d25cy6pylx3w5"
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
@@ -104,7 +110,7 @@ mouse_filter = 2
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=620326751 node_paths=PackedStringArray("enemy_spawn_timer")]
 script = ExtResource("7_t30ik")
-stage_data = ExtResource("20_guytx")
+stage_data = SubResource("Resource_1htc4")
 enemy_spawn_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
