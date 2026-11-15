@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dr3f28jl3tl7y"]
 
+[ext_resource type="Texture2D" uid="uid://3a1jv0c4g0l3" path="res://Assets/Icons/Skill Tree/luck.png" id="1_cbj2r"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_ovp4h"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_cbj2r"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_jkpby"]
@@ -27,6 +28,7 @@ script = ExtResource("3_jkpby")
 id = "luckup"
 display_name = "Luck UP"
 description = "{Luck} increased [+1]"
+icon = ExtResource("1_cbj2r")
 modifiers = Array[ExtResource("1_ovp4h")]([SubResource("Resource_7ajje")])
 max_level = 5
 shape_type = 0
