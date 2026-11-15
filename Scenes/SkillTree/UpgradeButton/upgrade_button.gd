@@ -47,11 +47,15 @@ func _ready() -> void:
 	texture_button.add_theme_constant_override("icon_max_width", ICON_SIZE)
 	texture_button.mouse_entered.connect(func(): hovered.emit(item))
 	texture_button.mouse_exited.connect(func(): unhovered.emit(item))
-	texture_button.pressed.connect(func(): pressed_item.emit(item))
+	texture_button.pressed.connect(pressed)
 	
 	if texture_button.is_hovered():
 		hovered.emit(item)
 
+func pressed() -> void:
+	Juicee.bounce(self)
+	Juicee.sparkle(self)
+	pressed_item.emit(item)
 
 func refresh() -> void:
 	visible = item.unlocked

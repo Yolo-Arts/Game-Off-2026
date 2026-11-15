@@ -95,7 +95,7 @@ func can_ram() -> bool:
 
 func reduce_health(delta: float) -> void:
 	if not can_reduce_health: return
-	Juicee.trail(self)
+	
 	EventSystem.player_hit.emit(DamageSource.new(get_current_stats().health_usage_per_second * delta, 0.0, DamageSource.DamageSourceType.AUTO_DAMAGE, DamageSource.ShiftColor.NONE, null))
 func shoot():
 	pass

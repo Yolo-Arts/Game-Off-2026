@@ -13,6 +13,7 @@ extends Bulletin
 
 func _ready() -> void:
 	SaveManager.save_data()
+	#Juicee.preset_victory(self)
 	retry_button.pressed.connect(retry_pressed)
 	upgrades_button.pressed.connect(upgrades_pressed)
 	setup_currency_count_container(Currencies.round_data)
