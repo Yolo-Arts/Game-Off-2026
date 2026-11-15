@@ -31,13 +31,8 @@ func _process(delta: float) -> void:
 func take_damage(damage_source: DamageSource) -> void:
 	health_component.take_damage(damage_source)
 	EventSystem.enemy_hit.emit(self, damage_source)
-	
-	# Increasing player energy from the enemy script lol....
-	# TODO probably refactor this into the energy component but we ball.
-	if damage_source.damage_type == DamageSource.DamageSourceType.PLAYER:
-		var player: Player = damage_source.source_node 
-		var player_stats: PlayerStats = player.get_current_stats()
-		player.energy_component.increase_energy(player_stats.energy_increase)
+	Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.369), 0.2)
+	Juicee.flash(self)
 	
 	if damage_source.source_node:
 		movement_component.current_knockback = damage_source.knockback * damage_source.source_node.global_position.direction_to(global_position)
