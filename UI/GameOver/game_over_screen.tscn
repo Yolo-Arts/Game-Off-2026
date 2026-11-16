@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="3_m6qc7"]
 [ext_resource type="StyleBox" uid="uid://cbr5i3fybxrbl" path="res://Assets/UITheme/style_box_flat.tres" id="4_hwhak"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdumq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1uq1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qvyo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qf2p2"]
 
 [node name="GameOverScreen" type="Control" unique_id=1086539672]
 layout_mode = 3
@@ -117,10 +117,10 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rdumq")
-font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r1uq1")
 btn_text = "Retry"
 outline_color = Color(1, 1, 1, 1)
+hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 main_color = Color(0, 0, 0, 0.49411765)
 
 [node name="UpgradesButton" parent="VBoxContainer/HBoxContainer" unique_id=2143546587 instance=ExtResource("3_m6qc7")]
@@ -128,8 +128,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0qvyo")
-font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qf2p2")
 btn_text = "Upgrades"
 outline_color = Color(1, 1, 1, 1)
+hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 main_color = Color(0, 0, 0, 0.49411765)

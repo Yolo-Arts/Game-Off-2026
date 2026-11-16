@@ -48,6 +48,8 @@ func _on_player_hit(damage_source: DamageSource) -> void:
 	if not health_component.take_damage(damage_source): return
 	
 	if damage_source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
+		Juicee.impact_ring(self)
+		Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.49), 0.2)
 		TweenManager.camera.shake(0.25, 20, 15)
 		if damage_source.source_node != null:
 			movement_component.current_knockback = damage_source.knockback * (damage_source.source_node.global_position.direction_to(global_position))
@@ -93,6 +95,7 @@ func can_ram() -> bool:
 
 func reduce_health(delta: float) -> void:
 	if not can_reduce_health: return
+	
 	EventSystem.player_hit.emit(DamageSource.new(get_current_stats().health_usage_per_second * delta, 0.0, DamageSource.DamageSourceType.AUTO_DAMAGE, DamageSource.ShiftColor.NONE, null))
 func shoot():
 	pass

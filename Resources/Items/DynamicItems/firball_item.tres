@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_0qgx0"]
 [ext_resource type="PackedScene" uid="uid://dvgqeif4vsbn" path="res://Resources/Items/DynamicItems/fire_ball_effect.tscn" id="1_yjpmq"]
+[ext_resource type="Texture2D" uid="uid://co5sj5f6a6xjb" path="res://Assets/Icons/Skill Tree/explosion.png" id="2_j0udg"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_yjpmq"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_j0udg"]
 [ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_omijx"]
@@ -22,6 +23,7 @@ script = ExtResource("3_j0udg")
 id = "explosion"
 display_name = "EXPLOSION"
 description = "Each shot has a chance based on {luck} to deal 500 flat damage to the enemy."
+icon = ExtResource("2_j0udg")
 effect_scene = ExtResource("1_yjpmq")
 price_data_array = Array[ExtResource("2_yjpmq")]([SubResource("Resource_bnue5")])
 initial_increment_value = 10.0

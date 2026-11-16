@@ -48,7 +48,7 @@ func take_damage(source: DamageSource) -> bool:
 	if source.shift_color == player.shift_color and \
 	player.can_ram():
 		return false
-		
+	
 	current_health = clamp(current_health - source.damage, 0.0, max_health)
 	EventSystem.health_reduced.emit(current_health)
 	if current_health <= 0:
