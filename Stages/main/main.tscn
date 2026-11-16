@@ -62,6 +62,7 @@ texture_over = ExtResource("14_1b66h")
 texture_progress = ExtResource("15_r2vng")
 script = ExtResource("15_guytx")
 event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
+tween_duration = 1.0
 
 [node name="FuelProgressBarLabel" parent="HUD/MarginContainer/VBoxContainer/FuelProgressBar" unique_id=1147571644 instance=ExtResource("17_r2vng")]
 layout_mode = 0
