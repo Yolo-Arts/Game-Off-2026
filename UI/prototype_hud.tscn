@@ -26,6 +26,7 @@ texture_under = ExtResource("2_g3khc")
 texture_progress = ExtResource("3_nsjb6")
 script = ExtResource("4_kynxj")
 event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
+tween_duration = 1.0
 metadata/_custom_type_script = "uid://dqollry410r2i"
 
 [node name="EnergyBar" type="TextureProgressBar" parent="." unique_id=1343348312]
