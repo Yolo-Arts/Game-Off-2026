@@ -111,5 +111,17 @@ func buy(item: ItemData) -> bool:
 
 	return true
 
-
+func reset() -> void:
+	for item in items.values(): 
+		item.level = 0
+		item.unlocked = false
+	
+	for entry in TREE:
+		var root_item := get_item(entry[0])
+		if root_item:
+			root_item.unlocked = true 
+	
+	SaveManager.data.upgrade_save_data.clear()
+	SaveManager.save_data()
+	changed.emit()
  

@@ -22,3 +22,11 @@ func _on_back_to_main_menu_button_pressed():
 
 func _on_play_button_pressed():
 	EventSystem.STA_change_stage.emit(StageConfig.Keys.Main)
+
+
+func _on_increase_currency_pressed():
+	Currencies.cheat_add_currency()
+
+
+func _on_reset_upgrades_pressed() -> void:
+	SkillTreeUpgrades.reset()
