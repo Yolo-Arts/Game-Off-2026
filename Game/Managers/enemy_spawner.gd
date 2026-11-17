@@ -7,29 +7,36 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @export var enemy_spawn_timer: Timer
 
 # TODO Add a wave and formation system
+@export_group("Spawn Animation")
+@export var spawn_animation_scene: PackedScene
+@export var spawn_particles_scene: PackedScene
+
+var pending_spawns: Array[Dictionary] = []
 
 func _ready() -> void:
 	enemy_spawn_timer.wait_time = stage_data.spawn_interval
 	enemy_spawn_timer.timeout.connect(spawn_next_formation)
 	enemy_spawn_timer.start()
-	
-	
+
 func _process(delta: float) -> void:
 	#Debugging purposes
-	if(Input.is_key_pressed(KEY_M)): 
+	if(Input.is_key_pressed(KEY_M)):
 		enemy_spawn_timer.start()
-	
+
 ## Returns a random [EnemyData] from weighted from [Array][[EnemyData]]
 func pick_enemy(enemies: Array[EnemyData]) -> EnemyData:
 	var weights: PackedFloat32Array = PackedFloat32Array()
-	
 	for enemy in enemies:
 		weights.append(enemy.spawn_weight)
-	
 	var random_index: int = rng.rand_weighted(weights)
 	return enemies[random_index]
 
 func is_radius_empty(enemy_position: Vector2, radius: float) -> bool:
+	for pending in pending_spawns:
+		var min_dist: float = radius + pending["radius"]
+		if enemy_position.distance_squared_to(pending["position"]) < min_dist * min_dist:
+			return false
+
 	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 	var query := PhysicsShapeQueryParameters2D.new()
 	var shape: CircleShape2D = CircleShape2D.new()
@@ -42,8 +49,7 @@ func is_radius_empty(enemy_position: Vector2, radius: float) -> bool:
 func spawn_random_enemy() -> bool:
 	var random_enemy: EnemyData = pick_enemy(stage_data.enemies)
 	return attempt_spawn_enemy(random_enemy)
-	
-	
+
 func spawn_next_formation() -> void: 
 	if(stage_data.current_wave - 1 >= stage_data.formations.size()):
 		return 
@@ -52,37 +58,86 @@ func spawn_next_formation() -> void:
 		for x in form.enemies[enemy]: #iterates through the number of specific enemies spawned in a formation 
 			attempt_spawn_enemy(enemy)
 	stage_data.current_wave += 1
-	
-	
+
 func attempt_spawn_enemy(enemy: EnemyData) -> bool:
 	var initial_spawn_angle: float = spawn_angle_increment * randi_range(0, int(2 * PI / spawn_angle_increment))
 	var spawn_angle = initial_spawn_angle
 	var player: Player = get_tree().get_first_node_in_group("player") as Player
 	if player == null:
 		return false
+
 	var player_pos: Vector2 = player.global_position
 	while spawn_angle < 2 * PI + initial_spawn_angle:
 		var spawn_pos = player_pos + enemy.spawn_distance_from_player * Vector2(sin(spawn_angle), cos(spawn_angle))
 		if is_radius_empty(spawn_pos, enemy.enemy_size):
-			spawn_enemy(enemy, spawn_pos)
+			start_spawn_sequence(enemy, spawn_pos)
 			return true
 		spawn_angle += spawn_angle_increment
-	
-	return false
-	
 
-func spawn_enemy(enemy_data: EnemyData, enemy_position: Vector2) -> void:
-	var enemy: Node2D = enemy_data.enemy_scene.instantiate()
-	enemy.global_position = enemy_position
+	return false
+
+func start_spawn_sequence(enemy_data: EnemyData, spawn_pos: Vector2) -> void:
+	var chosen_color: DamageSource.ShiftColor = enemy_data.base_enemy_stats.shift_color
+	if enemy_data.enemy_type == EnemyData.EnemyType.COLOR:
+		chosen_color = [DamageSource.ShiftColor.RED, DamageSource.ShiftColor.BLUE].pick_random()
+
+	if spawn_animation_scene == null or enemy_data.spawn_animation_data == null:
+		finalize_spawn_enemy(enemy_data, spawn_pos, 0.0, chosen_color)
+		return
+
+	var reservation := { "position": spawn_pos, "radius": enemy_data.enemy_size }
+	pending_spawns.append(reservation)
+
+	var anim := spawn_animation_scene.instantiate() as EnemySpawnAnimation
+	add_child(anim)
+	anim.global_position = spawn_pos
+
+	var spawn_color: Color
+	match chosen_color:
+		DamageSource.ShiftColor.BLUE:
+			spawn_color = MyColors.ENEMY_BLUE
+		DamageSource.ShiftColor.RED:
+			spawn_color = MyColors.RED
+		_:
+			spawn_color = Color.WHITE 
+
+	anim.animate(enemy_data.spawn_animation_data, 1.0, spawn_color)
+
+	if anim.particles:
+		anim.particles.reparent(self)
+		anim.particles.finished.connect(anim.particles.queue_free)
+
+	anim.finished.connect(func():
+		pending_spawns.erase(reservation)
+		anim.queue_free()
+		finalize_spawn_enemy(enemy_data, spawn_pos, anim.spawn_angle if anim.rotate_spawn else 0.0, chosen_color)
+	)
+
+func finalize_spawn_enemy(enemy_data: EnemyData, enemy_position: Vector2, initial_rotation: float = 0.0, override_color: Variant = null) -> void:
+	var enemy_scene_to_spawn: Node2D = enemy_data.enemy_scene.instantiate()
+	enemy_scene_to_spawn.global_position = enemy_position
+	if initial_rotation != 0.0:
+		enemy_scene_to_spawn.rotation = initial_rotation
+
 	if enemy_data.is_enemy:
-		enemy = enemy as Enemy
+		var enemy = enemy_scene_to_spawn as Enemy
 		if enemy == null:
 			push_error("Enemy stated as enemy, but is not -> ", enemy_data.enemy_id, " ", enemy_data.enemy_name)
 			return
 		enemy.enemy_stats = enemy_data.base_enemy_stats.duplicate()
-		if enemy_data.enemy_type == EnemyData.EnemyType.COLOR:
+		if override_color != null:
+			enemy.enemy_stats.shift_color = override_color
+		elif enemy_data.enemy_type == EnemyData.EnemyType.COLOR:
 			enemy.enemy_stats.shift_color = [DamageSource.ShiftColor.RED, DamageSource.ShiftColor.BLUE].pick_random()
-			
-	
-	add_child(enemy)
-	
+
+		add_child(enemy)
+	else:
+		add_child(enemy_scene_to_spawn)
+
+	if spawn_particles_scene:
+		var particles := spawn_particles_scene.instantiate() as CPUParticles2D
+		add_child(particles)
+		particles.z_index = 4096
+		particles.global_position = enemy_position
+		particles.emitting = true
+		particles.finished.connect(particles.queue_free)

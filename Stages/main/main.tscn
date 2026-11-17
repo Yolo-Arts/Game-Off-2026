@@ -23,6 +23,8 @@
 [ext_resource type="Script" uid="uid://c45khilp7njnm" path="res://Resources/formation.gd" id="20_33khn"]
 [ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="21_1b66h"]
 [ext_resource type="Resource" uid="uid://darox8ho85fmo" path="res://Resources/Formations/formationA.tres" id="21_r2vng"]
+[ext_resource type="PackedScene" uid="uid://dbabsmode2qmf" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.tscn" id="24_qqltb"]
+[ext_resource type="PackedScene" uid="uid://da6lsubuwmq1n" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_particles.tscn" id="26_h7dmi"]
 
 [sub_resource type="Resource" id="Resource_1htc4"]
 script = ExtResource("21_1b66h")
@@ -90,6 +92,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248161557]
+visible = false
 texture_repeat = 2
 scale = Vector2(5, 5)
 texture = ExtResource("2_oajci")
@@ -116,6 +119,8 @@ mesh_size = Vector2(16, 16)
 script = ExtResource("7_t30ik")
 stage_data = SubResource("Resource_1htc4")
 enemy_spawn_timer = NodePath("Timer")
+spawn_animation_scene = ExtResource("24_qqltb")
+spawn_particles_scene = ExtResource("26_h7dmi")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Timer" type="Timer" parent="EnemySpawner" unique_id=956438144]

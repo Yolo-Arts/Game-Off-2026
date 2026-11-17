@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://da6lsubuwmq1n"]
+
+[ext_resource type="Texture2D" uid="uid://5a2qn0ivjes8" path="res://Assets/Particles/texture_fx_spark_particle.png" id="1_re82b"]
+
+[sub_resource type="Curve" id="Curve_kayc0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EnemySpawnParticles" type="CPUParticles2D" unique_id=1780389459]
+emitting = false
+amount = 16
+texture = ExtResource("1_re82b")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+emission_shape = 1
+emission_sphere_radius = 13.43
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 24)
+initial_velocity_min = 266.66
+initial_velocity_max = 422.21
+angular_velocity_min = 47.0
+angular_velocity_max = 164.0
+radial_accel_min = -84.0
+radial_accel_max = -41.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_kayc0")

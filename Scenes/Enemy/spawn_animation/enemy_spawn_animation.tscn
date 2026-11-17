@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dbabsmode2qmf"]
+
+[ext_resource type="Script" uid="uid://cgpbbx8mgeal1" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.gd" id="1_hpaup"]
+[ext_resource type="Shader" uid="uid://bqdqsnqn7ga0u" path="res://Shaders/spawn_glitch.gdshader" id="1_pfrfe"]
+[ext_resource type="Texture2D" uid="uid://cuweqn3d2edlb" path="res://Assets/Particles/texture_fx_particle.png" id="4_jbspf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sckgu"]
+shader = ExtResource("1_pfrfe")
+shader_parameter/shake_power = 0.1
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 24.0
+shader_parameter/shake_color_rate = 0.0
+shader_parameter/modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hpaup"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_jbspf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2515528, 1), 0.0, 0.0, 0, 0, Vector2(0.52484465, 1), 0.0, 0.0, 0, 0, Vector2(0.71739125, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="EnemySpawnAnimation" type="Node2D" unique_id=203110286 node_paths=PackedStringArray("scale_pivot", "rotation_pivot", "fill_sprite", "glitch_sprite", "zoom_sprite", "particles")]
+scale = Vector2(5, 5)
+script = ExtResource("1_hpaup")
+scale_pivot = NodePath("ScalePivot")
+rotation_pivot = NodePath("ScalePivot/RotationPivot")
+fill_sprite = NodePath("ScalePivot/RotationPivot/FillSprite")
+glitch_sprite = NodePath("ScalePivot/RotationPivot/GlitchSprite")
+zoom_sprite = NodePath("ScalePivot/RotationPivot/ZoomSprite")
+particles = NodePath("CPUParticles2D")
+
+[node name="ScalePivot" type="Node2D" parent="." unique_id=782040146]
+
+[node name="RotationPivot" type="Node2D" parent="ScalePivot" unique_id=981363775]
+
+[node name="FillSprite" type="Sprite2D" parent="ScalePivot/RotationPivot" unique_id=1183083890]
+
+[node name="GlitchSprite" type="Sprite2D" parent="ScalePivot/RotationPivot" unique_id=1564065408]
+material = SubResource("ShaderMaterial_sckgu")
+
+[node name="ZoomSprite" type="Sprite2D" parent="ScalePivot/RotationPivot" unique_id=961313881]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1540339014]
+material = SubResource("CanvasItemMaterial_hpaup")
+emitting = false
+amount = 18
+texture = ExtResource("4_jbspf")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.19
+emission_shape = 1
+emission_sphere_radius = 24.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.0
+initial_velocity_max = 86.0
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+damping_min = 20.0
+damping_max = 47.0
+scale_amount_curve = SubResource("Curve_jbspf")
+color = Color(0.6796875, 0.5186157, 0.62772894, 1)
+anim_offset_max = 1.0

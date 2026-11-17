@@ -4,7 +4,7 @@ class_name Enemy extends CharacterBody2D
 @onready var movement_component: EnemyMovementComponent = $MovementComponent
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
-@onready var sprite_2d = $Sprite2D
+@onready var sprite_2d = %Sprite2D
 
 func _ready() -> void:
 	add_to_group("enemies")

@@ -4,6 +4,7 @@ class_name EnemyData extends Resource
 @export var enemy_name: String
 @export var enemy_scene: PackedScene
 @export var base_enemy_stats: EnemyStats = EnemyStats.new()
+@export var spawn_animation_data: EnemySpawnAnimationTextureData
 @export var spawn_distance_from_player: float = 100.0:
 	set(value):
 		spawn_distance_from_player = max(0.0, value)

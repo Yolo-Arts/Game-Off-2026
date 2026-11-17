@@ -15,3 +15,5 @@ const BG = Color("1f1f1f")
 
 const VIOLET = Color("e048f7")
 const DARK_RED = Color("a71818")
+
+const ENEMY_BLUE = Color("006FFF")

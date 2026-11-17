@@ -5,7 +5,50 @@
 [ext_resource type="Resource" uid="uid://dalnaxqkf7c2a" path="res://Resources/EnemySources/test_enemy_stats.tres" id="2_gx76c"]
 [ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_efgs1"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="4_qs8s8"]
-[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="5_kt2l8"]
+[ext_resource type="Texture2D" uid="uid://bnguadinrb862" path="res://Assets/Enemy/basic_enemy/enemy_blue_walk-Sheet.png" id="5_gx76c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqgp3"]
+atlas = ExtResource("5_gx76c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ad2a"]
+atlas = ExtResource("5_gx76c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiqm3"]
+atlas = ExtResource("5_gx76c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j3ko"]
+atlas = ExtResource("5_gx76c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2chwy"]
+atlas = ExtResource("5_gx76c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sckgu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqgp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ad2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiqm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j3ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2chwy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6lt"]
 
@@ -22,10 +65,14 @@ script = ExtResource("2_3pmhw")
 script = ExtResource("3_efgs1")
 knockback_decay_coefficient = 14.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=933571517]
+[node name="Node2D" type="Node2D" parent="." unique_id=892844730]
+rotation = -1.5707964
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=1729905700]
 unique_name_in_owner = true
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_kt2l8")
+sprite_frames = SubResource("SpriteFrames_sckgu")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
 scale = Vector2(3.2, 3.2)
