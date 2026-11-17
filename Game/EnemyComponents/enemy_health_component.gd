@@ -29,7 +29,8 @@ func take_damage(source: DamageSource) -> void:
 		var player_stats: PlayerStats = player.get_current_stats()
 		player.energy_component.increase_energy(player_stats.energy_increase)
 	
-	
+	ObjectPool.spawn(ObjectPool.bullet_impact_scene, enemy.global_position)
+
 	current_health = clampf(current_health - source.damage,0 , enemy.enemy_stats.max_health)
 	damage_numbers.display_val(source.damage, enemy.global_position)
 	if(current_health <= 0):

@@ -11,7 +11,8 @@ enum Keys {
 	PlayerRam,
 	GearCurrencyCollect,
 	EnemySpawn,
-	
+	MetalHit,
+	ItemPickup,
 }
 
 const FILE_PATHS := {
@@ -28,6 +29,8 @@ const FILE_PATHS := {
 	
 	Keys.GearCurrencyCollect: "res://Audio/GameSFX/Pickups/sfx_currency_pickup.ogg",
 	Keys.EnemySpawn: "res://Audio/GameSFX/Enemy/sfx_enemy_spawn_small.wav",
+	Keys.MetalHit: "res://Audio/GameSFX/ShootSFX/sfx_metal_hitsound.wav",
+	Keys.ItemPickup: "res://Audio/SFX_Resources/GameOverCurrencyAcquiredRandomizer.tres",
 }
 
 static func get_audio_stream(key:Keys) -> AudioStream:

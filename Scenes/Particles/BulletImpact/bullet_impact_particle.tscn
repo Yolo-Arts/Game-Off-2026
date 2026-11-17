@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bpym47uj5h3p8"]
+
+[ext_resource type="Texture2D" uid="uid://bexin1dtcgn5t" path="res://Assets/Particles/ParticleRoundedSquare.png" id="1_34v7i"]
+[ext_resource type="Script" uid="uid://cwspam82euryd" path="res://Scenes/Particles/BulletImpact/bullet_impact_particle.gd" id="1_pi1ay"]
+
+[sub_resource type="Curve" id="Curve_34v7i"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_y4mas"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_pi1ay"]
+offsets = PackedFloat32Array(0.4513889, 1)
+colors = PackedColorArray(1, 0.9859619, 0.1015625, 1, 1, 0.9843137, 0.101960786, 0)
+
+[node name="BulletImpactParticle" type="Node2D" unique_id=2032755316]
+scale = Vector2(2, 2)
+script = ExtResource("1_pi1ay")
+duration = 0.4
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=604032539]
+emitting = false
+texture = ExtResource("1_34v7i")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 177.77
+initial_velocity_max = 277.78
+angle_max = 1.0
+angle_curve = SubResource("Curve_34v7i")
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_y4mas")
+color = Color(1, 0.9859619, 0.1015625, 1)
+color_ramp = SubResource("Gradient_pi1ay")

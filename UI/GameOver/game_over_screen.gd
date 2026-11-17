@@ -51,6 +51,11 @@ func tween_currencies() -> void:
 	for currency_count in currency_count_container.get_children():
 		currency_count.visible = true
 		tween.tween_property(currency_count, "offset_transform_scale", Vector2.ONE, 0.3).from(Vector2.ZERO)
+		tween.tween_callback(func(): 
+			EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.ItemPickup)
+			print("Hi")
+			
+			)
 		tween.tween_interval(0.5)
 
 func tween_buttons() -> void:
