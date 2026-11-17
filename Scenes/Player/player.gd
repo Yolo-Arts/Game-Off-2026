@@ -1,13 +1,13 @@
 class_name Player extends CharacterBody2D
 
 @export var _default_stats: PlayerStats
-@onready var item_manager: ItemManager = $ItemManager
-@onready var movement_component: PlayerMovementComponent = $MovementComponent
-@onready var health_component: PlayerHealthComponent = $HealthComponent
-@onready var energy_component: PlayerEnergyComponent = $EnergyComponent
+@onready var item_manager: ItemManager = %ItemManager
+@onready var movement_component: PlayerMovementComponent = %MovementComponent
+@onready var health_component: PlayerHealthComponent = %HealthComponent
+@onready var energy_component: PlayerEnergyComponent = %EnergyComponent
 @onready var hitbox: PlayerHitbox = $Hitbox
-@onready var state_machine: StateMachine = $StateMachine
-@onready var shoot_component: PlayerShootComponent = $ShootComponent
+@onready var state_machine: StateMachine = %StateMachine
+@onready var shoot_component: PlayerShootComponent = %ShootComponent
 
 const PLAYER_BLUE = preload("uid://bfyyfydip84o")
 const PLAYER_RED = preload("uid://q05o5crt88n5")

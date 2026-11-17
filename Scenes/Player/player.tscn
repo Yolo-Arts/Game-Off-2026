@@ -13,19 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://cmy4nq6ehejrb" path="res://Assets/Particles/ParticleCircle.png" id="7_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://bexin1dtcgn5t" path="res://Assets/Particles/ParticleRoundedSquare.png" id="7_jhyir"]
 [ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="7_jlvik"]
-[ext_resource type="Shader" uid="uid://ca0g4euwnf0hm" path="res://Shaders/outline_shader.gdshader" id="9_74mp2"]
 [ext_resource type="Script" uid="uid://b0efshm7v61nt" path="res://Scenes/Player/shoot_component.gd" id="9_dey5f"]
 [ext_resource type="PackedScene" uid="uid://bkcbh4japqh01" path="res://Scenes/bullet_projectile.tscn" id="10_r5xpd"]
 
 [sub_resource type="Curve" id="Curve_sckgu"]
 _data = [Vector2(0, 1), 0.0, 0.12181573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhyir"]
-shader = ExtResource("9_74mp2")
-shader_parameter/allow_out_of_bounds = true
-shader_parameter/outline_thickness = 1.0
-shader_parameter/outline_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
 size = Vector2(128, 129)
@@ -41,43 +34,53 @@ collision_layer = 2
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")
 
-[node name="StateMachine" type="Node" parent="." unique_id=2124341260]
+[node name="PlayerComponents" type="Node" parent="." unique_id=699509212]
+
+[node name="StateMachine" type="Node" parent="PlayerComponents" unique_id=2124341260]
+unique_name_in_owner = true
 script = ExtResource("3_oikmp")
 debug = true
 metadata/_custom_type_script = "uid://grs1kfqrof0u"
 
-[node name="Normal" type="Node" parent="StateMachine" unique_id=44844742]
+[node name="Normal" type="Node" parent="PlayerComponents/StateMachine" unique_id=44844742]
 script = ExtResource("4_06tpx")
 id = &"normal"
 metadata/_custom_type_script = "uid://1d02a4dxhlmd"
 
-[node name="Frozen" type="Node" parent="StateMachine" unique_id=1250372079]
+[node name="Frozen" type="Node" parent="PlayerComponents/StateMachine" unique_id=1250372079]
 script = ExtResource("5_7g0yx")
 id = &"frozen"
 metadata/_custom_type_script = "uid://1d02a4dxhlmd"
 
-[node name="ItemManager" type="Node" parent="." unique_id=935040993]
+[node name="ItemManager" type="Node" parent="PlayerComponents" unique_id=935040993]
+unique_name_in_owner = true
 script = ExtResource("2_xpcdj")
 metadata/_custom_type_script = "uid://dve1ktyxyi1gw"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=1759838389]
+[node name="MovementComponent" type="Node" parent="PlayerComponents" unique_id=1759838389]
+unique_name_in_owner = true
 script = ExtResource("3_mtuoh")
 decay_coefficient = 1.2
 knockback_decay_coefficient = 24.0
 metadata/_custom_type_script = "uid://cl3bqv10f2aoe"
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1697897628]
+[node name="HealthComponent" type="Node" parent="PlayerComponents" unique_id=1697897628]
+unique_name_in_owner = true
 script = ExtResource("5_dd0ac")
 metadata/_custom_type_script = "uid://d0qnxevy216rr"
 
-[node name="ShootComponent" type="Node" parent="." unique_id=141930101]
+[node name="ShootComponent" type="Node" parent="PlayerComponents" unique_id=141930101]
+unique_name_in_owner = true
 script = ExtResource("9_dey5f")
 bullet_scene = ExtResource("10_r5xpd")
 
-[node name="EnergyComponent" type="Node" parent="." unique_id=2136465283]
+[node name="EnergyComponent" type="Node" parent="PlayerComponents" unique_id=2136465283]
+unique_name_in_owner = true
 script = ExtResource("6_jlvik")
 
-[node name="LeftEngineParticles" type="CPUParticles2D" parent="." unique_id=1096323586]
+[node name="EngineParticles" type="Node2D" parent="." unique_id=1904615316]
+
+[node name="LeftEngineParticles" type="CPUParticles2D" parent="EngineParticles" unique_id=1096323586]
 unique_name_in_owner = true
 position = Vector2(-34, 44)
 amount = 64
@@ -88,7 +91,7 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_sckgu")
 
-[node name="RightEngineParticles" type="CPUParticles2D" parent="." unique_id=2096385599]
+[node name="RightEngineParticles" type="CPUParticles2D" parent="EngineParticles" unique_id=2096385599]
 unique_name_in_owner = true
 position = Vector2(38, 44)
 amount = 64
@@ -98,12 +101,6 @@ gravity = Vector2(0, 0)
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_sckgu")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_jhyir")
-scale = Vector2(4, 4)
-texture = ExtResource("7_jlvik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807931546]
 position = Vector2(0, -0.5)
@@ -124,3 +121,10 @@ metadata/_custom_type_script = "uid://bbdb481tg70y4"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2141517331]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_pi45h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]
+unique_name_in_owner = true
+scale = Vector2(4, 4)
+texture = ExtResource("7_jlvik")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=2077692665]
