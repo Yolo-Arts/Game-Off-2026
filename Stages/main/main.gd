@@ -2,8 +2,12 @@ extends Node2D
 
 @export var currency_count_control: PackedScene
 
+@onready var death_screen = %DeathScreen
+@onready var hud = %HUD
+
 @onready var camera = %Camera2D
 @onready var currency_count_container = %CurrencyCountContainer
+@onready var player = %Player
 
 
 func _input(event: InputEvent) -> void:
@@ -14,6 +18,9 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	EventSystem.MUS_play_music.emit(MusicConfig.Keys.BGMPlaceHolder2)
 	TweenManager.camera = camera
+	
+	EventSystem.player_died.connect(player_died)
+	
 	setup_currency_count_container(Currencies._by_type)
 
 func setup_currency_count_container(dict: Dictionary) -> void:
@@ -30,3 +37,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		var spot := get_global_mouse_position()
 		Pickups.spawn(Enums.CurrencyType.GEAR, spot, 40)
 		Pickups.spawn(Enums.CurrencyType.STAR, spot, 10)
+
+func player_died() -> void:
+	death_screen.animate_in()
+	hud.hide()
+	player.visible = false
+	await get_tree().create_timer(1).timeout
+	
+	death_screen.animate_out()
+	
+	
+	await get_tree().create_timer(1).timeout
+	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen)

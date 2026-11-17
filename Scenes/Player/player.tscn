@@ -34,6 +34,11 @@ collision_layer = 2
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")
 
+[node name="AimLine" type="Line2D" parent="." unique_id=1415954353]
+points = PackedVector2Array(0, 0, 0, -2000)
+width = 3.0
+default_color = Color(1, 1, 1, 0.76862746)
+
 [node name="PlayerComponents" type="Node" parent="." unique_id=699509212]
 
 [node name="StateMachine" type="Node" parent="PlayerComponents" unique_id=2124341260]
@@ -126,5 +131,3 @@ shape = SubResource("RectangleShape2D_pi45h")
 unique_name_in_owner = true
 scale = Vector2(4, 4)
 texture = ExtResource("7_jlvik")
-
-[node name="Visuals" type="Node2D" parent="." unique_id=2077692665]

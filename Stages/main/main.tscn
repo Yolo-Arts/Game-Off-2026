@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cbcwu5b7ayjr7" path="res://Stages/main/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="2_oajci"]
+[ext_resource type="Shader" uid="uid://204n7sqcs6sq" path="res://Shaders/death_screen.gdshader" id="3_mwvqt"]
 [ext_resource type="Script" uid="uid://0jg8dve4yjgc" path="res://Scenes/Player/camera_2d.gd" id="3_t30ik"]
+[ext_resource type="Script" uid="uid://cck3p1i60tcyv" path="res://Scripts/death_screen_fx.gd" id="4_h7dmi"]
 [ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="7_t30ik"]
 [ext_resource type="PackedScene" uid="uid://uxagcyc6b5cn" path="res://Scenes/DamageNumbers/damage_number_manager.tscn" id="9_oajci"]
 [ext_resource type="PackedScene" uid="uid://deqbh4jesur4l" path="res://Scenes/Pickups/pickup_multi_mesh.tscn" id="11_qfemd"]
@@ -26,6 +28,18 @@
 [ext_resource type="PackedScene" uid="uid://dbabsmode2qmf" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.tscn" id="24_qqltb"]
 [ext_resource type="PackedScene" uid="uid://da6lsubuwmq1n" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_particles.tscn" id="26_h7dmi"]
 
+[sub_resource type="Gradient" id="Gradient_4tusj"]
+offsets = PackedFloat32Array(0.55, 1)
+colors = PackedColorArray(0.11764706, 0.11764706, 0.11764706, 1, 1, 0, 0.3019608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jdc67"]
+gradient = SubResource("Gradient_4tusj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_16xuu"]
+shader = ExtResource("3_mwvqt")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_jdc67")
+shader_parameter/intensity = 0.0
+
 [sub_resource type="Resource" id="Resource_1htc4"]
 script = ExtResource("21_1b66h")
 formations = Array[ExtResource("20_33khn")]([ExtResource("21_r2vng"), ExtResource("21_r2vng"), ExtResource("21_r2vng"), ExtResource("21_r2vng")])
@@ -36,7 +50,23 @@ metadata/_custom_type_script = "uid://d25cy6pylx3w5"
 script = ExtResource("1_bo1nx")
 currency_count_control = ExtResource("12_hyxu5")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1764506093]
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="CanvasLayer" unique_id=782492491]
+copy_mode = 2
+
+[node name="DeathScreen" type="ColorRect" parent="CanvasLayer" unique_id=1444188069]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_16xuu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_h7dmi")
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1511900576]
+unique_name_in_owner = true
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=316964686]
 anchors_preset = 15
@@ -104,6 +134,7 @@ region_rect = Rect2(0, 0, 10000, 10000)
 script = ExtResource("16_r2vng")
 
 [node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
+unique_name_in_owner = true
 position = Vector2(957, 482)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1520117509]

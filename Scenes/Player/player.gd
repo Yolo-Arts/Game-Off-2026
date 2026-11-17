@@ -103,5 +103,3 @@ func shoot():
 func die() -> void:
 	is_dead = true
 	state_machine.initialize(self, &"frozen")
-	
-	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen)
