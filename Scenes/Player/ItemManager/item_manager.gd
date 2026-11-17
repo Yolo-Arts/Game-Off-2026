@@ -1,5 +1,6 @@
 class_name ItemManager extends Node
 
+var player: Player
 var base_stats: PlayerStats
 var current_stats: PlayerStats
 var collected_items: Array[ItemData] = []
@@ -10,7 +11,8 @@ var active_effects: Array[ItemEffect] = []
 # an upgrade that changes during the game
 var dynamic_modifiers: Array[StatModifier] = []
 
-func setup(_base_stats: PlayerStats) -> void:
+func setup(_player: Player, _base_stats: PlayerStats) -> void:
+	player = _player
 	base_stats = _base_stats
 	for item in SkillTreeUpgrades.get_purchased_items():
 		add_item(item)
@@ -30,7 +32,7 @@ func add_item(item: ItemData) -> void:
 		var effect = item.effect_scene.instantiate() as ItemEffect
 		if effect:
 			add_child(effect)
-			effect.setup(get_parent())
+			effect.setup(player)
 			active_effects.append(effect)
 	
 	

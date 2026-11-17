@@ -28,7 +28,7 @@ func _ready() -> void:
 	EventSystem.player_hit.connect(_on_player_hit)
 	EventSystem.player_died.connect(die)
 	
-	item_manager.setup(_default_stats)
+	item_manager.setup(self, _default_stats)
 	movement_component.setup(self)
 	hitbox.setup(self, true)
 	
