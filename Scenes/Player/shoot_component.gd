@@ -23,6 +23,7 @@ func shoot(scene: PackedScene) -> void:
 		return
 	var bullet: BulletProjectile = scene.instantiate() as BulletProjectile
 	if bullet:
+		EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerShoot)
 		bullet.projectile_stats = make_projectile_data(player.get_current_stats(), -player.transform.y)
 		bullet.global_position = player.global_position + 32 * -player.transform.y
 		get_tree().current_scene.add_child(bullet)

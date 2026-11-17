@@ -100,6 +100,8 @@ func shoot():
 	pass
 
 func die() -> void:
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerDeath)
+	
 	is_dead = true
 	state_machine.initialize(self, &"frozen")
 	

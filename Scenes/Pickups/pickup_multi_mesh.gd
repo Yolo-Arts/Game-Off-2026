@@ -214,7 +214,11 @@ func _collect(pickup_reference: PickupReference) -> void:
 	if pickup_reference.is_removed: return
 
 	_queue_currency(pickup_reference.currency_data.type, Pickups.value_per_pickup)
-	Pickups.collected.emit(pickup_reference)
+	Pickups.collected.emit(pickup_reference) 
+	
+	# SFX Find good sfx
+	#EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.GearCurrencyCollect)
+
 	_remove_pickup_instance(pickup_reference)
 	_play_sfx()
 
