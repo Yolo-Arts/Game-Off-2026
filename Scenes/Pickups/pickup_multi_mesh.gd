@@ -177,7 +177,7 @@ func _spawn_pickup(pickup_reference: PickupReference) -> void:
 	var tween_time := randf_range(0.1, 0.2)
 
 	var tween := create_tween().set_parallel()
-	tween.tween_property(pickup_reference, "scale", randf_range(3.5, 4.5) * Vector2.ONE, tween_time).set_delay(randf_range(0.0, 0.1)).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(pickup_reference, "scale", randf_range(8.5, 9.5) * Vector2.ONE, tween_time).set_delay(randf_range(0.0, 0.1)).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(pickup_reference, "color:a", 1.0, tween_time).set_delay(randf_range(0.0, 0.2))
 
 	await tween.finished
