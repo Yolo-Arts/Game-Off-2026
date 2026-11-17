@@ -17,7 +17,9 @@ func _ready() -> void:
 	enemy_spawn_timer.wait_time = stage_data.spawn_interval
 	enemy_spawn_timer.timeout.connect(spawn_next_formation)
 	enemy_spawn_timer.start()
-
+	stage_data.current_wave = 0
+	
+	
 func _process(delta: float) -> void:
 	#Debugging purposes
 	if(Input.is_key_pressed(KEY_M)):

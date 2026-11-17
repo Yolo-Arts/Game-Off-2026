@@ -19,5 +19,5 @@ func _on_enemy_hit(enemy: Node2D, source: DamageSource) -> void:
 		fire_ball.global_position = enemy.global_position
 		add_child(fire_ball)
 		enemy.take_damage(DamageSource.new(500, 0.0, DamageSource.DamageSourceType.OTHER, DamageSource.ShiftColor.NONE))
-		await get_tree().create_timer(4.0).timeout
+		await get_tree().create_timer(1.0).timeout
 		fire_ball.queue_free()
