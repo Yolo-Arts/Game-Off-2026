@@ -5,50 +5,8 @@
 [ext_resource type="Resource" uid="uid://dalnaxqkf7c2a" path="res://Resources/EnemySources/test_enemy_stats.tres" id="2_gx76c"]
 [ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_efgs1"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="4_qs8s8"]
-[ext_resource type="Texture2D" uid="uid://bnguadinrb862" path="res://Assets/Enemy/basic_enemy/enemy_blue_walk-Sheet.png" id="5_gx76c"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pqgp3"]
-atlas = ExtResource("5_gx76c")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ad2a"]
-atlas = ExtResource("5_gx76c")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kiqm3"]
-atlas = ExtResource("5_gx76c")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6j3ko"]
-atlas = ExtResource("5_gx76c")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2chwy"]
-atlas = ExtResource("5_gx76c")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sckgu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pqgp3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ad2a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kiqm3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6j3ko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2chwy")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://cpboe34c1pj3o" path="res://Assets/Enemy/basic_enemy/blue_basic_enemy.tres" id="5_pqgp3"]
+[ext_resource type="SpriteFrames" uid="uid://c5u8x860kohmb" path="res://Assets/Enemy/basic_enemy/red_basic_enemy.tres" id="6_4ad2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6lt"]
 
@@ -69,9 +27,14 @@ knockback_decay_coefficient = 14.0
 rotation = -1.5707964
 scale = Vector2(5, 5)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=1729905700]
+[node name="EnemyBlueSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=1729905700]
 unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_sckgu")
+sprite_frames = ExtResource("5_pqgp3")
+autoplay = "default"
+
+[node name="EnemyRedSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=371493522]
+unique_name_in_owner = true
+sprite_frames = ExtResource("6_4ad2a")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]

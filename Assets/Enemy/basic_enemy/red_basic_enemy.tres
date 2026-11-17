@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c5u8x860kohmb"]
+
+[ext_resource type="Texture2D" uid="uid://bkovan3mbh8na" path="res://Assets/Enemy/basic_enemy/enemy_red_walk-Sheet.png" id="1_badmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beese"]
+atlas = ExtResource("1_badmw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vi6b"]
+atlas = ExtResource("1_badmw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1w2j"]
+atlas = ExtResource("1_badmw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4wq1"]
+atlas = ExtResource("1_badmw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5luce"]
+atlas = ExtResource("1_badmw")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beese")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vi6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1w2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4wq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5luce")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

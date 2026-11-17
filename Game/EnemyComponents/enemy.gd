@@ -4,7 +4,9 @@ class_name Enemy extends CharacterBody2D
 @onready var movement_component: EnemyMovementComponent = $MovementComponent
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
-@onready var sprite_2d = %Sprite2D
+
+@onready var enemy_blue_sprite = %EnemyBlueSprite
+@onready var enemy_red_sprite = %EnemyRedSprite
 
 func _ready() -> void:
 	add_to_group("enemies")
@@ -12,7 +14,11 @@ func _ready() -> void:
 	movement_component.setup(self)
 	hitbox.setup(self, enemy_stats)
 	if enemy_stats.shift_color == DamageSource.ShiftColor.RED:
-		sprite_2d.modulate = Color(1, 0, 0)
+		enemy_blue_sprite.visible = false
+		enemy_red_sprite.visible = true
+	else:
+		enemy_blue_sprite.visible = true
+		enemy_red_sprite.visible = false
 	
 	EventSystem.player_shifted.connect(update_dimension_speed)
 	var player: Player = get_tree().get_first_node_in_group("player") as Player
