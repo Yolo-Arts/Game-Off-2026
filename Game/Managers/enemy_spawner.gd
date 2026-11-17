@@ -76,6 +76,7 @@ func attempt_spawn_enemy(enemy: EnemyData) -> bool:
 
 	return false
 
+# Spawn animation stuff starts below:
 func start_spawn_sequence(enemy_data: EnemyData, spawn_pos: Vector2) -> void:
 	var chosen_color: DamageSource.ShiftColor = enemy_data.base_enemy_stats.shift_color
 	if enemy_data.enemy_type == EnemyData.EnemyType.COLOR:
