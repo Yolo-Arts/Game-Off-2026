@@ -8,9 +8,7 @@ var player: Player
 
 func setup(_player: Player) -> void:
 	player = _player
-	update_health()
-	current_health = max_health
-	EventSystem.health_changed.emit(current_health, max_health)
+	update_health(true)
 	EventSystem.stat_changed.connect(_on_stat_changed)
 
 ## Updates health when the health stat changes
@@ -19,11 +17,13 @@ func _on_stat_changed(stat: String) -> void:
 		update_health()
 
 ## Updates the health from [PlayerStats]
-func update_health() -> void:
+func update_health(set_max: bool = false) -> void:
 
 	var current_stats: PlayerStats = player.get_current_stats()
 	max_health = current_stats.max_health
-	EventSystem.health_changed.emit(current_health, max_health)
+	if set_max:
+		current_health = max_health
+	EventSystem.health_changed.emit(current_health, max_health, true)
 
 func is_invincible() -> bool:
 	return invincibility_sources.size() > 0

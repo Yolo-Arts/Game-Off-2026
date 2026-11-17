@@ -5,5 +5,5 @@ func _ready():
 	
 	text = "%d/%d" % [parent.value, parent.max_value]
 
-func _stat_changed(new_value: float, new_max: float = parent.max_value) -> void:
+func _stat_changed(new_value: float, new_max: float = parent.max_value, _initialize: bool = false) -> void:
 	text = "%d/%d" % [new_value, new_max]

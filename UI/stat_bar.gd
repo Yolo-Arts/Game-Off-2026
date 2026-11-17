@@ -2,7 +2,10 @@ class_name StatBar extends TextureProgressBar
 
 @export var event_bus_signal: Array[StringName]
 @export var tween_duration: float = 0.25
+@export var lerp_speed: float = 10.0
 
+var target_value: float
+var target_max_value: float
 var max_tween: Tween
 var value_tween: Tween
 
@@ -14,20 +17,16 @@ func _ready() -> void:
 	for sig in event_bus_signal:
 		if EventSystem.has_signal(sig):
 			EventSystem.connect(sig, _stat_changed)
-			
-func _stat_changed(new_value: float, new_max: float = max_value) -> void:
-	if value_tween:
-		value_tween.kill()
-	if max_tween:
-		max_tween.kill()
-	if abs(new_value - value) <= 1.0 or abs(new_max - max_value) <= 1.0:
+
+func _process(delta: float) -> void:
+	value = lerpf(value, target_value, lerp_speed * delta)
+	max_value = lerpf(max_value, target_max_value, lerp_speed * delta)
+	print(value)
+	print(max_value)
+	
+func _stat_changed(new_value: float, new_max: float = max_value, initialize: bool = false) -> void:
+	if initialize:
 		value = new_value
-		max_value =  new_max
-		return
-	
-	max_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	max_tween.tween_property(self, "max_value", new_max, tween_duration)
-	
-	
-	value_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	value_tween.tween_property(self, "value", new_value, tween_duration)
+		max_value = new_max
+	target_value = new_value
+	target_max_value = new_max
