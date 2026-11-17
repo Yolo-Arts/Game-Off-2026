@@ -48,7 +48,6 @@ func _on_player_hit(damage_source: DamageSource) -> void:
 	if not health_component.take_damage(damage_source): return
 	
 	if damage_source.damage_type != DamageSource.DamageSourceType.AUTO_DAMAGE:
-		Juicee.impact_ring(self)
 		Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.49), 0.2)
 		TweenManager.camera.shake(0.25, 20, 15)
 		if damage_source.source_node != null:
@@ -103,3 +102,7 @@ func shoot():
 func die() -> void:
 	is_dead = true
 	state_machine.initialize(self, &"frozen")
+	
+	var pool = get_tree().get_first_node_in_group("object_pool")
+	if pool:
+		pool.spawn_explosion(global_position)

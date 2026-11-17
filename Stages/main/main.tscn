@@ -64,6 +64,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_h7dmi")
+out_duration = 1.0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1511900576]
 unique_name_in_owner = true

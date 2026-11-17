@@ -3,7 +3,18 @@
 [ext_resource type="Resource" uid="uid://dalnaxqkf7c2a" path="res://Resources/EnemySources/test_enemy_stats.tres" id="1_h7hm8"]
 [ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="1_qkfwa"]
 [ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="2_o88y8"]
-[ext_resource type="Resource" uid="uid://b0xtxgitrg1us" path="res://Resources/enemy_spawn_animation_data/test_spawn_animation_data.tres" id="4_o88y8"]
+[ext_resource type="Texture2D" uid="uid://bxu6isxd3kjls" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn_fill.png" id="4_hslj6"]
+[ext_resource type="Texture2D" uid="uid://dkeq8xbrrbx34" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn.png" id="5_2f3tt"]
+[ext_resource type="Script" uid="uid://5tohkhxkc40i" path="res://Resources/enemy_spawn_animation_data/enemy_spawn_animation_texture_data.gd" id="6_csnpf"]
+[ext_resource type="Texture2D" uid="uid://c6hsamsvf4rfb" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn_zoom.png" id="7_yhb4w"]
+
+[sub_resource type="Resource" id="Resource_badmw"]
+script = ExtResource("6_csnpf")
+glitch_texture = ExtResource("5_2f3tt")
+zoom_texture = ExtResource("7_yhb4w")
+fill_texture = ExtResource("4_hslj6")
+rotate = true
+metadata/_custom_type_script = "uid://5tohkhxkc40i"
 
 [resource]
 script = ExtResource("1_qkfwa")
@@ -11,6 +22,6 @@ enemy_id = &"testenemy"
 enemy_name = "testy"
 enemy_scene = ExtResource("2_o88y8")
 base_enemy_stats = ExtResource("1_h7hm8")
-spawn_animation_data = ExtResource("4_o88y8")
+spawn_animation_data = SubResource("Resource_badmw")
 spawn_distance_from_player = 400.0
 metadata/_custom_type_script = "uid://mahujeywww5p"

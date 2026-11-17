@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0, 0, 0.09411765)
+color = Color(0, 0, 0, 0.827451)
 
 [node name="GameOverWhiteFade" type="TextureRect" parent="." unique_id=1701627115]
 unique_name_in_owner = true
@@ -80,6 +80,28 @@ text = "Acquired Resources"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOverLabel3" type="RichTextLabel" parent="." unique_id=1011947317]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.5
+offset_top = -279.0
+offset_right = 436.5
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_m6qc7")
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[wave]Ran out of fuel!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1224477322]
 layout_mode = 1
 anchors_preset = 8
@@ -107,27 +129,30 @@ size_flags_vertical = 4
 theme_override_constants/separation = 95
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1786612528]
+[node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1786612528]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 82
 
-[node name="RetryButton" parent="VBoxContainer/HBoxContainer" unique_id=352476746 instance=ExtResource("3_m6qc7")]
+[node name="RetryButton" parent="VBoxContainer/ButtonContainer" unique_id=352476746 instance=ExtResource("3_m6qc7")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+offset_transform_enabled = true
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r1uq1")
 btn_text = "Retry"
 outline_color = Color(1, 1, 1, 1)
 hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 main_color = Color(0, 0, 0, 0.49411765)
 
-[node name="UpgradesButton" parent="VBoxContainer/HBoxContainer" unique_id=2143546587 instance=ExtResource("3_m6qc7")]
+[node name="UpgradesButton" parent="VBoxContainer/ButtonContainer" unique_id=2143546587 instance=ExtResource("3_m6qc7")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+offset_transform_enabled = true
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qf2p2")
 btn_text = "Upgrades"
 outline_color = Color(1, 1, 1, 1)

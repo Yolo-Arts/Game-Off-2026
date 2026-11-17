@@ -8,6 +8,7 @@
 [node name="game_over_currency_count_control" type="VBoxContainer" unique_id=100001631]
 offset_right = 40.0
 offset_bottom = 40.0
+offset_transform_enabled = true
 script = ExtResource("1_tvuje")
 
 [node name="CurrencyIcon" type="TextureRect" parent="." unique_id=1798703922]

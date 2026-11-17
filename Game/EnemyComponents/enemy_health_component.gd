@@ -22,6 +22,7 @@ func take_damage(source: DamageSource) -> void:
 	# Increasing player energy from the enemy script lol....
 	# TODO probably refactor this into the energy component but we ball.
 	if (source.damage_type == DamageSource.DamageSourceType.PLAYER):
+		Juicee.impact_ring(enemy)
 		var player: Player = source.source_node 
 		var player_stats: PlayerStats = player.get_current_stats()
 		player.energy_component.increase_energy(player_stats.energy_increase)
