@@ -23,6 +23,8 @@ const POLYGON_START_ANGLE := -PI * 0.5
 # From the foolish shapes scripts:
 const COPIED_SHAPE_PROPERTIES := ["fill_color", "edge_width"]
 
+const HIDDEN_BUTTON_SCALE := Vector2(0.001, 0.001)
+
 signal hovered(item: ItemData)
 signal unhovered(item: ItemData)
 signal pressed_item(item: ItemData)
@@ -30,11 +32,14 @@ signal pressed_item(item: ItemData)
 var item: ItemData   
 
 var shape 
+var original_position: Vector2
+var tween: Tween
 
 @onready var texture_button = %TextureButton
 
 
 func _ready() -> void:
+	original_position = position
 	_replace_shape()
 
 	texture_button.flat = true
@@ -170,3 +175,65 @@ func _partial_outline(points: PackedVector2Array, fraction: float) -> PackedVect
 			result.append(points[i].lerp(points[i + 1], remaining / segment))
 			break
 	return result
+
+
+# Animation stuff
+
+# Stops mouse input
+func set_interactive(is_on: bool) -> void:
+	texture_button.mouse_filter = Control.MOUSE_FILTER_STOP if is_on else Control.MOUSE_FILTER_IGNORE
+	if is_on and texture_button.is_hovered():
+		hovered.emit(item)
+
+
+func prepare_hidden() -> void:
+	kill_tween()
+	scale = HIDDEN_BUTTON_SCALE
+	position = original_position
+	set_interactive(false)
+
+
+func play_pop_in(delay: float) -> void:
+	prepare_hidden()
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_interval(delay)
+	tween.tween_property(self, "scale", Vector2(0.8, 1.35), 0.15).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(1.15, 0.85), 0.1)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.08)
+
+
+func play_reveal(from_position: Vector2, delay: float) -> void:
+	prepare_hidden()
+	position = from_position
+	rotation_degrees = randf_range(-15.0, 15.0)
+
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_interval(delay)
+	tween.tween_property(self, "scale", Vector2.ONE * 1.3, 0.22).set_trans(Tween.TRANS_BACK)
+	tween.parallel().tween_property(self, "position", original_position, 0.22).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property(self, "rotation_degrees", 0.0, 0.25).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.12).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(func():
+		set_interactive(true)
+		Juicee.sparkle(self)
+	)
+
+
+func play_close(delay: float) -> void:
+	kill_tween()
+	set_interactive(false)
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_interval(delay)
+	tween.tween_property(self, "scale", Vector2.ONE * 1.15, 0.08).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", HIDDEN_BUTTON_SCALE, 0.22).set_trans(Tween.TRANS_BACK)
+	tween.parallel().tween_property(self, "position", Vector2.ZERO, 0.22).set_trans(Tween.TRANS_CUBIC)
+
+
+func kill_tween() -> void:
+	if tween != null and tween.is_valid():
+		tween.kill()
+	rotation_degrees = 0.0

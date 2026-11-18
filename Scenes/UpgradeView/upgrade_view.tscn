@@ -15,6 +15,7 @@ script = ExtResource("1_nak5f")
 currency_count_control = ExtResource("2_40fe1")
 
 [node name="SkillTree" parent="." unique_id=167548131 instance=ExtResource("1_fewt0")]
+unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="." unique_id=533925870]
 layout_mode = 3
