@@ -32,8 +32,8 @@ metadata/_custom_type_script = "uid://bigogxmuptah4"
 
 [resource]
 script = ExtResource("4_0w6jc")
-id = "GearValue1"
-display_name = "Gear Value"
+id = "StarValue1"
+display_name = "Star Value"
 description = "Increase {STARS} value by [1]."
 icon = ExtResource("1_cmtm0")
 modifiers = Array[ExtResource("2_yhcyo")]([SubResource("Resource_354lq")])

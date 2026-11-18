@@ -1,4 +1,4 @@
-class_name Sharpnel extends Area2D
+class_name shrapnel extends Area2D
 
 var damage: float = 0.0
 var speed: float = 0.0

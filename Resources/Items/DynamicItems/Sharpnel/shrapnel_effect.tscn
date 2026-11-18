@@ -5,5 +5,5 @@
 
 [node name="ShrapnelEffect" type="Node" unique_id=1860302702]
 script = ExtResource("1_t4j84")
-sharpnel_scene = ExtResource("2_boj8e")
+shrapnel_scene = ExtResource("2_boj8e")
 metadata/_custom_type_script = "uid://cycgxxkql4lhh"

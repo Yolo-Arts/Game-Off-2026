@@ -11,7 +11,7 @@ const TREE = [
 		]],
 	["fuel_1", [
 		["fuel_2"]
-		]],
+	]],
 	["beefier_hull", [
 		["energy_recharge_1"],
 	]],
@@ -21,8 +21,10 @@ const TREE = [
 	]],
 	["projectile_damage_1", [
 		["projectile_damage_2"],
-		["DynamicItems/sharpnel_item"]
-		]],
+		["DynamicItems/shrapnel_item", [
+			["shrapnel_count_1"]
+		]]
+	]],
 	["currency_range_pickup_1", [
 		["currency_gear_value_1", [
 			["currency_star_value_1"],

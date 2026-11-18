@@ -2,6 +2,8 @@ class_name PlayerStats extends Resource
 
 @export var max_health: float = 100.0
 @export var health_usage_per_second: float = 1.0
+# TODO implement this: fuel_gain_on_currency_pickup
+@export var fuel_gain_on_currency_pickup: float = 0.0
 @export var max_energy: float = 100.0
 @export var energy_increase: float = 10.0
 @export var energy_ram_cost: float = 20.0
@@ -29,6 +31,8 @@ class_name PlayerStats extends Resource
 @export var gear_currency_value: int = 0
 @export var star_currency_value: int = 0
 @export var currency_pickup_radius_multi: float = 1.0
+@export var shrapnel_count: int = 1
+
 
 func get_computed_damage() -> float:
 	var final_damage: float = damage
