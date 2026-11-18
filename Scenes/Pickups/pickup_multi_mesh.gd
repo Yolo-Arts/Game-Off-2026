@@ -24,6 +24,7 @@ var _payout_cooldown: float = 0.0
 var player: Player
 var gear_currency_value: int
 var star_currency_value: int
+var pickup_radius: float
 
 func _ready() -> void:
 	setup_player_stats()
@@ -42,12 +43,14 @@ func _ready() -> void:
 
 func setup_player_stats() -> void:
 	player = get_tree().get_first_node_in_group(&"player")
+	var stats = player.get_current_stats()
 	
 	if !player:
 		print("Player don't exist lol")
 	
-	gear_currency_value = clampi(player.get_current_stats().gear_currency_value, 0, player.get_current_stats().gear_currency_value)
-	star_currency_value = clampi(player.get_current_stats().star_currency_value, 0, player.get_current_stats().star_currency_value) 
+	gear_currency_value = clampi(stats.gear_currency_value, 0, player.get_current_stats().gear_currency_value)
+	star_currency_value = clampi(stats.star_currency_value, 0, player.get_current_stats().star_currency_value) 
+	pickup_radius = Pickups.pickup_radius * clampf(stats.currency_pickup_radius_multi, 1.0, stats.currency_pickup_radius_multi)
 
 func _exit_tree() -> void:
 	if Performance.has_custom_monitor(MONITOR_ID):
@@ -82,12 +85,13 @@ func _process(delta: float) -> void:
 	var collector := Pickups.get_collector()
 	if collector == null: return
 
-	collect_in_radius(collector.global_position, Pickups.pickup_radius)
+	collect_in_radius(collector.global_position, pickup_radius)
 
 
 
 func collect_in_radius(center: Vector2, radius: float) -> void:
 	for pickup_position in _quad_tree.find_all_in_radius(center, radius):
+		print(radius)
 		var pickup_reference: PickupReference = _position_dictionary.get(pickup_position)
 		if pickup_reference == null: continue
 		if not pickup_reference.pickable: continue

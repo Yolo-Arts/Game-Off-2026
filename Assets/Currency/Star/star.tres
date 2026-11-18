@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://ceibgev1vriol"]
+
+[ext_resource type="Texture2D" uid="uid://yttci7ak7inx" path="res://Assets/Currency/Star/star1.png" id="1_lbpe3"]
+[ext_resource type="Texture2D" uid="uid://bcq3758lun8yg" path="res://Assets/Currency/Star/star2.png" id="2_i3mb4"]
+[ext_resource type="Texture2D" uid="uid://ckfy7yvc2ss26" path="res://Assets/Currency/Star/star3.png" id="3_jd4aw"]
+[ext_resource type="Texture2D" uid="uid://bb576s6anslhr" path="res://Assets/Currency/Star/star4.png" id="4_nfrnv"]
+
+[resource]
+frames = 4
+frame_0/texture = ExtResource("1_lbpe3")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("2_i3mb4")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("3_jd4aw")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("4_nfrnv")
+frame_3/duration = 0.2

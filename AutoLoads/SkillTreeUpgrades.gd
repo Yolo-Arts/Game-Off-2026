@@ -23,7 +23,11 @@ const TREE = [
 		["projectile_damage_2"],
 		["DynamicItems/sharpnel_item"]
 		]],
-	["currency_gear_value_1"],
+	["currency_range_pickup_1", [
+		["currency_gear_value_1", [
+			["currency_star_value_1"],
+		]],
+	]],
 ]
 
 

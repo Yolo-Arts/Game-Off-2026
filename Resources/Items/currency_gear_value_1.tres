@@ -16,21 +16,23 @@ metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 [sub_resource type="Resource" id="Resource_muvpr"]
 script = ExtResource("3_n2lm2")
 initial_price = 15
-price_multiplier = 1.5
+price_multiplier = 2.0
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
 [sub_resource type="Resource" id="Resource_v54o1"]
 script = ExtResource("5_ncqnr")
 text = "GEARS"
 color = Color(0.78, 0.8, 0.85, 1)
+font_size = 28
 icon = ExtResource("6_e3asf")
+icon_size = Vector2i(48, 48)
 metadata/_custom_type_script = "uid://bigogxmuptah4"
 
 [resource]
 script = ExtResource("4_836ch")
 id = "GearValue1"
 display_name = "Gear Value"
-description = "Increase {GEARS} value by [1]."
+description = "Increase {GEARS} by [1]."
 icon = ExtResource("1_3g2si")
 modifiers = Array[ExtResource("2_mpowk")]([SubResource("Resource_354lq")])
 max_level = 2
