@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_354lq"]
 script = ExtResource("2_dialt")
 stat = "max_health"
-add = 50.0
+add = 5.0
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]
@@ -21,6 +21,7 @@ metadata/_custom_type_script = "uid://cwygifwmbqpua"
 [sub_resource type="Resource" id="Resource_v54o1"]
 script = ExtResource("5_8y6uo")
 text = "fuel capacity"
+color = Color(0.3238051, 0.82986456, 0.9348958, 1)
 metadata/_custom_type_script = "uid://bigogxmuptah4"
 
 [resource]

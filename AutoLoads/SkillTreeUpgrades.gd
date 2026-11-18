@@ -12,8 +12,13 @@ const TREE = [
 	["fuel_1", [
 		["fuel_2"]
 		]],
-	["beefier_hull"],
-	["energy_recharge_1"],
+	["beefier_hull", [
+		["energy_recharge_1"],
+	]],
+	["gear_shift_1", [
+		["gear_shift_2"],
+		["energy_recharge_1"],
+	]],
 	["projectile_damage_1", [
 		["DynamicItems/sharpnel_item"]
 		]],

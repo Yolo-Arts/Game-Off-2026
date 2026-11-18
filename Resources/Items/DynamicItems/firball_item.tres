@@ -31,6 +31,7 @@ display_name = "EXPLOSION"
 description = "Each shot has a chance based on {luck} to deal {500} flat damage to the enemy."
 icon = ExtResource("2_j0udg")
 effect_scene = ExtResource("1_yjpmq")
+shape_type = 1
 price_data_array = Array[ExtResource("2_yjpmq")]([SubResource("Resource_bnue5")])
 initial_increment_value = 10.0
 text_injections = Array[ExtResource("4_omijx")]([SubResource("Resource_jnm0b"), SubResource("Resource_sn3vn")])
