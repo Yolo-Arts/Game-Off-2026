@@ -21,9 +21,14 @@ var _pending_amounts: Dictionary = {}
 var _sfx_player: AudioStreamPlayer
 var _last_sfx_msec: int = 0
 var _payout_cooldown: float = 0.0
-
+var player: Player
+var gear_currency_value: int
+var star_currency_value: int
+var pickup_radius: float
 
 func _ready() -> void:
+	setup_player_stats()
+	
 	_quad_tree = QuadTree.new(world_rect)
 	_setup_multimesh()
 
@@ -36,6 +41,16 @@ func _ready() -> void:
 
 	hide()
 
+func setup_player_stats() -> void:
+	player = get_tree().get_first_node_in_group(&"player")
+	var stats = player.get_current_stats()
+	
+	if !player:
+		print("Player don't exist lol")
+	
+	gear_currency_value = clampi(stats.gear_currency_value, 0, player.get_current_stats().gear_currency_value)
+	star_currency_value = clampi(stats.star_currency_value, 0, player.get_current_stats().star_currency_value) 
+	pickup_radius = Pickups.pickup_radius * clampf(stats.currency_pickup_radius_multi, 1.0, stats.currency_pickup_radius_multi)
 
 func _exit_tree() -> void:
 	if Performance.has_custom_monitor(MONITOR_ID):
@@ -70,7 +85,7 @@ func _process(delta: float) -> void:
 	var collector := Pickups.get_collector()
 	if collector == null: return
 
-	collect_in_radius(collector.global_position, Pickups.pickup_radius)
+	collect_in_radius(collector.global_position, pickup_radius)
 
 
 
@@ -214,7 +229,9 @@ func _collect(pickup_reference: PickupReference) -> void:
 	if pickup_reference.is_removed: return
 
 	_queue_currency(pickup_reference.currency_data.type, Pickups.value_per_pickup)
-	Pickups.collected.emit(pickup_reference)
+	Pickups.collected.emit(pickup_reference) 
+	
+	
 	_remove_pickup_instance(pickup_reference)
 	_play_sfx()
 
@@ -226,9 +243,20 @@ func _flush_pending_currency() -> void:
 	if _pending_amounts.is_empty(): return
 
 	_payout_cooldown = PAYOUT_INTERVAL
+	
 	for type in _pending_amounts:
-		Currencies.add(type, _pending_amounts[type])
+		Currencies.add(type, _pending_amounts[type] * _get_currency_multiplier(type))
+	
 	_pending_amounts.clear()
+
+
+func _get_currency_multiplier(type: Enums.CurrencyType) -> int:
+	match type:
+		Enums.CurrencyType.GEAR:
+			return 1 + maxi(gear_currency_value, 0)
+		Enums.CurrencyType.STAR:
+			return 1 + maxi(star_currency_value, 0)
+	return 1
 
 
 func _play_sfx() -> void:
@@ -237,7 +265,8 @@ func _play_sfx() -> void:
 		return
 	
 	_last_sfx_msec = now
-	EventSystem.SFX_play_sfx.emit(pickup_sfx_config)
+	# SFX Find good sfx
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.GearCurrencyCollect)
 
 
 func _on_despawn_all_pickups() -> void:

@@ -35,7 +35,7 @@ func setup_currency_count_container(dict: Dictionary) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_T:
 		var spot := get_global_mouse_position()
-		Pickups.spawn(Enums.CurrencyType.GEAR, spot, 40)
+		Pickups.spawn(Enums.CurrencyType.GEAR, spot, 10)
 		Pickups.spawn(Enums.CurrencyType.STAR, spot, 10)
 
 func player_died() -> void:

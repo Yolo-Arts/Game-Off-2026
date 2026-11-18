@@ -21,8 +21,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	value = lerpf(value, target_value, lerp_speed * delta)
 	max_value = lerpf(max_value, target_max_value, lerp_speed * delta)
-	# print(value)
-	# print(max_value)
 	
 func _stat_changed(new_value: float, new_max: float = max_value, initialize: bool = false) -> void:
 	if initialize:

@@ -14,7 +14,8 @@ extends Resource
 @export var font_size: int = 0
 
 @export var icon: Texture2D
-@export var icon_size: Vector2i = Vector2i(20, 36)
+@export var icon_color: Color = Color(1.0, 1.0, 1.0, 1.0)
+@export var icon_size: Vector2i = Vector2i(32, 32)
 @export var wave: bool = true
 
 
@@ -23,7 +24,12 @@ func get_string(_level: int) -> String:
 	if font_size > 0:
 		result = "[font_size=%d]%s[/font_size]" % [font_size, result]
 	if icon != null and not icon.resource_path.is_empty():
-		var img := "[img=%dx%d]%s[/img]" % [icon_size.x, icon_size.y, icon.resource_path]
+		var img := "[img width=%d height=%d color=#%s]%s[/img]" % [
+			icon_size.x,
+			icon_size.y,
+			icon_color.to_html(),
+			icon.resource_path
+		]
 		result = "%s %s %s" % [img, result, img]
 	if wave:
 		result = "[wave amp=15.0 freq=2.5]%s[/wave]" % result

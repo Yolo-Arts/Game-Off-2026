@@ -51,7 +51,7 @@ func _on_player_hit(damage_source: DamageSource) -> void:
 		Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.49), 0.2)
 		TweenManager.camera.shake(0.25, 20, 15)
 		if damage_source.source_node != null:
-			movement_component.current_knockback = damage_source.knockback * (damage_source.source_node.global_position.direction_to(global_position))
+			movement_component.current_knockback += damage_source.knockback * (damage_source.source_node.global_position.direction_to(global_position))
 			
 
 func get_current_stats() -> PlayerStats:
@@ -100,9 +100,9 @@ func shoot():
 	pass
 
 func die() -> void:
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerDeath)
+	
 	is_dead = true
 	state_machine.initialize(self, &"frozen")
 	
-	var pool = get_tree().get_first_node_in_group("object_pool")
-	if pool:
-		pool.spawn_explosion(global_position)
+	ObjectPool.spawn(ObjectPool.explosion_scene, global_position)

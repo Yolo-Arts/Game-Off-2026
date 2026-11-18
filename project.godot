@@ -37,6 +37,7 @@ SaveManager="*uid://nip5aet78q1k"
 Springer="*uid://c54ar5ruv21ib"
 Jumper="*uid://drl1w7q3t8w6x"
 Juicee="*uid://b36fwfvmmv0xc"
+ObjectPool="*uid://dtlgf06xl52c1"
 
 [display]
 
@@ -46,7 +47,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/juicee/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gdfxr/plugin.cfg", "res://addons/juicee/plugin.cfg")
 
 [file_customization]
 

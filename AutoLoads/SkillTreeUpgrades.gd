@@ -6,8 +6,40 @@ signal item_bought(item: ItemData)
 const ITEM_PATH := "res://Resources/Items/%s.tres"
 
 const TREE = [
-	["DynamicItems/firball_item", [["luckitem"]]],
-	["test_item"]]
+	["DynamicItems/firball_item", [
+		["luckitem"]
+		]],
+	["fuel_1", [
+		["fuel_2"]
+	]],
+	["beefier_hull", [
+		["beefier_hull_2"],
+		["energy_recharge_1"],
+	]],
+	["gear_shift_1", [
+		["gear_shift_2"],
+		["energy_recharge_1"],
+	]],
+	["projectile_damage_1", [
+		["projectile_damage_2", [
+			["crit_chance_1", [
+				["crit_chance_2"],
+			]],
+			["crit_damage_1", [
+				["crit_damage_2"],
+			]],
+		]],
+		["DynamicItems/shrapnel_item", [
+			["shrapnel_count_1"]
+		]]
+	]],
+	["currency_range_pickup_1", [
+		["currency_gear_value_1", [
+			["currency_star_value_1"],
+		]],
+	]],
+]
+
 
 var items: Dictionary = {}
 
@@ -69,11 +101,10 @@ func _on_data_loaded() -> void:
 			item.level = 0
 			item.unlocked = item.parents.is_empty()
 	
-	
 	for item: ItemData in items.values():
-		if item.level > 0:
-			for child in item.children:
-				child.try_unlock()
+		item.unlocked = item.parents.is_empty() or item.level > 0
+	for item: ItemData in items.values():
+		item.try_unlock()
 
 	changed.emit()
 
@@ -111,5 +142,16 @@ func buy(item: ItemData) -> bool:
 
 	return true
 
-
- 
+func reset() -> void:
+	for item in items.values(): 
+		item.level = 0
+		item.unlocked = false
+	
+	for entry in TREE:
+		var root_item := get_item(entry[0])
+		if root_item:
+			root_item.unlocked = true 
+	
+	SaveManager.data.upgrade_save_data.clear()
+	SaveManager.save_data()
+	changed.emit()

@@ -10,9 +10,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sckgu"]
 shader = ExtResource("1_76wv5")
 shader_parameter/wobble_speed = 1.0
-shader_parameter/wobble_frequency = 1.0
-shader_parameter/wobble_strength = 1.0
-shader_parameter/fisheye = 0.5
+shader_parameter/wobble_frequency = 0.3150000149625
+shader_parameter/wobble_strength = 0.0
+shader_parameter/fisheye = 0.3410000161975
 shader_parameter/brighten = 0.5
 shader_parameter/scanline_count = 1800.0
 shader_parameter/scanline_movespeed = 0.50000002375
@@ -40,7 +40,6 @@ shader_parameter/shake_color_rate = 0.010000000475
 layer = 99
 
 [node name="CRT" type="ColorRect" parent="ScreenCanvas" unique_id=1370886087]
-visible = false
 material = SubResource("ShaderMaterial_sckgu")
 anchors_preset = 15
 anchor_right = 1.0

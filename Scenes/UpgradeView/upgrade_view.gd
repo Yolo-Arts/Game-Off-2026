@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var currency_count_container = %CurrencyCountContainer
 @export var currency_count_control: PackedScene
+@onready var skill_tree = %SkillTree
 
 func _ready() -> void:
 	SaveManager.save_data()
@@ -18,7 +19,18 @@ func setup_currency_count_container(dict: Dictionary) -> void:
 
 func _on_back_to_main_menu_button_pressed():
 	EventSystem.STA_change_stage.emit(StageConfig.Keys.MainMenu)
+	#await skill_tree.close()
+	skill_tree.close()
 
 
 func _on_play_button_pressed():
 	EventSystem.STA_change_stage.emit(StageConfig.Keys.Main)
+	skill_tree.close()
+
+
+func _on_increase_currency_pressed():
+	Currencies.cheat_add_currency()
+
+
+func _on_reset_upgrades_pressed() -> void:
+	SkillTreeUpgrades.reset()

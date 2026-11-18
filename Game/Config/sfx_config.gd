@@ -6,6 +6,13 @@ enum Keys {
 	UISFXTest,
 	ButtonPressed,
 	ButtonHovered,
+	PlayerShoot,
+	PlayerDeath,
+	PlayerRam,
+	GearCurrencyCollect,
+	EnemySpawn,
+	MetalHit,
+	ItemPickup,
 }
 
 const FILE_PATHS := {
@@ -15,6 +22,15 @@ const FILE_PATHS := {
 	#Keys.ButtonPressed: "res://Audio/UIBtnSFX/button_sfx/KEY_PRESS_007.wav",
 	Keys.ButtonPressed: "res://Audio/UIBtnSFX/button_sfx/CLICK_003.wav",
 	Keys.ButtonHovered: "res://Audio/UIBtnSFX/button_sfx/CLICK_002.wav",
+	
+	Keys.PlayerShoot: "res://Audio/GameSFX/ShootSFX/shoot_sfx.sfxr",
+	Keys.PlayerDeath: "res://Audio/GameSFX/Player/player_death.sfxr",
+	Keys.PlayerRam: "res://Audio/GameSFX/Player/sfx_player_hit.ogg",
+	
+	Keys.GearCurrencyCollect: "res://Audio/GameSFX/Pickups/sfx_currency_pickup.ogg",
+	Keys.EnemySpawn: "res://Audio/GameSFX/Enemy/sfx_enemy_spawn_small.wav",
+	Keys.MetalHit: "res://Audio/GameSFX/ShootSFX/sfx_metal_hitsound.wav",
+	Keys.ItemPickup: "res://Audio/SFX_Resources/GameOverCurrencyAcquiredRandomizer.tres",
 }
 
 static func get_audio_stream(key:Keys) -> AudioStream:

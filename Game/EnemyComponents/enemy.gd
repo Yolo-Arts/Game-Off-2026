@@ -48,11 +48,12 @@ func die() -> void:
 	#var test = collectable.instantiate()
 	#test.position = position
 	#Juicee.preset_explosion(self)
-	var pool = get_tree().get_first_node_in_group("object_pool")
-	if pool:
-		pool.spawn_explosion(global_position)
+	await get_tree().process_frame
+	collision_layer = 0
+	collision_mask = 0
+	EventSystem.enemy_died.emit(self)
+	ObjectPool.spawn(ObjectPool.explosion_scene, global_position)
 	
-	#ObjectPool.spawn_explosion(global_position)
 	# TODO Add enemy death SFX
 	Pickups.spawn(Enums.CurrencyType.GEAR, global_position, enemy_stats.drop)
 	queue_free()

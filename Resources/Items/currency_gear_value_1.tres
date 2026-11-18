@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://tffber1ejliv"]
+
+[ext_resource type="Texture2D" uid="uid://wnu7xvmmx4gk" path="res://Assets/Currency/Gear/gear1.png" id="1_3g2si"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_mpowk"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_n2lm2"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_836ch"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_ncqnr"]
+[ext_resource type="Texture2D" uid="uid://cwd7w8v22ql0w" path="res://Assets/Currency/Gear/gears.tres" id="6_e3asf"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_mpowk")
+stat = "gear_currency_value"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_n2lm2")
+initial_price = 15
+price_multiplier = 2.0
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_ncqnr")
+text = "GEARS"
+color = Color(0.78, 0.8, 0.85, 1)
+font_size = 28
+icon = ExtResource("6_e3asf")
+icon_size = Vector2i(48, 48)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_836ch")
+id = "GearValue1"
+display_name = "Gear Value"
+description = "Increase {GEARS} by [1]."
+icon = ExtResource("1_3g2si")
+modifiers = Array[ExtResource("2_mpowk")]([SubResource("Resource_354lq")])
+max_level = 2
+min_level_to_unlock_children = 2
+price_data_array = Array[ExtResource("3_n2lm2")]([SubResource("Resource_muvpr")])
+increment_value = 1.0
+text_injections = Array[ExtResource("5_ncqnr")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"
