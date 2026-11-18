@@ -8,5 +8,6 @@ max_health = 10.0
 max_speed = 2000.0
 acceleration = 200.0
 deacceleration = 800.0
+minimum_ram_speed = 800.0
 knockback = 100.0
 metadata/_custom_type_script = "uid://glq4nadax2py"
