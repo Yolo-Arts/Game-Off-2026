@@ -1,6 +1,5 @@
 class_name ItemManager extends Node
 
-var player: Player
 var base_stats: PlayerStats
 var current_stats: PlayerStats
 var collected_items: Array[ItemData] = []

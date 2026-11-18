@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://7o4rigvjo0px"]
+
+[ext_resource type="Script" uid="uid://b0jtqbmfb46vn" path="res://Resources/Items/DynamicItems/Sharpnel/shrapnel_explosion.gd" id="1_t4j84"]
+[ext_resource type="PackedScene" uid="uid://f5sr7ot1733t" path="res://Resources/Items/DynamicItems/Sharpnel/sharpnel.tscn" id="2_boj8e"]
+
+[node name="ShrapnelEffect" type="Node" unique_id=1860302702]
+script = ExtResource("1_t4j84")
+sharpnel_scene = ExtResource("2_boj8e")
+metadata/_custom_type_script = "uid://cycgxxkql4lhh"

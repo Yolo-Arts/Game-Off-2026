@@ -7,7 +7,7 @@ const ITEM_PATH := "res://Resources/Items/%s.tres"
 
 const TREE = [
 	["DynamicItems/firball_item", [["luckitem"]]],
-	["test_item"]]
+	["test_item"], ["DynamicItems/sharpnel_item"]]
 
 var items: Dictionary = {}
 
