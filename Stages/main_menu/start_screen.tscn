@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnsiu2bkk0m3h" path="res://Assets/BG/MenuBG/blue_planet.png" id="4_bpomh"]
 [ext_resource type="Texture2D" uid="uid://bfyyfydip84o" path="res://Assets/PlayerSpaceship/player_blue.png" id="4_ps5bx"]
 [ext_resource type="Texture2D" uid="uid://q05o5crt88n5" path="res://Assets/PlayerSpaceship/player_red.png" id="5_vgijl"]
+[ext_resource type="Script" uid="uid://c7oiewnc7dmin" path="res://Scripts/mouse_parallax_component.gd" id="6_8dicw"]
 [ext_resource type="Texture2D" uid="uid://dsh1x70jp1hgt" path="res://Assets/Icons/Main Menu/at-icons_play.png" id="7_vgijl"]
 [ext_resource type="Texture2D" uid="uid://c3bsmxvgi6psn" path="res://Assets/Icons/Main Menu/akar-icons_book.png" id="9_gvraj"]
 [ext_resource type="Texture2D" uid="uid://6vnuvcnmntf2" path="res://Assets/Icons/Main Menu/basil_settings-alt-solid.png" id="10_jqdsw"]
@@ -2115,18 +2116,33 @@ texture = ExtResource("2_5coeh")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 10000)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=476650302]
+[node name="MouseParallaxComponent" type="Node" parent="Node2D/BG" unique_id=66058613]
+script = ExtResource("6_8dicw")
+max_offset = Vector2(12, 9)
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"
+
+[node name="RedPlanet" type="AnimatedSprite2D" parent="Node2D" unique_id=476650302]
 position = Vector2(1596, 365)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_sckgu")
 autoplay = "default"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Node2D" unique_id=405054260]
+[node name="MouseParallaxComponent" type="Node" parent="Node2D/RedPlanet" unique_id=2098199861]
+script = ExtResource("6_8dicw")
+max_offset = Vector2(40, 25)
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"
+
+[node name="BluePlanet" type="AnimatedSprite2D" parent="Node2D" unique_id=405054260]
 position = Vector2(900, 842)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_bpomh")
 animation = &"new_animation"
 autoplay = "new_animation"
+
+[node name="MouseParallaxComponent" type="Node" parent="Node2D/BluePlanet" unique_id=1620985583 node_paths=PackedStringArray("target")]
+script = ExtResource("6_8dicw")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"
 
 [node name="BlueSpaceship" type="Sprite2D" parent="Node2D" unique_id=474912624]
 position = Vector2(1376.9999, 526.99994)
@@ -2134,12 +2150,22 @@ rotation = 0.62623435
 scale = Vector2(15, 15)
 texture = ExtResource("4_ps5bx")
 
+[node name="MouseParallaxComponent" type="Node" parent="Node2D/BlueSpaceship" unique_id=2096454591]
+script = ExtResource("6_8dicw")
+max_offset = Vector2(60, 40)
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"
+
 [node name="RedSpaceship" type="Sprite2D" parent="Node2D" unique_id=889780928]
 unique_name_in_owner = true
 position = Vector2(1376.9999, 526.99994)
 rotation = 0.62623435
 scale = Vector2(15, 15)
 texture = ExtResource("5_vgijl")
+
+[node name="MouseParallaxComponent" type="Node" parent="Node2D/RedSpaceship" unique_id=966926700]
+script = ExtResource("6_8dicw")
+max_offset = Vector2(60, 40)
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=1360891175]
 libraries/ = SubResource("AnimationLibrary_m550x")
@@ -2162,6 +2188,11 @@ scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_sckgu")
 color_ramp = SubResource("Gradient_kwgso")
 
+[node name="MouseParallaxComponent" type="Node" parent="CPUParticles2D" unique_id=1569074620]
+script = ExtResource("6_8dicw")
+max_offset = Vector2(60, 40)
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"
+
 [node name="ButtonMargins" type="MarginContainer" parent="." unique_id=441461745]
 layout_mode = 1
 anchors_preset = 15
@@ -2169,6 +2200,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
