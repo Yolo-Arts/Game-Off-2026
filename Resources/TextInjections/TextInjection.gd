@@ -14,7 +14,7 @@ extends Resource
 @export var font_size: int = 0
 
 @export var icon: Texture2D
-@export var icon_size: Vector2i = Vector2i(20, 36)
+@export var icon_size: Vector2i = Vector2i(32, 32)
 @export var wave: bool = true
 
 

@@ -26,6 +26,8 @@ class_name PlayerStats extends Resource
 @export var shot_range: float = 4000.0
 @export var shot_scale: Vector2 = Vector2.ONE
 @export var recoil: float = 200.0
+@export var gear_currency_value: int = 0
+@export var star_currency_value: int = 0
 
 func get_computed_damage() -> float:
 	var final_damage: float = damage

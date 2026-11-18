@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://2vx3lf8klxxn"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_wbe81"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_l6epw"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_fdrnd"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_a4slp"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_d1vce"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_l6epw")
+stat = "shot_damage"
+add = 10.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_fdrnd")
+initial_price = 15
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_d1vce")
+text = "projectile damage"
+color = Color(0.85882354, 0.28180146, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_a4slp")
+id = "ProjectileDamage2"
+display_name = "Projectile Damage"
+description = "Increase ship {projectile damage} by [+10]"
+icon = ExtResource("1_wbe81")
+modifiers = Array[ExtResource("2_l6epw")]([SubResource("Resource_354lq")])
+max_level = 2
+min_level_to_unlock_children = 2
+price_data_array = Array[ExtResource("3_fdrnd")]([SubResource("Resource_muvpr")])
+initial_increment_value = 20.0
+increment_value = 10.0
+text_injections = Array[ExtResource("5_d1vce")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"
