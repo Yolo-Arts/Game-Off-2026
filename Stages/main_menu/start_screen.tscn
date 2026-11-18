@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cds551slgusep" path="res://Stages/main_menu/start_screen.gd" id="1_trqcy"]
 [ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="2_2pgg3"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pgg3"]
+
 [node name="StartScreen" type="Control" unique_id=1519650878]
 layout_mode = 3
 anchors_preset = 15
@@ -41,8 +43,9 @@ theme_override_constants/separation = 20
 [node name="TextButton" parent="ButtonMargins/ButtonVbox" unique_id=352476746 instance=ExtResource("2_2pgg3")]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-flat = false
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2pgg3")
 btn_text = "Clicky Btn"
+hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 
 [node name="PlayBtn" type="Button" parent="ButtonMargins/ButtonVbox" unique_id=239855471]
 custom_minimum_size = Vector2(150, 50)

@@ -6,8 +6,18 @@ signal item_bought(item: ItemData)
 const ITEM_PATH := "res://Resources/Items/%s.tres"
 
 const TREE = [
-	["DynamicItems/firball_item", [["luckitem"]]],
-	["test_item"]]
+	["DynamicItems/firball_item", [
+		["luckitem"]
+		]],
+	["fuel_1", [
+		["fuel_2"]
+		]],
+	["beefier_hull"],
+	["energy_recharge_1"],
+	["projectile_damage_1"],
+	
+]
+
 
 var items: Dictionary = {}
 
