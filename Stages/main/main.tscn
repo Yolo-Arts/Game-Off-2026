@@ -17,10 +17,10 @@
 [ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="15_guytx"]
 [ext_resource type="Texture2D" uid="uid://ucrsmhls7p78" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressFill.png" id="15_r2vng"]
 [ext_resource type="Texture2D" uid="uid://b17pq178napp7" path="res://Assets/ProgrammerArt/EnergyBar.png" id="16_33khn"]
-[ext_resource type="Script" uid="uid://nlvcsxs26ero" path="res://Scenes/Object Pool/object_pool.gd" id="16_r2vng"]
 [ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="17_1b66h"]
 [ext_resource type="PackedScene" uid="uid://ch5aqpwcbnv7e" path="res://UI/ProgressBarLabel/progress_bar_label.tscn" id="17_r2vng"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="18_0ptnc"]
+[ext_resource type="PackedScene" uid="uid://dtlgf06xl52c1" path="res://Scenes/Object Pool/object_pool.tscn" id="18_mwvqt"]
 [ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="19_r2vng"]
 [ext_resource type="Script" uid="uid://c45khilp7njnm" path="res://Resources/formation.gd" id="20_33khn"]
 [ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="21_1b66h"]
@@ -133,8 +133,7 @@ region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="DamageNumberManager" parent="." unique_id=994567822 groups=["damage_number"] instance=ExtResource("9_oajci")]
 
-[node name="ObjectPool" type="Node2D" parent="." unique_id=903911148 groups=["object_pool"]]
-script = ExtResource("16_r2vng")
+[node name="ObjectPool" parent="." unique_id=807418431 instance=ExtResource("18_mwvqt")]
 
 [node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
 unique_name_in_owner = true

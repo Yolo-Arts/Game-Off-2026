@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dprfp7qgqnj6h"]
+
+[ext_resource type="AudioStream" uid="uid://fuoff868hvld" path="res://Audio/GameSFX/ShootSFX/sfx_metal_hitsound.wav" id="1_6t73t"]
+[ext_resource type="AudioStream" uid="uid://c2uwj3gssghcn" path="res://Audio/GameSFX/Pickups/sfx_item_pickup.wav" id="2_vk6ah"]
+[ext_resource type="AudioStream" uid="uid://cjroa2kf0pthx" path="res://Audio/GameSFX/Pickups/sfx_currency_pickup.ogg" id="3_pkp5f"]
+
+[resource]
+random_pitch = 1.1892071
+streams_count = 3
+stream_0/stream = ExtResource("1_6t73t")
+stream_1/stream = ExtResource("2_vk6ah")
+stream_2/stream = ExtResource("3_pkp5f")

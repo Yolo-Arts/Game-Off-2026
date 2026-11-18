@@ -100,9 +100,9 @@ func shoot():
 	pass
 
 func die() -> void:
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerDeath)
+	
 	is_dead = true
 	state_machine.initialize(self, &"frozen")
 	
-	var pool = get_tree().get_first_node_in_group("object_pool")
-	if pool:
-		pool.spawn_explosion(global_position)
+	ObjectPool.spawn(ObjectPool.explosion_scene, global_position)

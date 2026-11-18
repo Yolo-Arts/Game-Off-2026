@@ -14,10 +14,10 @@ offsets = PackedFloat32Array(0, 0.3125, 0.39583334, 0.5694444, 0.6111111, 0.7777
 colors = PackedColorArray(1, 0.9843137, 0, 1, 1, 0.9843137, 0, 1, 1, 0.5568628, 0.2784314, 1, 1, 0.587424, 0.32819474, 1, 1, 0.12156863, 0, 1, 1, 0.21739742, 0.10909081, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [node name="Explosion" type="Node2D" unique_id=2112199509]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_p30l4")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1408598960]
-unique_name_in_owner = true
 z_index = 20
 material = SubResource("CanvasItemMaterial_ogmlo")
 emitting = false
@@ -32,8 +32,8 @@ emission_shape = 1
 emission_sphere_radius = 128.0
 gravity = Vector2(0, 0)
 angle_max = 139.0
-scale_amount_min = 0.0
-scale_amount_max = 4.0
+scale_amount_min = 2.0
+scale_amount_max = 6.0
 color_ramp = SubResource("Gradient_0rwda")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
