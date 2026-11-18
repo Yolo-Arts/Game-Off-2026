@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://f5sr7ot1733t"]
+
+[ext_resource type="Script" uid="uid://bc4wk2u1m44pb" path="res://Resources/Items/DynamicItems/Sharpnel/sharpnel.gd" id="1_j3k8r"]
+[ext_resource type="Texture2D" uid="uid://2ouyja4wrxr1" path="res://Assets/ProgrammerArt/shrapnel.png" id="2_4dpti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
+size = Vector2(12, 14)
+
+[node name="Sharpnel" type="Area2D" unique_id=768764354]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_j3k8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=608558039]
+shape = SubResource("RectangleShape2D_bi0sn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1349389188]
+texture = ExtResource("2_4dpti")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

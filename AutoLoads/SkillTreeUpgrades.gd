@@ -14,8 +14,9 @@ const TREE = [
 		]],
 	["beefier_hull"],
 	["energy_recharge_1"],
-	["projectile_damage_1"],
-	
+	["projectile_damage_1", [
+		["DynamicItems/sharpnel_item"]
+		]],
 ]
 
 

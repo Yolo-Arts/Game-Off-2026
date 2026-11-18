@@ -29,6 +29,7 @@ func shoot(scene: PackedScene) -> void:
 		get_tree().current_scene.add_child(bullet)
 		player.energy_component.reduce_energy(player.get_current_stats().shot_cost)
 		shoot_cooldown = 1/player.get_current_stats().shots_per_second
+		player.movement_component.current_knockback += player.get_current_stats().recoil * player.transform.y
 
 		
 

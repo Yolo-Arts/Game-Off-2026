@@ -3,12 +3,11 @@ extends ItemEffect
 @export var base_chance: float = 1.0/5.0
 @export var additive_per_luck: float = 1.0/10.0
 @export var fireball_scene: PackedScene
-func setup(_player: Player) -> void:
-	super.setup(_player)
+func _initialize() -> void:
 	EventSystem.enemy_hit.connect(_on_enemy_hit)
 
 func _on_enemy_hit(enemy: Node2D, source: DamageSource) -> void:
-	if source.damage_type != DamageSource.DamageSourceType.PROJECTILE:
+	if source.damage_type != DamageSource.DamageSourceType.PLAYER_PROJECTILE:
 		return
 	if enemy == null or not enemy.has_method("take_damage"):
 		return

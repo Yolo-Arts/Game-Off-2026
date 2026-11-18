@@ -1,7 +1,7 @@
 class_name DamageSource extends Resource
 
 # PLAYER = ram damage
-enum DamageSourceType {PLAYER, ENEMY, ENVIRONMENT, PROJECTILE, AUTO_DAMAGE, OTHER}
+enum DamageSourceType {PLAYER, ENEMY, ENVIRONMENT, PLAYER_PROJECTILE, PROJECTILE, AUTO_DAMAGE, OTHER}
 enum ShiftColor {BLUE, RED, NONE}
 
 var damage_type: DamageSourceType = DamageSourceType.OTHER

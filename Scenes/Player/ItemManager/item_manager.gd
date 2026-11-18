@@ -1,10 +1,9 @@
 class_name ItemManager extends Node
 
-var player: Player
 var base_stats: PlayerStats
 var current_stats: PlayerStats
 var collected_items: Array[ItemData] = []
-
+var player: Player
 # ItemEffect is basically a logical node that does anything based on conditions of any kind
 var active_effects: Array[ItemEffect] = []
 

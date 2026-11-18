@@ -48,7 +48,10 @@ func die() -> void:
 	#var test = collectable.instantiate()
 	#test.position = position
 	#Juicee.preset_explosion(self)
-	
+	await get_tree().process_frame
+	collision_layer = 0
+	collision_mask = 0
+	EventSystem.enemy_died.emit(self)
 	ObjectPool.spawn(ObjectPool.explosion_scene, global_position)
 	
 	# TODO Add enemy death SFX
