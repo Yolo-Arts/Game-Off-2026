@@ -132,6 +132,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="DamageNumberManager" parent="." unique_id=994567822 groups=["damage_number"] instance=ExtResource("9_oajci")]
+z_index = 101
 
 [node name="ObjectPool" parent="." unique_id=807418431 instance=ExtResource("18_mwvqt")]
 

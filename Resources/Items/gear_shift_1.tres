@@ -32,6 +32,7 @@ description = " {max speed} of ship is increased by [+100]"
 icon = ExtResource("1_rhq81")
 modifiers = Array[ExtResource("2_llrgd")]([SubResource("Resource_354lq")])
 max_level = 2
+min_level_to_unlock_children = 2
 price_data_array = Array[ExtResource("3_a23y4")]([SubResource("Resource_muvpr")])
 increment_value = 0.1
 is_increment_percentage = true

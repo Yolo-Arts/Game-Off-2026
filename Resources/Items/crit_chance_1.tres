@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://di0yc1g631iby"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_yq2du"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_y5lec"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_003m7"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_33ilw"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_5e0ck"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_y5lec")
+stat = "critical_chance"
+add = 0.05
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_003m7")
+initial_price = 3
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_5e0ck")
+text = "Crit Chance"
+color = Color(0.013419118, 0.85882354, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[sub_resource type="Resource" id="Resource_yq2du"]
+script = ExtResource("5_5e0ck")
+text = "Crit Damage"
+color = Color(0.85882354, 0.28180146, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_33ilw")
+id = "CritChance1"
+display_name = "Critical Chance"
+description = "{Crit Chance} is raised by 
+[5%], increasing the chance to deal {Crit Damage}!"
+icon = ExtResource("1_yq2du")
+modifiers = Array[ExtResource("2_y5lec")]([SubResource("Resource_354lq")])
+max_level = 4
+min_level_to_unlock_children = 4
+price_data_array = Array[ExtResource("3_003m7")]([SubResource("Resource_muvpr")])
+increment_value = 0.05
+is_increment_percentage = true
+text_injections = Array[ExtResource("5_5e0ck")]([SubResource("Resource_v54o1"), SubResource("Resource_yq2du")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

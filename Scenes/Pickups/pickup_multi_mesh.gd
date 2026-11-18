@@ -91,7 +91,6 @@ func _process(delta: float) -> void:
 
 func collect_in_radius(center: Vector2, radius: float) -> void:
 	for pickup_position in _quad_tree.find_all_in_radius(center, radius):
-		print(radius)
 		var pickup_reference: PickupReference = _position_dictionary.get(pickup_position)
 		if pickup_reference == null: continue
 		if not pickup_reference.pickable: continue

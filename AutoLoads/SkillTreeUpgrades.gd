@@ -13,6 +13,7 @@ const TREE = [
 		["fuel_2"]
 	]],
 	["beefier_hull", [
+		["beefier_hull_2"],
 		["energy_recharge_1"],
 	]],
 	["gear_shift_1", [
@@ -20,7 +21,14 @@ const TREE = [
 		["energy_recharge_1"],
 	]],
 	["projectile_damage_1", [
-		["projectile_damage_2"],
+		["projectile_damage_2", [
+			["crit_chance_1", [
+				["crit_chance_2"],
+			]],
+			["crit_damage_1", [
+				["crit_damage_2"],
+			]],
+		]],
 		["DynamicItems/shrapnel_item", [
 			["shrapnel_count_1"]
 		]]
