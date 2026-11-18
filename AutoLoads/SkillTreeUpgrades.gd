@@ -85,11 +85,10 @@ func _on_data_loaded() -> void:
 			item.level = 0
 			item.unlocked = item.parents.is_empty()
 	
-	
 	for item: ItemData in items.values():
-		if item.level > 0:
-			for child in item.children:
-				child.try_unlock()
+		item.unlocked = item.parents.is_empty() or item.level > 0
+	for item: ItemData in items.values():
+		item.try_unlock()
 
 	changed.emit()
 
@@ -140,4 +139,3 @@ func reset() -> void:
 	SaveManager.data.upgrade_save_data.clear()
 	SaveManager.save_data()
 	changed.emit()
- 

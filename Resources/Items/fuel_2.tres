@@ -32,6 +32,7 @@ description = "Increase ship {fuel capacity} by [+10]"
 icon = ExtResource("1_sn3vn")
 modifiers = Array[ExtResource("2_cka1n")]([SubResource("Resource_354lq")])
 max_level = 5
+min_level_to_unlock_children = 5
 price_data_array = Array[ExtResource("3_nypyg")]([SubResource("Resource_muvpr")])
 initial_increment_value = 30.0
 increment_value = 10.0

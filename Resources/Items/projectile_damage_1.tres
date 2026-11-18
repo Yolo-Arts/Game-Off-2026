@@ -32,6 +32,7 @@ description = "Increase ship {projectile damage} by [+5]"
 icon = ExtResource("1_nhm6w")
 modifiers = Array[ExtResource("2_hwgqq")]([SubResource("Resource_354lq")])
 max_level = 2
+min_level_to_unlock_children = 2
 price_data_array = Array[ExtResource("3_3sx2p")]([SubResource("Resource_muvpr")])
 initial_increment_value = 10.0
 increment_value = 5.0
