@@ -9,18 +9,27 @@
 [ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="7_t30ik"]
 [ext_resource type="PackedScene" uid="uid://uxagcyc6b5cn" path="res://Scenes/DamageNumbers/damage_number_manager.tscn" id="9_oajci"]
 [ext_resource type="PackedScene" uid="uid://deqbh4jesur4l" path="res://Scenes/Pickups/pickup_multi_mesh.tscn" id="11_qfemd"]
+[ext_resource type="Texture2D" uid="uid://xl4h0ahkm66r" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryUnder.png" id="12_h7dmi"]
 [ext_resource type="PackedScene" uid="uid://b2csbwetpiepa" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.tscn" id="12_hyxu5"]
-[ext_resource type="Texture2D" uid="uid://c244yl55i628w" path="res://Assets/ProgrammerArt/bar_under.png" id="13_2mnvh"]
+[ext_resource type="Texture2D" uid="uid://ggpt1pqm7wmc" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryOver.png" id="13_4tusj"]
 [ext_resource type="Texture2D" uid="uid://bq7aga4jy50af" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressUnder.png" id="13_33khn"]
 [ext_resource type="PackedScene" uid="uid://defbvjgax4sr8" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_container.tscn" id="13_ion2p"]
+[ext_resource type="Script" uid="uid://boy1xo8kfsiy5" path="res://Stages/main/speed_bar.gd" id="13_trh13"]
+[ext_resource type="Texture2D" uid="uid://cm7e4vm7onq0b" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarUnder.png" id="13_uagnk"]
 [ext_resource type="Texture2D" uid="uid://7m7fllnbcly6" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressOver.png" id="14_1b66h"]
+[ext_resource type="Texture2D" uid="uid://bykw3hiwphobg" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryFill.png" id="14_16xuu"]
+[ext_resource type="Texture2D" uid="uid://dmi45cmhbxij4" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarOver.png" id="14_o3x13"]
 [ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="15_guytx"]
+[ext_resource type="Texture2D" uid="uid://cimnuwm2qig47" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarFill.png" id="15_i8tfb"]
 [ext_resource type="Texture2D" uid="uid://ucrsmhls7p78" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressFill.png" id="15_r2vng"]
-[ext_resource type="Texture2D" uid="uid://b17pq178napp7" path="res://Assets/ProgrammerArt/EnergyBar.png" id="16_33khn"]
 [ext_resource type="Script" uid="uid://nlvcsxs26ero" path="res://Scenes/Object Pool/object_pool.gd" id="16_r2vng"]
 [ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="17_1b66h"]
+[ext_resource type="FontFile" uid="uid://r64lhoc2qtel" path="res://Assets/Fonts/GravityBold8.ttf" id="17_16xuu"]
+[ext_resource type="FontFile" uid="uid://b81fdlqs5aawj" path="res://Assets/Fonts/CyberpunkCraftpixPixel.otf" id="17_i8tfb"]
+[ext_resource type="Script" uid="uid://b46j7qjcntvgo" path="res://Stages/main/speed_bar_label.gd" id="17_o3x13"]
 [ext_resource type="PackedScene" uid="uid://ch5aqpwcbnv7e" path="res://UI/ProgressBarLabel/progress_bar_label.tscn" id="17_r2vng"]
 [ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="18_0ptnc"]
+[ext_resource type="Script" uid="uid://cncjxt72gacx3" path="res://Stages/main/energy_bar_label.gd" id="18_16xuu"]
 [ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="19_r2vng"]
 [ext_resource type="Script" uid="uid://c45khilp7njnm" path="res://Resources/formation.gd" id="20_33khn"]
 [ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="21_1b66h"]
@@ -109,20 +118,91 @@ theme_override_font_sizes/font_size = 28
 text = "100/1000"
 script = ExtResource("19_r2vng")
 
-[node name="EnergyBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer" unique_id=1845865454]
-layout_mode = 2
-value = 100.0
-texture_under = ExtResource("13_2mnvh")
-texture_progress = ExtResource("16_33khn")
-script = ExtResource("17_1b66h")
-event_bus_signal = Array[StringName]([&"energy_changed", &"energy_increased", &"energy_reduced"])
-
 [node name="CurrencyCountContainer" parent="HUD/MarginContainer/VBoxContainer" unique_id=17007720 instance=ExtResource("13_ion2p")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1432522306]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 2
+
+[node name="SpeedBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer2" unique_id=125105759 node_paths=PackedStringArray("player")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 2000.0
+texture_under = ExtResource("13_uagnk")
+texture_over = ExtResource("14_o3x13")
+texture_progress = ExtResource("15_i8tfb")
+tint_progress = Color(0, 0.38431373, 0.6666667, 1)
+script = ExtResource("13_trh13")
+player = NodePath("../../../../Player")
+metadata/_custom_type_script = "uid://dqollry410r2i"
+
+[node name="Label" type="Label" parent="HUD/MarginContainer/VBoxContainer2/SpeedBar" unique_id=260689957]
+layout_mode = 0
+offset_left = 116.0
+offset_top = -28.0
+offset_right = 297.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_i8tfb")
+theme_override_font_sizes/font_size = 25
+text = "1000"
+horizontal_alignment = 2
+script = ExtResource("17_o3x13")
+
+[node name="Label2" type="Label" parent="HUD/MarginContainer/VBoxContainer2/SpeedBar" unique_id=1894529495]
+layout_mode = 0
+offset_top = -28.0
+offset_right = 80.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("17_i8tfb")
+theme_override_font_sizes/font_size = 27
+text = "SPEED"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1415798739]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="EnergyBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer3" unique_id=1845865454]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+offset_transform_position = Vector2(1650, 600)
+offset_transform_visual_only = false
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("12_h7dmi")
+texture_over = ExtResource("13_4tusj")
+texture_progress = ExtResource("14_16xuu")
+script = ExtResource("17_1b66h")
+event_bus_signal = Array[StringName]([&"energy_changed", &"energy_increased", &"energy_reduced"])
+
+[node name="ProgressBarLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer3/EnergyBar" unique_id=733798198]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 94.0
+offset_right = 282.0
+offset_bottom = 125.0
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("17_16xuu")
+theme_override_font_sizes/font_size = 22
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("18_16xuu")
+metadata/_custom_type_script = "uid://ej62it1gcalq"
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1248161557]
 texture_repeat = 2
