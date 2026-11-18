@@ -22,8 +22,6 @@
 [ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="15_guytx"]
 [ext_resource type="Texture2D" uid="uid://cimnuwm2qig47" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarFill.png" id="15_i8tfb"]
 [ext_resource type="Texture2D" uid="uid://ucrsmhls7p78" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressFill.png" id="15_r2vng"]
-[ext_resource type="Script" uid="uid://nlvcsxs26ero" path="res://Scenes/Object Pool/object_pool.gd" id="16_r2vng"]
-[ext_resource type="Texture2D" uid="uid://b17pq178napp7" path="res://Assets/ProgrammerArt/EnergyBar.png" id="16_33khn"]
 [ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="17_1b66h"]
 [ext_resource type="FontFile" uid="uid://r64lhoc2qtel" path="res://Assets/Fonts/GravityBold8.ttf" id="17_16xuu"]
 [ext_resource type="FontFile" uid="uid://b81fdlqs5aawj" path="res://Assets/Fonts/CyberpunkCraftpixPixel.otf" id="17_i8tfb"]
@@ -137,7 +135,7 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-max_value = 2000.0
+max_value = 1000.0
 texture_under = ExtResource("13_uagnk")
 texture_over = ExtResource("14_o3x13")
 texture_progress = ExtResource("15_i8tfb")

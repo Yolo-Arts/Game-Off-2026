@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = str(round(parent.value / 20) as int)
+	text = str(round(parent.value / 10) as int)
 	var target_col = lerp(Color.WHITE, Color.ORANGE_RED, parent.value/parent.max_value)
 	set("theme_override_colors/font_color", target_col)
 	
