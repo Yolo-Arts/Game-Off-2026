@@ -4,7 +4,9 @@ class_name PlayerStats extends Resource
 @export var health_usage_per_second: float = 1.0
 # TODO implement this: fuel_gain_on_currency_pickup
 @export var fuel_gain_on_currency_pickup: float = 0.0
+# TODO implement this:
 @export var max_energy: float = 100.0
+# TODO implement this:
 @export var energy_increase: float = 10.0
 @export var energy_ram_cost: float = 20.0
 @export var invincibility_duration_seconds: float = 1.0
@@ -20,13 +22,17 @@ class_name PlayerStats extends Resource
 @export var luck: float  = 0.0
 @export var healing_efficiency: float = 1.0
 @export var knockback: float = 500.0
+# TODO implement this:
 @export var shots_per_second: float = 10
 @export var shot_damage: float = 20.0
+# TODO implement this:
 @export var shot_cost: float = 5.0
+# TODO implement this:
 @export var shot_knockback: float = 200.0
 @export var shot_speed: float = 3000.0
 @export var shot_range: float = 4000.0
 @export var shot_scale: Vector2 = Vector2.ONE
+# TODO implement this: reduce recoil
 @export var recoil: float = 200.0
 @export var gear_currency_value: int = 0
 @export var star_currency_value: int = 0

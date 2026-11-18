@@ -33,6 +33,7 @@ icon = ExtResource("1_q626l")
 modifiers = Array[ExtResource("2_dcc23")]([SubResource("Resource_354lq")])
 max_level = 2
 price_data_array = Array[ExtResource("3_5hwkh")]([SubResource("Resource_muvpr")])
+initial_increment_value = 0.2
 increment_value = 0.1
 is_increment_percentage = true
 text_injections = Array[ExtResource("5_oxlj7")]([SubResource("Resource_v54o1")])
