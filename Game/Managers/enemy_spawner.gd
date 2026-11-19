@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	#Debugging purposes
-	if(Input.is_key_pressed(KEY_M)):
+	if(Input.is_key_pressed(KEY_M) and OS.is_debug_build()):
 		enemy_spawn_timer.start()
 
 ## Returns a random [EnemyData] from weighted from [Array][[EnemyData]]
