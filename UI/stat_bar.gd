@@ -6,8 +6,6 @@ class_name StatBar extends TextureProgressBar
 
 var target_value: float
 var target_max_value: float
-var max_tween: Tween
-var value_tween: Tween
 
 func _ready() -> void:
 	if event_bus_signal.is_empty():

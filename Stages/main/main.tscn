@@ -99,6 +99,7 @@ theme_override_constants/separation = 20
 [node name="FuelProgressBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer" unique_id=750656815]
 layout_mode = 2
 max_value = 999.0
+step = 0.1
 value = 60.0
 texture_under = ExtResource("13_33khn")
 texture_over = ExtResource("14_1b66h")
