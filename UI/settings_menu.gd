@@ -87,7 +87,7 @@ func close_settings() -> void:
 		sfx_slider.value = user_prefs.sfx_volume
 	if crt_check_button:
 		crt_check_button.set_checked(user_prefs.crt_enabled)
-	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.NormalButtonPressed)
+	#EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.NormalButtonPressed)
 	
 	if open_pause_menu_after_closing:
 		EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.PauseMenu)
