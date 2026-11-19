@@ -2,12 +2,20 @@
 
 [ext_resource type="Shader" uid="uid://whc3xvmgjd25" path="res://Shaders/gaussianBlur.gdshader" id="1_k1q3y"]
 [ext_resource type="Script" uid="uid://jfk5filh83k" path="res://UI/pause_screen.gd" id="1_pqas3"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="3_7u4m4"]
+[ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="4_a5oyk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p4nw2"]
 shader = ExtResource("1_k1q3y")
 shader_parameter/blur_amount = 2.5
 shader_parameter/mix_amount = 0.5
 shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd26k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5oyk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7u4m4"]
 
 [node name="PauseScreen" type="Control" unique_id=608497350]
 process_mode = 3
@@ -28,58 +36,70 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=271093209]
+[node name="PauseMenuContainer" type="VBoxContainer" parent="." unique_id=944545004]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -33.5
-offset_right = 62.0
-offset_bottom = 33.5
+offset_left = -365.0
+offset_top = -140.0
+offset_right = 365.0
+offset_bottom = 140.0
+grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 95
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=439499695]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=837894680]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1219787686]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=944545004]
-layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="PausedLbl" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=872154798]
+[node name="PausedLbl" type="Label" parent="PauseMenuContainer" unique_id=872154798]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+size_flags_horizontal = 4
+offset_transform_enabled = true
+theme = ExtResource("3_7u4m4")
+theme_override_font_sizes/font_size = 168
 text = "PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2140729573]
-layout_mode = 2
-
-[node name="ResumeBtn" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=508827634]
+[node name="ButtonContainer" type="HBoxContainer" parent="PauseMenuContainer" unique_id=752611657]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = " Resume "
+theme_override_constants/separation = 33
 
-[node name="OptionsBtn" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1848149179]
+[node name="ResumeBtn" parent="PauseMenuContainer/ButtonContainer" unique_id=352476746 instance=ExtResource("4_a5oyk")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
-text = " Options "
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fd26k")
+btn_text = "Resume"
+inline_thickness = 5.0
+outline_color = Color(0.16470589, 1, 0, 1)
+hover_color = Color(0.16470589, 1, 0, 1)
+main_color = Color(0.14117648, 0.12941177, 0.12941177, 1)
 
-[node name="MainMenuBtn" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1709640474]
+[node name="OptionsBtn" parent="PauseMenuContainer/ButtonContainer" unique_id=497101097 instance=ExtResource("4_a5oyk")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
-text = " Main Menu "
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a5oyk")
+btn_text = "Options"
+inline_thickness = 5.0
+outline_color = Color(0.46666667, 0.7764706, 1, 1)
+hover_color = Color(0.46666667, 0.7764706, 1, 1)
+main_color = Color(0.14117648, 0.12941177, 0.12941177, 1)
+
+[node name="MainMenuBtn" parent="PauseMenuContainer/ButtonContainer" unique_id=1733021428 instance=ExtResource("4_a5oyk")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7u4m4")
+btn_text = "Main Menu"
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+hover_color = Color(1, 0, 0, 1)
+main_color = Color(0.14117648, 0.12941177, 0.12941177, 1)
