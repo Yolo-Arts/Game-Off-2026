@@ -33,15 +33,15 @@ class_name PlayerStats extends Resource
 @export var shot_range: float = 4000.0
 @export var shot_scale: Vector2 = Vector2.ONE
 # TODO implement this: reduce recoil
-@export var recoil: float = 200.0
+@export var recoil: float = 100.0
 @export var gear_currency_value: int = 0
 @export var star_currency_value: int = 0
 @export var currency_pickup_radius_multi: float = 1.0
 @export var shrapnel_count: int = 1
 
 
-func get_computed_damage() -> float:
-	var final_damage: float = damage
+func get_computed_damage(shoot: bool = false) -> float:
+	var final_damage: float = damage if not shoot else shot_damage
 	if randf() <= critical_chance:
 		final_damage *= critical_damage_multiplier
 	return final_damage

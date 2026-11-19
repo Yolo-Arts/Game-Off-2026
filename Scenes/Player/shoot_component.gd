@@ -35,7 +35,7 @@ func shoot(scene: PackedScene) -> void:
 
 func make_projectile_data(stats: PlayerStats, direction: Vector2) -> ProjectileData:
 	var projectile_data := ProjectileData.new()
-	projectile_data.damage = stats.shot_damage
+	projectile_data.damage = stats.get_computed_damage(true)
 	projectile_data.direction = direction
 	projectile_data.knockback = stats.shot_knockback
 	projectile_data.range_pixels = stats.shot_range

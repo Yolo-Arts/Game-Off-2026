@@ -136,6 +136,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 max_value = 1000.0
+allow_greater = true
 texture_under = ExtResource("13_uagnk")
 texture_over = ExtResource("14_o3x13")
 texture_progress = ExtResource("15_i8tfb")
