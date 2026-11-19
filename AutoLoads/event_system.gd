@@ -41,3 +41,5 @@ signal enemy_hit(node: Node2D, damage_source: DamageSource)
 signal enemy_died(enemy: Node2D)
 
 signal player_spawned(player: Player)
+
+signal crt_setting_applied(checked: bool)
