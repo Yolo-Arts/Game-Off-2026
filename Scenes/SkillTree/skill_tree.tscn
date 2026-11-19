@@ -2,11 +2,21 @@
 
 [ext_resource type="Script" uid="uid://c2r8qyj0qw3jb" path="res://Scenes/SkillTree/skill_tree.gd" id="1_ycyhv"]
 [ext_resource type="PackedScene" uid="uid://c5dlivgf2cka8" path="res://Scenes/SkillTree/UpgradeButton/upgrade_button.tscn" id="2_tq623"]
+[ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="3_4sfqd"]
 [ext_resource type="PackedScene" uid="uid://bffcg055gw2g" path="res://UI/SkillTreeTooltip/upgrade_descriptor_view.tscn" id="3_a2lps"]
+[ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="4_ceqrk"]
+[ext_resource type="Script" uid="uid://c7oiewnc7dmin" path="res://Scripts/mouse_parallax_component.gd" id="6_7n06a"]
 
 [node name="SkillTree" type="Node2D" unique_id=167548131]
 script = ExtResource("1_ycyhv")
 button_scene = ExtResource("2_tq623")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=977357859]
+texture_repeat = 2
+scale = Vector2(5, 5)
+texture = ExtResource("3_4sfqd")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1899229782]
 unique_name_in_owner = true
@@ -19,3 +29,18 @@ unique_name_in_owner = true
 
 [node name="UpgradeDescriptorView" parent="Pivot" unique_id=389307255 instance=ExtResource("3_a2lps")]
 unique_name_in_owner = true
+
+[node name="PlayerSpriteCenter" type="Sprite2D" parent="Pivot" unique_id=1975133046]
+position = Vector2(-2.01, -13.77)
+scale = Vector2(4, 4)
+texture = ExtResource("4_ceqrk")
+
+[node name="MouseParallaxComponent" type="Node" parent="Pivot" unique_id=297601288]
+script = ExtResource("6_7n06a")
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"
+
+[node name="MouseParallaxComponent" type="Node" parent="." unique_id=1252062154 node_paths=PackedStringArray("target")]
+script = ExtResource("6_7n06a")
+max_offset = Vector2(12, 9)
+target = NodePath("..")
+metadata/_custom_type_script = "uid://c7oiewnc7dmin"

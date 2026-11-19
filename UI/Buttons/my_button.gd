@@ -5,6 +5,9 @@ extends Button
 signal hovered()
 signal unhovered()
 
+@export var outline_thickness: float = 1.0
+@export var inline_thickness: float = 1.0
+
 const DISABLED_COLOR: Color = Color("6c6c6c")
 
 @export var outline_color: Color = MyColors.WHITE :
@@ -81,18 +84,22 @@ func _exit_tree() -> void:
 
 func _process(delta: float) -> void:
 	if not is_visible_in_tree(): return
+	
+	var outline_offset := Vector2.ONE * outline_thickness
+	var total_offset := Vector2.ONE * (outline_thickness + inline_thickness)
+	
 	if visuals_rid:
 		RenderingServer.canvas_item_set_transform(visuals_rid,
-				Transform2D(deg_to_rad(visual_dangle), visual_scale, 0, size/2))
+				Transform2D(deg_to_rad(visual_dangle), visual_scale, 0, size / 2))
 	if outline_rid:
 		RenderingServer.canvas_item_set_transform(outline_rid,
-				Transform2D(0, size, 0, -size/2))
+				Transform2D(0, size, 0, -size / 2))
 	if inline_rid:
 		RenderingServer.canvas_item_set_transform(inline_rid,
-				Transform2D(0, size-Vector2(2,2), 0, -size/2+Vector2(1,1)))
+				Transform2D(0, (size - outline_offset * 2).max(Vector2.ZERO), 0, -size / 2 + outline_offset))
 	if main_rid:
 		RenderingServer.canvas_item_set_transform(main_rid,
-				Transform2D(0, size-Vector2(4,4), 0, -size/2+Vector2(2,2)))
+				Transform2D(0, (size - total_offset * 2).max(Vector2.ZERO), 0, -size / 2 + total_offset))
 
 func _on_mouse_entered() -> void:
 	is_mouse_over = true

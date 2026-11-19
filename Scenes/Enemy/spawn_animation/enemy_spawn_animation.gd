@@ -93,3 +93,4 @@ func animate(texture_data: EnemySpawnAnimationTextureData, animation_speed: floa
 	tween.tween_callback(finished.emit).set_delay(0.8)
 
 	# TODO Add enemy spawn SFX
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.EnemySpawn)

@@ -11,6 +11,8 @@ extends Resource
 @export_group("skill tree stuff")
 @export var max_level: int = 1
 
+@export_range(1, 100, 1) var min_level_to_unlock_children: int = 1
+
 # What shape the item node will be in the skill tree.
 @export var shape_type: Enums.ShapeType = Enums.ShapeType.SQUARE
 
@@ -108,10 +110,15 @@ func get_percent() -> String:
 func is_maxed() -> bool:
 	return level >= max_level
 
-# Sets nodes to be visible or not when opening skill tree based on parent level being at least level 1.
+func get_level_to_unlock_children() -> int:
+	return clampi(min_level_to_unlock_children, 1, maxi(max_level, 1))
+
+
+# Sets nodes to be visible or not when opening skill tree. It shows once every parent has reached
+# the level set in its min_level_to_unlock_children.
 func try_unlock() -> void:
 	for p in parents:
-		if p.level == 0:
+		if p.level < p.get_level_to_unlock_children():
 			return
 	unlocked = true
 

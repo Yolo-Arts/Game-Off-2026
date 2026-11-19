@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cea81wodtghqd"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_rjh8x"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_vcasy"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_uy6nm"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_3bq1g"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_ax33b"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_vcasy")
+stat = "critical_chance"
+add = 0.05
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_uy6nm")
+initial_price = 3
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_ax33b")
+text = "Crit Chance"
+color = Color(0.013419118, 0.85882354, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[sub_resource type="Resource" id="Resource_yq2du"]
+script = ExtResource("5_ax33b")
+text = "Crit Damage"
+color = Color(0.85882354, 0.28180146, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_3bq1g")
+id = "CritChance2"
+display_name = "Critical Chance"
+description = "{Crit Chance} is raised by 
+[10%], increasing the chance to deal {Crit Damage}!"
+icon = ExtResource("1_rjh8x")
+modifiers = Array[ExtResource("2_vcasy")]([SubResource("Resource_354lq")])
+max_level = 3
+min_level_to_unlock_children = 3
+price_data_array = Array[ExtResource("3_uy6nm")]([SubResource("Resource_muvpr")])
+initial_increment_value = 0.2
+increment_value = 0.1
+is_increment_percentage = true
+text_injections = Array[ExtResource("5_ax33b")]([SubResource("Resource_v54o1"), SubResource("Resource_yq2du")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

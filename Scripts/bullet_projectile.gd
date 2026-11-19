@@ -20,18 +20,21 @@ func _physics_process(delta: float) -> void:
 	
 
 
-
-
-
-
 func _on_body_entered(body: Node2D) -> void:
-	var damage: DamageSource = DamageSource.new(projectile_stats.damage, projectile_stats.knockback,
-			 DamageSource.DamageSourceType.PROJECTILE, DamageSource.ShiftColor.NONE, self)
+	var damage: DamageSource 
 	if projectile_stats.enemy:
+		damage = DamageSource.new(projectile_stats.damage, projectile_stats.knockback,
+			 DamageSource.DamageSourceType.PROJECTILE, DamageSource.ShiftColor.NONE, self)
 		if body.is_in_group("player"):
+			
 			EventSystem.player_hit.emit(damage)
 		queue_free()
 	elif body.has_method("take_damage"):
+		damage = DamageSource.new(projectile_stats.damage, projectile_stats.knockback,
+			 DamageSource.DamageSourceType.PLAYER_PROJECTILE, DamageSource.ShiftColor.NONE, self)
 		body.take_damage(damage)
 		queue_free()
 	
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

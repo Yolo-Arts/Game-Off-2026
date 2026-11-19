@@ -16,7 +16,7 @@ signal SFX_play_dynamic_sfx
 signal stats_changed(stats: PlayerStats)
 signal stat_changed(stat_name: String)
 
-signal health_changed(new_health: float, new_max_health: float)
+signal health_changed(new_health: float, new_max_health: float, initialize: bool)
 signal player_healed(amount: float)
 signal health_increased(current: float)
 signal health_reduced(current: float)
@@ -38,3 +38,6 @@ signal enemy_spawned(enemy: Node2D)
 signal request_spawn_enemy(enemy: EnemyData)
 
 signal enemy_hit(node: Node2D, damage_source: DamageSource)
+signal enemy_died(enemy: Node2D)
+
+signal player_spawned(player: Player)

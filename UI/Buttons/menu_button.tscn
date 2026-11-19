@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c7rwt7vctgoqk"]
+
+[ext_resource type="PackedScene" uid="uid://dytafitex3lpj" path="res://UI/Buttons/my_button.tscn" id="1_sxr4h"]
+[ext_resource type="Script" uid="uid://b8qkli4jai2ja" path="res://UI/Buttons/menu_button.gd" id="2_lj8ih"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="3_4hlcy"]
+[ext_resource type="Texture2D" uid="uid://dsh1x70jp1hgt" path="res://Assets/Icons/Main Menu/at-icons_play.png" id="4_lj8ih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hlcy"]
+
+[node name="TextButton" unique_id=352476746 instance=ExtResource("1_sxr4h")]
+custom_minimum_size = Vector2(478, 100)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4hlcy")
+script = ExtResource("2_lj8ih")
+menu_icon = null
+font_size = 28
+btn_text = ""
+main_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[node name="Visuals" parent="." index="0" unique_id=710163769]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Visuals" index="0" unique_id=495629418]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 1.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_4hlcy")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Visuals" index="1" unique_id=1741546478]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Visuals/MarginContainer" index="0" unique_id=38938588]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Visuals/MarginContainer/HBoxContainer" index="0" unique_id=1728867300]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_lj8ih")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Visuals/MarginContainer/HBoxContainer" index="1" unique_id=414847076]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("3_4hlcy")
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 2

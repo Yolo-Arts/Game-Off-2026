@@ -85,3 +85,9 @@ func try_spend(prices: Dictionary) -> bool:
 func reset_round_data() -> void:
 	for currency: CurrencyData in round_data.values():
 		currency.amount = 0
+
+
+func cheat_add_currency() -> void:
+	add(Enums.CurrencyType.GEAR, 1000)
+	add(Enums.CurrencyType.STAR, 1000)
+	SaveManager.save_data()

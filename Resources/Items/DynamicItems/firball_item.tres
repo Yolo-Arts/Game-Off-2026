@@ -18,14 +18,21 @@ text = "luck"
 color = Color(0, 0.6652901, 0.40142882, 1)
 metadata/_custom_type_script = "uid://bigogxmuptah4"
 
+[sub_resource type="Resource" id="Resource_sn3vn"]
+script = ExtResource("4_omijx")
+text = "500"
+color = Color(0.85882354, 0.28180146, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
 [resource]
 script = ExtResource("3_j0udg")
 id = "explosion"
 display_name = "EXPLOSION"
-description = "Each shot has a chance based on {luck} to deal 500 flat damage to the enemy."
+description = "Each shot has a chance based on {luck} to deal {500} flat damage to the enemy."
 icon = ExtResource("2_j0udg")
 effect_scene = ExtResource("1_yjpmq")
+shape_type = 1
 price_data_array = Array[ExtResource("2_yjpmq")]([SubResource("Resource_bnue5")])
 initial_increment_value = 10.0
-text_injections = Array[ExtResource("4_omijx")]([SubResource("Resource_jnm0b")])
+text_injections = Array[ExtResource("4_omijx")]([SubResource("Resource_jnm0b"), SubResource("Resource_sn3vn")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

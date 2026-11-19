@@ -2,7 +2,11 @@ class_name PlayerStats extends Resource
 
 @export var max_health: float = 100.0
 @export var health_usage_per_second: float = 1.0
+# TODO implement this: fuel_gain_on_currency_pickup
+@export var fuel_gain_on_currency_pickup: float = 0.0
+# TODO implement this:
 @export var max_energy: float = 100.0
+# TODO implement this:
 @export var energy_increase: float = 10.0
 @export var energy_ram_cost: float = 20.0
 @export var invincibility_duration_seconds: float = 1.0
@@ -13,21 +17,31 @@ class_name PlayerStats extends Resource
 @export var deacceleration: float = 200.0
 @export var minimum_ram_speed: float = 200.0
 @export var attack_cooldown: float = 0.5
-@export var critical_chance: float = 0.10
-@export var critical_damage_multiplier: float = 1.5
+@export var critical_chance: float = 0.0
+@export var critical_damage_multiplier: float = 1.1
 @export var luck: float  = 0.0
 @export var healing_efficiency: float = 1.0
 @export var knockback: float = 500.0
+# TODO implement this:
 @export var shots_per_second: float = 10
 @export var shot_damage: float = 20.0
+# TODO implement this:
 @export var shot_cost: float = 5.0
+# TODO implement this:
 @export var shot_knockback: float = 200.0
 @export var shot_speed: float = 3000.0
 @export var shot_range: float = 4000.0
 @export var shot_scale: Vector2 = Vector2.ONE
+# TODO implement this: reduce recoil
+@export var recoil: float = 100.0
+@export var gear_currency_value: int = 0
+@export var star_currency_value: int = 0
+@export var currency_pickup_radius_multi: float = 1.0
+@export var shrapnel_count: int = 1
 
-func get_computed_damage() -> float:
-	var final_damage: float = damage
+
+func get_computed_damage(shoot: bool = false) -> float:
+	var final_damage: float = damage if not shoot else shot_damage
 	if randf() <= critical_chance:
 		final_damage *= critical_damage_multiplier
 	return final_damage

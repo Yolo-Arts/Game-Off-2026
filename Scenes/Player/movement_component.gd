@@ -43,4 +43,5 @@ func _physics_process(delta: float) -> void:
 	if current_knockback.length_squared() < 1.0:
 		current_knockback = Vector2.ZERO
 	player.velocity = active_movement_velocity + current_knockback
+	
 	player.move_and_slide()

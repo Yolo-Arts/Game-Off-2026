@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dhuhx3t3k6bf5"]
+
+[ext_resource type="Texture2D" uid="uid://ifdus4xfa0mb" path="res://Assets/Icons/Skill Tree/improved_hull.png" id="1_lwd5y"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_81vpp"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_svq5b"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_2jsl4"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_n2bon"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_81vpp")
+stat = "damage"
+add = 20.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_svq5b")
+initial_price = 5
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_n2bon")
+text = "ram damage"
+color = Color(0.85882354, 0.28180146, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_2jsl4")
+id = "hull2"
+display_name = "Beefier Hull"
+description = "Increase ship {ram damage} by [+20]"
+icon = ExtResource("1_lwd5y")
+modifiers = Array[ExtResource("2_81vpp")]([SubResource("Resource_354lq")])
+max_level = 3
+min_level_to_unlock_children = 3
+price_data_array = Array[ExtResource("3_svq5b")]([SubResource("Resource_muvpr")])
+initial_increment_value = 40.0
+increment_value = 20.0
+text_injections = Array[ExtResource("5_n2bon")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

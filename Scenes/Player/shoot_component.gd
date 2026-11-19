@@ -23,17 +23,19 @@ func shoot(scene: PackedScene) -> void:
 		return
 	var bullet: BulletProjectile = scene.instantiate() as BulletProjectile
 	if bullet:
+		EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerShoot)
 		bullet.projectile_stats = make_projectile_data(player.get_current_stats(), -player.transform.y)
 		bullet.global_position = player.global_position + 32 * -player.transform.y
 		get_tree().current_scene.add_child(bullet)
 		player.energy_component.reduce_energy(player.get_current_stats().shot_cost)
 		shoot_cooldown = 1/player.get_current_stats().shots_per_second
+		player.movement_component.current_knockback += player.get_current_stats().recoil * player.transform.y
 
 		
 
 func make_projectile_data(stats: PlayerStats, direction: Vector2) -> ProjectileData:
 	var projectile_data := ProjectileData.new()
-	projectile_data.damage = stats.shot_damage
+	projectile_data.damage = stats.get_computed_damage(true)
 	projectile_data.direction = direction
 	projectile_data.knockback = stats.shot_knockback
 	projectile_data.range_pixels = stats.shot_range

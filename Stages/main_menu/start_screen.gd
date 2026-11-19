@@ -29,3 +29,7 @@ func _on_skill_tree_button_pressed():
 
 func _on_reset_save_button_pressed():
 	SaveManager.reset_save_data()
+
+
+func _on_tutorial_btn_pressed():
+	pass # Replace with function body.
