@@ -1,8 +1,12 @@
 extends TextureProgressBar
 
 @export var player : Player
-
-var min_ram_speed_indicator: float = 0.0
+@export var indicator_color: Color = Color.GREEN
+@export var line_width: float = 4.0
+var min_ram_speed_indicator: float = 0.0:
+	set(value):
+		min_ram_speed_indicator = value
+		queue_redraw()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,4 +31,4 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	var line_begin: Vector2 = Vector2(size.x / max_value * min_ram_speed_indicator, 0)
 	var line_end: Vector2 = Vector2(size.x / max_value * min_ram_speed_indicator, size.y)
-	draw_line(line_begin, line_end, Color.GREEN, 4.0)
+	draw_line(line_begin, line_end, indicator_color, line_width)
