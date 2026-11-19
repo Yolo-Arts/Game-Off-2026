@@ -8,6 +8,7 @@ var target_value: float
 var target_max_value: float
 
 func _ready() -> void:
+	step = 0.01
 	if event_bus_signal.is_empty():
 		push_error("NO SIGNALS SET FOR -> ", name)
 		return
