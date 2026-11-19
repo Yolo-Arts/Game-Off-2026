@@ -39,6 +39,7 @@ func _ready() -> void:
 	
 	EventSystem.player_shifted.emit(shift_color)
 	shift_active_color()
+	EventSystem.player_spawned.emit(self)
 
 func _process(delta: float) -> void:
 	reduce_health(delta)
