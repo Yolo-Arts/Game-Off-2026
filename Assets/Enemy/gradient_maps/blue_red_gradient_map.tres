@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dfehdbc8jqou4"]
+
+[ext_resource type="Shader" uid="uid://b7xq6ow1k63wm" path="res://Shaders/gradient_map.gdshader" id="1_ih8oo"]
+[ext_resource type="Texture2D" uid="uid://cjvre6a2uy80" path="res://Assets/Enemy/gradient_maps/blue.tres" id="2_oynh1"]
+[ext_resource type="Texture2D" uid="uid://bohgbnvhsxuyd" path="res://Assets/Enemy/gradient_maps/red.tres" id="3_volyf"]
+
+[resource]
+shader = ExtResource("1_ih8oo")
+shader_parameter/pal0 = ExtResource("2_oynh1")
+shader_parameter/pal1 = ExtResource("3_volyf")
+shader_parameter/lerper = 1.0

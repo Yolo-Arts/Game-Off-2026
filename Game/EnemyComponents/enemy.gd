@@ -5,20 +5,19 @@ class_name Enemy extends CharacterBody2D
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
 
-@onready var enemy_blue_sprite = %EnemyBlueSprite
-@onready var enemy_red_sprite = %EnemyRedSprite
+@onready var enemy_sprite = %EnemySprite
 
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)
 	movement_component.setup(self)
 	hitbox.setup(self, enemy_stats)
+	enemy_sprite.material = enemy_sprite.material.duplicate()
+	
 	if enemy_stats.shift_color == DamageSource.ShiftColor.RED:
-		enemy_blue_sprite.visible = false
-		enemy_red_sprite.visible = true
+		enemy_sprite.material.set_shader_parameter("lerper", 1.0)
 	else:
-		enemy_blue_sprite.visible = true
-		enemy_red_sprite.visible = false
+		enemy_sprite.material.set_shader_parameter("lerper", 0.0)
 	
 	EventSystem.player_shifted.connect(update_dimension_speed)
 	var player: Player = get_tree().get_first_node_in_group("player") as Player

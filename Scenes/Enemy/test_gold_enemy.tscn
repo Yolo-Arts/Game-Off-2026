@@ -3,9 +3,52 @@
 [ext_resource type="Script" uid="uid://bowuufr0qrtit" path="res://Game/EnemyComponents/test_gold_enemy.gd" id="1_bbphp"]
 [ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="2_pt16o"]
 [ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_fglcs"]
-[ext_resource type="SpriteFrames" uid="uid://cpboe34c1pj3o" path="res://Assets/Enemy/basic_enemy/blue_basic_enemy.tres" id="4_mn6ql"]
-[ext_resource type="SpriteFrames" uid="uid://c5u8x860kohmb" path="res://Assets/Enemy/basic_enemy/red_basic_enemy.tres" id="5_6jn2n"]
+[ext_resource type="Material" uid="uid://dfehdbc8jqou4" path="res://Assets/Enemy/gradient_maps/blue_red_gradient_map.tres" id="6_fglcs"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="6_pevys"]
+[ext_resource type="Texture2D" uid="uid://y6ohloeokf5" path="res://Assets/Enemy/basic_enemy/enemy_1_walk-Sheet.png" id="7_mn6ql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2chwy"]
+atlas = ExtResource("7_mn6ql")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beese"]
+atlas = ExtResource("7_mn6ql")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vi6b"]
+atlas = ExtResource("7_mn6ql")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1w2j"]
+atlas = ExtResource("7_mn6ql")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4wq1"]
+atlas = ExtResource("7_mn6ql")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jn2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2chwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beese")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vi6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1w2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4wq1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6lt"]
 
@@ -25,14 +68,10 @@ knockback_decay_coefficient = 14.0
 rotation = -1.5707964
 scale = Vector2(5, 5)
 
-[node name="EnemyBlueSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=1729905700]
+[node name="EnemySprite" type="AnimatedSprite2D" parent="Node2D" unique_id=695206452]
 unique_name_in_owner = true
-sprite_frames = ExtResource("4_mn6ql")
-autoplay = "default"
-
-[node name="EnemyRedSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=371493522]
-unique_name_in_owner = true
-sprite_frames = ExtResource("5_6jn2n")
+material = ExtResource("6_fglcs")
+sprite_frames = SubResource("SpriteFrames_6jn2n")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
