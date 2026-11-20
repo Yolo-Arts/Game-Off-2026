@@ -12,13 +12,13 @@ func _ready() -> void:
 func setup(_enemy: Enemy) -> void: 
 
 	enemy = _enemy
+	max_health = enemy.enemy_stats.max_health
 	current_health = enemy.enemy_stats.max_health
 
 
 func take_damage(source: DamageSource) -> void: 
 	if source.shift_color != enemy.enemy_stats.shift_color and source.shift_color != DamageSource.ShiftColor.NONE:
 		return
-	
 	# Increasing player energy from the enemy script lol....
 	# TODO probably refactor this into the energy component but we ball.
 	if (source.damage_type == DamageSource.DamageSourceType.PLAYER):
