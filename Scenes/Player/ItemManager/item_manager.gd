@@ -13,6 +13,7 @@ var dynamic_modifiers: Array[StatModifier] = []
 func setup(_player: Player, _base_stats: PlayerStats) -> void:
 	player = _player
 	base_stats = _base_stats
+	EnemySources.reset_enemies()
 	for item in SkillTreeUpgrades.get_purchased_items():
 		add_item(item)
 	recalculate()
@@ -33,7 +34,8 @@ func add_item(item: ItemData) -> void:
 			add_child(effect)
 			effect.setup(player)
 			active_effects.append(effect)
-	
+	if item.action != null:
+		item.action.execute()
 	
 func recalculate() -> void:
 	current_stats = base_stats.duplicate()

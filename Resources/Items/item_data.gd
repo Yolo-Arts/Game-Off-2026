@@ -7,7 +7,7 @@ extends Resource
 @export var icon: Texture2D
 @export var modifiers: Array[StatModifier] = []
 @export var effect_scene: PackedScene
-
+@export var action: ActionItem
 @export_group("skill tree stuff")
 @export var max_level: int = 1
 
