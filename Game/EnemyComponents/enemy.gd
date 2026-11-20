@@ -4,6 +4,7 @@ class_name Enemy extends CharacterBody2D
 @onready var movement_component: EnemyMovementComponent = $MovementComponent
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
+const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
 
 @onready var enemy_sprite = %EnemySprite
 
@@ -16,7 +17,10 @@ func _ready() -> void:
 	
 	if enemy_stats.shift_color == DamageSource.ShiftColor.RED:
 		enemy_sprite.material.set_shader_parameter("lerper", 1.0)
+	elif enemy_stats.shift_color == DamageSource.ShiftColor.BLUE:
+		enemy_sprite.material.set_shader_parameter("lerper", 0.0)
 	else:
+		enemy_sprite.material = GOLD_GRADIENT_MAP
 		enemy_sprite.material.set_shader_parameter("lerper", 0.0)
 	
 	EventSystem.player_shifted.connect(update_dimension_speed)

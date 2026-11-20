@@ -75,7 +75,7 @@ unique_name_in_owner = true
 material = ExtResource("7_kiqm3")
 sprite_frames = SubResource("SpriteFrames_3pbi0")
 autoplay = "default"
-frame_progress = 0.098918125
+frame_progress = 0.4290774
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
 visible = false
