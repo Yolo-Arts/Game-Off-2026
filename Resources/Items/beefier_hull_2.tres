@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dhuhx3t3k6bf5"]
 
-[ext_resource type="Texture2D" uid="uid://ifdus4xfa0mb" path="res://Assets/Icons/Skill Tree/improved_hull.png" id="1_lwd5y"]
+[ext_resource type="Texture2D" uid="uid://d3bwjp67yg6hu" path="res://Assets/Icons/Skill Tree/beefier_hull_2.png" id="1_lwd5y"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_81vpp"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_svq5b"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_2jsl4"]

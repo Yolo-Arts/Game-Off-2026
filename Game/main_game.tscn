@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c2613f8x5vj6g" path="res://Game/Managers/stage_controller.gd" id="1_kxtph"]
 [ext_resource type="Script" uid="uid://now2sdxyg1yo" path="res://Game/Managers/bulletin_controller.gd" id="1_welsx"]
 [ext_resource type="Shader" uid="uid://cx24ib3436kw7" path="res://Shaders/GlitchScreenShader.gdshader" id="2_dj6w8"]
+[ext_resource type="Script" uid="uid://dh2ttqdeqotle" path="res://Scripts/screen_canvas_controller.gd" id="3_1evyo"]
 [ext_resource type="Script" uid="uid://bgp1cbwstmloy" path="res://Game/Managers/music_controller.gd" id="3_1iqn0"]
 [ext_resource type="Script" uid="uid://cjpfi8480l5h1" path="res://Game/Managers/sfx_controller.gd" id="4_o2gyw"]
 
@@ -13,12 +14,12 @@ shader_parameter/wobble_speed = 1.0
 shader_parameter/wobble_frequency = 0.3150000149625
 shader_parameter/wobble_strength = 0.0
 shader_parameter/fisheye = 0.3410000161975
-shader_parameter/brighten = 0.5
+shader_parameter/brighten = 0.5730000272175
 shader_parameter/scanline_count = 1800.0
 shader_parameter/scanline_movespeed = 0.50000002375
 shader_parameter/horizontal_scanline_strength = 0.4
 shader_parameter/vertical_scanline_strength = 0.02000000095
-shader_parameter/chromatic = 2.000000095
+shader_parameter/chromatic = 1.200000057
 shader_parameter/ghosting = 0.05
 shader_parameter/vignette = 0.10000000475
 shader_parameter/edge_color = Color(0.03137255, 0.03137255, 0.03137255, 1)
@@ -39,7 +40,11 @@ shader_parameter/shake_color_rate = 0.010000000475
 [node name="ScreenCanvas" type="CanvasLayer" parent="." unique_id=1702263429]
 layer = 99
 
+[node name="ScreenCanvasController" type="Node" parent="ScreenCanvas" unique_id=1980768549]
+script = ExtResource("3_1evyo")
+
 [node name="CRT" type="ColorRect" parent="ScreenCanvas" unique_id=1370886087]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_sckgu")
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +58,7 @@ visible = false
 copy_mode = 2
 
 [node name="Glitch" type="ColorRect" parent="ScreenCanvas" unique_id=702985524]
+unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_kwgso")
 anchors_preset = 15
