@@ -31,9 +31,6 @@
 [ext_resource type="Script" uid="uid://cncjxt72gacx3" path="res://Stages/main/energy_bar_label.gd" id="18_16xuu"]
 [ext_resource type="PackedScene" uid="uid://dtlgf06xl52c1" path="res://Scenes/Object Pool/object_pool.tscn" id="18_mwvqt"]
 [ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="19_r2vng"]
-[ext_resource type="Script" uid="uid://c45khilp7njnm" path="res://Resources/formation.gd" id="20_33khn"]
-[ext_resource type="Script" uid="uid://d25cy6pylx3w5" path="res://Resources/stage_info.gd" id="21_1b66h"]
-[ext_resource type="Resource" uid="uid://darox8ho85fmo" path="res://Resources/Formations/formationA.tres" id="21_r2vng"]
 [ext_resource type="PackedScene" uid="uid://dbabsmode2qmf" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.tscn" id="24_qqltb"]
 [ext_resource type="PackedScene" uid="uid://da6lsubuwmq1n" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_particles.tscn" id="26_h7dmi"]
 
@@ -48,12 +45,6 @@ gradient = SubResource("Gradient_4tusj")
 shader = ExtResource("3_mwvqt")
 shader_parameter/gradient_map = SubResource("GradientTexture1D_jdc67")
 shader_parameter/intensity = 0.0
-
-[sub_resource type="Resource" id="Resource_1htc4"]
-script = ExtResource("21_1b66h")
-formations = Array[ExtResource("20_33khn")]([ExtResource("21_r2vng"), ExtResource("21_r2vng"), ExtResource("21_r2vng"), ExtResource("21_r2vng")])
-stage_boss = null
-metadata/_custom_type_script = "uid://d25cy6pylx3w5"
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
@@ -213,6 +204,17 @@ texture = ExtResource("2_oajci")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 10000)
 
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=620326751 node_paths=PackedStringArray("enemy_spawn_timer")]
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("7_t30ik")
+enemy_spawn_timer = NodePath("Timer")
+spawn_animation_scene = ExtResource("24_qqltb")
+spawn_particles_scene = ExtResource("26_h7dmi")
+metadata/_custom_type_script = "uid://dir7xxpyr1obv"
+
+[node name="Timer" type="Timer" parent="EnemySpawner" unique_id=956438144]
+one_shot = true
+
 [node name="DamageNumberManager" parent="." unique_id=994567822 groups=["damage_number"] instance=ExtResource("9_oajci")]
 z_index = 101
 
@@ -229,13 +231,3 @@ script = ExtResource("3_t30ik")
 
 [node name="PickupMultiMesh" parent="." unique_id=370772807 instance=ExtResource("11_qfemd")]
 mesh_size = Vector2(16, 16)
-
-[node name="EnemySpawner" type="Node2D" parent="." unique_id=620326751 node_paths=PackedStringArray("enemy_spawn_timer")]
-script = ExtResource("7_t30ik")
-stage_data = SubResource("Resource_1htc4")
-enemy_spawn_timer = NodePath("Timer")
-spawn_animation_scene = ExtResource("24_qqltb")
-spawn_particles_scene = ExtResource("26_h7dmi")
-metadata/_custom_type_script = "uid://dir7xxpyr1obv"
-
-[node name="Timer" type="Timer" parent="EnemySpawner" unique_id=956438144]

@@ -1,6 +1,8 @@
 class_name EnemySpawner extends Node2D
 
-@export var stage_data: StageInfo
+var player: Player
+
+@export var waves_elapsed: int = 0
 @export var world_bounds: Rect2
 @export var spawn_angle_increment: float = PI/16
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -12,14 +14,17 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @export var spawn_particles_scene: PackedScene
 
 var pending_spawns: Array[Dictionary] = []
-
 func _ready() -> void:
-	enemy_spawn_timer.wait_time = stage_data.spawn_interval
 	enemy_spawn_timer.timeout.connect(spawn_next_formation)
+	EventSystem.player_spawned.connect(initialize)
+	
+func initialize(_player: Player) -> void:
+	player = _player
+	enemy_spawn_timer.wait_time = player.get_current_stats().time_per_wave
+
 	enemy_spawn_timer.start()
-	stage_data.current_wave = 0
-	
-	
+	waves_elapsed = 0
+
 func _process(delta: float) -> void:
 	#Debugging purposes
 	if(Input.is_key_pressed(KEY_M) and OS.is_debug_build()):
@@ -48,23 +53,36 @@ func is_radius_empty(enemy_position: Vector2, radius: float) -> bool:
 	var result: Array[Dictionary] = space_state.intersect_shape(query, 1)
 	return result.is_empty()
 
+func get_random_enemy() -> EnemyData:
+	return pick_enemy(EnemySources.get_all_enemies())
+
 func spawn_random_enemy() -> bool:
-	var random_enemy: EnemyData = pick_enemy(stage_data.enemies)
+	var random_enemy: EnemyData = get_random_enemy()
 	return attempt_spawn_enemy(random_enemy)
 
-func spawn_next_formation() -> void: 
-	if(stage_data.current_wave - 1 >= stage_data.formations.size()):
-		return 
-	var form = stage_data.formations[stage_data.current_wave - 1]
-	for enemy in form.enemies.keys(): # iterates through all enemies in a formation
-		for x in form.enemies[enemy]: #iterates through the number of specific enemies spawned in a formation 
-			attempt_spawn_enemy(enemy)
-	stage_data.current_wave += 1
+func create_formation(amount: int) -> Array[EnemyData]:
+	var enemies: Array[EnemyData]
+	for i in range(amount):
+		enemies.append(get_random_enemy())
+	return enemies
+
+func spawn_next_formation() -> void:
+	if player.is_dead:
+		return
+	var stats: PlayerStats = player.get_current_stats()
+	var number_of_enemies: int = max(1 ,randi_range(stats.enemies_per_wave.x, stats.enemies_per_wave.y))
+	var enemies_to_spawn = create_formation(number_of_enemies)
+	var time_next_wave: float = player.get_current_stats().time_per_wave
+	for enemy in enemies_to_spawn:
+		attempt_spawn_enemy(enemy)
+		time_next_wave += enemy.difficulty_time_increase
+	
+	enemy_spawn_timer.start(time_next_wave)
+	waves_elapsed += 1
 
 func attempt_spawn_enemy(enemy: EnemyData) -> bool:
 	var initial_spawn_angle: float = spawn_angle_increment * randi_range(0, int(2 * PI / spawn_angle_increment))
 	var spawn_angle = initial_spawn_angle
-	var player: Player = get_tree().get_first_node_in_group("player") as Player
 	if player == null:
 		return false
 

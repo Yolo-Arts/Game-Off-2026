@@ -5,3 +5,4 @@ func enter(_data: Variant) -> void:
 	player.can_control_speed = false
 	player.can_shift = false
 	player.can_shoot = false
+	player.hitbox.enabled = false

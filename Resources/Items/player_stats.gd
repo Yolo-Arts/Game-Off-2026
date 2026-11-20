@@ -38,8 +38,8 @@ class_name PlayerStats extends Resource
 @export var star_currency_value: int = 0
 @export var currency_pickup_radius_multi: float = 1.0
 @export var shrapnel_count: int = 1
-
-
+@export var time_per_wave: float = 5.0
+@export var enemies_per_wave: Vector2i = Vector2i(3, 5)
 func get_computed_damage(shoot: bool = false) -> float:
 	var final_damage: float = damage if not shoot else shot_damage
 	if randf() <= critical_chance:

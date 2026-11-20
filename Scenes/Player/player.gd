@@ -23,6 +23,7 @@ var can_shoot: bool = true
 var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
 var is_dead: bool = false
 
+
 func _ready() -> void:
 	#EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
 	EventSystem.player_hit.connect(_on_player_hit)
@@ -97,9 +98,7 @@ func reduce_health(delta: float) -> void:
 	if not can_reduce_health: return
 	
 	EventSystem.player_hit.emit(DamageSource.new(get_current_stats().health_usage_per_second * delta, 0.0, DamageSource.DamageSourceType.AUTO_DAMAGE, DamageSource.ShiftColor.NONE, null))
-func shoot():
-	pass
-
+	
 func die() -> void:
 	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerDeath)
 	

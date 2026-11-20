@@ -3,6 +3,8 @@ class_name EnemyData extends Resource
 @export var enemy_id: StringName
 @export var enemy_group_id: StringName
 @export var enemy_name: String
+@export var unlocked: bool = true
+@export var difficulty_time_increase: float = 0.0
 @export var enemy_scene: PackedScene
 @export var base_enemy_stats: EnemyStats = EnemyStats.new()
 @export var spawn_animation_data: EnemySpawnAnimationTextureData
