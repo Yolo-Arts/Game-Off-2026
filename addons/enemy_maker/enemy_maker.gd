@@ -32,5 +32,5 @@ func _on_plugin_button_pressed() -> void:
 			push_error("DUPLICATE ENTRY FOUND FOR ", file, " ", enemy_source.enemy_id, " IT WILL BE SKIPPED")
 			continue
 		enemy_registry.enemies[enemy_source.enemy_id] = enemy_source
-		print(error_string(ResourceSaver.save(enemy_registry, ENEMY_REGISTERY_SAVE_PATH)))
+	print(error_string(ResourceSaver.save(enemy_registry, ENEMY_REGISTERY_SAVE_PATH)))
 	print_rich("[color=green]Loaded ", enemy_registry.enemies.size(), " enemies into registry.")
