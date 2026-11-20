@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c8lecyg4ruur7"]
+
+[ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="1_q55s5"]
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="1_s6xo6"]
+[ext_resource type="PackedScene" uid="uid://d3skfjspvu1l1" path="res://Scenes/Enemy/test_gold_enemy.tscn" id="2_v5osg"]
+[ext_resource type="Texture2D" uid="uid://bxu6isxd3kjls" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn_fill.png" id="4_0ttwv"]
+[ext_resource type="Texture2D" uid="uid://dkeq8xbrrbx34" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn.png" id="5_uop5t"]
+[ext_resource type="Script" uid="uid://5tohkhxkc40i" path="res://Resources/enemy_spawn_animation_data/enemy_spawn_animation_texture_data.gd" id="6_ub65o"]
+[ext_resource type="Texture2D" uid="uid://c6hsamsvf4rfb" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn_zoom.png" id="7_qvij2"]
+
+[sub_resource type="Resource" id="Resource_6elsb"]
+script = ExtResource("1_s6xo6")
+max_health = 30.0
+shift_color = 0
+damage = 10.0
+knockback = 2000.0
+opposite_speed = 500.0
+drop = 50
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
+
+[sub_resource type="Resource" id="Resource_u37hy"]
+script = ExtResource("6_ub65o")
+glitch_texture = ExtResource("5_uop5t")
+zoom_texture = ExtResource("7_qvij2")
+fill_texture = ExtResource("4_0ttwv")
+rotate = true
+metadata/_custom_type_script = "uid://5tohkhxkc40i"
+
+[resource]
+script = ExtResource("1_q55s5")
+enemy_id = &"gold_enemy"
+enemy_group_id = &"gold"
+enemy_name = "Goldy"
+unlocked = false
+enemy_scene = ExtResource("2_v5osg")
+base_enemy_stats = SubResource("Resource_6elsb")
+spawn_animation_data = SubResource("Resource_u37hy")
+spawn_distance_from_player = 400.0
+enemy_type = 1
+metadata/_custom_type_script = "uid://mahujeywww5p"

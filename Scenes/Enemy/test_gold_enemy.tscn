@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d3skfjspvu1l1"]
+
+[ext_resource type="Script" uid="uid://bowuufr0qrtit" path="res://Game/EnemyComponents/test_gold_enemy.gd" id="1_bbphp"]
+[ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="2_pt16o"]
+[ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_fglcs"]
+[ext_resource type="SpriteFrames" uid="uid://cpboe34c1pj3o" path="res://Assets/Enemy/basic_enemy/blue_basic_enemy.tres" id="4_mn6ql"]
+[ext_resource type="SpriteFrames" uid="uid://c5u8x860kohmb" path="res://Assets/Enemy/basic_enemy/red_basic_enemy.tres" id="5_6jn2n"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="6_pevys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6lt"]
+
+[node name="TestGoldEnemy" type="CharacterBody2D" unique_id=437048349 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_bbphp")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2109919344]
+script = ExtResource("2_pt16o")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1159865020]
+script = ExtResource("3_fglcs")
+knockback_decay_coefficient = 14.0
+
+[node name="Node2D" type="Node2D" parent="." unique_id=892844730]
+rotation = -1.5707964
+scale = Vector2(5, 5)
+
+[node name="EnemyBlueSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=1729905700]
+unique_name_in_owner = true
+sprite_frames = ExtResource("4_mn6ql")
+autoplay = "default"
+
+[node name="EnemyRedSprite" type="AnimatedSprite2D" parent="Node2D" unique_id=371493522]
+unique_name_in_owner = true
+sprite_frames = ExtResource("5_6jn2n")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_5v6lt")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=357307482 node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_pevys")
+enemy = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=573603964]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_5v6lt")

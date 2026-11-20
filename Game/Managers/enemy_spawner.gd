@@ -34,6 +34,9 @@ func _process(delta: float) -> void:
 func pick_enemy(enemies: Array[EnemyData]) -> EnemyData:
 	var weights: PackedFloat32Array = PackedFloat32Array()
 	for enemy in enemies:
+		if not enemy.unlocked:
+			weights.append(0.0)
+			continue
 		weights.append(enemy.spawn_weight)
 	var random_index: int = rng.rand_weighted(weights)
 	return enemies[random_index]
