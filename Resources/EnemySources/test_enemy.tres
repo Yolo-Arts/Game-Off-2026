@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://5tohkhxkc40i"
 [resource]
 script = ExtResource("1_qkfwa")
 enemy_id = &"testenemy"
+enemy_group_id = &"normal"
 enemy_name = "testy"
 enemy_scene = ExtResource("2_o88y8")
 base_enemy_stats = ExtResource("1_h7hm8")
