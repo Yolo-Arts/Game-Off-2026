@@ -101,6 +101,7 @@ script = ExtResource("2_5fkgy")
 projectile_scene = ExtResource("3_ftov4")
 fire_interval = 6.0
 projectile_speed = 250.0
+projectile_count = 12
 projectile_data = SubResource("Resource_if73g")
 rotates_visual = false
 enemy_stats = SubResource("Resource_wivlt")
@@ -108,9 +109,6 @@ enemy_stats = SubResource("Resource_wivlt")
 [node name="EnemySprite" parent="Node2D" parent_id_path=PackedInt32Array(892844730) index="0" unique_id=823058831]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_hcjb5")
-frame_progress = 0.9061261
+frame_progress = 0.4650474
 
-[node name="Muzzle" type="Marker2D" parent="." index="5" unique_id=1487189710]
-position = Vector2(0, -95)
-
-[node name="ShootTimer" type="Timer" parent="." index="6" unique_id=727118392]
+[node name="ShootTimer" type="Timer" parent="." index="5" unique_id=727118392]
