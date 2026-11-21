@@ -1,10 +1,29 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bd5fxy4ii75cj"]
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_qov04"]
+[ext_resource type="Script" uid="uid://c6qhvx1y0uoso" path="res://Resources/Items/ActionItem/drop_increase_action_item.gd" id="1_sf8nw"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="2_o2wjl"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_ugh5s"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_sf8nw"]
 [ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_o2wjl"]
 
+[sub_resource type="Resource" id="Resource_7n06a"]
+script = ExtResource("1_sf8nw")
+enemy_id = &"projectile_enemy"
+increase_amount = 1000
+metadata/_custom_type_script = "uid://c6qhvx1y0uoso"
+
+[sub_resource type="Resource" id="Resource_utpwq"]
+script = ExtResource("2_ugh5s")
+initial_price = 1
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
 [resource]
 script = ExtResource("3_sf8nw")
+id = "projectile_enemy_hp"
+display_name = "Buff Projectile Enemy"
+description = "Increases projectile enemy health by too much."
+icon = ExtResource("2_o2wjl")
+action = SubResource("Resource_7n06a")
+price_data_array = Array[ExtResource("2_ugh5s")]([SubResource("Resource_utpwq")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"
