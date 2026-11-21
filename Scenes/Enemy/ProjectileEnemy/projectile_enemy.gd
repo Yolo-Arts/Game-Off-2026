@@ -12,6 +12,7 @@ class_name ProjectileEnemy extends Enemy
 @export var time_before_shoot: float = 0.25
 
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var animation_player = $AnimationPlayer
 
 var angle_between_shots: float = 45.0
 var ring_projectiles: Array[Dictionary] = []
@@ -44,7 +45,7 @@ func _on_shoot_timer_timeout() -> void:
 func shoot_radial() -> void:
 	if projectile_scene == null or projectile_data == null:
 		return
-
+	animation_player.play("attack")
 	is_forming_ring = true
 	ring_projectiles.clear()
 

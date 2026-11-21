@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://dalnaxqkf7c2a" path="res://Resources/EnemySources/test_enemy_stats.tres" id="2_gx76c"]
 [ext_resource type="Script" uid="uid://b87utd8bhijc1" path="res://Game/EnemyComponents/enemy_movement_component.gd" id="3_efgs1"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="4_qs8s8"]
+[ext_resource type="Script" uid="uid://d0w08ox8k5k6v" path="res://Scripts/shaky_node_2d.gd" id="5_4ad2a"]
 [ext_resource type="Material" uid="uid://dfehdbc8jqou4" path="res://Assets/Enemy/gradient_maps/blue_red_gradient_map.tres" id="7_kiqm3"]
 [ext_resource type="Texture2D" uid="uid://y6ohloeokf5" path="res://Assets/Enemy/basic_enemy/enemy_1_walk-Sheet.png" id="8_6j3ko"]
 
@@ -66,11 +67,16 @@ script = ExtResource("2_3pmhw")
 script = ExtResource("3_efgs1")
 knockback_decay_coefficient = 14.0
 
-[node name="Node2D" type="Node2D" parent="." unique_id=892844730]
+[node name="AnimationShake" type="Node2D" parent="." unique_id=1516074945]
+script = ExtResource("5_4ad2a")
+
+[node name="ScalePivot" type="Node2D" parent="AnimationShake" unique_id=1355269433]
+
+[node name="Node2D" type="Node2D" parent="AnimationShake/ScalePivot" unique_id=892844730]
 rotation = -1.5707964
 scale = Vector2(5, 5)
 
-[node name="EnemySprite" type="AnimatedSprite2D" parent="Node2D" unique_id=823058831]
+[node name="EnemySprite" type="AnimatedSprite2D" parent="AnimationShake/ScalePivot/Node2D" unique_id=823058831]
 unique_name_in_owner = true
 material = ExtResource("7_kiqm3")
 sprite_frames = SubResource("SpriteFrames_3pbi0")
