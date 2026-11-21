@@ -35,7 +35,10 @@ const TREE = [
 		]],
 		["DynamicItems/shrapnel_item", [
 			["shrapnel_count_1"]
-		]]
+		]],
+		["unlock_left_turret", [
+			["unlock_right_turret"],
+		]],
 	]],
 	["currency_range_pickup_1", [
 		["currency_gear_value_1"], 

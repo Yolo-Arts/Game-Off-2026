@@ -42,6 +42,7 @@ class_name PlayerStats extends Resource
 @export var enemies_per_wave: Vector2i = Vector2i(3, 5)
 @export var ram_bullet_energy_increase: float = 0.0
 @export var ram_bullet_fuel_increase: float = 0.0
+@export var unlocked_turrets: int = 1
 
 func get_computed_damage(shoot: bool = false) -> float:
 	var final_damage: float = damage if not shoot else shot_damage

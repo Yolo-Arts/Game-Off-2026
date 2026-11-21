@@ -131,3 +131,15 @@ shape = SubResource("RectangleShape2D_pi45h")
 unique_name_in_owner = true
 scale = Vector2(4, 4)
 texture = ExtResource("7_jlvik")
+
+[node name="TurretPositions" type="Node2D" parent="." unique_id=635223832]
+unique_name_in_owner = true
+
+[node name="Center" type="Marker2D" parent="TurretPositions" unique_id=1248121917]
+position = Vector2(2, -66)
+
+[node name="Left" type="Marker2D" parent="TurretPositions" unique_id=1441921868]
+position = Vector2(-34.999996, -16)
+
+[node name="Right" type="Marker2D" parent="TurretPositions" unique_id=478066048]
+position = Vector2(40, -16)
