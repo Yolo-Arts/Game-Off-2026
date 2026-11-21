@@ -1,10 +1,10 @@
 class_name ProjectileEnemy extends Enemy
 
 @export var projectile_scene: PackedScene
-@export var projectile_data: ProjectileData
 
 @export var fire_interval: float = 2.0
 @export var projectile_speed: float = 250.0
+@export var projectile_data: ProjectileData
 
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var muzzle: Marker2D = $Muzzle

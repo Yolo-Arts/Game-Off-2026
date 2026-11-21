@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_if73g"]
 script = ExtResource("4_wivlt")
-life_time_seconds = 15.0
+life_time_seconds = 30.0
 range_pixels = 8000.0
 use_range = false
 enemy = true
@@ -19,9 +19,10 @@ metadata/_custom_type_script = "uid://xumjaybhya7b"
 script = ExtResource("4_ftov4")
 shift_color = 0
 enemy_damage_type = 4
-damage = 5.0
+damage = 10.0
 knockback = 700.0
 drop = 3
+knockback_resistance = 2.0
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvyfv"]
@@ -98,16 +99,16 @@ animations = [{
 [node name="ProjectileEnemy" unique_id=437048349 instance=ExtResource("1_xi3t3")]
 script = ExtResource("2_5fkgy")
 projectile_scene = ExtResource("3_ftov4")
-projectile_data = SubResource("Resource_if73g")
-fire_interval = 2.0
+fire_interval = 6.0
 projectile_speed = 250.0
+projectile_data = SubResource("Resource_if73g")
 rotates_visual = false
 enemy_stats = SubResource("Resource_wivlt")
 
 [node name="EnemySprite" parent="Node2D" parent_id_path=PackedInt32Array(892844730) index="0" unique_id=823058831]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_hcjb5")
-frame_progress = 0.7983734
+frame_progress = 0.9061261
 
 [node name="Muzzle" type="Marker2D" parent="." index="5" unique_id=1487189710]
 position = Vector2(0, -95)
