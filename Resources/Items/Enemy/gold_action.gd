@@ -6,4 +6,3 @@ func execute() -> void:
 		push_error("No gold_enemy")
 		return
 	gold_enemy.unlocked = true
-	

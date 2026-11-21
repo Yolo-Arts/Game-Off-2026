@@ -35,8 +35,11 @@ const TREE = [
 	]],
 	["currency_range_pickup_1", [
 		["currency_gear_value_1", [
-			["currency_star_value_1"], ["gold_enemy_item"],
+			["Enemy/gold_enemy_item", [
+				["currency_star_value_1"]
+			]],
 		]],
+		["Enemy/projectile_enemy"],
 	]],
 ]
 
