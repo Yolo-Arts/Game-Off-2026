@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func change_stage(key: StageConfig.Keys) -> void:
 	for child in get_children():
+		remove_child(child)
 		child.queue_free()
 	
 	var new_stage = StageConfig.get_stage(key)

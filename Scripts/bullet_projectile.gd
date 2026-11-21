@@ -10,8 +10,10 @@ var _timer_started: bool = false
 var player: Player
 
 func _ready() -> void:
-	area_entered.connect(_on_area_entered)
-	body_entered.connect(_on_body_entered)
+	if not area_entered.is_connected(_on_area_entered):
+		area_entered.connect(_on_area_entered)
+	if not body_entered.is_connected(_on_body_entered):
+		body_entered.connect(_on_body_entered)
 	
 	if projectile_stats != null:
 		_apply_stats()

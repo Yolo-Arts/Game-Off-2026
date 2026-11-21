@@ -35,5 +35,3 @@ func take_damage(source: DamageSource) -> void:
 	damage_numbers.display_val(source.damage, enemy.global_position)
 	if(current_health <= 0):
 		enemy.die() #Does all the shindiggery it needs to in the 
-		
-	
