@@ -6,7 +6,7 @@ const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
 @onready var sprite: Sprite2D = $Sprite2D
 
 var _timer_started: bool = false
-
+var is_charging: bool = false
 var player: Player
 
 func _ready() -> void:
@@ -44,13 +44,22 @@ func _apply_stats() -> void:
 	
 	_apply_shift_shader()
 	
+	if not is_charging:
+		_start_lifetime_timer()
+	
 	if projectile_stats.enemy:
 		player = get_tree().get_first_node_in_group("player") as Player
-	
-	if not _timer_started:
-		_timer_started = true
-		var wait: float = projectile_stats.life_time_seconds if not projectile_stats.use_range else projectile_stats.convert_range_to_life_time()
-		get_tree().create_timer(wait).timeout.connect(queue_free)
+
+func launch() -> void:
+	is_charging = false
+	_start_lifetime_timer()
+
+func _start_lifetime_timer() -> void:
+	if _timer_started or projectile_stats == null:
+		return
+	_timer_started = true
+	var wait: float = projectile_stats.life_time_seconds if not projectile_stats.use_range else projectile_stats.convert_range_to_life_time()
+	get_tree().create_timer(wait).timeout.connect(queue_free)
 
 func _apply_shift_shader() -> void:
 	if sprite == null or sprite.material == null:
@@ -68,7 +77,7 @@ func _apply_shift_shader() -> void:
 			sprite.material.set_shader_parameter("lerper", 0.0)
 
 func _physics_process(delta: float) -> void:
-	if projectile_stats == null:
+	if projectile_stats == null or is_charging:
 		return
 	global_position += projectile_stats.direction * projectile_stats.speed * delta
 
@@ -133,4 +142,5 @@ func break_projectile(_same_color: bool = true) -> void:
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()
+	if not is_charging:
+		queue_free()
