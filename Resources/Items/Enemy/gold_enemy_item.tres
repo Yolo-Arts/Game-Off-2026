@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dlcdohy6cxeuj"]
 
-[ext_resource type="Script" uid="uid://b2abr82oit7o8" path="res://Resources/Items/Enemy/gold_action.gd" id="1_2v3fk"]
+[ext_resource type="Script" uid="uid://tmspni5xd5of" path="res://Resources/Items/ActionItem/unlock_enemy_action.gd" id="1_2v3fk"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_fsx2o"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_mq2mj"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_grlla"]
 [ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_u0gk2"]
 
-[sub_resource type="Resource" id="Resource_00yxq"]
+[sub_resource type="Resource" id="Resource_7n06a"]
 script = ExtResource("1_2v3fk")
-metadata/_custom_type_script = "uid://b2abr82oit7o8"
+enemy_id = &"gold_enemy"
+metadata/_custom_type_script = "uid://tmspni5xd5of"
 
 [sub_resource type="Resource" id="Resource_uagnk"]
 script = ExtResource("3_mq2mj")
@@ -20,7 +21,7 @@ script = ExtResource("4_grlla")
 id = "gold_enemy"
 display_name = "Golden Enemy"
 description = "Unlock Golden enemy, which spawns more gears."
-action = SubResource("Resource_00yxq")
+action = SubResource("Resource_7n06a")
 shape_type = 3
 price_data_array = Array[ExtResource("3_mq2mj")]([SubResource("Resource_uagnk")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

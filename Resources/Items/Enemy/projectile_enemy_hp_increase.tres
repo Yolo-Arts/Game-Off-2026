@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bd5fxy4ii75cj"]
+
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_qov04"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_ugh5s"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_sf8nw"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_o2wjl"]
+
+[resource]
+script = ExtResource("3_sf8nw")
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

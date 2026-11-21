@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cbegejdgftm13"]
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_f8f82"]
-[ext_resource type="Script" uid="uid://dbsag8jpm5x6a" path="res://Resources/Items/Enemy/projectile_enemy.gd" id="1_yles8"]
+[ext_resource type="Script" uid="uid://tmspni5xd5of" path="res://Resources/Items/ActionItem/unlock_enemy_action.gd" id="1_qiadk"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_ob24v"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_qiadk"]
 [ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_jv854"]
 [ext_resource type="Resource" uid="uid://ptdiu4xla5eq" path="res://Resources/Items/ReusableTextInjections/gear_text_injection.tres" id="6_qiadk"]
 
-[sub_resource type="Resource" id="Resource_jntpe"]
-script = ExtResource("1_yles8")
-metadata/_custom_type_script = "uid://dbsag8jpm5x6a"
+[sub_resource type="Resource" id="Resource_fsx2o"]
+script = ExtResource("1_qiadk")
+enemy_id = &"projectile_enemy"
+metadata/_custom_type_script = "uid://tmspni5xd5of"
 
 [sub_resource type="Resource" id="Resource_ynnir"]
 script = ExtResource("2_ob24v")
@@ -27,8 +28,10 @@ script = ExtResource("3_qiadk")
 id = "projectile_enemy"
 display_name = "Projectile Enemies!"
 description = "Unlocks enemies that attack with colored projectiles. 
-Drops {3x} more {GEARS}  than normal enemies."
-action = SubResource("Resource_jntpe")
+
+Drops {3x} more 
+{GEARS}  than normal enemies."
+action = SubResource("Resource_fsx2o")
 shape_type = 3
 price_data_array = Array[ExtResource("2_ob24v")]([SubResource("Resource_ynnir")])
 text_injections = Array[ExtResource("4_jv854")]([SubResource("Resource_lj5ah"), ExtResource("6_qiadk")])

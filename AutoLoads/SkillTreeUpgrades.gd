@@ -6,9 +6,6 @@ signal item_bought(item: ItemData)
 const ITEM_PATH := "res://Resources/Items/%s.tres"
 
 const TREE = [
-	["DynamicItems/firball_item", [
-		["luckitem"]
-		]],
 	["fuel_1", [
 		["fuel_2"]
 	]],
@@ -22,11 +19,14 @@ const TREE = [
 	]],
 	["projectile_damage_1", [
 		["projectile_damage_2", [
+			["DynamicItems/firball_item", [
+				["luckitem"]
+			]],
 			["crit_chance_1", [
 				["crit_chance_2"],
-			]],
-			["crit_damage_1", [
-				["crit_damage_2"],
+				["crit_damage_1", [
+					["crit_damage_2"],
+				]],
 			]],
 		]],
 		["DynamicItems/shrapnel_item", [
@@ -34,12 +34,11 @@ const TREE = [
 		]]
 	]],
 	["currency_range_pickup_1", [
-		["currency_gear_value_1", [
-			["Enemy/gold_enemy_item", [
-				["currency_star_value_1"]
-			]],
-		]],
+		["currency_gear_value_1"], 
 		["Enemy/projectile_enemy"],
+		["Enemy/gold_enemy_item", [
+				["currency_star_value_1"]
+		]],
 	]],
 ]
 
