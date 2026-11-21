@@ -29,9 +29,18 @@ func _apply_stats() -> void:
 	projectile_stats.direction = projectile_stats.direction.normalized()
 	global_rotation = projectile_stats.direction.angle()
 	
+	collision_layer = 0
+	collision_mask = 0
+	set_collision_layer_value(4, true) # projectiles
+	set_collision_mask_value(1, true)  # environments
+
 	if projectile_stats.enemy:
-		collision_layer = 0
-		collision_mask = 2 
+		set_collision_mask_value(2, true) # player
+		player = get_tree().get_first_node_in_group("player") as Player
+	else:
+		# look for enemies and other bullets.
+		set_collision_mask_value(3, true) # enemy
+		set_collision_mask_value(4, true) 
 	
 	_apply_shift_shader()
 	
@@ -66,7 +75,18 @@ func _physics_process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if projectile_stats == null:
 		return
-
+		
+	if not projectile_stats.enemy and area is BulletProjectile:
+		var other_bullet := area as BulletProjectile
+		if other_bullet.is_queued_for_deletion():
+			return
+		if other_bullet.projectile_stats != null and other_bullet.projectile_stats.enemy:
+			other_bullet.break_projectile()
+			
+			# TODO add piercing to player bullet so that their shots pierce through enemy projectiles.
+			break_projectile() 
+			return
+	
 	if projectile_stats.enemy and area.is_in_group("player_hurtbox"):
 		
 		if player and (player.shift_color == projectile_stats.shift_color) and (projectile_stats.shift_color != DamageSource.ShiftColor.NONE):
@@ -107,7 +127,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	break_projectile()
 
-func break_projectile(same_color: bool = true) -> void:
+func break_projectile(_same_color: bool = true) -> void:
 	# TODO make better projectile particles.
 	ObjectPool.spawn(ObjectPool.bullet_impact_scene, global_position)
 	queue_free()
