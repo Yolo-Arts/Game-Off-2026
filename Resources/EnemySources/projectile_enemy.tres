@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="1_cbylk"]
 [ext_resource type="PackedScene" uid="uid://tse4pcoof720" path="res://Scenes/Enemy/ProjectileEnemy/projectile_enemy.tscn" id="2_7wu7r"]
 [ext_resource type="Script" uid="uid://5tohkhxkc40i" path="res://Resources/enemy_spawn_animation_data/enemy_spawn_animation_texture_data.gd" id="4_d1mav"]
+[ext_resource type="Texture2D" uid="uid://cll5hao1ab5qj" path="res://Assets/Enemy/ear_enemy/ear_enemy_spawn_zoom.png" id="4_vy84h"]
+[ext_resource type="Texture2D" uid="uid://cyrhm6ef27w5o" path="res://Assets/Enemy/ear_enemy/ear_enemy_spawn.png" id="5_1tk75"]
+[ext_resource type="Texture2D" uid="uid://dkvtgkiejn6xy" path="res://Assets/Enemy/ear_enemy/ear_enemy_spawn_zoom_fill.png" id="7_esour"]
 
 [sub_resource type="Resource" id="Resource_wivlt"]
 script = ExtResource("1_7pvkj")
@@ -14,21 +17,11 @@ knockback = 700.0
 drop = 3
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vy84h"]
-load_path = "res://.godot/imported/basic_enemy_spawn_fill.png-ec7b66e52aceee08f065fb7cb4a10c5e.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1tk75"]
-load_path = "res://.godot/imported/basic_enemy_spawn.png-2e56489e98e9f2503f864f9f038edf46.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_esour"]
-load_path = "res://.godot/imported/basic_enemy_spawn_zoom.png-f393e579aea462852f7fe0fc7c29bcfd.ctex"
-
 [sub_resource type="Resource" id="Resource_yn81u"]
 script = ExtResource("4_d1mav")
-glitch_texture = SubResource("CompressedTexture2D_1tk75")
-zoom_texture = SubResource("CompressedTexture2D_esour")
-fill_texture = SubResource("CompressedTexture2D_vy84h")
-rotate = true
+glitch_texture = ExtResource("5_1tk75")
+zoom_texture = ExtResource("7_esour")
+fill_texture = ExtResource("4_vy84h")
 metadata/_custom_type_script = "uid://5tohkhxkc40i"
 
 [resource]

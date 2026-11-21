@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ta3pbmuu251" path="res://Scenes/Enemy/EnemyBullet/enemy_bullet.tscn" id="3_ftov4"]
 [ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="4_ftov4"]
 [ext_resource type="Script" uid="uid://xumjaybhya7b" path="res://Resources/projectile_data.gd" id="4_wivlt"]
+[ext_resource type="Texture2D" uid="uid://dgicypapjo6jw" path="res://Assets/Enemy/ear_enemy/enemy_ear_fly-Sheet.png" id="6_if73g"]
 
 [sub_resource type="Resource" id="Resource_if73g"]
 script = ExtResource("4_wivlt")
@@ -23,13 +24,90 @@ knockback = 700.0
 drop = 3
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvyfv"]
+atlas = ExtResource("6_if73g")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tfr7"]
+atlas = ExtResource("6_if73g")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvbck"]
+atlas = ExtResource("6_if73g")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gwfo"]
+atlas = ExtResource("6_if73g")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d04gl"]
+atlas = ExtResource("6_if73g")
+region = Rect2(256, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78b37"]
+atlas = ExtResource("6_if73g")
+region = Rect2(320, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar0ti"]
+atlas = ExtResource("6_if73g")
+region = Rect2(384, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l86pn"]
+atlas = ExtResource("6_if73g")
+region = Rect2(448, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdjtb"]
+atlas = ExtResource("6_if73g")
+region = Rect2(512, 0, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcjb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvyfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tfr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvbck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gwfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d04gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78b37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar0ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l86pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdjtb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="ProjectileEnemy" unique_id=437048349 instance=ExtResource("1_xi3t3")]
 script = ExtResource("2_5fkgy")
 projectile_scene = ExtResource("3_ftov4")
 projectile_data = SubResource("Resource_if73g")
 fire_interval = 2.0
 projectile_speed = 250.0
+rotates_visual = false
 enemy_stats = SubResource("Resource_wivlt")
+
+[node name="EnemySprite" parent="Node2D" parent_id_path=PackedInt32Array(892844730) index="0" unique_id=823058831]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_hcjb5")
+frame_progress = 0.7983734
 
 [node name="Muzzle" type="Marker2D" parent="." index="5" unique_id=1487189710]
 position = Vector2(0, -95)

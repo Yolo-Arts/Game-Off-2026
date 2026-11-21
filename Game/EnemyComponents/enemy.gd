@@ -2,6 +2,7 @@ class_name Enemy extends CharacterBody2D
 
 @onready var health_component: EnemyHealthComponent = $HealthComponent
 @onready var movement_component: EnemyMovementComponent = $MovementComponent
+@export var rotates_visual: bool = true
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
 const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
@@ -11,7 +12,7 @@ const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)
-	movement_component.setup(self)
+	movement_component.setup(self, rotates_visual)
 	hitbox.setup(self, enemy_stats)
 	enemy_sprite.material = enemy_sprite.material.duplicate()
 	
