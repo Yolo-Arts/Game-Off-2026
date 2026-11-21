@@ -96,6 +96,8 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvyfv"]
+
 [sub_resource type="Animation" id="Animation_if73g"]
 length = 0.001
 tracks/0/type = "value"
@@ -175,7 +177,17 @@ rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_hcjb5")
 frame_progress = 0.8687327
 
-[node name="ShootTimer" type="Timer" parent="." index="5" unique_id=727118392]
+[node name="CollisionShape2D" parent="." index="3" unique_id=1826381267]
+shape = null
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=894252247]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="4" unique_id=1184896314]
+visible = false
+polygon = PackedVector2Array(-136, -13, -123, -59, -4, -42, 114, -75, 149, -22, 70, -22, 47, 50, -33, 53, -70, -18)
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(357307482) index="0" unique_id=573603964]
+shape = SubResource("RectangleShape2D_vvyfv")
+
+[node name="ShootTimer" type="Timer" parent="." index="6" unique_id=727118392]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7" unique_id=894252247]
 libraries/ = SubResource("AnimationLibrary_6tfr7")
