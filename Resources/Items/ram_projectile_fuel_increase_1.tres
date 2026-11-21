@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://f7vpdn70i0ap"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_ik18l"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_pklms"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_v3jif"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_yx7ps"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_npmag"]
+
+[sub_resource type="Resource" id="Resource_3yryn"]
+script = ExtResource("2_pklms")
+stat = "ram_bullet_fuel_increase"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_hcjb5"]
+script = ExtResource("3_v3jif")
+initial_price = 15
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_pklms"]
+script = ExtResource("5_npmag")
+text = "Fuel"
+color = Color(0, 0.6, 0.85882354, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_yx7ps")
+id = "ram_projectile_fuel_1"
+display_name = "Projectile refuel"
+description = "Ramming Enemy Projectiles increases {Fuel} by [+1]"
+icon = ExtResource("1_ik18l")
+modifiers = Array[ExtResource("2_pklms")]([SubResource("Resource_3yryn")])
+max_level = 5
+price_data_array = Array[ExtResource("3_v3jif")]([SubResource("Resource_hcjb5")])
+increment_value = 1.0
+text_injections = Array[ExtResource("5_npmag")]([SubResource("Resource_pklms")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://bigogxmuptah4"
 [resource]
 script = ExtResource("3_f4fks")
 id = "ram_projectile_1"
-display_name = "Projectile lifesteal"
+display_name = "Projectile recharge"
 description = "Ramming Enemy Projectiles increases {Energy} by [+1]"
 icon = ExtResource("1_hcjb5")
 modifiers = Array[ExtResource("1_3yryn")]([SubResource("Resource_3yryn")])

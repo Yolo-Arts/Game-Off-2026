@@ -103,15 +103,15 @@ fire_interval = 6.0
 projectile_speed = 250.0
 projectile_count = 12
 projectile_data = SubResource("Resource_if73g")
-ring_radius = 200.0
+radius = 128.0
 spawn_delay = 0.08
-hold_before_fire = 0.25
+time_before_shoot = 0.25
 rotates_visual = false
 enemy_stats = SubResource("Resource_wivlt")
 
 [node name="EnemySprite" parent="Node2D" parent_id_path=PackedInt32Array(892844730) index="0" unique_id=823058831]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_hcjb5")
-frame_progress = 0.6478596
+frame_progress = 0.8687327
 
 [node name="ShootTimer" type="Timer" parent="." index="5" unique_id=727118392]

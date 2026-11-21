@@ -7,8 +7,9 @@ const ITEM_PATH := "res://Resources/Items/%s.tres"
 
 const TREE = [
 	["fuel_1", [
-		["fuel_2"]
+		["fuel_2"],
 	]],
+	["energy_capacity_1"],
 	["beefier_hull", [
 		["beefier_hull_2"],
 		["energy_recharge_1"],
@@ -35,12 +36,13 @@ const TREE = [
 	]],
 	["currency_range_pickup_1", [
 		["currency_gear_value_1"], 
-		["Enemy/projectile_enemy", [
-			["ram_projectile_energy_increase_1"],
-			["Enemy/projectile_enemy_hp_increase"],
-		]],
 		["Enemy/gold_enemy_item", [
 				["currency_star_value_1"]
+		]],
+		["Enemy/projectile_enemy", [
+			["ram_projectile_fuel_increase_1"],
+			["ram_projectile_energy_increase_1"],
+			["Enemy/projectile_enemy_hp_increase"],
 		]],
 	]],
 ]
