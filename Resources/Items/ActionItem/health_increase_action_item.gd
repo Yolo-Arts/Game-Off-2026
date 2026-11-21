@@ -1,10 +1,11 @@
 extends ActionItem
 class_name HealthIncreaseActionItem
 
-@export var enemy_id: StringName
+@export_enum("projectile_enemy", "gold_enemy")
+var enemy_id: String
 @export var increase_amount: int
 
-func _init(id: StringName = &"", amount: int = 1) -> void:
+func _init(id: String = "", amount: int = 1) -> void:
 	enemy_id = id
 	increase_amount += amount
 

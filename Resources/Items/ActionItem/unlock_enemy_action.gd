@@ -1,9 +1,10 @@
 extends ActionItem
 class_name UnlockEnemyAction
 
-@export var enemy_id: StringName
+@export_enum("projectile_enemy", "gold_enemy")
+var enemy_id: String
 
-func _init(id: StringName = &"") -> void:
+func _init(id: String= "") -> void:
 	enemy_id = id
 
 func execute() -> void:

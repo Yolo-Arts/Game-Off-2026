@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_fsx2o"]
 script = ExtResource("1_qiadk")
-enemy_id = &"projectile_enemy"
+enemy_id = "projectile_enemy"
 metadata/_custom_type_script = "uid://tmspni5xd5of"
 
 [sub_resource type="Resource" id="Resource_ynnir"]

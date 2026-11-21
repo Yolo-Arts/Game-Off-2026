@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bd5fxy4ii75cj"]
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_qov04"]
-[ext_resource type="Script" uid="uid://c6qhvx1y0uoso" path="res://Resources/Items/ActionItem/drop_increase_action_item.gd" id="1_sf8nw"]
+[ext_resource type="Script" uid="uid://c6qhvx1y0uoso" path="res://Resources/Items/ActionItem/health_increase_action_item.gd" id="1_sf8nw"]
 [ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="2_o2wjl"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_ugh5s"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_sf8nw"]
@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_7n06a"]
 script = ExtResource("1_sf8nw")
-enemy_id = &"projectile_enemy"
+enemy_id = "projectile_enemy"
 increase_amount = 1000
 metadata/_custom_type_script = "uid://c6qhvx1y0uoso"
 

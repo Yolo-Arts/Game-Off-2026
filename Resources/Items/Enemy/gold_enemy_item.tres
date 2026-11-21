@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_7n06a"]
 script = ExtResource("1_2v3fk")
-enemy_id = &"gold_enemy"
+enemy_id = "gold_enemy"
 metadata/_custom_type_script = "uid://tmspni5xd5of"
 
 [sub_resource type="Resource" id="Resource_uagnk"]
