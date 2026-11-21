@@ -7,12 +7,15 @@ const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
 
 var _timer_started: bool = false
 
+var player: Player
+
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(_on_body_entered)
 	
 	if projectile_stats != null:
 		_apply_stats()
+	
 
 func setup(stats: ProjectileData) -> void:
 	projectile_stats = stats.duplicate()
@@ -30,6 +33,9 @@ func _apply_stats() -> void:
 	
 	_apply_shift_shader()
 	
+	if projectile_stats.enemy:
+		player = get_tree().get_first_node_in_group("player") as Player
+	
 	if not _timer_started:
 		_timer_started = true
 		var wait: float = projectile_stats.life_time_seconds if not projectile_stats.use_range else projectile_stats.convert_range_to_life_time()
@@ -37,8 +43,8 @@ func _apply_stats() -> void:
 
 func _apply_shift_shader() -> void:
 	if sprite == null or sprite.material == null:
-		print("Nah")
 		return
+	
 	sprite.material = sprite.material.duplicate()
 	
 	match projectile_stats.shift_color:
@@ -60,7 +66,6 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 
 	if projectile_stats.enemy and area.is_in_group("player_hurtbox"):
-		var player := get_tree().get_first_node_in_group("player") as Player
 		
 		if player and (player.shift_color == projectile_stats.shift_color) and (projectile_stats.shift_color != DamageSource.ShiftColor.NONE):
 			break_projectile()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8ta3pbmuu251"]
 
-[ext_resource type="Script" uid="uid://b8ok1jmop2wag" path="res://Scripts/bullet_projectile.gd" id="1_svtar"]
+[ext_resource type="Script" uid="uid://b58bhmk1xqasg" path="res://Scenes/Enemy/EnemyBullet/enemy_bullet.gd" id="1_uxnff"]
 [ext_resource type="Script" uid="uid://xumjaybhya7b" path="res://Resources/projectile_data.gd" id="2_4r26n"]
 [ext_resource type="Shader" uid="uid://b7xq6ow1k63wm" path="res://Shaders/gradient_map.gdshader" id="3_4r26n"]
 [ext_resource type="Texture2D" uid="uid://cmy4nq6ehejrb" path="res://Assets/Particles/ParticleCircle.png" id="3_svtar"]
@@ -14,7 +14,7 @@ enemy = true
 metadata/_custom_type_script = "uid://xumjaybhya7b"
 
 [sub_resource type="Gradient" id="Gradient_410ce"]
-offsets = PackedFloat32Array(0, 0, 0.05691057, 0.55284554, 0.9268293)
+offsets = PackedFloat32Array(0, 0, 0, 0.05691057, 0.55284554)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0.27450982, 0.627451, 1, 0, 0.27450982, 0.627451, 1, 0, 0.43529412, 1, 1, 0, 0.43529412, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l1166"]
@@ -37,7 +37,7 @@ shader_parameter/lerper = 1.0
 radius = 39.20459
 
 [node name="EnemyBullet" type="Area2D" unique_id=1283476685]
-script = ExtResource("1_svtar")
+script = ExtResource("1_uxnff")
 projectile_stats = SubResource("Resource_ftov4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1450833505]
