@@ -1,6 +1,8 @@
 [gd_resource type="GradientTexture1D" format=3 uid="uid://cjvre6a2uy80"]
 
-[ext_resource type="Gradient" uid="uid://b53p0vxpeqti" path="res://Assets/Enemy/gradient_maps/gold.tres" id="1_wyn7v"]
+[sub_resource type="Gradient" id="Gradient_ptl8w"]
+offsets = PackedFloat32Array(0, 0.05691057, 0.55284554, 0.60162604, 0.9512195, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.27450982, 0.627451, 1, 0, 0.27450982, 0.627451, 1, 0, 0.43529412, 1, 1, 0, 0.43529412, 1, 1, 1, 1, 1, 1)
 
 [resource]
-gradient = ExtResource("1_wyn7v")
+gradient = SubResource("Gradient_ptl8w")

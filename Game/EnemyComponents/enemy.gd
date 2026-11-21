@@ -19,7 +19,7 @@ func _ready() -> void:
 		enemy_sprite.material.set_shader_parameter("lerper", 1.0)
 	elif enemy_stats.shift_color == DamageSource.ShiftColor.BLUE:
 		enemy_sprite.material.set_shader_parameter("lerper", 0.0)
-	else:
+	elif enemy_stats.shift_color == DamageSource.ShiftColor.NONE:
 		enemy_sprite.material = GOLD_GRADIENT_MAP
 		enemy_sprite.material.set_shader_parameter("lerper", 0.0)
 	
