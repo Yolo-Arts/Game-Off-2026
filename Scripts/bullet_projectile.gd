@@ -82,7 +82,7 @@ func _on_area_entered(area: Area2D) -> void:
 		)
 		EventSystem.player_hit.emit(damage_source)
 		
-		break_projectile()
+		break_projectile(false)
 
 func _on_body_entered(body: Node2D) -> void:
 	if projectile_stats == null:
@@ -107,7 +107,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	break_projectile()
 
-func break_projectile() -> void:
+func break_projectile(same_color: bool = true) -> void:
 	# TODO make better projectile particles.
 	ObjectPool.spawn(ObjectPool.bullet_impact_scene, global_position)
 	queue_free()

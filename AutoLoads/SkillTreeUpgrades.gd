@@ -36,6 +36,7 @@ const TREE = [
 	["currency_range_pickup_1", [
 		["currency_gear_value_1"], 
 		["Enemy/projectile_enemy", [
+			["ram_projectile_energy_increase_1"],
 			["Enemy/projectile_enemy_hp_increase"],
 		]],
 		["Enemy/gold_enemy_item", [

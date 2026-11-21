@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://br2x2ielk3yjq"]
+
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_3yryn"]
+[ext_resource type="Texture2D" uid="uid://cmy4nq6ehejrb" path="res://Assets/Particles/ParticleCircle.png" id="1_hcjb5"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_hcjb5"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_f4fks"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_g6nuc"]
+
+[sub_resource type="Resource" id="Resource_3yryn"]
+script = ExtResource("1_3yryn")
+stat = "ram_bullet_energy_increase"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_hcjb5"]
+script = ExtResource("2_hcjb5")
+initial_price = 15
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_f4fks"]
+script = ExtResource("4_g6nuc")
+text = "Energy"
+color = Color(0, 0.6, 0.85882354, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("3_f4fks")
+id = "ram_projectile_1"
+display_name = "Projectile lifesteal"
+description = "Ramming Enemy Projectiles increases {Energy} by [+1]"
+icon = ExtResource("1_hcjb5")
+modifiers = Array[ExtResource("1_3yryn")]([SubResource("Resource_3yryn")])
+max_level = 5
+price_data_array = Array[ExtResource("2_hcjb5")]([SubResource("Resource_hcjb5")])
+increment_value = 1.0
+text_injections = Array[ExtResource("4_g6nuc")]([SubResource("Resource_f4fks")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"
