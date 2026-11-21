@@ -1,11 +1,23 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dfehdbc8jqou4"]
 
 [ext_resource type="Shader" uid="uid://b7xq6ow1k63wm" path="res://Shaders/gradient_map.gdshader" id="1_ih8oo"]
-[ext_resource type="Texture2D" uid="uid://cjvre6a2uy80" path="res://Assets/Enemy/gradient_maps/blue.tres" id="2_oynh1"]
-[ext_resource type="Texture2D" uid="uid://bohgbnvhsxuyd" path="res://Assets/Enemy/gradient_maps/red.tres" id="3_volyf"]
+
+[sub_resource type="Gradient" id="Gradient_410ce"]
+offsets = PackedFloat32Array(0, 0, 0.05691057, 0.55284554, 0.9268293, 0.9512195)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.27450982, 0.627451, 1, 0, 0.27450982, 0.627451, 1, 0, 0.43529412, 1, 1, 0, 0.43529412, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_valc0"]
+gradient = SubResource("Gradient_410ce")
+
+[sub_resource type="Gradient" id="Gradient_30ubk"]
+offsets = PackedFloat32Array(0, 0, 0.05691057, 0.55284554, 0.9268293, 0.9512195)
+colors = PackedColorArray(0, 0, 0, 1, 0.64705884, 0, 0, 1, 0.64705884, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ih8oo"]
+gradient = SubResource("Gradient_30ubk")
 
 [resource]
 shader = ExtResource("1_ih8oo")
-shader_parameter/pal0 = ExtResource("2_oynh1")
-shader_parameter/pal1 = ExtResource("3_volyf")
+shader_parameter/pal0 = SubResource("GradientTexture1D_valc0")
+shader_parameter/pal1 = SubResource("GradientTexture1D_ih8oo")
 shader_parameter/lerper = 1.0

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://tse4pcoof720"]
+
+[ext_resource type="PackedScene" uid="uid://do4uq2uieplq2" path="res://Scenes/Enemy/enemy.tscn" id="1_xi3t3"]
+[ext_resource type="Script" uid="uid://d3r6i1shw6d1v" path="res://Scenes/Enemy/ProjectileEnemy/projectile_enemy.gd" id="2_5fkgy"]
+[ext_resource type="PackedScene" uid="uid://b8ta3pbmuu251" path="res://Scenes/Enemy/EnemyBullet/enemy_bullet.tscn" id="3_ftov4"]
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="4_ftov4"]
+[ext_resource type="Script" uid="uid://xumjaybhya7b" path="res://Resources/projectile_data.gd" id="4_wivlt"]
+
+[sub_resource type="Resource" id="Resource_if73g"]
+script = ExtResource("4_wivlt")
+life_time_seconds = 15.0
+range_pixels = 8000.0
+use_range = false
+enemy = true
+metadata/_custom_type_script = "uid://xumjaybhya7b"
+
+[sub_resource type="Resource" id="Resource_wivlt"]
+script = ExtResource("4_ftov4")
+shift_color = 0
+enemy_damage_type = 4
+damage = 5.0
+knockback = 700.0
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
+
+[node name="ProjectileEnemy" unique_id=437048349 instance=ExtResource("1_xi3t3")]
+script = ExtResource("2_5fkgy")
+projectile_scene = ExtResource("3_ftov4")
+projectile_data = SubResource("Resource_if73g")
+fire_interval = 2.0
+projectile_speed = 250.0
+enemy_stats = SubResource("Resource_wivlt")
+
+[node name="Muzzle" type="Marker2D" parent="." index="5" unique_id=1487189710]
+position = Vector2(0, -95)
+
+[node name="ShootTimer" type="Timer" parent="." index="6" unique_id=727118392]

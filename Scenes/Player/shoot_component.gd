@@ -25,7 +25,7 @@ func shoot(scene: PackedScene) -> void:
 	if bullet:
 		EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerShoot)
 		bullet.projectile_stats = make_projectile_data(player.get_current_stats(), -player.transform.y)
-		bullet.global_position = player.global_position + 32 * -player.transform.y
+		bullet.global_position = player.global_position + 75 * -player.transform.y
 		get_tree().current_scene.add_child(bullet)
 		player.energy_component.reduce_energy(player.get_current_stats().shot_cost)
 		shoot_cooldown = 1/player.get_current_stats().shots_per_second
