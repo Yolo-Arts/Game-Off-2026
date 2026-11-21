@@ -10,6 +10,7 @@ const TREE = [
 		["fuel_2"],
 	]],
 	["energy_capacity_1", [
+		["energy_regen_1"],
 		["energy_recharge_1"],
 	]],
 	["beefier_hull", [
