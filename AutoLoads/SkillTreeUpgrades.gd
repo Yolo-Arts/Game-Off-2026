@@ -9,14 +9,16 @@ const TREE = [
 	["fuel_1", [
 		["fuel_2"],
 	]],
-	["energy_capacity_1"],
+	["energy_capacity_1", [
+		["energy_recharge_1"],
+	]],
 	["beefier_hull", [
 		["beefier_hull_2"],
 		["energy_recharge_1"],
 	]],
 	["gear_shift_1", [
 		["gear_shift_2"],
-		["energy_recharge_1"],
+		#["energy_recharge_1"],
 	]],
 	["projectile_damage_1", [
 		["projectile_damage_2", [

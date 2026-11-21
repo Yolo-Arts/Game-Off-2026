@@ -4,3 +4,6 @@
 
 [node name="LineShape" type="Node2D" unique_id=1434494599]
 script = ExtResource("1_1l6x3")
+edge_width = 5.0
+inside_margin = 2.0
+outside_margin = 6.0

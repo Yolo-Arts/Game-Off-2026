@@ -10,7 +10,7 @@ const OUTRO_ANIMATION_DELAYS := 0.07
 const LINE_GROW_TIME := 0.25
 const LINE_HINT_LENGTH := 95.0 
 const LINE_HINT_PULSE := 10.0 
-const LINE_COLOR := Color(0.7, 0.7, 0.7)
+const LINE_COLOR := Color(1.0, 1.0, 1.0, 1.0)
 
 enum LineState { HIDDEN, HINT, FULL }
 
