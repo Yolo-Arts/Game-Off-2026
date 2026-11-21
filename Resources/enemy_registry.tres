@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyRegistry" format=3 uid="uid://bvyd8bs0vp8wj"]
 
 [ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="1_pe4qc"]
+[ext_resource type="Resource" uid="uid://c350ejkc56daf" path="res://Resources/EnemySources/projectile_enemy.tres" id="2_74u1i"]
 [ext_resource type="Resource" uid="uid://bskyx75x7b3nd" path="res://Resources/EnemySources/test_enemy.tres" id="2_fba7i"]
 [ext_resource type="Script" uid="uid://dgl2hpf6fa4x6" path="res://Resources/enemy_registry.gd" id="3_74u1i"]
 [ext_resource type="Resource" uid="uid://c8lecyg4ruur7" path="res://Resources/EnemySources/test_gold_enemy.tres" id="3_fba7i"]
@@ -9,5 +10,6 @@
 script = ExtResource("3_74u1i")
 enemies = Dictionary[StringName, ExtResource("1_pe4qc")]({
 &"gold_enemy": ExtResource("3_fba7i"),
+&"projectile_enemy": ExtResource("2_74u1i"),
 &"testenemy": ExtResource("2_fba7i")
 })

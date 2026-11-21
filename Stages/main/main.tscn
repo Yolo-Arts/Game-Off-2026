@@ -33,8 +33,6 @@
 [ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="19_r2vng"]
 [ext_resource type="PackedScene" uid="uid://dbabsmode2qmf" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.tscn" id="24_qqltb"]
 [ext_resource type="PackedScene" uid="uid://da6lsubuwmq1n" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_particles.tscn" id="26_h7dmi"]
-[ext_resource type="PackedScene" uid="uid://tse4pcoof720" path="res://Scenes/Enemy/ProjectileEnemy/projectile_enemy.tscn" id="34_uagnk"]
-[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="35_o3x13"]
 
 [sub_resource type="Gradient" id="Gradient_4tusj"]
 offsets = PackedFloat32Array(0.55, 1)
@@ -47,14 +45,6 @@ gradient = SubResource("Gradient_4tusj")
 shader = ExtResource("3_mwvqt")
 shader_parameter/gradient_map = SubResource("GradientTexture1D_jdc67")
 shader_parameter/intensity = 0.0
-
-[sub_resource type="Resource" id="Resource_o3x13"]
-script = ExtResource("35_o3x13")
-shift_color = 1
-enemy_damage_type = 4
-damage = 5.0
-knockback = 700.0
-metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
@@ -241,24 +231,3 @@ script = ExtResource("3_t30ik")
 
 [node name="PickupMultiMesh" parent="." unique_id=370772807 instance=ExtResource("11_qfemd")]
 mesh_size = Vector2(16, 16)
-
-[node name="ProjectileEnemy" parent="." unique_id=437048349 instance=ExtResource("34_uagnk")]
-position = Vector2(1961, 86)
-
-[node name="ProjectileEnemy3" parent="." unique_id=1488865113 instance=ExtResource("34_uagnk")]
-position = Vector2(2824, 1114)
-
-[node name="ProjectileEnemy4" parent="." unique_id=864831759 instance=ExtResource("34_uagnk")]
-position = Vector2(2375, 1746)
-
-[node name="ProjectileEnemy5" parent="." unique_id=337374858 instance=ExtResource("34_uagnk")]
-position = Vector2(-152, 1788)
-enemy_stats = SubResource("Resource_o3x13")
-
-[node name="ProjectileEnemy6" parent="." unique_id=633642933 instance=ExtResource("34_uagnk")]
-position = Vector2(-578, 1095)
-enemy_stats = SubResource("Resource_o3x13")
-
-[node name="ProjectileEnemy7" parent="." unique_id=1636486694 instance=ExtResource("34_uagnk")]
-position = Vector2(-565, 305)
-enemy_stats = SubResource("Resource_o3x13")

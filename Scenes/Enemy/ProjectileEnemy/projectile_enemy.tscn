@@ -20,6 +20,7 @@ shift_color = 0
 enemy_damage_type = 4
 damage = 5.0
 knockback = 700.0
+drop = 3
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
 [node name="ProjectileEnemy" unique_id=437048349 instance=ExtResource("1_xi3t3")]

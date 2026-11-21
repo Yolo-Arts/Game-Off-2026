@@ -9,7 +9,7 @@ class_name EnemyData extends Resource
 @export var base_enemy_stats: EnemyStats = EnemyStats.new()
 @export var spawn_animation_data: EnemySpawnAnimationTextureData
 
-@export var spawn_distance_from_player: float = 100.0:
+@export var spawn_distance_from_player: float = 500.0:
 	set(value):
 		spawn_distance_from_player = max(0.0, value)
 @export var enemy_size: float = 64.0:
