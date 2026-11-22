@@ -104,7 +104,8 @@ func start_spawn_sequence(enemy_data: EnemyData, spawn_pos: Vector2) -> void:
 	var chosen_color: DamageSource.ShiftColor = enemy_data.base_enemy_stats.shift_color
 	if enemy_data.enemy_type == EnemyData.EnemyType.COLOR:
 		chosen_color = [DamageSource.ShiftColor.RED, DamageSource.ShiftColor.BLUE].pick_random()
-
+	else:
+		chosen_color = DamageSource.ShiftColor.NONE
 	if spawn_animation_scene == null or enemy_data.spawn_animation_data == null:
 		finalize_spawn_enemy(enemy_data, spawn_pos, 0.0, chosen_color)
 		return
