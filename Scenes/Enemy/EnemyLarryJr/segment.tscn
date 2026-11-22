@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bn0dal5puc38l"]
+
+[ext_resource type="Resource" uid="uid://dalnaxqkf7c2a" path="res://Resources/EnemySources/test_enemy_stats.tres" id="2_aaji8"]
+[ext_resource type="Script" uid="uid://bxd86p3i4bh8u" path="res://Scenes/Enemy/EnemyLarryJr/segment.gd" id="2_s8ip1"]
+[ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="3_evr08"]
+[ext_resource type="Script" uid="uid://d0w08ox8k5k6v" path="res://Scripts/shaky_node_2d.gd" id="4_7gj83"]
+[ext_resource type="Material" uid="uid://dfehdbc8jqou4" path="res://Assets/Enemy/gradient_maps/blue_red_gradient_map.tres" id="5_10p3u"]
+[ext_resource type="Texture2D" uid="uid://bqafyjufu8gu2" path="res://Assets/Enemy/worm_enemy/enemy_2_head.png" id="6_6aq2r"]
+[ext_resource type="Texture2D" uid="uid://brdnto3qbt4l2" path="res://Assets/Enemy/worm_enemy/enemy_2_torso_upper.png" id="7_kufr5"]
+[ext_resource type="Texture2D" uid="uid://hppl2pwcs0e1" path="res://Assets/Enemy/worm_enemy/enemy_2_tail.png" id="8_6p3fm"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="9_xbbtt"]
+[ext_resource type="Script" uid="uid://clrd0iwj6idl4" path="res://Scenes/Enemy/EnemyLarryJr/kmsmovement_component.gd" id="10_evr08"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uinop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6aq2r")
+}],
+"loop": 1,
+"name": &"head",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_kufr5")
+}],
+"loop": 1,
+"name": &"middle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6p3fm")
+}],
+"loop": 1,
+"name": &"tail",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6lt"]
+
+[node name="Segment" type="CharacterBody2D" unique_id=437048349 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("2_s8ip1")
+enemy_stats = ExtResource("2_aaji8")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2109919344]
+script = ExtResource("3_evr08")
+
+[node name="AnimationShake" type="Node2D" parent="." unique_id=1516074945]
+script = ExtResource("4_7gj83")
+
+[node name="ScalePivot" type="Node2D" parent="AnimationShake" unique_id=1355269433]
+
+[node name="Node2D" type="Node2D" parent="AnimationShake/ScalePivot" unique_id=892844730]
+rotation = -1.5707964
+scale = Vector2(5, 5)
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="AnimationShake/ScalePivot/Node2D" unique_id=823058831]
+unique_name_in_owner = true
+material = ExtResource("5_10p3u")
+sprite_frames = SubResource("SpriteFrames_uinop")
+animation = &"middle"
+autoplay = "head"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
+visible = false
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_5v6lt")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=357307482 node_paths=PackedStringArray("enemy")]
+visible = false
+script = ExtResource("9_xbbtt")
+enemy = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=573603964]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_5v6lt")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=890899734]
+script = ExtResource("10_evr08")
+decay_coefficient = 20.0
+metadata/_custom_type_script = "uid://b87utd8bhijc1"

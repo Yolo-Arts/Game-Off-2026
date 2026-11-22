@@ -146,9 +146,10 @@ func finalize_spawn_enemy(enemy_data: EnemyData, enemy_position: Vector2, initia
 
 	if enemy_data.is_enemy:
 		var enemy = enemy_scene_to_spawn as Enemy
-		if enemy == null:
+		if enemy == null and not "enemy_stats" in enemy_scene_to_spawn:
 			push_error("Enemy stated as enemy, but is not -> ", enemy_data.enemy_id, " ", enemy_data.enemy_name)
-			return
+		else:
+			enemy = enemy_scene_to_spawn
 		enemy.enemy_stats = enemy_data.base_enemy_stats.duplicate()
 		if override_color != null:
 			enemy.enemy_stats.shift_color = override_color

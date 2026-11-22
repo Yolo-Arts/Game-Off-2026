@@ -15,7 +15,7 @@ func setup(_enemy: Enemy, rotates: bool = true) -> void:
 	
 	
 	
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if enemy == null:
 		return
 	var player: Node2D = get_tree().get_first_node_in_group("player")

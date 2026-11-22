@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cekse2i4k64uc"]
+
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="1_0lpux"]
+[ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="1_fb1ly"]
+[ext_resource type="PackedScene" uid="uid://01fvlro5wjjy" path="res://Scenes/Enemy/EnemyLarryJr/segment_maker.tscn" id="2_rvgfc"]
+[ext_resource type="Texture2D" uid="uid://bxu6isxd3kjls" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn_fill.png" id="4_0k8b0"]
+[ext_resource type="Texture2D" uid="uid://dkeq8xbrrbx34" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn.png" id="5_um8s3"]
+[ext_resource type="Script" uid="uid://5tohkhxkc40i" path="res://Resources/enemy_spawn_animation_data/enemy_spawn_animation_texture_data.gd" id="6_darau"]
+[ext_resource type="Texture2D" uid="uid://c6hsamsvf4rfb" path="res://Assets/Enemy/basic_enemy/basic_enemy_spawn_zoom.png" id="7_55a2r"]
+
+[sub_resource type="Resource" id="Resource_5g3mc"]
+script = ExtResource("1_0lpux")
+max_health = 30.0
+damage = 10.0
+knockback = 2000.0
+speed = 400.0
+opposite_speed = 1000.0
+drop = 2
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
+
+[sub_resource type="Resource" id="Resource_p6a0q"]
+script = ExtResource("6_darau")
+glitch_texture = ExtResource("5_um8s3")
+zoom_texture = ExtResource("7_55a2r")
+fill_texture = ExtResource("4_0k8b0")
+rotate = true
+metadata/_custom_type_script = "uid://5tohkhxkc40i"
+
+[resource]
+script = ExtResource("1_fb1ly")
+enemy_id = &"segment"
+enemy_group_id = &"normal"
+enemy_name = "Larry Sr."
+enemy_scene = ExtResource("2_rvgfc")
+base_enemy_stats = SubResource("Resource_5g3mc")
+spawn_animation_data = SubResource("Resource_p6a0q")
+spawn_distance_from_player = 1500.0
+metadata/_custom_type_script = "uid://mahujeywww5p"

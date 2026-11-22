@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://01fvlro5wjjy"]
+
+[ext_resource type="Script" uid="uid://bv3ifttjbpx3" path="res://Scenes/Enemy/EnemyLarryJr/segment_maker.gd" id="1_qn38r"]
+[ext_resource type="PackedScene" uid="uid://bn0dal5puc38l" path="res://Scenes/Enemy/EnemyLarryJr/segment.tscn" id="2_21p77"]
+
+[node name="SegmentMaker" type="Node2D" unique_id=675194751]
+script = ExtResource("1_qn38r")
+segment_scene = ExtResource("2_21p77")
+segment_range = Vector2i(8, 12)
