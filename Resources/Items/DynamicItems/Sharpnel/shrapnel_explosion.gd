@@ -9,6 +9,10 @@ func _initialize() -> void:
 	EventSystem.enemy_died.connect(_on_enemy_died)
 
 func _on_enemy_died(enemy: Node2D) -> void:
+	if enemy is Segment:
+		enemy = enemy as Segment
+		if enemy.segment_type != Segment.SegmentLocation.MIDDLE:
+			return
 	var stats: PlayerStats = player.get_current_stats()
 	var damage: float = stats.shot_damage * damage_multiplier
 	#var shrapnel_amount: int = randi_range(shrapnel_amount_range.x, shrapnel_amount_range.y)
