@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 			var radius_error: float = distance - segment.player_orbit_radius
 			var correction_angle: float = clampf(radius_error * 0.01, -PI / 3.0, PI / 3.0)
 
-			var orbit_angle: float = (PI / 2.0) - correction_angle
+			var orbit_angle: float = segment.orbit_direction * (PI / 2.0 - correction_angle)
 			dir = current_dir.rotated(orbit_angle)
 		_:
 			if segment.ahead_segment:
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 					target_speed = current_speed * 0.5
 				elif dist > 16384:
 					target_speed = current_speed * 2.0
-	segment.rotation = dir.angle()
+	segment.rotation = dir.angle() + PI/2.0
 	
 	var target_movement_velocity: Vector2 = target_speed * dir
 	var move_lerp_factor: float = 1.0 - exp(-decay_coefficient * delta)

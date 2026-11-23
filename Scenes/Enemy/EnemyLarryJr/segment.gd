@@ -8,6 +8,8 @@ enum SegmentLocation {HEAD, MIDDLE, TAIL, NONE}
 var segment_type: SegmentLocation
 var started: bool = false
 var current_speed: float
+var orbit_direction: int = 1
+
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)
@@ -45,8 +47,6 @@ func set_anim() -> void:
 			%EnemySprite.play(&"middle")
 
 func setup_segment(init: bool = false) -> void:
-	await get_tree().process_frame
-	await get_tree().process_frame
 	if behind_segment and ahead_segment:
 		segment_type = SegmentLocation.MIDDLE
 		collision_mask = 0
@@ -66,7 +66,12 @@ func setup_segment(init: bool = false) -> void:
 		if behind_segment:
 			behind_segment.segment_destroyed.connect(setup_segment)
 	set_anim()
+	orbit_direction = [-1, 1].pick_random()
 	started = true
 func die() -> void:
+	if ahead_segment:
+		ahead_segment.behind_segment = null
+	if behind_segment:
+		behind_segment.ahead_segment = null
 	segment_destroyed.emit()
 	super.die()
