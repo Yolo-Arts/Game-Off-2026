@@ -35,3 +35,7 @@ func _on_reset_save_button_pressed():
 
 func _on_tutorial_btn_pressed():
 	pass # Replace with function body.
+
+
+func _on_credits_button_pressed():
+	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.Credits)

@@ -5,6 +5,7 @@ enum Keys{
 	SettingsMenu,
 	HUD,
 	GameOverScreen,
+	Credits,
 }
 
 
@@ -17,4 +18,5 @@ const BULLETIN_PATHS := {
 	Keys.SettingsMenu : "res://UI/settings_menu.tscn",
 	Keys.HUD : "res://UI/prototype_hud.tscn",
 	Keys.GameOverScreen: "res://UI/GameOver/game_over_screen.tscn",
+	Keys.Credits: "res://UI/Credits/credits_popup.tscn",
 }
