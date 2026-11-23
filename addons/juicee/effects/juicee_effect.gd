@@ -133,6 +133,7 @@ func _should_log(message: String) -> bool:
 
 func _warn(message: String) -> void:
 	if _should_log(message):
+		
 		push_warning(message)
 	warning.emit(message)
 

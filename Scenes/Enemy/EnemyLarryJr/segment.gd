@@ -10,6 +10,8 @@ var started: bool = false
 var current_speed: float
 var orbit_direction: int = 1
 
+
+
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)

@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		Segment.SegmentLocation.HEAD:
 			var player: Player = get_tree().get_first_node_in_group(&"player")
 			var current_dir: Vector2 = segment.global_position.direction_to(player.global_position)
-			var distance: float =segment. global_position.distance_to(player.global_position)
+			var distance: float = segment.global_position.distance_to(player.global_position)
 
 			var radius_error: float = distance - segment.player_orbit_radius
 			var correction_angle: float = clampf(radius_error * 0.01, -PI / 3.0, PI / 3.0)
