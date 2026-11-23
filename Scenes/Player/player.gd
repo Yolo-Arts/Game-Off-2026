@@ -45,6 +45,11 @@ func _ready() -> void:
 	EventSystem.player_spawned.emit(self)
 
 func _process(delta: float) -> void:
+	if OS.is_debug_build():
+		if Input.is_key_pressed(KEY_I):
+			health_component.add_invincibility(&"debug")
+		if Input.is_key_pressed(KEY_X):
+			health_component.remove_invincibility(&"debug")
 	reduce_health(delta)
 
 
@@ -88,7 +93,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift") and can_shift:
 		shift_active_color()
 		EventSystem.player_shifted.emit(shift_color)
-	
 	#if event.is_action_pressed("Ram") and can_ram():
 	#	ram()
 	#	energy_component.reduce_energy(get_current_stats().energy_ram_cost)

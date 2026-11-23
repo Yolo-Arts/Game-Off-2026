@@ -10,6 +10,5 @@ acceleration = 200.0
 deacceleration = 800.0
 minimum_ram_speed = 400.0
 knockback = 100.0
-unlocked_missiles = false
 missile_count = 0
 metadata/_custom_type_script = "uid://glq4nadax2py"
