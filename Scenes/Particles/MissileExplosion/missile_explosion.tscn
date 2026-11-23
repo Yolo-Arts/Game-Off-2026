@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cjuy8dsb7jdw3"]
+
+[ext_resource type="Script" uid="uid://cxsa2vsbw8dih" path="res://Scenes/Particles/Explosion/explosion.gd" id="1_lgx2q"]
+[ext_resource type="Texture2D" uid="uid://ckcwt5aqiefhw" path="res://Assets/Particles/Star.png" id="2_pohoj"]
+
+[sub_resource type="Curve" id="Curve_0ctvh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="MissileExplosion" type="Node2D" unique_id=1879884223]
+scale = Vector2(2, 2)
+script = ExtResource("1_lgx2q")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=126905611]
+emitting = false
+amount = 24
+texture = ExtResource("2_pohoj")
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 768.52
+initial_velocity_max = 1000.0
+angular_velocity_min = 360.0
+angular_velocity_max = 720.0
+orbit_velocity_max = 1.0
+angle_max = 1.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_0ctvh")

@@ -34,7 +34,9 @@ func explode() -> void:
 		return
 	has_exploded = true
 
-	ObjectPool.spawn(ObjectPool.explosion_scene, global_position)
+	ObjectPool.spawn(ObjectPool.MISSILE_EXPLOSION, global_position)
+	TweenManager.camera.shake(0.5, 30.5, 30)
+	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MissileExplosion)
 
 	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 	var query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
