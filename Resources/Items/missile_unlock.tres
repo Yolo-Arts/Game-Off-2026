@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cbygk4br54r4n"]
+
+[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="1_warv5"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_ihua2"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_1qxv1"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_v5ikj"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_esxeb"]
+
+[sub_resource type="Resource" id="Resource_xxden"]
+script = ExtResource("2_ihua2")
+stat = "unlocked_missiles"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_14f36"]
+script = ExtResource("2_ihua2")
+stat = "missile_count"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_1qxv1")
+initial_price = 3
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_esxeb")
+text = "missiles"
+color = Color(0.85882354, 0.28180146, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[sub_resource type="Resource" id="Resource_1v2yv"]
+script = ExtResource("5_esxeb")
+text = "AOE"
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_v5ikj")
+id = "Missiles_unlock"
+display_name = "Missile arnaments"
+description = "Unlocks the ability to fire {missiles}. Missiles do {AOE} damage to enemies and ignore shift color. Right click to shoot missiles."
+icon = ExtResource("1_warv5")
+modifiers = Array[ExtResource("2_ihua2")]([SubResource("Resource_xxden"), SubResource("Resource_14f36")])
+shape_type = 1
+price_data_array = Array[ExtResource("3_1qxv1")]([SubResource("Resource_muvpr")])
+text_injections = Array[ExtResource("5_esxeb")]([SubResource("Resource_v54o1"), SubResource("Resource_1v2yv")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

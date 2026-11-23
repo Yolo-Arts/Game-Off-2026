@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b8qwcgdub81wl"]
+
+[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="1_ejv11"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_bqab0"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_pdp0k"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_x7dmi"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_xmwt1"]
+
+[sub_resource type="Resource" id="Resource_xxden"]
+script = ExtResource("2_bqab0")
+stat = "unlocked_missiles"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_14f36"]
+script = ExtResource("2_bqab0")
+stat = "missile_count"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_pdp0k")
+initial_price = 25
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_l7mfo"]
+script = ExtResource("3_pdp0k")
+currency = 1
+initial_price = 3
+price_multiplier = 2.0
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_xmwt1")
+text = "missile count"
+color = Color(0.85882354, 0.28180146, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_x7dmi")
+id = "Missiles_unlock"
+display_name = "Missile arnaments"
+description = "Increase {missile count} by [+1]"
+icon = ExtResource("1_ejv11")
+modifiers = Array[ExtResource("2_bqab0")]([SubResource("Resource_xxden"), SubResource("Resource_14f36")])
+max_level = 10
+min_level_to_unlock_children = 4
+shape_type = 1
+price_data_array = Array[ExtResource("3_pdp0k")]([SubResource("Resource_muvpr"), SubResource("Resource_l7mfo")])
+initial_increment_value = 1.0
+increment_value = 1.0
+text_injections = Array[ExtResource("5_xmwt1")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

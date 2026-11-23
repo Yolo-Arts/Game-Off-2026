@@ -3,7 +3,7 @@ extends Node2D
 signal closed
 
 const EDGE := 200.0
-const FAN := deg_to_rad(45.0)
+const FAN := deg_to_rad(35.0)
 
 const INTRO_ANIMATION_DELAYS := 0.18
 const OUTRO_ANIMATION_DELAYS := 0.07  
