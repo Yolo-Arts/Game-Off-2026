@@ -10,6 +10,8 @@ class_name ProjectileData extends Resource
 @export var use_range: bool = true
 @export var enemy: bool = false
 @export var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
+@export var explosion_radius: float = 500.0
+@export var explosion_knockback: float = 400.0
 
 func convert_range_to_life_time() -> float:
 	return range_pixels / speed

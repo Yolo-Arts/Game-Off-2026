@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 @onready var hitbox: PlayerHitbox = $Hitbox
 @onready var state_machine: StateMachine = %StateMachine
 @onready var shoot_component: PlayerShootComponent = %ShootComponent
+@onready var missile_component: MissileComponent = %MissileComponent
 
 const PLAYER_BLUE = preload("uid://bfyyfydip84o")
 const PLAYER_RED = preload("uid://q05o5crt88n5")
@@ -37,6 +38,7 @@ func _ready() -> void:
 	state_machine.initialize(self, &"normal")
 	shoot_component.setup(self)
 	health_component.setup(self)
+	missile_component.setup(self)
 	
 	EventSystem.player_shifted.emit(shift_color)
 	shift_active_color()
