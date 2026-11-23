@@ -22,6 +22,8 @@ func _ready() -> void:
 	EventSystem.player_died.connect(player_died)
 	
 	setup_currency_count_container(Currencies._by_type)
+	
+	Globals.current_stage = StageConfig.Keys.Main
 
 func setup_currency_count_container(dict: Dictionary) -> void:
 	for key in dict:

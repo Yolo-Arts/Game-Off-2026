@@ -4,6 +4,7 @@ signal changed
 signal item_bought(item: ItemData)
 
 const ITEM_PATH := "res://Resources/Items/%s.tres"
+var active_scene_item_id: String = ""
 
 const TREE = [
 	["fuel_1", [
@@ -15,6 +16,7 @@ const TREE = [
 		["missile_unlock", [
 			["missile_count"],
 		]],
+		["BossFights/test_boss_fight_1"],
 	]],
 	["energy_capacity_1", [
 		["energy_regen_1"],
@@ -158,6 +160,39 @@ func buy(item: ItemData) -> bool:
 	SaveManager.save_data()
 
 	return true
+
+
+func start_scene_item(item: ItemData) -> bool:
+	if not item.unlocked:
+		return false
+	
+	if not item.get_prices().is_empty():
+		if not Currencies.try_spend(item.get_prices()):
+			return false
+		SaveManager.save_data()
+	
+	active_scene_item_id = item.id
+	return true
+
+
+func complete_active_scene_item() -> void:
+	if active_scene_item_id.is_empty():
+		return
+
+	var item := get_item(active_scene_item_id)
+	active_scene_item_id = ""
+
+	if item == null or item.is_maxed():
+		return
+
+	item.level += 1
+
+	for child in item.children:
+		child.try_unlock()
+
+	item_bought.emit(item)
+	changed.emit()
+	SaveManager.save_data()
 
 func reset() -> void:
 	for item in items.values(): 

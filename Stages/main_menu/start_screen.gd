@@ -5,6 +5,8 @@ var main_tscn = "uid://cqguftua63irx"
 func _ready() -> void:
 	EventSystem.MUS_play_music.emit(MusicConfig.Keys.BGMPlaceHolder)
 	TransitionManager.play_fade_in_black()
+	
+	Globals.current_stage = StageConfig.Keys.MainMenu
 
 func _on_play_btn_pressed() -> void:
 	process_mode = PROCESS_MODE_DISABLED

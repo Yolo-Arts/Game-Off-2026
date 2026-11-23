@@ -41,12 +41,12 @@
 offsets = PackedFloat32Array(0.55, 1)
 colors = PackedColorArray(0.11764706, 0.11764706, 0.11764706, 1, 1, 0, 0.3019608, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jdc67"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i8tfb"]
 gradient = SubResource("Gradient_4tusj")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_16xuu"]
 shader = ExtResource("3_mwvqt")
-shader_parameter/gradient_map = SubResource("GradientTexture1D_jdc67")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_i8tfb")
 shader_parameter/intensity = 0.0
 
 [node name="Main" type="Node2D" unique_id=1485435742]
