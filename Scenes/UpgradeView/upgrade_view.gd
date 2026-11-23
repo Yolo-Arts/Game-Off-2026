@@ -7,6 +7,7 @@ extends Node2D
 func _ready() -> void:
 	SaveManager.save_data()
 	setup_currency_count_container(Currencies._by_type)
+	Globals.current_stage = StageConfig.Keys.UpgradeView
 
 func setup_currency_count_container(dict: Dictionary) -> void:
 	for key in dict:

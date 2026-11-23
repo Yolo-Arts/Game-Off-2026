@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://cj41rqi3we68a"]
+
+[ext_resource type="PackedScene" uid="uid://defbvjgax4sr8" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_container.tscn" id="1_vmkag"]
+[ext_resource type="Texture2D" uid="uid://bq7aga4jy50af" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressUnder.png" id="2_whuod"]
+[ext_resource type="Texture2D" uid="uid://7m7fllnbcly6" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressOver.png" id="3_7lxpd"]
+[ext_resource type="Texture2D" uid="uid://ucrsmhls7p78" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressFill.png" id="4_jbuqr"]
+[ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="5_3eokj"]
+[ext_resource type="PackedScene" uid="uid://ch5aqpwcbnv7e" path="res://UI/ProgressBarLabel/progress_bar_label.tscn" id="6_lusgd"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="7_23odq"]
+[ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="8_edfam"]
+[ext_resource type="StyleBox" uid="uid://cofxu4sc31gbu" path="res://Assets/UITheme/style_box_flat_2.tres" id="9_e06sn"]
+[ext_resource type="Script" uid="uid://j680707xcsl7" path="res://UI/HUD/missile_count/missile_count.gd" id="10_bgc3s"]
+[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="11_teidt"]
+[ext_resource type="Texture2D" uid="uid://cm7e4vm7onq0b" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarUnder.png" id="12_woxhk"]
+[ext_resource type="Texture2D" uid="uid://dmi45cmhbxij4" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarOver.png" id="13_h7ttq"]
+[ext_resource type="Texture2D" uid="uid://cimnuwm2qig47" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarFill.png" id="14_5ijah"]
+[ext_resource type="Script" uid="uid://boy1xo8kfsiy5" path="res://Stages/main/speed_bar.gd" id="15_fpy5k"]
+[ext_resource type="FontFile" uid="uid://b81fdlqs5aawj" path="res://Assets/Fonts/CyberpunkCraftpixPixel.otf" id="16_qfr4m"]
+[ext_resource type="Script" uid="uid://b46j7qjcntvgo" path="res://Stages/main/speed_bar_label.gd" id="17_0o52x"]
+[ext_resource type="Texture2D" uid="uid://xl4h0ahkm66r" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryUnder.png" id="18_w77j7"]
+[ext_resource type="Texture2D" uid="uid://ggpt1pqm7wmc" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryOver.png" id="19_oocg7"]
+[ext_resource type="Texture2D" uid="uid://bykw3hiwphobg" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryFill.png" id="20_8taie"]
+[ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="21_ql2bt"]
+[ext_resource type="FontFile" uid="uid://r64lhoc2qtel" path="res://Assets/Fonts/GravityBold8.ttf" id="22_u75v1"]
+[ext_resource type="Script" uid="uid://cncjxt72gacx3" path="res://Stages/main/energy_bar_label.gd" id="23_n8xei"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1592677691]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=801460211]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CurrencyCountContainer" parent="MarginContainer" unique_id=17007720 instance=ExtResource("1_vmkag")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=769526215]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="FuelProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer" unique_id=622870404]
+layout_mode = 2
+max_value = 999.0
+step = 0.1
+value = 60.0
+texture_under = ExtResource("2_whuod")
+texture_over = ExtResource("3_7lxpd")
+texture_progress = ExtResource("4_jbuqr")
+script = ExtResource("5_3eokj")
+event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
+tween_duration = 1.0
+
+[node name="FuelProgressBarLabel" parent="MarginContainer/VBoxContainer/FuelProgressBar" unique_id=1147571644 instance=ExtResource("6_lusgd")]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 17.0
+offset_right = 731.0
+offset_bottom = 47.0
+theme = ExtResource("7_23odq")
+theme_override_font_sizes/font_size = 28
+text = "100/1000"
+script = ExtResource("8_edfam")
+
+[node name="MissileCount" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1715415565]
+custom_minimum_size = Vector2(0, 45)
+custom_maximum_size = Vector2(145, -1)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("9_e06sn")
+script = ExtResource("10_bgc3s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MissileCount" unique_id=819069724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IconContainer" type="Panel" parent="MarginContainer/VBoxContainer/MissileCount/HBoxContainer" unique_id=1329798736]
+custom_minimum_size = Vector2(45, 45)
+custom_maximum_size = Vector2(45, -1)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("9_e06sn")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MissileCount/HBoxContainer/IconContainer" unique_id=1512368437]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_teidt")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MissileCount/HBoxContainer" unique_id=1012057804]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 9
+
+[node name="MissileCountLabel" type="Label" parent="MarginContainer/VBoxContainer/MissileCount/HBoxContainer/MarginContainer" unique_id=97439639]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+offset_transform_enabled = true
+theme = ExtResource("7_23odq")
+theme_override_font_sizes/font_size = 28
+text = "100"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=217170437]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 2
+
+[node name="SpeedBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer2" unique_id=1463961569 node_paths=PackedStringArray("player")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 1000.0
+allow_greater = true
+texture_under = ExtResource("12_woxhk")
+texture_over = ExtResource("13_h7ttq")
+texture_progress = ExtResource("14_5ijah")
+tint_progress = Color(0, 0.38431373, 0.6666667, 1)
+script = ExtResource("15_fpy5k")
+player = NodePath("")
+metadata/_custom_type_script = "uid://dqollry410r2i"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/SpeedBar" unique_id=793852795]
+layout_mode = 0
+offset_left = 116.0
+offset_top = -28.0
+offset_right = 297.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_qfr4m")
+theme_override_font_sizes/font_size = 25
+text = "1000"
+horizontal_alignment = 2
+script = ExtResource("17_0o52x")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2/SpeedBar" unique_id=1049644967]
+layout_mode = 0
+offset_top = -28.0
+offset_right = 80.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("16_qfr4m")
+theme_override_font_sizes/font_size = 27
+text = "SPEED"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer" unique_id=792369928]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="EnergyBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer3" unique_id=365361074]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+offset_transform_position = Vector2(1650, 600)
+offset_transform_visual_only = false
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("18_w77j7")
+texture_over = ExtResource("19_oocg7")
+texture_progress = ExtResource("20_8taie")
+script = ExtResource("21_ql2bt")
+event_bus_signal = Array[StringName]([&"energy_changed", &"energy_increased", &"energy_reduced"])
+
+[node name="ProgressBarLabel" type="Label" parent="MarginContainer/VBoxContainer3/EnergyBar" unique_id=1078580088]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 94.0
+offset_right = 282.0
+offset_bottom = 125.0
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("22_u75v1")
+theme_override_font_sizes/font_size = 22
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("23_n8xei")
+metadata/_custom_type_script = "uid://ej62it1gcalq"

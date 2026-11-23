@@ -2088,15 +2088,15 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.2361111, 1)
 colors = PackedColorArray(1, 0.84705883, 0.105882354, 1, 1, 0.7069092, 0.10677081, 1, 1, 0.7058824, 0.105882354, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xhpv1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8dicw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fje6j"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m550x"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_buji8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nr5bd"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ows36"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fgqo"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4mart"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm6ub"]
 
 [node name="StartScreen" type="Control" unique_id=1519650878]
 layout_mode = 3
@@ -2224,14 +2224,14 @@ theme_override_constants/separation = 20
 visible = false
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xhpv1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8dicw")
 btn_text = "Clicky Btn"
 outline_thickness = 5.0
 hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 
 [node name="PlayBtn" parent="ButtonMargins/ButtonVbox" unique_id=1274068598 instance=ExtResource("12_jqdsw")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fje6j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m550x")
 menu_icon = ExtResource("7_vgijl")
 btn_text = "Play!"
 outline_thickness = 5.0
@@ -2248,7 +2248,7 @@ alignment = 0
 
 [node name="TutorialBtn" parent="ButtonMargins/ButtonVbox" unique_id=462922923 instance=ExtResource("12_jqdsw")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_buji8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nr5bd")
 menu_icon = ExtResource("9_gvraj")
 btn_text = "Tutorial"
 outline_thickness = 5.0
@@ -2258,7 +2258,7 @@ main_color = Color(0.14117648, 0.12941177, 0.12941177, 1)
 
 [node name="OptionsBtn" parent="ButtonMargins/ButtonVbox" unique_id=1229755878 instance=ExtResource("12_jqdsw")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ows36")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8fgqo")
 menu_icon = ExtResource("10_jqdsw")
 btn_text = "Options"
 outline_thickness = 5.0
@@ -2268,7 +2268,7 @@ main_color = Color(0.14117648, 0.12941177, 0.12941177, 1)
 
 [node name="QuitBtn" parent="ButtonMargins/ButtonVbox" unique_id=891074849 instance=ExtResource("12_jqdsw")]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4mart")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nm6ub")
 menu_icon = ExtResource("11_0s4et")
 btn_text = "Quit"
 outline_thickness = 5.0

@@ -4,10 +4,31 @@
 [ext_resource type="Texture2D" uid="uid://dxat7ms4fwuq7" path="res://Assets/Bullets/player_bullet.png" id="2_4y670"]
 [ext_resource type="Script" uid="uid://xumjaybhya7b" path="res://Resources/projectile_data.gd" id="2_tkvor"]
 [ext_resource type="Shader" uid="uid://dj2fkbxdtqfqr" path="res://Shaders/laser_shader.gdshader" id="2_yl444"]
+[ext_resource type="Shader" uid="uid://b7xq6ow1k63wm" path="res://Shaders/gradient_map.gdshader" id="3_tkvor"]
 
 [sub_resource type="Resource" id="Resource_yl444"]
 script = ExtResource("2_tkvor")
 metadata/_custom_type_script = "uid://xumjaybhya7b"
+
+[sub_resource type="Gradient" id="Gradient_410ce"]
+offsets = PackedFloat32Array(0, 0, 0, 0.05691057, 0.55284554)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.27450982, 0.627451, 1, 0, 0.27450982, 0.627451, 1, 0, 0.43529412, 1, 1, 0, 0.43529412, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l1166"]
+gradient = SubResource("Gradient_410ce")
+
+[sub_resource type="Gradient" id="Gradient_30ubk"]
+offsets = PackedFloat32Array(0, 0, 0.05691057, 0.55284554, 0.9268293)
+colors = PackedColorArray(0, 0, 0, 1, 0.64705884, 0, 0, 1, 0.64705884, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t3tth"]
+gradient = SubResource("Gradient_30ubk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s8hsf"]
+shader = ExtResource("3_tkvor")
+shader_parameter/pal0 = SubResource("GradientTexture1D_l1166")
+shader_parameter/pal1 = SubResource("GradientTexture1D_t3tth")
+shader_parameter/lerper = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bi0sn"]
 shader = ExtResource("2_yl444")
@@ -25,6 +46,7 @@ script = ExtResource("1_p8svv")
 projectile_stats = SubResource("Resource_yl444")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=822232387]
+material = SubResource("ShaderMaterial_s8hsf")
 position = Vector2(53.000008, 0)
 scale = Vector2(8.750002, 0.85714287)
 texture = ExtResource("2_4y670")

@@ -36,19 +36,17 @@ func _apply_stats() -> void:
 
 	if projectile_stats.enemy:
 		set_collision_mask_value(2, true) # player
-		player = get_tree().get_first_node_in_group("player") as Player
+		#player = get_tree().get_first_node_in_group("player") as Player
 	else:
 		# look for enemies and other bullets.
 		set_collision_mask_value(3, true) # enemy
 		set_collision_mask_value(4, true) 
-	
 	_apply_shift_shader()
 	
 	if not is_charging:
 		_start_lifetime_timer()
 	
-	if projectile_stats.enemy:
-		player = get_tree().get_first_node_in_group("player") as Player
+	player = get_tree().get_first_node_in_group("player") as Player
 
 func launch() -> void:
 	is_charging = false
@@ -125,14 +123,18 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	if not projectile_stats.enemy and body.has_method("take_damage"):
-		var damage_source := DamageSource.new(
-			projectile_stats.damage,
-			projectile_stats.knockback,
-			DamageSource.DamageSourceType.PLAYER_PROJECTILE,
-			projectile_stats.shift_color,
-			self
-		)
-		body.take_damage(damage_source)
+		if body.enemy_stats.shift_color == player.shift_color:
+			var damage_source := DamageSource.new(
+				projectile_stats.damage,
+				projectile_stats.knockback,
+				#DamageSource.DamageSourceType.PLAYER_PROJECTILE,
+				DamageSource.DamageSourceType.PLAYER_PROJECTILE,
+				projectile_stats.shift_color,
+				self
+			)
+			body.take_damage(damage_source)
+		else:
+			EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MetalHit)
 	
 	break_projectile()
 
@@ -142,5 +144,6 @@ func break_projectile(_same_color: bool = true) -> void:
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	await get_tree().create_timer(5.0).timeout
 	if not is_charging:
 		queue_free()

@@ -27,7 +27,7 @@ func setup_currency_count_container(dict: Dictionary) -> void:
 func retry_pressed() -> void:
 	Currencies.reset_round_data()
 	EventSystem.BUL_destroy_all_bulletins.emit()
-	EventSystem.STA_change_stage.emit(StageConfig.Keys.Main)
+	EventSystem.STA_change_stage.emit(Globals.current_stage)
 
 func upgrades_pressed() -> void:
 	Currencies.reset_round_data()

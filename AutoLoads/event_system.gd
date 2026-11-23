@@ -43,3 +43,5 @@ signal enemy_died(enemy: Node2D)
 signal player_spawned(player: Player)
 
 signal crt_setting_applied(checked: bool)
+
+signal missile_fired(can_fire: bool)

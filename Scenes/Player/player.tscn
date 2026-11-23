@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://drvhxfx2uhamh" path="res://Assets/PlayerSpaceship/player.png" id="7_jlvik"]
 [ext_resource type="Script" uid="uid://b0efshm7v61nt" path="res://Scenes/Player/shoot_component.gd" id="9_dey5f"]
 [ext_resource type="PackedScene" uid="uid://bkcbh4japqh01" path="res://Scenes/bullet_projectile.tscn" id="10_r5xpd"]
+[ext_resource type="PackedScene" uid="uid://dgna3phs68iuj" path="res://Scenes/projectiles/missile/missile_projectile.tscn" id="11_ks1b7"]
+[ext_resource type="Script" uid="uid://baw7ft175bqqk" path="res://Scenes/Player/missile_component.gd" id="12_r5xpd"]
 
 [sub_resource type="Curve" id="Curve_sckgu"]
 _data = [Vector2(0, 1), 0.0, 0.12181573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -78,10 +80,15 @@ metadata/_custom_type_script = "uid://d0qnxevy216rr"
 unique_name_in_owner = true
 script = ExtResource("9_dey5f")
 bullet_scene = ExtResource("10_r5xpd")
+missile_scene = ExtResource("11_ks1b7")
 
 [node name="EnergyComponent" type="Node" parent="PlayerComponents" unique_id=2136465283]
 unique_name_in_owner = true
 script = ExtResource("6_jlvik")
+
+[node name="MissileComponent" type="Node" parent="PlayerComponents" unique_id=2102388512]
+unique_name_in_owner = true
+script = ExtResource("12_r5xpd")
 
 [node name="EngineParticles" type="Node2D" parent="." unique_id=1904615316]
 

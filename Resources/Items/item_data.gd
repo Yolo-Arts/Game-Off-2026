@@ -8,7 +8,10 @@ extends Resource
 @export var modifiers: Array[StatModifier] = []
 @export var effect_scene: PackedScene
 @export var action: ActionItem
+
 @export_group("skill tree stuff")
+@export var will_change_scene: bool = false
+@export var target_scene: StageConfig.Keys
 @export var max_level: int = 1
 
 @export_range(1, 100, 1) var min_level_to_unlock_children: int = 1
@@ -135,3 +138,6 @@ func get_stats_display_string() -> String:
 		#
 		#stat_string += mod_string
 	return stat_string
+
+func opens_scene() -> bool:
+	return will_change_scene

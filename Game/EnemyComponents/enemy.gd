@@ -6,9 +6,10 @@ class_name Enemy extends CharacterBody2D
 @export var enemy_stats: EnemyStats
 @onready var hitbox: EnemyHitbox = $Hitbox
 const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
-
+var effect_timer: float = 0.0
 @onready var enemy_sprite = %EnemySprite
-
+var dead: bool = false
+var dead_counter: int = 0.0
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)
@@ -36,18 +37,23 @@ func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
 		movement_component.current_speed = enemy_stats.opposite_speed
 	
 func _process(delta: float) -> void:
-	pass
+	effect_timer = max(0.0, effect_timer - delta)
 
 func take_damage(damage_source: DamageSource) -> void:
 	health_component.take_damage(damage_source)
 	EventSystem.enemy_hit.emit(self, damage_source)
-	Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.369), 0.2)
-	Juicee.flash(self)
+	if effect_timer == 0.0:
+		Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.369), 0.2)
+		Juicee.flash(self)
+		effect_timer = 0.5
 	
 	if damage_source.source_node:
 		movement_component.current_knockback = damage_source.knockback * damage_source.source_node.global_position.direction_to(global_position)
 
 func die() -> void:
+	if dead:
+		return
+	dead = true
 	#var collectable := load("res://Game/Collectables/collectable.tscn")
 	#var test = collectable.instantiate()
 	#test.position = position

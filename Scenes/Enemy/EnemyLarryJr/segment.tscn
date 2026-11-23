@@ -62,7 +62,7 @@ scale = Vector2(5, 5)
 unique_name_in_owner = true
 material = ExtResource("5_10p3u")
 sprite_frames = SubResource("SpriteFrames_uinop")
-animation = &"middle"
+animation = &"tail"
 autoplay = "head"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]

@@ -3,7 +3,7 @@ extends Node2D
 signal closed
 
 const EDGE := 200.0
-const FAN := deg_to_rad(45.0)
+const FAN := deg_to_rad(35.0)
 
 const INTRO_ANIMATION_DELAYS := 0.18
 const OUTRO_ANIMATION_DELAYS := 0.07  
@@ -190,20 +190,39 @@ func _on_item_unhovered(item: ItemData) -> void:
 
 
 func _on_item_pressed(item: ItemData) -> void:
-	if intro_outro_animation_playing or item.is_maxed():
+	if intro_outro_animation_playing:
 		return
+
+	if item.is_maxed():
+		return
+
+	if item.opens_scene():
+		handle_scene_item_pressed(item)
+		return
+
 	if SkillTreeUpgrades.buy(item):
 		description_view.play_buy()
 	else:
 		description_view.play_cannot_buy()
 
 
-# ---------------------------------------------------------------------------------------------
-# Animations
-# ---------------------------------------------------------------------------------------------
+func handle_scene_item_pressed(item: ItemData) -> void:
+	if SkillTreeUpgrades.start_scene_item(item):
+		if not item.get_prices().is_empty():
+			description_view.play_buy()
+		open_item_scene(item)
+	else:
+		description_view.play_cannot_buy()
 
-# Works out how many steps each item is away from the middle (the roots are 1).
-# Merge nodes use the shortest way to them.
+func open_item_scene(item: ItemData) -> void:
+	close()
+	EventSystem.STA_change_stage.emit(item.target_scene)
+	
+
+# ################
+# Animations:
+# ################
+
 func _compute_depths() -> void:
 	var queue: Array[ItemData] = []
 	for entry in SkillTreeUpgrades.TREE:
@@ -224,8 +243,6 @@ func _compute_depths() -> void:
 		_max_depth = maxi(_max_depth, depth)
 
 
-# Intro: the hub pops in, then every ring of unlocked upgrades pops in one after another,
-# with the lines growing out to them. Hint lines come in once their node has popped in.
 func _play_intro() -> void:
 	intro_outro_animation_playing = true
 

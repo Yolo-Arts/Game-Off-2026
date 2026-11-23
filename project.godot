@@ -36,9 +36,9 @@ Pickups="*uid://b3yk8nkadg2cx"
 SaveManager="*uid://nip5aet78q1k"
 Springer="*uid://c54ar5ruv21ib"
 Jumper="*uid://drl1w7q3t8w6x"
-Juicee="*uid://b36fwfvmmv0xc"
 ObjectPool="*uid://dtlgf06xl52c1"
 EnemySources="*uid://bsx5o8axssuu7"
+Juicee="*uid://b36fwfvmmv0xc"
 
 [display]
 
@@ -112,6 +112,11 @@ Ram={
 shoot={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(250, 12),"global_position":Vector2(257, 49),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+shoot_missile={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 

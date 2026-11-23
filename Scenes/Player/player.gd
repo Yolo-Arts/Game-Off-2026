@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 @onready var hitbox: PlayerHitbox = $Hitbox
 @onready var state_machine: StateMachine = %StateMachine
 @onready var shoot_component: PlayerShootComponent = %ShootComponent
+@onready var missile_component: MissileComponent = %MissileComponent
 
 const PLAYER_BLUE = preload("uid://bfyyfydip84o")
 const PLAYER_RED = preload("uid://q05o5crt88n5")
@@ -37,12 +38,18 @@ func _ready() -> void:
 	state_machine.initialize(self, &"normal")
 	shoot_component.setup(self)
 	health_component.setup(self)
+	missile_component.setup(self)
 	
 	EventSystem.player_shifted.emit(shift_color)
 	shift_active_color()
 	EventSystem.player_spawned.emit(self)
 
 func _process(delta: float) -> void:
+	if OS.is_debug_build():
+		if Input.is_key_pressed(KEY_I):
+			health_component.add_invincibility(&"debug")
+		if Input.is_key_pressed(KEY_X):
+			health_component.remove_invincibility(&"debug")
 	reduce_health(delta)
 
 
@@ -86,7 +93,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift") and can_shift:
 		shift_active_color()
 		EventSystem.player_shifted.emit(shift_color)
-	
 	#if event.is_action_pressed("Ram") and can_ram():
 	#	ram()
 	#	energy_component.reduce_energy(get_current_stats().energy_ram_cost)

@@ -11,3 +11,5 @@ func _ready() -> void:
 	AudioServer.set_bus_mute(SFX_BUS_ID, user_prefs.sfx_volume < .05)
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(user_prefs.music_volume))
 	AudioServer.set_bus_mute(MUSIC_BUS_ID, user_prefs.music_volume < .05)
+
+var current_stage: StageConfig.Keys
