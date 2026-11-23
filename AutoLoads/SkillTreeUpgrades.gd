@@ -19,6 +19,7 @@ const TREE = [
 	]],
 	["gear_shift_1", [
 		["gear_shift_2"],
+		["Shot_speed"],
 		#["energy_recharge_1"],
 	]],
 	["projectile_damage_1", [
