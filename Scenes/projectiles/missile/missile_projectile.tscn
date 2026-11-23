@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dgna3phs68iuj"]
 
 [ext_resource type="Script" uid="uid://gm1x0ycyr34o" path="res://Scenes/projectiles/missile/missile_projectile.gd" id="1_erncd"]
-[ext_resource type="Texture2D" uid="uid://dxat7ms4fwuq7" path="res://Assets/Bullets/player_bullet.png" id="2_gquba"]
+[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="2_gquba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sckgu"]
 radius = 28.0
@@ -11,6 +11,7 @@ script = ExtResource("1_erncd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=444727203]
 rotation = 1.5707964
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_gquba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=717696]

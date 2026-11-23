@@ -31,9 +31,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("shoot") and player.can_shoot and shoot_cooldown <= 0.0:
 		shoot(bullet_scene)
 	
-	if Input.is_action_just_pressed("shoot_missile") and stats.unlocked_missiles and missile_component.can_fire_missiles():
-		shoot_missile(missile_scene)
-		print("Missile Component remaining rockets: ", missile_component.missile_count)
+	if Input.is_action_just_pressed("shoot_missile"):
+		if stats.unlocked_missiles and missile_component.can_fire_missiles():
+			shoot_missile(missile_scene)
+			EventSystem.missile_fired.emit()
+			print("Missile Component remaining rockets: ", missile_component.missile_count)
+		elif !missile_component.can_fire_missiles():
+			EventSystem.missile_fired.emit()
 	
 	if OS.is_debug_build() and Input.is_key_pressed(KEY_E):
 		player.energy_component.increase_energy(100.0)

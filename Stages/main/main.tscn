@@ -14,11 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://ggpt1pqm7wmc" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryOver.png" id="13_4tusj"]
 [ext_resource type="Texture2D" uid="uid://bq7aga4jy50af" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressUnder.png" id="13_33khn"]
 [ext_resource type="PackedScene" uid="uid://defbvjgax4sr8" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_container.tscn" id="13_ion2p"]
+[ext_resource type="StyleBox" uid="uid://cofxu4sc31gbu" path="res://Assets/UITheme/style_box_flat_2.tres" id="13_o3x13"]
 [ext_resource type="Script" uid="uid://boy1xo8kfsiy5" path="res://Stages/main/speed_bar.gd" id="13_trh13"]
 [ext_resource type="Texture2D" uid="uid://cm7e4vm7onq0b" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarUnder.png" id="13_uagnk"]
 [ext_resource type="Texture2D" uid="uid://7m7fllnbcly6" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressOver.png" id="14_1b66h"]
 [ext_resource type="Texture2D" uid="uid://bykw3hiwphobg" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryFill.png" id="14_16xuu"]
+[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="14_i8tfb"]
 [ext_resource type="Texture2D" uid="uid://dmi45cmhbxij4" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarOver.png" id="14_o3x13"]
+[ext_resource type="Script" uid="uid://j680707xcsl7" path="res://UI/HUD/missile_count/missile_count.gd" id="14_q0d0v"]
 [ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="15_guytx"]
 [ext_resource type="Texture2D" uid="uid://cimnuwm2qig47" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarFill.png" id="15_i8tfb"]
 [ext_resource type="Texture2D" uid="uid://ucrsmhls7p78" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressFill.png" id="15_r2vng"]
@@ -81,6 +84,13 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
+[node name="CurrencyCountContainer" parent="HUD/MarginContainer" unique_id=17007720 instance=ExtResource("13_ion2p")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=238998696]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -110,12 +120,56 @@ theme_override_font_sizes/font_size = 28
 text = "100/1000"
 script = ExtResource("19_r2vng")
 
-[node name="CurrencyCountContainer" parent="HUD/MarginContainer/VBoxContainer" unique_id=17007720 instance=ExtResource("13_ion2p")]
+[node name="MissileCount" type="Panel" parent="HUD/MarginContainer/VBoxContainer" unique_id=1363991540]
+custom_minimum_size = Vector2(0, 45)
+custom_maximum_size = Vector2(145, -1)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("13_o3x13")
+script = ExtResource("14_q0d0v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/VBoxContainer/MissileCount" unique_id=1547461618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IconContainer" type="Panel" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer" unique_id=2110496747]
+custom_minimum_size = Vector2(45, 45)
+custom_maximum_size = Vector2(45, -1)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("13_o3x13")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer/IconContainer" unique_id=358432133]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_i8tfb")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer" unique_id=1084246399]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 9
+
+[node name="MissileCountLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer/MarginContainer" unique_id=521919893]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
+size_flags_horizontal = 10
+offset_transform_enabled = true
+theme = ExtResource("18_0ptnc")
+theme_override_font_sizes/font_size = 28
+text = "100"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1432522306]
 layout_mode = 2
