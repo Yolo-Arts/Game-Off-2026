@@ -60,6 +60,10 @@ func tween_buttons() -> void:
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	
 	for button in button_container.get_children():
+		if Globals.beat_boss == true:
+			Globals.beat_boss = false
+			continue
+		
 		button.visible = true
 		tween.tween_property(button, "offset_transform_scale", Vector2.ONE, 0.3).from(Vector2.ZERO)
 		tween.tween_interval(0.5)

@@ -72,7 +72,7 @@ func shoot_radial() -> void:
 		projectile.is_charging = true
 		projectile.global_position = global_position + offset
 		projectile.setup(data)
-		get_tree().add_child(projectile)
+		get_tree().current_scene.add_child(projectile)
 		
 		ring_projectiles.append({
 			"projectile": projectile,
