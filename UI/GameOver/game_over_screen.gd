@@ -4,6 +4,16 @@ extends Bulletin
 @export var gave_over_currency_count_control: PackedScene
 @onready var currency_count_container = %currency_count_container
 @onready var button_container = %ButtonContainer
+@onready var game_over_label = %GameOverLabel
+@onready var ran_out_of_fuel_label = %RanOutOfFuelLabel
+
+func initialize(_extra_arg) -> void:
+	match _extra_arg:
+		"boss_fight":
+			game_over_label = "Boss Defeated!"
+			ran_out_of_fuel_label.visible = false
+		_:
+			pass
 
 func _ready() -> void:
 	SaveManager.save_data()

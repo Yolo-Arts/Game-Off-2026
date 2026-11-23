@@ -4,7 +4,7 @@ func die() -> void:
 	Globals.beat_boss = true
 	SkillTreeUpgrades.complete_active_scene_item()
 	#EventSystem.STA_change_stage.emit(StageConfig.Keys.UpgradeView)
-	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen)
+	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen, "boss_fight")
 	
 	for entry in ring_projectiles:
 		var proj = entry["projectile"]
