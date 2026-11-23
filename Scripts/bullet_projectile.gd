@@ -133,6 +133,8 @@ func _on_body_entered(body: Node2D) -> void:
 				self
 			)
 			body.take_damage(damage_source)
+		else:
+			EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MetalHit)
 	
 	break_projectile()
 
