@@ -2,6 +2,8 @@ extends Node2D
 
 @export var explosion_scene: PackedScene = preload("uid://c1tcihsglvw81")
 @export var bullet_impact_scene: PackedScene = preload("res://Scenes/Particles/BulletImpact/bullet_impact_particle.tscn")
+const MISSILE_EXPLOSION = preload("uid://cjuy8dsb7jdw3")
+
 @export var explosion_amount: int = 15
 @export var bullet_impact_amount: int = 50
 
@@ -12,6 +14,7 @@ func _ready() -> void:
 	add_to_group("object_pool")
 	z_index = 100
 	create_pool(explosion_scene, explosion_amount)
+	create_pool(MISSILE_EXPLOSION, 10)
 	create_pool(bullet_impact_scene, bullet_impact_amount)
 
 func create_pool(scene: PackedScene, amount: int) -> void:
