@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://d2o78d2f3yc0r"]
+
+[ext_resource type="Shader" uid="uid://204n7sqcs6sq" path="res://Shaders/death_screen.gdshader" id="1_gpecp"]
+[ext_resource type="Script" uid="uid://na0xypsb0y0d" path="res://Stages/boss_fights/boss_scene_template.gd" id="1_soxgy"]
+[ext_resource type="Script" uid="uid://cck3p1i60tcyv" path="res://Scripts/death_screen_fx.gd" id="2_ysg61"]
+[ext_resource type="PackedScene" uid="uid://defbvjgax4sr8" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_container.tscn" id="3_soxgy"]
+[ext_resource type="Texture2D" uid="uid://bq7aga4jy50af" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressUnder.png" id="4_ydws0"]
+[ext_resource type="Texture2D" uid="uid://7m7fllnbcly6" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressOver.png" id="5_yl6ii"]
+[ext_resource type="Texture2D" uid="uid://ucrsmhls7p78" path="res://Assets/UI/HUD/FuelProgressBar/FuelProgressFill.png" id="6_yakcd"]
+[ext_resource type="Script" uid="uid://dqollry410r2i" path="res://UI/stat_bar.gd" id="7_c7sty"]
+[ext_resource type="PackedScene" uid="uid://ch5aqpwcbnv7e" path="res://UI/ProgressBarLabel/progress_bar_label.tscn" id="8_qk54o"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="9_cbkfe"]
+[ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="10_4xi2t"]
+[ext_resource type="StyleBox" uid="uid://cofxu4sc31gbu" path="res://Assets/UITheme/style_box_flat_2.tres" id="11_oqgfe"]
+[ext_resource type="Script" uid="uid://j680707xcsl7" path="res://UI/HUD/missile_count/missile_count.gd" id="12_n573s"]
+[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="13_1xc55"]
+[ext_resource type="Texture2D" uid="uid://cm7e4vm7onq0b" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarUnder.png" id="14_n04ys"]
+[ext_resource type="Texture2D" uid="uid://dmi45cmhbxij4" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarOver.png" id="15_8lnl7"]
+[ext_resource type="Texture2D" uid="uid://cimnuwm2qig47" path="res://Assets/UI/HUD/StandardProgressBar/StandardProgressBarFill.png" id="16_qj4df"]
+[ext_resource type="Script" uid="uid://boy1xo8kfsiy5" path="res://Stages/main/speed_bar.gd" id="17_jxgth"]
+[ext_resource type="FontFile" uid="uid://b81fdlqs5aawj" path="res://Assets/Fonts/CyberpunkCraftpixPixel.otf" id="18_1qmgf"]
+[ext_resource type="Script" uid="uid://b46j7qjcntvgo" path="res://Stages/main/speed_bar_label.gd" id="19_74vyf"]
+[ext_resource type="Texture2D" uid="uid://xl4h0ahkm66r" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryUnder.png" id="20_bcaue"]
+[ext_resource type="Texture2D" uid="uid://ggpt1pqm7wmc" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryOver.png" id="21_eo1aq"]
+[ext_resource type="Texture2D" uid="uid://bykw3hiwphobg" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryFill.png" id="22_cw8hk"]
+[ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="23_50ard"]
+[ext_resource type="FontFile" uid="uid://r64lhoc2qtel" path="res://Assets/Fonts/GravityBold8.ttf" id="24_ftba2"]
+[ext_resource type="Script" uid="uid://cncjxt72gacx3" path="res://Stages/main/energy_bar_label.gd" id="25_e1ahu"]
+[ext_resource type="PackedScene" uid="uid://uxagcyc6b5cn" path="res://Scenes/DamageNumbers/damage_number_manager.tscn" id="26_65dnq"]
+[ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="26_ysg61"]
+[ext_resource type="PackedScene" uid="uid://dtlgf06xl52c1" path="res://Scenes/Object Pool/object_pool.tscn" id="27_id5vs"]
+[ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="28_htkny"]
+[ext_resource type="Script" uid="uid://0jg8dve4yjgc" path="res://Scenes/Player/camera_2d.gd" id="29_ex4kr"]
+[ext_resource type="PackedScene" uid="uid://deqbh4jesur4l" path="res://Scenes/Pickups/pickup_multi_mesh.tscn" id="30_iiyk0"]
+
+[sub_resource type="Gradient" id="Gradient_3tfrr"]
+offsets = PackedFloat32Array(0.55, 1)
+colors = PackedColorArray(0.11764706, 0.11764706, 0.11764706, 1, 1, 0, 0.3019608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jdc67"]
+gradient = SubResource("Gradient_3tfrr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxe6c"]
+shader = ExtResource("1_gpecp")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_jdc67")
+shader_parameter/intensity = 0.0
+
+[node name="BossSceneTemplate" type="Node2D" unique_id=1423773352]
+script = ExtResource("1_soxgy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1859805886]
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="CanvasLayer" unique_id=779786218]
+copy_mode = 2
+
+[node name="DeathScreen" type="ColorRect" parent="CanvasLayer" unique_id=1880636728]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gxe6c")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ysg61")
+out_duration = 1.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1797360132]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1775118843]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CurrencyCountContainer" parent="HUD/MarginContainer" unique_id=17007720 instance=ExtResource("3_soxgy")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=2136643800]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="FuelProgressBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer" unique_id=310184392]
+layout_mode = 2
+max_value = 999.0
+step = 0.1
+value = 60.0
+texture_under = ExtResource("4_ydws0")
+texture_over = ExtResource("5_yl6ii")
+texture_progress = ExtResource("6_yakcd")
+script = ExtResource("7_c7sty")
+event_bus_signal = Array[StringName]([&"health_changed", &"health_increased", &"health_reduced"])
+tween_duration = 1.0
+
+[node name="FuelProgressBarLabel" parent="HUD/MarginContainer/VBoxContainer/FuelProgressBar" unique_id=1147571644 instance=ExtResource("8_qk54o")]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 17.0
+offset_right = 731.0
+offset_bottom = 47.0
+theme = ExtResource("9_cbkfe")
+theme_override_font_sizes/font_size = 28
+text = "100/1000"
+script = ExtResource("10_4xi2t")
+
+[node name="MissileCount" type="Panel" parent="HUD/MarginContainer/VBoxContainer" unique_id=132488137]
+custom_minimum_size = Vector2(0, 45)
+custom_maximum_size = Vector2(145, -1)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_oqgfe")
+script = ExtResource("12_n573s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/VBoxContainer/MissileCount" unique_id=2049780445]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IconContainer" type="Panel" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer" unique_id=380484923]
+custom_minimum_size = Vector2(45, 45)
+custom_maximum_size = Vector2(45, -1)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_oqgfe")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer/IconContainer" unique_id=1303280329]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_1xc55")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer" unique_id=197982671]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 9
+
+[node name="MissileCountLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer/MissileCount/HBoxContainer/MarginContainer" unique_id=597743211]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+offset_transform_enabled = true
+theme = ExtResource("9_cbkfe")
+theme_override_font_sizes/font_size = 28
+text = "100"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=786752155]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 2
+
+[node name="SpeedBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer2" unique_id=1116796160 node_paths=PackedStringArray("player")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 1000.0
+allow_greater = true
+texture_under = ExtResource("14_n04ys")
+texture_over = ExtResource("15_8lnl7")
+texture_progress = ExtResource("16_qj4df")
+tint_progress = Color(0, 0.38431373, 0.6666667, 1)
+script = ExtResource("17_jxgth")
+player = NodePath("../../../../Player")
+metadata/_custom_type_script = "uid://dqollry410r2i"
+
+[node name="Label" type="Label" parent="HUD/MarginContainer/VBoxContainer2/SpeedBar" unique_id=943230321]
+layout_mode = 0
+offset_left = 116.0
+offset_top = -28.0
+offset_right = 297.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_1qmgf")
+theme_override_font_sizes/font_size = 25
+text = "1000"
+horizontal_alignment = 2
+script = ExtResource("19_74vyf")
+
+[node name="Label2" type="Label" parent="HUD/MarginContainer/VBoxContainer2/SpeedBar" unique_id=1614004735]
+layout_mode = 0
+offset_top = -28.0
+offset_right = 80.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("18_1qmgf")
+theme_override_font_sizes/font_size = 27
+text = "SPEED"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1675038817]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="EnergyBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer3" unique_id=852589083]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+offset_transform_position = Vector2(1650, 600)
+offset_transform_visual_only = false
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("20_bcaue")
+texture_over = ExtResource("21_eo1aq")
+texture_progress = ExtResource("22_cw8hk")
+script = ExtResource("23_50ard")
+event_bus_signal = Array[StringName]([&"energy_changed", &"energy_increased", &"energy_reduced"])
+
+[node name="ProgressBarLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer3/EnergyBar" unique_id=594426285]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 94.0
+offset_right = 282.0
+offset_bottom = 125.0
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("24_ftba2")
+theme_override_font_sizes/font_size = 22
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("25_e1ahu")
+metadata/_custom_type_script = "uid://ej62it1gcalq"
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1128765860]
+texture_repeat = 2
+scale = Vector2(5, 5)
+texture = ExtResource("26_ysg61")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
+
+[node name="DamageNumberManager" parent="." unique_id=988172252 groups=["damage_number"] instance=ExtResource("26_65dnq")]
+z_index = 101
+
+[node name="ObjectPool" parent="." unique_id=807418431 instance=ExtResource("27_id5vs")]
+
+[node name="PickupMultiMesh" parent="." unique_id=370772807 instance=ExtResource("30_iiyk0")]
+mesh_size = Vector2(16, 16)
+
+[node name="Player" parent="." unique_id=2000429350 instance=ExtResource("28_htkny")]
+unique_name_in_owner = true
+position = Vector2(957, 482)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=655410420]
+unique_name_in_owner = true
+zoom = Vector2(0.7, 0.7)
+script = ExtResource("29_ex4kr")

@@ -27,6 +27,7 @@ var star_currency_value: int
 var pickup_radius: float
 
 func _ready() -> void:
+	await get_tree().process_frame
 	setup_player_stats()
 	
 	_quad_tree = QuadTree.new(world_rect)

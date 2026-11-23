@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://4okfakjx518"]
+
+[ext_resource type="PackedScene" uid="uid://d2o78d2f3yc0r" path="res://Stages/boss_fights/boss_scene_template.tscn" id="1_4pmbi"]
+[ext_resource type="Script" uid="uid://blj37s6ejwfxs" path="res://Stages/boss_fights/test/test_boss_fight_2.gd" id="2_ep7b6"]
+[ext_resource type="PackedScene" uid="uid://cm1homtwcu2pk" path="res://Scenes/Enemy/Boss/test/test_boss.tscn" id="2_lsfdg"]
+
+[node name="test_boss_fight_2" unique_id=1423773352 instance=ExtResource("1_4pmbi")]
+script = ExtResource("2_ep7b6")
+
+[node name="TestBoss" parent="." index="7" unique_id=437048349 instance=ExtResource("2_lsfdg")]
+position = Vector2(1011, 1060)
