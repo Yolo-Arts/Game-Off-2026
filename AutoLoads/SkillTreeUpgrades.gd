@@ -8,6 +8,13 @@ const ITEM_PATH := "res://Resources/Items/%s.tres"
 const TREE = [
 	["fuel_1", [
 		["fuel_2"],
+		["gear_shift_1", [
+			["gear_shift_2"],
+			#["energy_recharge_1"],
+		]],
+		["missile_unlock", [
+			["missile_count"],
+		]],
 	]],
 	["energy_capacity_1", [
 		["energy_regen_1"],
@@ -17,24 +24,21 @@ const TREE = [
 		["beefier_hull_2"],
 		["energy_recharge_1"],
 	]],
-	["gear_shift_1", [
-		["gear_shift_2"],
-		#["energy_recharge_1"],
-	]],
 	["projectile_damage_1", [
+		["DynamicItems/shrapnel_item", [
+			["shrapnel_count_1"]
+		]],
 		["projectile_damage_2", [
 			["DynamicItems/firball_item", [
 				["luckitem"]
 			]],
+			["projectile_damage_3"],
 			["crit_chance_1", [
 				["crit_chance_2"],
 				["crit_damage_1", [
 					["crit_damage_2"],
 				]],
 			]],
-		]],
-		["DynamicItems/shrapnel_item", [
-			["shrapnel_count_1"]
 		]],
 		["unlock_left_turret", [
 			["unlock_right_turret"],
