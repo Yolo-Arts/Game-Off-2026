@@ -66,4 +66,5 @@ func make_projectile_data(stats: PlayerStats, direction: Vector2) -> ProjectileD
 	projectile_data.range_pixels = stats.shot_range
 	projectile_data.scale = stats.shot_scale
 	projectile_data.speed = stats.shot_speed
+	projectile_data.shift_color = player.shift_color
 	return projectile_data
