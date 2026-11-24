@@ -10,14 +10,15 @@ func _initialize() -> void:
 	pool = ObjectPooler.new(100, shrapnel_scene, self)
 
 func _on_enemy_died(enemy: Node2D) -> void:
-	#if enemy is Segment:
-	#	enemy = enemy as Segment
-	#	if enemy.segment_type != Segment.SegmentLocation.MIDDLE:
-	#		return
+	
 	var stats: PlayerStats = player.get_current_stats()
 	var damage: float = stats.shot_damage * damage_multiplier
 	#var shrapnel_amount: int = randi_range(shrapnel_amount_range.x, shrapnel_amount_range.y)
 	var shrapnel_amount = stats.shrapnel_count
+	if enemy is Segment:
+		enemy = enemy as Segment
+		shrapnel_amount /= 2.0
+		damage /= 2.0
 	for i in range(shrapnel_amount):
 		var shrapnel_instance: shrapnel = pool.get_obj()
 		if not shrapnel_instance:
