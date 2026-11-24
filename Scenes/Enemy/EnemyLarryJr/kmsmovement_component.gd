@@ -1,5 +1,11 @@
 extends EnemyMovementComponent
 
+@export var seperation_min: float = 64
+@export var seperation_max: float = 128
+@export var far_speed_mult: float = 5.0
+@export var close_speed_mult: float = 0.5
+
+
 var segment: Segment
 
 func setup(_enemy: Enemy, rotates: bool = true) -> void: 
@@ -30,10 +36,10 @@ func _physics_process(delta: float) -> void:
 			if segment.ahead_segment:
 				dir = segment.global_position.direction_to(segment.ahead_segment.global_position)
 				var dist: float = segment.global_position.distance_squared_to(segment.ahead_segment.global_position)
-				if dist < 4096:
-					target_speed = current_speed * 0.5
-				elif dist > 16384:
-					target_speed = current_speed * 2.0
+				if dist < seperation_min ** 2:
+					target_speed = current_speed * close_speed_mult
+				elif dist > seperation_max ** 2:
+					target_speed = current_speed * far_speed_mult
 	segment.rotation = dir.angle() + PI/2.0
 	
 	var target_movement_velocity: Vector2 = target_speed * dir

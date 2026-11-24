@@ -39,13 +39,14 @@ func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
 func _process(delta: float) -> void:
 	effect_timer = max(0.0, effect_timer - delta)
 
-func take_damage(damage_source: DamageSource) -> void:
+func take_damage(damage_source: DamageSource, propogating: bool = false) -> void:
 	health_component.take_damage(damage_source)
 	EventSystem.enemy_hit.emit(self, damage_source)
-	if effect_timer == 0.0:
+	if not propogating:
+	
 		Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.369), 0.2)
 		Juicee.flash(self)
-		effect_timer = 0.5
+			
 	
 	if damage_source.source_node:
 		var knockback_amount: float = damage_source.knockback * enemy_stats.knockback_resistance

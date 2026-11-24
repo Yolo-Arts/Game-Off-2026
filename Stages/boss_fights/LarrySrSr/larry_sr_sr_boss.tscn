@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bysod6iwo1r8x"]
+
+[ext_resource type="PackedScene" uid="uid://d2o78d2f3yc0r" path="res://Stages/boss_fights/boss_scene_template.tscn" id="1_2erq8"]
+[ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="2_olptn"]
+
+[node name="LarrySrSrBossFight" unique_id=1423773352 instance=ExtResource("1_2erq8")]
+
+[node name="EnemySpawner" type="Node2D" parent="." index="8" unique_id=1896253136 node_paths=PackedStringArray("enemy_spawn_timer")]
+script = ExtResource("2_olptn")
+auto_start = false
+enemy_spawn_timer = NodePath("Timer")
+metadata/_custom_type_script = "uid://dir7xxpyr1obv"
+
+[node name="Timer" type="Timer" parent="EnemySpawner" index="0" unique_id=271305453]

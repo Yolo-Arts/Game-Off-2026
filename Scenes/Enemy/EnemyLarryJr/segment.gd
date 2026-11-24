@@ -46,7 +46,7 @@ func set_anim() -> void:
 		SegmentLocation.TAIL:
 			%EnemySprite.play(&"tail")
 		_:
-			%EnemySprite.play(&"middle")
+			%EnemySprite.play(&"tail")
 
 func setup_segment(init: bool = false) -> void:
 	if behind_segment and ahead_segment:
@@ -71,9 +71,25 @@ func setup_segment(init: bool = false) -> void:
 	orbit_direction = [-1, 1].pick_random()
 	started = true
 func die() -> void:
+	if dead:
+		return
+	dead = true
 	if ahead_segment:
 		ahead_segment.behind_segment = null
 	if behind_segment:
 		behind_segment.ahead_segment = null
 	segment_destroyed.emit()
-	super.die()
+	
+	#var collectable := load("res://Game/Collectables/collectable.tscn")
+	#var test = collectable.instantiate()
+	#test.position = position
+	#Juicee.preset_explosion(self)
+	await get_tree().process_frame
+	collision_layer = 0
+	collision_mask = 0
+	EventSystem.enemy_died.emit(self)
+	ObjectPool.spawn(ObjectPool.explosion_scene, global_position)
+	
+	# TODO Add enemy death SFX
+	Pickups.spawn(Enums.CurrencyType.GEAR, global_position, enemy_stats.drop)
+	queue_free()
