@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://cwygifwmbqpua"
 [sub_resource type="Resource" id="Resource_v54o1"]
 script = ExtResource("5_7cfkn")
 text = "projectile damage"
-color = Color(0.85882354, 0.28180146, 0, 1)
+color = Color(0.85882354, 0.28235295, 0, 1)
 metadata/_custom_type_script = "uid://bigogxmuptah4"
 
 [resource]
