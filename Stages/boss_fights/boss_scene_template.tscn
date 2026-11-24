@@ -256,6 +256,9 @@ region_rect = Rect2(0, 0, 10000, 10000)
 [node name="DamageNumberManager" parent="." unique_id=988172252 groups=["damage_number"] instance=ExtResource("26_65dnq")]
 z_index = 101
 
+[node name="BulletFolder" type="Node2D" parent="." unique_id=1820469066 groups=["bullet_folder"]]
+unique_name_in_owner = true
+
 [node name="ObjectPool" parent="." unique_id=807418431 instance=ExtResource("27_id5vs")]
 
 [node name="PickupMultiMesh" parent="." unique_id=370772807 instance=ExtResource("30_iiyk0")]

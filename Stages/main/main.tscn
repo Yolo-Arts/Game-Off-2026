@@ -274,6 +274,9 @@ z_index = 101
 
 [node name="ObjectPool" parent="." unique_id=807418431 instance=ExtResource("18_mwvqt")]
 
+[node name="BulletFolder" type="Node2D" parent="." unique_id=91312729 groups=["bullet_folder"]]
+unique_name_in_owner = true
+
 [node name="Player" parent="." unique_id=1420948100 instance=ExtResource("1_jjgbg")]
 unique_name_in_owner = true
 position = Vector2(957, 482)

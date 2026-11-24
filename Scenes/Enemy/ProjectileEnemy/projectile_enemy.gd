@@ -18,6 +18,8 @@ var angle_between_shots: float = 45.0
 var ring_projectiles: Array[Dictionary] = []
 var is_forming_ring: bool = false
 
+var bullet_folder
+
 func _ready() -> void:
 	super._ready()
 	
@@ -27,6 +29,8 @@ func _ready() -> void:
 	shoot_timer.wait_time = fire_interval
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	shoot_timer.start()
+	
+	bullet_folder = get_tree().get_first_node_in_group("bullet_folder")
 
 func _physics_process(_delta: float) -> void:
 	# cool tech to iterate backwards (thanks godot docs)
@@ -72,7 +76,7 @@ func shoot_radial() -> void:
 		projectile.is_charging = true
 		projectile.global_position = global_position + offset
 		projectile.setup(data)
-		get_tree().current_scene.add_child(projectile)
+		bullet_folder.add_child(projectile)
 		
 		ring_projectiles.append({
 			"projectile": projectile,
