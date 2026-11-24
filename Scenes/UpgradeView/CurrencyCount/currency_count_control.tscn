@@ -28,7 +28,8 @@ unique_name_in_owner = true
 position = Vector2(30, 28)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_siydu")
-animation = &"Stars"
+animation = &"Hearts"
+frame_progress = 0.26510352
 
 [node name="MainAnchor" type="Node2D" parent="Control/AnimatedSprite2D" unique_id=1254623908]
 unique_name_in_owner = true

@@ -3,6 +3,7 @@ extends Node
 enum CurrencyType{
 	GEAR,
 	STAR,
+	HEART,
 }
 
 enum ShapeType{

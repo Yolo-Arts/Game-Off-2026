@@ -137,3 +137,15 @@ func get_current_shift_interval() -> float:
 func take_damage(damage_source: DamageSource) -> void:
 	super(damage_source)
 	EventSystem.update_boss_healthbar_component.emit()
+
+func die() -> void:
+	Globals.beat_boss = true
+	SkillTreeUpgrades.complete_active_scene_item()
+	#EventSystem.STA_change_stage.emit(StageConfig.Keys.UpgradeView)
+	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen, "boss_fight")
+	
+	Currencies.cheat_add_specific_currency(Enums.CurrencyType.HEART, 1)
+	Currencies.cheat_add_specific_currency(Enums.CurrencyType.STAR, 10)
+	Currencies.cheat_add_specific_currency(Enums.CurrencyType.GEAR, 100)
+	
+	super.die()
