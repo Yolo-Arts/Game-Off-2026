@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c7nanxoku28we"]
+
+[ext_resource type="PackedScene" uid="uid://d2o78d2f3yc0r" path="res://Stages/boss_fights/boss_scene_template.tscn" id="1_5agq6"]
+[ext_resource type="Script" uid="uid://cotpniewwrw60" path="res://Stages/boss_fights/heart_boss/heart_boss.gd" id="2_bn6e3"]
+
+[node name="HeartBossFight" unique_id=1423773352 instance=ExtResource("1_5agq6")]
+script = ExtResource("2_bn6e3")
