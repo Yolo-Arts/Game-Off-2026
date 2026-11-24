@@ -48,7 +48,8 @@ func take_damage(damage_source: DamageSource) -> void:
 		effect_timer = 0.5
 	
 	if damage_source.source_node:
-		movement_component.current_knockback = damage_source.knockback * damage_source.source_node.global_position.direction_to(global_position)
+		var knockback_amount: float = damage_source.knockback * enemy_stats.knockback_resistance
+		movement_component.current_knockback = knockback_amount * damage_source.source_node.global_position.direction_to(global_position)
 
 func die() -> void:
 	if dead:
