@@ -4,12 +4,26 @@
 [ext_resource type="Script" uid="uid://cotpniewwrw60" path="res://Stages/boss_fights/heart_boss/heart_boss.gd" id="2_bn6e3"]
 [ext_resource type="PackedScene" uid="uid://bgifbp3p3v1pv" path="res://Scenes/Enemy/Boss/heart_boss/heart_boss.tscn" id="3_bn6e3"]
 [ext_resource type="PackedScene" uid="uid://7heagqykgnip" path="res://UI/HUD/boss_health_bar/boss_health_bar_component.tscn" id="3_w07pm"]
+[ext_resource type="PackedScene" uid="uid://cg1dfn5eqm61c" path="res://UI/BossFightIntro/boss_fight_intro.tscn" id="4_lulc2"]
+[ext_resource type="Texture2D" uid="uid://duuaxdasxktw0" path="res://Assets/Enemy/heart_boss/HeartBoss.png" id="5_2715e"]
 
 [node name="HeartBossFight" unique_id=1423773352 instance=ExtResource("1_5agq6")]
 script = ExtResource("2_bn6e3")
 
 [node name="BossHealthBarComponent" parent="HUD" parent_id_path=PackedInt32Array(1797360132) index="1" unique_id=360296900 node_paths=PackedStringArray("boss") instance=ExtResource("3_w07pm")]
 boss = NodePath("../../HeartBoss")
+boss_name = "Dad's Heart"
 
-[node name="HeartBoss" parent="." index="8" unique_id=712541419 instance=ExtResource("3_bn6e3")]
-position = Vector2(1547, 275)
+[node name="CanvasLayer2" type="CanvasLayer" parent="." index="2" unique_id=193441760]
+
+[node name="BossFightIntro" parent="CanvasLayer2" index="0" unique_id=2135750429 instance=ExtResource("4_lulc2")]
+unique_name_in_owner = true
+boss_name = "Dad's Heart"
+boss_sprite = ExtResource("5_2715e")
+
+[node name="Camera2D" parent="Player" parent_id_path=PackedInt32Array(2000429350) index="8" unique_id=655410420]
+position = Vector2(0, -1360)
+
+[node name="HeartBoss" parent="." index="9" unique_id=712541419 instance=ExtResource("3_bn6e3")]
+unique_name_in_owner = true
+position = Vector2(945, -906)

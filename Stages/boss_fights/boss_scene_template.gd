@@ -8,7 +8,7 @@ class_name BossFightTemplateScene
 
 @onready var camera = %Camera2D
 @onready var currency_count_container = %CurrencyCountContainer
-@onready var player = %Player
+@onready var player: Player = %Player
 
 
 func _input(event: InputEvent) -> void:
