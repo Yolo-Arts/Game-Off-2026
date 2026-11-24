@@ -29,6 +29,6 @@ func setup() -> void:
 		push_error("You forgot to put stuff in the intro inspector for the boss...") 
 		return
 	
-	boss_name_label.text = boss_name
+	boss_name_label.text = "[shake rate=120.0 level=12 connected=1]%s[/shake]" % [boss_name]
 	boss_image.texture = boss_sprite
 	boss_image.offset_transform_scale = boss_sprite_scale 

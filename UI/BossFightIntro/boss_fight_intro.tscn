@@ -497,8 +497,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 1059.0
-offset_bottom = 331.0
+offset_left = 53.0
+offset_top = -30.0
+offset_right = 1112.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.15707964
@@ -510,12 +512,16 @@ theme_override_font_sizes/font_size = 70
 text = "Joining 
 the battle:"
 
-[node name="BossName" type="Label" parent="LabelContainer/VBoxContainer" unique_id=950802041]
+[node name="BossName" type="RichTextLabel" parent="LabelContainer/VBoxContainer" unique_id=568759603]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 200)
+clip_contents = false
 layout_mode = 2
 theme = ExtResource("2_6fpv5")
-theme_override_font_sizes/font_size = 168
-text = "Boss Name"
+theme_override_font_sizes/normal_font_size = 168
+bbcode_enabled = true
+text = "[shake rate=60.0 level=8connected=1]{text}[/shake]"
+scroll_active = false
 
 [node name="WhiteLine" type="ColorRect" parent="." unique_id=1652702763]
 layout_mode = 0
