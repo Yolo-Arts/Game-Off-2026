@@ -106,6 +106,8 @@ func reduce_health(delta: float) -> void:
 	EventSystem.player_hit.emit(DamageSource.new(get_current_stats().health_usage_per_second * delta, 0.0, DamageSource.DamageSourceType.AUTO_DAMAGE, DamageSource.ShiftColor.NONE, null))
 	
 func die() -> void:
+	if is_dead:
+		return
 	EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.PlayerDeath)
 	
 	is_dead = true
