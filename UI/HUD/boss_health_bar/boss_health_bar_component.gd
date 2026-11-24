@@ -1,6 +1,7 @@
 extends Control
 
 @export var boss: Boss
+@export var boss_name: String
 
 @onready var boss_name_label = %BossNameLabel
 @onready var progress_bar = %ProgressBar
@@ -11,6 +12,7 @@ func setup_progress_bar() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
+	boss_name_label.text = boss_name
 	var max_health = boss.health_component.max_health
 	var paging = max_health * progress_bar_default_page_ratio_from_max_value
 	progress_bar.page = paging

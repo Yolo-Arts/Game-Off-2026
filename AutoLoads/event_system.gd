@@ -47,3 +47,6 @@ signal crt_setting_applied(checked: bool)
 signal missile_fired(can_fire: bool)
 
 signal update_boss_healthbar_component
+signal play_boss_intro_animation
+signal start_boss_cutscene
+signal unfreeze_boss
