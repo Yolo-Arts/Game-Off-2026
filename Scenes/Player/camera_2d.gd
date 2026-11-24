@@ -40,6 +40,7 @@ func _process(delta):
 	if _timer <= 0:
 		_timer = 0
 		set_offset(get_offset() - _last_offset)
+		_last_offset = Vector2.ZERO
 
 # Kick off a new screenshake effect.
 func shake(duration, frequency, amplitude):
