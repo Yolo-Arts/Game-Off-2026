@@ -3,9 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://d2o78d2f3yc0r" path="res://Stages/boss_fights/boss_scene_template.tscn" id="1_5agq6"]
 [ext_resource type="Script" uid="uid://cotpniewwrw60" path="res://Stages/boss_fights/heart_boss/heart_boss.gd" id="2_bn6e3"]
 [ext_resource type="PackedScene" uid="uid://bgifbp3p3v1pv" path="res://Scenes/Enemy/Boss/heart_boss/heart_boss.tscn" id="3_bn6e3"]
+[ext_resource type="PackedScene" uid="uid://7heagqykgnip" path="res://UI/HUD/boss_health_bar/boss_health_bar_component.tscn" id="3_w07pm"]
 
 [node name="HeartBossFight" unique_id=1423773352 instance=ExtResource("1_5agq6")]
 script = ExtResource("2_bn6e3")
+
+[node name="BossHealthBarComponent" parent="HUD" parent_id_path=PackedInt32Array(1797360132) index="1" unique_id=360296900 node_paths=PackedStringArray("boss") instance=ExtResource("3_w07pm")]
+boss = NodePath("../../HeartBoss")
 
 [node name="HeartBoss" parent="." index="8" unique_id=712541419 instance=ExtResource("3_bn6e3")]
 position = Vector2(1547, 275)
