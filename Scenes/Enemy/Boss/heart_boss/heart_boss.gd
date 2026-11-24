@@ -1,4 +1,4 @@
-class_name HeartBoss extends Enemy
+class_name HeartBoss extends Boss
 
 @export_group("Heartbeat Attack")
 @export var projectile_scene: PackedScene
@@ -133,3 +133,7 @@ func start_color_shift() -> void:
 
 func get_current_shift_interval() -> float:
 	return lerpf(min_color_shift_interval, max_color_shift_interval, get_health_ratio())
+
+func take_damage(damage_source: DamageSource) -> void:
+	super(damage_source)
+	EventSystem.update_boss_healthbar_component.emit()
