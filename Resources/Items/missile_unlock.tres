@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cbygk4br54r4n"]
 
-[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="1_warv5"]
+[ext_resource type="Texture2D" uid="uid://conobh47sc87u" path="res://Assets/Icons/Skill Tree/missile_damage.png" id="1_warv5"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_ihua2"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_1qxv1"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_v5ikj"]
