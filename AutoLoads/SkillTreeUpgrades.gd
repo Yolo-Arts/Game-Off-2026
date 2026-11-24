@@ -30,7 +30,8 @@ const TREE = [
 
 	["projectile_damage_1", [
 		["DynamicItems/shrapnel_item", [
-			["shrapnel_count_1"]
+			["shrapnel_count_1"],
+			["shrapnel_damage"],
 		]],
 		["projectile_damage_2", [
 			["DynamicItems/firball_item", [
