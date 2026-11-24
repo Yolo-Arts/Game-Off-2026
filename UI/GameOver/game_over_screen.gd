@@ -10,7 +10,7 @@ extends Bulletin
 func initialize(_extra_arg) -> void:
 	match _extra_arg:
 		"boss_fight":
-			game_over_label = "Boss Defeated!"
+			game_over_label.text = "Boss Defeated!"
 			ran_out_of_fuel_label.visible = false
 		_:
 			pass
