@@ -14,6 +14,7 @@ enum Keys {
 	MetalHit,
 	ItemPickup,
 	MissileExplosion,
+	HeartBeat,
 }
 
 const FILE_PATHS := {
@@ -32,7 +33,8 @@ const FILE_PATHS := {
 	Keys.EnemySpawn: "res://Audio/GameSFX/Enemy/sfx_enemy_spawn_small.wav",
 	Keys.MetalHit: "res://Audio/GameSFX/ShootSFX/sfx_metal_hitsound.wav",
 	Keys.ItemPickup: "res://Audio/SFX_Resources/GameOverCurrencyAcquiredRandomizer.tres",
-	Keys.MissileExplosion: "res://Audio/GameSFX/ShootSFX/missile_explosion.sfxr"
+	Keys.MissileExplosion: "res://Audio/GameSFX/ShootSFX/missile_explosion.sfxr",
+	Keys.HeartBeat: "uid://c253knlfuit1c",
 }
 
 static func get_audio_stream(key:Keys) -> AudioStream:
