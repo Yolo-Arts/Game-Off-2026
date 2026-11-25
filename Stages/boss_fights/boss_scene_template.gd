@@ -14,7 +14,7 @@ class_name BossFightTemplateScene
 #@onready var heart_boss = %HeartBoss
 
 @export var boss_fight_intro: Control
-@export var boss_enemy: Boss
+@export var boss_enemy: Node
 @export var stage_config_key: StageConfig.Keys
 
 

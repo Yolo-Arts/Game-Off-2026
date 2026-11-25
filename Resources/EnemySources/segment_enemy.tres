@@ -35,5 +35,4 @@ enemy_scene = ExtResource("2_rvgfc")
 base_enemy_stats = SubResource("Resource_5g3mc")
 spawn_animation_data = SubResource("Resource_p6a0q")
 spawn_distance_from_player = 1500.0
-spawn_weight = 100.0
 metadata/_custom_type_script = "uid://mahujeywww5p"

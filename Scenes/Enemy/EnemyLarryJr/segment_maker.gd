@@ -1,11 +1,14 @@
-extends Node2D
+class_name SegmentMaker extends Node2D
 
 @export var segment_scene: PackedScene
 @export var segment_range: Vector2i = Vector2i(6, 10)
 @export var distance_between: float = 64
-var enemy_stats: EnemyStats
+@export var enemy_stats: EnemyStats
 
 func _ready() -> void:
+	pass
+
+func _physics_process(delta: float) -> void:
 	var segments: Array[Segment]
 	var number_of_segments: int = randi_range(segment_range.x, segment_range.y)
 	var player: Player = get_tree().get_first_node_in_group(&"player") as Player
@@ -22,6 +25,7 @@ func _ready() -> void:
 		
 		segments.append(next_segment)
 		get_parent().add_child(next_segment)
+		next_segment.force_update_transform()
 	for i in range(segments.size()):
 		var segment: Segment = segments[i]
 		if i != 0:
@@ -29,4 +33,12 @@ func _ready() -> void:
 		if i != segments.size() - 1:
 			segment.behind_segment = segments[i + 1]
 		segment.setup_segment(true)
+	
+	print(segments.size())
+	if segments[0] is BossSegment:
+		for i in range(segments.size()):
+			for j in range(i + 1, segments.size()):
+				segments[i].add_collision_exception_with(segments[j])
+		var head: BossSegment = segments[0] as BossSegment
+		head.state_machine.initialize(head, &"roam")
 	queue_free()

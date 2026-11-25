@@ -10,7 +10,7 @@ var started: bool = false
 var current_speed: float
 var orbit_direction: int = 1
 
-
+var do_circle: bool = true
 
 func _ready() -> void:
 	add_to_group("enemies")

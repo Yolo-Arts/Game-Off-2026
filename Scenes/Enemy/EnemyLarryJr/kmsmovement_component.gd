@@ -16,6 +16,7 @@ func setup(_enemy: Enemy, rotates: bool = true) -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+	if not segment.do_circle: return
 	var target_speed: float = current_speed
 	if enemy == null:
 		return

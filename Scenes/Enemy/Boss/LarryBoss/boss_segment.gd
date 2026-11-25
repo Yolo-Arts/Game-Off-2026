@@ -1,4 +1,21 @@
-extends Segment
+class_name BossSegment extends Segment
+
+const STATE_DICT: Dictionary[BossPhase, StringName] = {
+	BossPhase.ROAM: &"roam", BossPhase.ARENA: &"arena", BossPhase.ROAM_ARENA: &"roam_arena", BossPhase.LASER: &"laser"
+}
+
+enum BossPhase {ROAM, ARENA, ROAM_ARENA, LASER}
+var last_roam_state: StringName = ""
+var roam_states: Array[StringName] = ["random", "circle", "charge"]
+
+@export var state_machine: StateMachine
+
+
+
+var current_phase: BossPhase = BossPhase.ROAM:
+	set(value):
+		current_phase = value
+		change_phase_state()
 
 func take_damage(damage_source: DamageSource, propogating: bool = false) -> void:
 	if not propogating:
@@ -16,6 +33,8 @@ func take_damage(damage_source: DamageSource, propogating: bool = false) -> void
 		var knockback_amount: float = damage_source.knockback * enemy_stats.knockback_resistance
 		movement_component.current_knockback = knockback_amount * damage_source.source_node.global_position.direction_to(global_position)
 
+func change_phase_state() -> void:
+	state_machine.request_transition(STATE_DICT[current_phase])
 
 
 func die() -> void:

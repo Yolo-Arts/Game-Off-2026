@@ -62,16 +62,14 @@ scale = Vector2(5, 5)
 unique_name_in_owner = true
 material = ExtResource("5_10p3u")
 sprite_frames = SubResource("SpriteFrames_uinop")
-animation = &"tail"
+animation = &"middle"
 autoplay = "head"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
-visible = false
 scale = Vector2(3.2, 3.2)
 shape = SubResource("RectangleShape2D_5v6lt")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=357307482 node_paths=PackedStringArray("enemy")]
-visible = false
 script = ExtResource("9_xbbtt")
 enemy = NodePath("..")
 
