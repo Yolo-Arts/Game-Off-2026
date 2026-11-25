@@ -12,6 +12,10 @@
 [ext_resource type="Script" uid="uid://cpsk78tocuav3" path="res://Scenes/Enemy/Boss/LarryBoss/segment_boss_movement.gd" id="10_xx2an"]
 [ext_resource type="Script" uid="uid://grs1kfqrof0u" path="res://Game/StateMachine/state_machine.gd" id="11_xx2an"]
 [ext_resource type="Script" uid="uid://byyt4mvlmohyv" path="res://Scenes/Enemy/Boss/LarryBoss/normal_state.gd" id="12_xx2an"]
+[ext_resource type="Script" uid="uid://b5m4r5gvyeldv" path="res://Scenes/Enemy/Boss/LarryBoss/arena.gd" id="13_qt1qs"]
+[ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="14_hsd7f"]
+[ext_resource type="Resource" uid="uid://cekse2i4k64uc" path="res://Resources/EnemySources/segment_enemy.tres" id="15_ulbgu"]
+[ext_resource type="Script" uid="uid://bnr6xk0yrqg7w" path="res://Scenes/Enemy/Boss/LarryBoss/final.gd" id="16_ulbgu"]
 
 [sub_resource type="Resource" id="Resource_qt1qs"]
 script = ExtResource("2_xx2an")
@@ -110,4 +114,16 @@ metadata/_custom_type_script = "uid://grs1kfqrof0u"
 [node name="Roam" type="Node" parent="StateMachine" unique_id=1096460826]
 script = ExtResource("12_xx2an")
 id = &"roam"
+metadata/_custom_type_script = "uid://blkue6yeehgx1"
+
+[node name="Arena" type="Node" parent="StateMachine" unique_id=1732051267]
+script = ExtResource("13_qt1qs")
+wormies = Array[ExtResource("14_hsd7f")]([ExtResource("15_ulbgu")])
+id = &"arena"
+metadata/_custom_type_script = "uid://c2pn0qhh2mrs2"
+
+[node name="Final" type="Node" parent="StateMachine" unique_id=57950493]
+script = ExtResource("16_ulbgu")
+wormies = Array[ExtResource("14_hsd7f")]([ExtResource("15_ulbgu")])
+id = &"final"
 metadata/_custom_type_script = "uid://blkue6yeehgx1"

@@ -8,8 +8,8 @@ class_name Enemy extends CharacterBody2D
 const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
 var effect_timer: float = 0.0
 @onready var enemy_sprite = %EnemySprite
+var can_set_enemy_shift_speed: bool = true
 var dead: bool = false
-var dead_counter: int = 0.0
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)
@@ -31,6 +31,8 @@ func _ready() -> void:
 		update_dimension_speed(player.shift_color)
 
 func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
+	if not can_set_enemy_shift_speed:
+		return
 	if color == enemy_stats.shift_color or color == DamageSource.ShiftColor.NONE:
 		movement_component.current_speed = enemy_stats.speed
 	else:

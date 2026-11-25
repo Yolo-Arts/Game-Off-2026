@@ -18,6 +18,7 @@ var pending_spawns: Array[Dictionary] = []
 func _ready() -> void:
 	enemy_spawn_timer.timeout.connect(spawn_next_formation)
 	EventSystem.player_spawned.connect(initialize)
+	EventSystem.request_spawn_enemy.connect(attempt_spawn_enemy)
 	
 func initialize(_player: Player) -> void:
 	player = _player
@@ -89,7 +90,6 @@ func attempt_spawn_enemy(enemy: EnemyData, origin_node: Node2D = player) -> bool
 	var spawn_angle = initial_spawn_angle
 	if origin_node == null:
 		return false
-
 	var origin_pos: Vector2 = origin_node.global_position
 	while spawn_angle < 2 * PI + initial_spawn_angle:
 		var spawn_pos = origin_pos + enemy.spawn_distance_from_player * Vector2(sin(spawn_angle), cos(spawn_angle))

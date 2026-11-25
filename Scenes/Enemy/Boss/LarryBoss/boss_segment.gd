@@ -1,10 +1,10 @@
 class_name BossSegment extends Segment
 
 const STATE_DICT: Dictionary[BossPhase, StringName] = {
-	BossPhase.ROAM: &"roam", BossPhase.ARENA: &"arena", BossPhase.ROAM_ARENA: &"roam_arena", BossPhase.LASER: &"laser"
-}
+	BossPhase.ROAM: &"roam", BossPhase.ARENA: &"arena", BossPhase.FINAL: &"final"
+	}
 
-enum BossPhase {ROAM, ARENA, ROAM_ARENA, LASER}
+enum BossPhase {ROAM, ARENA, FINAL}
 var last_roam_state: StringName = ""
 var roam_states: Array[StringName] = ["random", "circle", "charge"]
 

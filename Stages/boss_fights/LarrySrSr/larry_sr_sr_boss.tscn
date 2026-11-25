@@ -7,16 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://duuaxdasxktw0" path="res://Assets/Enemy/heart_boss/HeartBoss.png" id="3_00ey7"]
 [ext_resource type="PackedScene" uid="uid://cvxxvgftvqgh5" path="res://Scenes/Enemy/Boss/LarryBoss/boss_segment.tscn" id="3_1sp6y"]
 [ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="4_asjna"]
+[ext_resource type="PackedScene" uid="uid://dbabsmode2qmf" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.tscn" id="8_t6jwh"]
+[ext_resource type="PackedScene" uid="uid://da6lsubuwmq1n" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_particles.tscn" id="9_fr1f1"]
 
-[sub_resource type="Resource" id="Resource_00ey7"]
+[sub_resource type="Resource" id="Resource_t6jwh"]
 script = ExtResource("4_asjna")
-max_health = 30.0
+max_health = 2000.0
 shift_color = 1
-damage = 10.0
+damage = 15.0
 knockback = 2000.0
-speed = 1500.0
-opposite_speed = 1500.0
-drop = 2
+speed = 1000.0
+opposite_speed = 1000.0
+drop = 1
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
 [node name="LarrySrSrBossFight" unique_id=1423773352 node_paths=PackedStringArray("boss_fight_intro", "boss_enemy") instance=ExtResource("1_2erq8")]
@@ -35,13 +37,15 @@ scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("2_k6v4t")
 segment_scene = ExtResource("3_1sp6y")
 segment_range = Vector2i(100, 100)
-enemy_stats = SubResource("Resource_00ey7")
+enemy_stats = SubResource("Resource_t6jwh")
 metadata/_custom_type_script = "uid://bv3ifttjbpx3"
 
 [node name="EnemySpawner" type="Node2D" parent="." index="10" unique_id=1896253136 node_paths=PackedStringArray("enemy_spawn_timer")]
 script = ExtResource("2_olptn")
 auto_start = false
 enemy_spawn_timer = NodePath("Timer")
+spawn_animation_scene = ExtResource("8_t6jwh")
+spawn_particles_scene = ExtResource("9_fr1f1")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Timer" type="Timer" parent="EnemySpawner" index="0" unique_id=271305453]

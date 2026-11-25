@@ -15,6 +15,7 @@ func handle_roam_state(state: StringName) -> void:
 		return
 	match state:
 		&"random":
+			segment.can_set_enemy_shift_speed = false
 			var random_angle: float = randf_range(0, 2 * PI)
 			var random_distance: float = randf_range(100.0, 1000.0)
 			var random_speed: float = randf_range(1000.0, 1200.0)
@@ -31,13 +32,14 @@ func handle_roam_state(state: StringName) -> void:
 				scheduled_roam_state = &""
 			
 		&"circle":
+			segment.can_set_enemy_shift_speed = true
 			segment.orbit_direction = [-1, 1].pick_random()
 			segment.do_circle = true
 			segment.update_dimension_speed(player.shift_color)
 			roam_change_timer = roam_change_time
 		_:
-			segment.enemy_stats.shift_color = DamageSource.ShiftColor.NONE
 			# TODO add visual change, to all segments
+			segment.can_set_enemy_shift_speed = false
 			boss_movement.current_speed = 2000.0
 			segment.do_circle = false
 			boss_movement.move_towards_dir = segment.global_position.direction_to(player.global_position)
