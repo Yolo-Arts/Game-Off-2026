@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cjgad8wnqoury"]
 
-[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_yaojo"]
+[ext_resource type="Texture2D" uid="uid://dmh0u1hueu8dw" path="res://Assets/Icons/Skill Tree/turrent_left.png" id="1_yaojo"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_aol3a"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_k1ahp"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_g6sl0"]
@@ -18,6 +18,12 @@ initial_price = 15
 price_multiplier = 1.5
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
+[sub_resource type="Resource" id="Resource_5fb1n"]
+script = ExtResource("3_k1ahp")
+currency = 2
+initial_price = 1
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
 [sub_resource type="Resource" id="Resource_k1ahp"]
 script = ExtResource("5_gastr")
 text = "turret"
@@ -32,6 +38,6 @@ description = "Add a new {turret} to the ship's left wing allowing it to shoot p
 icon = ExtResource("1_yaojo")
 modifiers = Array[ExtResource("2_aol3a")]([SubResource("Resource_aol3a")])
 shape_type = 1
-price_data_array = Array[ExtResource("3_k1ahp")]([SubResource("Resource_muvpr")])
+price_data_array = Array[ExtResource("3_k1ahp")]([SubResource("Resource_muvpr"), SubResource("Resource_5fb1n")])
 text_injections = Array[ExtResource("5_gastr")]([SubResource("Resource_k1ahp")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

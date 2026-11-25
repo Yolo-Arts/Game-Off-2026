@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://7t6o256c4f24"]
 
 [ext_resource type="Texture2D" uid="uid://bcy3jr32vit3q" path="res://Assets/Currency/currency-Sheet.png" id="1_sh35k"]
+[ext_resource type="Texture2D" uid="uid://t3epku032kpr" path="res://Assets/Currency/currency-Sheet-export.png" id="2_73xhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sh35k"]
 atlas = ExtResource("1_sh35k")
@@ -17,6 +18,22 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ojsg0"]
 atlas = ExtResource("1_sh35k")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1avr"]
+atlas = ExtResource("2_73xhy")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_762ef"]
+atlas = ExtResource("2_73xhy")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra8o2"]
+atlas = ExtResource("2_73xhy")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewsns"]
+atlas = ExtResource("2_73xhy")
+region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhihf"]
 atlas = ExtResource("1_sh35k")
@@ -51,6 +68,23 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Gears",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1avr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_762ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra8o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewsns")
+}],
+"loop": 1,
+"name": &"Hearts",
 "speed": 3.0
 }, {
 "frames": [{

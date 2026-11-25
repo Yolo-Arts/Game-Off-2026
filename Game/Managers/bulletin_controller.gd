@@ -12,8 +12,8 @@ func create_bulletin(bulletin_key:BulletinConfig.Keys, _extra_arg = null) -> voi
 		return
 	
 	var new_bulletin: Bulletin = BulletinConfig.get_bulletin(bulletin_key)
-	new_bulletin.initialize(_extra_arg)
 	add_child(new_bulletin)
+	new_bulletin.initialize(_extra_arg)
 	bulletins[bulletin_key] = new_bulletin
 
 func destroy_bulletin(bulletin_key:BulletinConfig.Keys) -> void:

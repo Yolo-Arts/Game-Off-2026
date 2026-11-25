@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b8qwcgdub81wl"]
 
-[ext_resource type="Texture2D" uid="uid://bnmr33xowfgms" path="res://Assets/UI/HUD/Missile/MissileIcon.png" id="1_ejv11"]
+[ext_resource type="Texture2D" uid="uid://ddr0qok48pj78" path="res://Assets/Icons/Skill Tree/missile_number.png" id="1_ejv11"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_bqab0"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_pdp0k"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_x7dmi"]
@@ -44,7 +44,7 @@ display_name = "Missile arnaments"
 description = "Increase {missile count} by [+1]"
 icon = ExtResource("1_ejv11")
 modifiers = Array[ExtResource("2_bqab0")]([SubResource("Resource_xxden"), SubResource("Resource_14f36")])
-max_level = 10
+max_level = 9
 min_level_to_unlock_children = 4
 shape_type = 1
 price_data_array = Array[ExtResource("3_pdp0k")]([SubResource("Resource_muvpr"), SubResource("Resource_l7mfo")])

@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_vbvyp"]
 script = ExtResource("1_b3q2i")
 stat = "shots_per_second"
-add = 3.0
+add = 1.0
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_rc6nv"]
@@ -19,20 +19,20 @@ metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
 [sub_resource type="Resource" id="Resource_vpfpp"]
 script = ExtResource("4_pltyu")
-text = "Shot Speed"
+text = "Fire Rate"
 metadata/_custom_type_script = "uid://bigogxmuptah4"
 
 [resource]
 script = ExtResource("3_lem2g")
-id = "ShotSpeed"
-display_name = "Shot Speed"
-description = "Increase {Shot Speed} by [5]"
+id = "fire_rate"
+display_name = "Fire Rate"
+description = "Increase {Fire Rate} by [5]"
 icon = ExtResource("1_vbvyp")
 modifiers = Array[ExtResource("1_b3q2i")]([SubResource("Resource_vbvyp")])
 max_level = 5
 min_level_to_unlock_children = 3
 price_data_array = Array[ExtResource("2_vbvyp")]([SubResource("Resource_rc6nv")])
-initial_increment_value = 5.0
-increment_value = 5.0
+increment_value = 0.5
+is_increment_percentage = true
 text_injections = Array[ExtResource("4_pltyu")]([SubResource("Resource_vpfpp")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

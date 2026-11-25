@@ -2,6 +2,7 @@ class_name EnemySpawner extends Node2D
 
 var player: Player
 
+@export var auto_start: bool = true
 @export var waves_elapsed: int = 0
 @export var world_bounds: Rect2
 @export var spawn_angle_increment: float = PI/16
@@ -17,12 +18,13 @@ var pending_spawns: Array[Dictionary] = []
 func _ready() -> void:
 	enemy_spawn_timer.timeout.connect(spawn_next_formation)
 	EventSystem.player_spawned.connect(initialize)
+	EventSystem.request_spawn_enemy.connect(attempt_spawn_enemy)
 	
 func initialize(_player: Player) -> void:
 	player = _player
 	enemy_spawn_timer.wait_time = player.get_current_stats().time_per_wave
-
-	enemy_spawn_timer.start()
+	if auto_start:
+		enemy_spawn_timer.start()
 	waves_elapsed = 0
 
 func _process(delta: float) -> void:
@@ -83,15 +85,14 @@ func spawn_next_formation() -> void:
 	enemy_spawn_timer.start(time_next_wave)
 	waves_elapsed += 1
 
-func attempt_spawn_enemy(enemy: EnemyData) -> bool:
+func attempt_spawn_enemy(enemy: EnemyData, origin_node: Node2D = player) -> bool:
 	var initial_spawn_angle: float = spawn_angle_increment * randi_range(0, int(2 * PI / spawn_angle_increment))
 	var spawn_angle = initial_spawn_angle
-	if player == null:
+	if origin_node == null:
 		return false
-
-	var player_pos: Vector2 = player.global_position
+	var origin_pos: Vector2 = origin_node.global_position
 	while spawn_angle < 2 * PI + initial_spawn_angle:
-		var spawn_pos = player_pos + enemy.spawn_distance_from_player * Vector2(sin(spawn_angle), cos(spawn_angle))
+		var spawn_pos = origin_pos + enemy.spawn_distance_from_player * Vector2(sin(spawn_angle), cos(spawn_angle))
 		if is_radius_empty(spawn_pos, enemy.enemy_size):
 			start_spawn_sequence(enemy, spawn_pos)
 			return true

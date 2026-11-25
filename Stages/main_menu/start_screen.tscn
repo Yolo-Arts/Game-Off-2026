@@ -2098,6 +2098,8 @@ colors = PackedColorArray(1, 0.84705883, 0.105882354, 1, 1, 0.7069092, 0.1067708
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm6ub"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ddim"]
+
 [node name="StartScreen" type="Control" unique_id=1519650878]
 layout_mode = 3
 anchors_preset = 15
@@ -2227,7 +2229,6 @@ layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8dicw")
 btn_text = "Clicky Btn"
 outline_thickness = 5.0
-hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 
 [node name="PlayBtn" parent="ButtonMargins/ButtonVbox" unique_id=1274068598 instance=ExtResource("12_jqdsw")]
 layout_mode = 2
@@ -2277,6 +2278,7 @@ hover_color = Color(0.7161459, 0.7161459, 0.7161459, 1)
 main_color = Color(0.14117648, 0.12941177, 0.12941177, 1)
 
 [node name="FloatingText" type="RichTextLabel" parent="." unique_id=1077152814]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -2304,6 +2306,8 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 119
 theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="PlaceholderLogo" type="TextureRect" parent="MarginContainer" unique_id=1235710391]
 layout_mode = 2
@@ -2313,9 +2317,20 @@ mouse_filter = 2
 texture = ExtResource("12_0s4et")
 stretch_mode = 2
 
+[node name="CreditsButton" parent="MarginContainer" unique_id=983532651 instance=ExtResource("2_2pgg3")]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ddim")
+btn_text = "Credits"
+outline_thickness = 5.0
+main_color = Color(0.14322919, 0.14322919, 0.14322919, 1)
+
 [connection signal="pressed" from="ButtonMargins/Reset Save Button" to="." method="_on_reset_save_button_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="ButtonMargins/ButtonVbox/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

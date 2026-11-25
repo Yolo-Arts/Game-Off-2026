@@ -13,3 +13,5 @@ func _ready() -> void:
 	AudioServer.set_bus_mute(MUSIC_BUS_ID, user_prefs.music_volume < .05)
 
 var current_stage: StageConfig.Keys
+
+var beat_boss: bool = false

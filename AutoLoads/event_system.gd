@@ -35,7 +35,7 @@ signal player_died
 signal player_shifted(shift_color: DamageSource.ShiftColor)
 
 signal enemy_spawned(enemy: Node2D)
-signal request_spawn_enemy(enemy: EnemyData)
+signal request_spawn_enemy(enemy: EnemyData, source_node: Node2D)
 
 signal enemy_hit(node: Node2D, damage_source: DamageSource)
 signal enemy_died(enemy: Node2D)
@@ -45,3 +45,8 @@ signal player_spawned(player: Player)
 signal crt_setting_applied(checked: bool)
 
 signal missile_fired(can_fire: bool)
+
+signal update_boss_healthbar_component
+signal play_boss_intro_animation
+signal start_boss_cutscene
+signal unfreeze_boss

@@ -22,8 +22,9 @@ class_name PlayerStats extends Resource
 @export var luck: float  = 0.0
 @export var healing_efficiency: float = 1.0
 @export var knockback: float = 500.0
+@export var shrapnel_damage: float = 2.0
 # TODO implement this:
-@export var shots_per_second: float = 7.0
+@export var shots_per_second: float = 2.0
 @export var shot_damage: float = 20.0
 # TODO implement this:
 @export var shot_cost: float = 5.0

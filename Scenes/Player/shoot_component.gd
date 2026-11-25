@@ -12,11 +12,14 @@ var shoot_cooldown: float = 0.0
 var unlocked_turrets: int = 1
 @export var spread_angle_degrees: float = 15.0
 
+var bullet_folder
+
 var stats: PlayerStats
 func setup(_player: Player) -> void:
 	player = _player
 	turrets = turret_positions.get_children() 
 	check_stats()
+	bullet_folder = get_tree().get_first_node_in_group("bullet_folder")
 
 func check_stats() -> void:
 	stats = player.get_current_stats() 
@@ -65,7 +68,8 @@ func shoot(scene: PackedScene) -> void:
 			
 			bullet.projectile_stats = make_projectile_data(player.get_current_stats(), shot_dir)
 			bullet.global_position = turrets[i].global_position
-			get_tree().current_scene.add_child(bullet)
+			#get_tree().current_scene.add_child(bullet)
+			bullet_folder.add_child(bullet)
 			
 	shoot_cooldown = 1.0 / player.get_current_stats().shots_per_second
 	player.movement_component.current_knockback += player.get_current_stats().recoil * player.transform.y

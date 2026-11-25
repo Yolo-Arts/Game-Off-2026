@@ -1,6 +1,7 @@
 extends TextureProgressBar
 
 @export var player : Player
+#@onready var player = %Player
 @export var indicator_color: Color = Color.GREEN
 @export var line_width: float = 4.0
 var min_ram_speed_indicator: float = 0.0:

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://7heagqykgnip"]
+
+[ext_resource type="Script" uid="uid://b3xm7c62q5aln" path="res://UI/HUD/boss_health_bar/boss_health_bar_component.gd" id="1_f804a"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="1_vxrsi"]
+
+[node name="BossHealthBarComponent" type="Control" unique_id=360296900]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_f804a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2055781719]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1229627337]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="BossNameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2125615308]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_vxrsi")
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 28
+text = "Boss Name"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=573540475]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_vxrsi")
+page = 0.75
+value = 99.25

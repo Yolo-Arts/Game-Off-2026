@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cg5ipx008w8q6"]
 
-[ext_resource type="Script" uid="uid://5flm7hncut1b" path="res://Stages/boss_fights/test/test_boss_fight.gd" id="1_ktssu"]
 [ext_resource type="PackedScene" uid="uid://b2csbwetpiepa" path="res://Scenes/UpgradeView/CurrencyCount/currency_count_control.tscn" id="2_sl5g5"]
 [ext_resource type="PackedScene" uid="uid://uxagcyc6b5cn" path="res://Scenes/DamageNumbers/damage_number_manager.tscn" id="2_t4ir7"]
 [ext_resource type="Shader" uid="uid://204n7sqcs6sq" path="res://Shaders/death_screen.gdshader" id="2_vhu1y"]
@@ -32,19 +31,76 @@
 [ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="24_px1qs"]
 [ext_resource type="FontFile" uid="uid://r64lhoc2qtel" path="res://Assets/Fonts/GravityBold8.ttf" id="25_pxre2"]
 [ext_resource type="Script" uid="uid://cncjxt72gacx3" path="res://Stages/main/energy_bar_label.gd" id="26_rlhqv"]
+[ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="28_bhrrv"]
 [ext_resource type="PackedScene" uid="uid://cm1homtwcu2pk" path="res://Scenes/Enemy/Boss/test/test_boss.tscn" id="32_x3i8g"]
 [ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="33_sl5g5"]
+
+[sub_resource type="GDScript" id="GDScript_sl5g5"]
+script/source = "extends Node2D
+
+@export var currency_count_control: PackedScene
+
+@onready var death_screen = %DeathScreen
+@onready var hud = %HUD
+
+@onready var camera = %Camera2D
+@onready var currency_count_container = %CurrencyCountContainer
+@onready var player = %Player
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"pause\"):
+		#Globals.open_pause_menu()
+		EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.PauseMenu)
+
+func _ready() -> void:
+	EventSystem.MUS_play_music.emit(MusicConfig.Keys.BGMPlaceHolder2)
+	TweenManager.camera = camera
+	
+	EventSystem.player_died.connect(player_died)
+	
+	setup_currency_count_container(Currencies._by_type)
+	
+	Globals.current_stage = StageConfig.Keys.TestBossFight
+
+func setup_currency_count_container(dict: Dictionary) -> void:
+	for key in dict:
+		var currency_count_control_scene = currency_count_control.instantiate() as CurrencyCountControl
+		currency_count_container.add_child(currency_count_control_scene)
+		
+		#currency_count_control_scene._data = Currencies._by_type[key]
+		currency_count_control_scene.inject_data(dict[key])
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_T:
+		var spot := get_global_mouse_position()
+		Pickups.spawn(Enums.CurrencyType.GEAR, spot, 10)
+		Pickups.spawn(Enums.CurrencyType.STAR, spot, 10)
+
+func player_died() -> void:
+	death_screen.animate_in()
+	hud.hide()
+	player.visible = false
+	await get_tree().create_timer(1).timeout
+	
+	death_screen.animate_out()
+	
+	
+	await get_tree().create_timer(1).timeout
+	EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen)
+"
 
 [sub_resource type="Gradient" id="Gradient_ad3da"]
 offsets = PackedFloat32Array(0.55, 1)
 colors = PackedColorArray(0.11764706, 0.11764706, 0.11764706, 1, 1, 0, 0.3019608, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jdc67"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_18l32"]
 gradient = SubResource("Gradient_ad3da")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r4hqd"]
 shader = ExtResource("2_vhu1y")
-shader_parameter/gradient_map = SubResource("GradientTexture1D_jdc67")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_18l32")
 shader_parameter/intensity = 0.0
 
 [sub_resource type="Resource" id="Resource_bhrrv"]
@@ -59,7 +115,7 @@ knockback_resistance = 2.0
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
 [node name="TestBossFight" type="Node2D" unique_id=479108485]
-script = ExtResource("1_ktssu")
+script = SubResource("GDScript_sl5g5")
 currency_count_control = ExtResource("2_sl5g5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1484375409]
@@ -186,7 +242,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 alignment = 2
 
-[node name="SpeedBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer2" unique_id=716377105 node_paths=PackedStringArray("player")]
+[node name="SpeedBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer2" unique_id=716377105]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -197,7 +253,6 @@ texture_over = ExtResource("16_coa1y")
 texture_progress = ExtResource("17_cgmf2")
 tint_progress = Color(0, 0.38431373, 0.6666667, 1)
 script = ExtResource("18_spilb")
-player = NodePath("../../../../Player")
 metadata/_custom_type_script = "uid://dqollry410r2i"
 
 [node name="Label" type="Label" parent="HUD/MarginContainer/VBoxContainer2/SpeedBar" unique_id=1528015912]
@@ -259,6 +314,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("26_rlhqv")
 metadata/_custom_type_script = "uid://ej62it1gcalq"
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1511666364]
+texture_repeat = 2
+scale = Vector2(5, 5)
+texture = ExtResource("28_bhrrv")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="DamageNumberManager" parent="." unique_id=988172252 groups=["damage_number"] instance=ExtResource("2_t4ir7")]
 z_index = 101

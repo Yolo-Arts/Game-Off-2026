@@ -106,7 +106,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_47o1m")
 btn_text = "Play"
-hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 main_color = Color(0, 0, 0, 1)
 
 [node name="MenuButton" parent="Control/MarginContainer" unique_id=844439437 instance=ExtResource("5_47o1m")]
@@ -116,7 +115,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oh1o5")
 btn_text = "Menu"
-hover_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 main_color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Control/MarginContainer/DebugContainer/IncreaseCurrency" to="." method="_on_increase_currency_pressed"]

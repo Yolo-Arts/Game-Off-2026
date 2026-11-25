@@ -4,6 +4,16 @@ extends Bulletin
 @export var gave_over_currency_count_control: PackedScene
 @onready var currency_count_container = %currency_count_container
 @onready var button_container = %ButtonContainer
+@onready var game_over_label = %GameOverLabel
+@onready var ran_out_of_fuel_label = %RanOutOfFuelLabel
+
+func initialize(_extra_arg) -> void:
+	match _extra_arg:
+		"boss_fight":
+			game_over_label.text = "Boss Defeated!"
+			ran_out_of_fuel_label.visible = false
+		_:
+			pass
 
 func _ready() -> void:
 	SaveManager.save_data()
@@ -60,6 +70,10 @@ func tween_buttons() -> void:
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	
 	for button in button_container.get_children():
+		if Globals.beat_boss == true:
+			Globals.beat_boss = false
+			continue
+		
 		button.visible = true
 		tween.tween_property(button, "offset_transform_scale", Vector2.ONE, 0.3).from(Vector2.ZERO)
 		tween.tween_interval(0.5)

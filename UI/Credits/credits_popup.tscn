@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://bl54655646tnk"]
+
+[ext_resource type="StyleBox" uid="uid://cofxu4sc31gbu" path="res://Assets/UITheme/style_box_flat_2.tres" id="1_qm2ik"]
+[ext_resource type="Script" uid="uid://bq062lde7u7qo" path="res://UI/Credits/credits_popup.gd" id="2_j8wn7"]
+[ext_resource type="Theme" uid="uid://ctc3ilidqstex" path="res://Assets/UITheme/theme.tres" id="2_o10ee"]
+[ext_resource type="PackedScene" uid="uid://bn4rm16rtdieg" path="res://UI/Buttons/text_button.tscn" id="3_j8wn7"]
+[ext_resource type="Script" uid="uid://dyayyqrq225l1" path="res://UI/Buttons/url_button.gd" id="4_o10ee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8wn7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gp4cp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6qwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rjt2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qi10c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fi3ft"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30csf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ww38k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v7ie"]
+
+[node name="CreditsPopup" type="Control" unique_id=188910199]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("2_j8wn7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1269244697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.76862746)
+
+[node name="CreditsContainer" type="PanelContainer" parent="." unique_id=2124796518]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -463.0
+offset_right = 372.0
+offset_bottom = 463.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_styles/panel = ExtResource("1_qm2ik")
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsContainer" unique_id=1093416016]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsContainer/MarginContainer" unique_id=1198749801]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ProgrammingLabel" type="Label" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=365788917]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_o10ee")
+theme_override_font_sizes/font_size = 42
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=1760753827]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="YoloBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=352476746 instance=ExtResource("3_j8wn7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8wn7")
+script = ExtResource("4_o10ee")
+url = "https://linktr.ee/Yolo_Arts"
+btn_text = "YoloArts"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="VacherinBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1155973019 instance=ExtResource("3_j8wn7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gp4cp")
+script = ExtResource("4_o10ee")
+url = "https://vacherin.itch.io/"
+btn_text = "Vacherin"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=341529492]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LungGurglerBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1558906858 instance=ExtResource("3_j8wn7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u6qwe")
+script = ExtResource("4_o10ee")
+url = "https://lunggurgler.itch.io/"
+btn_text = "Lung Gurgler"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="OsomeEfmBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=5829264 instance=ExtResource("3_j8wn7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8rjt2")
+script = ExtResource("4_o10ee")
+url = "https://itch.io/profile/osomeefm"
+btn_text = "Osomeefm"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="HSeparator3" type="HSeparator" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=1187978426]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="ArtLabel" type="Label" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=1649303567]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_o10ee")
+theme_override_font_sizes/font_size = 42
+text = "Art"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=1515197735]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ArtemisBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=113182854 instance=ExtResource("3_j8wn7")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qi10c")
+script = ExtResource("4_o10ee")
+url = "https://hunterofartemis.itch.io/"
+btn_text = "Hunter Artemis"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="YoloBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=992838059 instance=ExtResource("3_j8wn7")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fi3ft")
+script = ExtResource("4_o10ee")
+url = "https://linktr.ee/Yolo_Arts"
+btn_text = "YoloArts"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="HSeparator" type="HSeparator" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=1603345790]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=118095520]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_o10ee")
+theme_override_font_sizes/font_size = 42
+text = "Music:"
+horizontal_alignment = 1
+
+[node name="MusicContainer" type="HBoxContainer" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=554397388]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LiteBlueBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/MusicContainer" unique_id=1526769099 instance=ExtResource("3_j8wn7")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_30csf")
+script = ExtResource("4_o10ee")
+url = "https://liteb1u.itch.io/"
+btn_text = "Liteblu"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="FsianBtn" parent="CreditsContainer/MarginContainer/VBoxContainer/MusicContainer" unique_id=645854840 instance=ExtResource("3_j8wn7")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ww38k")
+script = ExtResource("4_o10ee")
+url = "https://fsian-on9.itch.io/"
+btn_text = "Fsian"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 0, 0, 1)
+main_color = Color(0.09114581, 0.09114581, 0.09114581, 1)
+
+[node name="HSeparator2" type="HSeparator" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=468817192]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="CloseBtn" parent="CreditsContainer/MarginContainer/VBoxContainer" unique_id=623231885 instance=ExtResource("3_j8wn7")]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0v7ie")
+btn_text = "Close"
+outline_thickness = 5.0
+inline_thickness = 5.0
+outline_color = Color(1, 1, 1, 1)
+main_color = Color(1, 0.2682292, 0.2682292, 1)
+
+[connection signal="pressed" from="CreditsContainer/MarginContainer/VBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://cvxxvgftvqgh5"]
+
+[ext_resource type="Script" uid="uid://dofe5pjeaw4wl" path="res://Scenes/Enemy/Boss/LarryBoss/boss_segment.gd" id="1_j1jb3"]
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="2_xx2an"]
+[ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="3_xx2an"]
+[ext_resource type="Script" uid="uid://d0w08ox8k5k6v" path="res://Scripts/shaky_node_2d.gd" id="4_qt1qs"]
+[ext_resource type="Material" uid="uid://dfehdbc8jqou4" path="res://Assets/Enemy/gradient_maps/blue_red_gradient_map.tres" id="5_77njc"]
+[ext_resource type="Texture2D" uid="uid://dub4ws6dksqyn" path="res://Assets/Enemy/worm_boss/head_main.png" id="6_j1jb3"]
+[ext_resource type="Texture2D" uid="uid://bo1eiq5g3ok0x" path="res://Assets/Enemy/worm_boss/upper_torso_big.png" id="7_y17cu"]
+[ext_resource type="Texture2D" uid="uid://dkte5p2cn508d" path="res://Assets/Enemy/worm_boss/lower_torso.png" id="8_xx2an"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="9_s6ths"]
+[ext_resource type="Script" uid="uid://cpsk78tocuav3" path="res://Scenes/Enemy/Boss/LarryBoss/segment_boss_movement.gd" id="10_xx2an"]
+[ext_resource type="Script" uid="uid://grs1kfqrof0u" path="res://Game/StateMachine/state_machine.gd" id="11_xx2an"]
+[ext_resource type="Script" uid="uid://byyt4mvlmohyv" path="res://Scenes/Enemy/Boss/LarryBoss/normal_state.gd" id="12_xx2an"]
+[ext_resource type="Script" uid="uid://b5m4r5gvyeldv" path="res://Scenes/Enemy/Boss/LarryBoss/arena.gd" id="13_qt1qs"]
+[ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="14_hsd7f"]
+[ext_resource type="Resource" uid="uid://cekse2i4k64uc" path="res://Resources/EnemySources/segment_enemy.tres" id="15_ulbgu"]
+[ext_resource type="Script" uid="uid://bnr6xk0yrqg7w" path="res://Scenes/Enemy/Boss/LarryBoss/final.gd" id="16_ulbgu"]
+
+[sub_resource type="Resource" id="Resource_qt1qs"]
+script = ExtResource("2_xx2an")
+max_health = 10000.0
+damage = 15.0
+knockback = 2000.0
+speed = 500.0
+opposite_speed = 500.0
+drop = 1
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkrlg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_j1jb3")
+}],
+"loop": 1,
+"name": &"head",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_y17cu")
+}],
+"loop": 1,
+"name": &"middle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xx2an")
+}],
+"loop": 1,
+"name": &"tail",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx2an"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6lt"]
+size = Vector2(35.0625, 33.5)
+
+[node name="BossSegment" type="CharacterBody2D" unique_id=437048349 node_paths=PackedStringArray("state_machine") groups=["enemies"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_j1jb3")
+state_machine = NodePath("StateMachine")
+player_orbit_radius = 400.0
+enemy_stats = SubResource("Resource_qt1qs")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2109919344]
+script = ExtResource("3_xx2an")
+
+[node name="AnimationShake" type="Node2D" parent="." unique_id=1516074945]
+script = ExtResource("4_qt1qs")
+
+[node name="ScalePivot" type="Node2D" parent="AnimationShake" unique_id=1355269433]
+
+[node name="Node2D" type="Node2D" parent="AnimationShake/ScalePivot" unique_id=892844730]
+rotation = -1.5707964
+scale = Vector2(5, 5)
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="AnimationShake/ScalePivot/Node2D" unique_id=823058831]
+unique_name_in_owner = true
+material = ExtResource("5_77njc")
+sprite_frames = SubResource("SpriteFrames_dkrlg")
+animation = &"middle"
+autoplay = "head"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
+shape = SubResource("RectangleShape2D_xx2an")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=357307482 node_paths=PackedStringArray("enemy")]
+script = ExtResource("9_s6ths")
+enemy = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=573603964]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_5v6lt")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=890899734]
+script = ExtResource("10_xx2an")
+seperation_min = 128.0
+seperation_max = 160.0
+far_speed_mult = 2.0
+decay_coefficient = 30.0
+metadata/_custom_type_script = "uid://b87utd8bhijc1"
+
+[node name="StateMachine" type="Node" parent="." unique_id=937209098]
+script = ExtResource("11_xx2an")
+debug = true
+metadata/_custom_type_script = "uid://grs1kfqrof0u"
+
+[node name="Roam" type="Node" parent="StateMachine" unique_id=1096460826]
+script = ExtResource("12_xx2an")
+id = &"roam"
+metadata/_custom_type_script = "uid://blkue6yeehgx1"
+
+[node name="Arena" type="Node" parent="StateMachine" unique_id=1732051267]
+script = ExtResource("13_qt1qs")
+wormies = Array[ExtResource("14_hsd7f")]([ExtResource("15_ulbgu")])
+id = &"arena"
+metadata/_custom_type_script = "uid://c2pn0qhh2mrs2"
+
+[node name="Final" type="Node" parent="StateMachine" unique_id=57950493]
+script = ExtResource("16_ulbgu")
+wormies = Array[ExtResource("14_hsd7f")]([ExtResource("15_ulbgu")])
+id = &"final"
+metadata/_custom_type_script = "uid://blkue6yeehgx1"

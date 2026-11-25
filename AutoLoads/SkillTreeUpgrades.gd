@@ -8,9 +8,12 @@ var active_scene_item_id: String = ""
 
 const TREE = [
 	["fuel_1", [
-		["fuel_2"],
+		["fuel_2", [
+			["BossFights/heart_boss_fight"]
+		]],
 		["gear_shift_1", [
 			["gear_shift_2"],
+			["Shot_speed"]
 			#["energy_recharge_1"],
 		]],
 		["missile_unlock", [
@@ -26,14 +29,10 @@ const TREE = [
 		["beefier_hull_2"],
 		["energy_recharge_1"],
 	]],
-	["gear_shift_1", [
-		["gear_shift_2"],
-		["Shot_speed"],
-		#["energy_recharge_1"],
-	]],
 	["projectile_damage_1", [
 		["DynamicItems/shrapnel_item", [
-			["shrapnel_count_1"]
+			["shrapnel_count_1"],
+			["shrapnel_damage"],
 		]],
 		["projectile_damage_2", [
 			["DynamicItems/firball_item", [

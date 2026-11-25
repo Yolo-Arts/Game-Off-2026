@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bj5c5bdii5ush"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_rxl14"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_xydf8"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_rxl14"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_vxbat"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_j4qqn"]
+
+[sub_resource type="Resource" id="Resource_mgx1o"]
+script = ExtResource("1_xydf8")
+stat = "shrapnel_damage"
+add = 2.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_ks1b7"]
+script = ExtResource("2_rxl14")
+initial_price = 500
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_ohl4o"]
+script = ExtResource("4_j4qqn")
+text = "Shrapnel Damage"
+color = Color(0.8319263, 0, 0.24531752, 1)
+font_size = 28
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("3_vxbat")
+id = "shrapnel_damage"
+display_name = "Shrapnel Damage"
+description = "Increase {Shrapnel Damage} by [0%]"
+icon = ExtResource("1_rxl14")
+modifiers = Array[ExtResource("1_xydf8")]([SubResource("Resource_mgx1o")])
+max_level = 9
+price_data_array = Array[ExtResource("2_rxl14")]([SubResource("Resource_ks1b7")])
+increment_value = 1.0
+is_increment_percentage = true
+text_injections = Array[ExtResource("4_j4qqn")]([SubResource("Resource_ohl4o")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

@@ -8,8 +8,8 @@ class_name Enemy extends CharacterBody2D
 const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
 var effect_timer: float = 0.0
 @onready var enemy_sprite = %EnemySprite
+var can_set_enemy_shift_speed: bool = true
 var dead: bool = false
-var dead_counter: int = 0.0
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)
@@ -31,6 +31,8 @@ func _ready() -> void:
 		update_dimension_speed(player.shift_color)
 
 func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
+	if not can_set_enemy_shift_speed:
+		return
 	if color == enemy_stats.shift_color or color == DamageSource.ShiftColor.NONE:
 		movement_component.current_speed = enemy_stats.speed
 	else:
@@ -39,16 +41,18 @@ func update_dimension_speed(color: DamageSource.ShiftColor) -> void:
 func _process(delta: float) -> void:
 	effect_timer = max(0.0, effect_timer - delta)
 
-func take_damage(damage_source: DamageSource) -> void:
+func take_damage(damage_source: DamageSource, propogating: bool = false) -> void:
 	health_component.take_damage(damage_source)
 	EventSystem.enemy_hit.emit(self, damage_source)
-	if effect_timer == 0.0:
+	if not propogating:
+	
 		Juicee.flicker(self, 0.2, Color(1.0, 1.0, 1.0, 0.369), 0.2)
 		Juicee.flash(self)
-		effect_timer = 0.5
+			
 	
 	if damage_source.source_node:
-		movement_component.current_knockback = damage_source.knockback * damage_source.source_node.global_position.direction_to(global_position)
+		var knockback_amount: float = damage_source.knockback * enemy_stats.knockback_resistance
+		movement_component.current_knockback = knockback_amount * damage_source.source_node.global_position.direction_to(global_position)
 
 func die() -> void:
 	if dead:

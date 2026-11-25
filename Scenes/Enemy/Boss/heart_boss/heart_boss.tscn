@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://bgifbp3p3v1pv"]
+
+[ext_resource type="Texture2D" uid="uid://duuaxdasxktw0" path="res://Assets/Enemy/heart_boss/HeartBoss.png" id="1_4b5fn"]
+[ext_resource type="Script" uid="uid://bkn56m6jkdtnj" path="res://Game/EnemyComponents/enemy_health_component.gd" id="1_dsw4d"]
+[ext_resource type="Script" uid="uid://crr4srux6svli" path="res://Scenes/Enemy/Boss/heart_boss/heart_boss.gd" id="1_fujrs"]
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="2_kpmgk"]
+[ext_resource type="PackedScene" uid="uid://b8ta3pbmuu251" path="res://Scenes/Enemy/EnemyBullet/enemy_bullet.tscn" id="2_tbu8l"]
+[ext_resource type="Script" uid="uid://xumjaybhya7b" path="res://Resources/projectile_data.gd" id="3_bq1fb"]
+[ext_resource type="Script" uid="uid://d0w08ox8k5k6v" path="res://Scripts/shaky_node_2d.gd" id="3_fujrs"]
+[ext_resource type="Script" uid="uid://c3u41dtvdj0fe" path="res://Scenes/Enemy/Boss/heart_boss/heart_boss_movement_component.gd" id="4_kpmgk"]
+[ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="5_hsggl"]
+[ext_resource type="Script" uid="uid://grs1kfqrof0u" path="res://Game/StateMachine/state_machine.gd" id="5_wws4r"]
+[ext_resource type="Script" uid="uid://j65kjxc8k2dl" path="res://Scenes/Enemy/Boss/heart_boss/heart_boss_normal_state.gd" id="6_kpmgk"]
+[ext_resource type="Material" uid="uid://dfehdbc8jqou4" path="res://Assets/Enemy/gradient_maps/blue_red_gradient_map.tres" id="11_pa0i8"]
+
+[sub_resource type="Resource" id="Resource_lds02"]
+script = ExtResource("3_bq1fb")
+life_time_seconds = 15.0
+use_range = false
+enemy = true
+shift_color = 1
+metadata/_custom_type_script = "uid://xumjaybhya7b"
+
+[sub_resource type="Resource" id="Resource_deprl"]
+script = ExtResource("2_kpmgk")
+max_health = 10000.0
+shift_color = 1
+damage = 10.0
+speed = 400.0
+opposite_speed = 600.0
+knockback_resistance = 0.0
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qn7m"]
+radius = 47.909416
+
+[sub_resource type="Animation" id="Animation_if73g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationShake:force")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationShake/ScalePivot:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vvyfv"]
+resource_name = "attack"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationShake:force")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 1.14, 1.37),
+"transitions": PackedFloat32Array(1, 1, 0.49999997, 1),
+"update": 0,
+"values": [0.0, 6.0, 20.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationShake/ScalePivot:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.1333333, 1.2199999, 1.3533332, 1.5666667),
+"transitions": PackedFloat32Array(1, -2, -2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(0.6, 0.6), Vector2(0.96, 1.665), Vector2(1.345, 0.875), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4qn7m"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fujrs"]
+_data = {
+&"RESET": SubResource("Animation_if73g"),
+&"attack": SubResource("Animation_vvyfv"),
+&"idle": SubResource("Animation_4qn7m")
+}
+
+[node name="HeartBoss" type="CharacterBody2D" unique_id=712541419]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_fujrs")
+projectile_scene = ExtResource("2_tbu8l")
+projectile_data = SubResource("Resource_lds02")
+projectile_count = 48
+min_projectile_speed = 800.0
+max_projectile_speed = 1000.0
+min_beat_interval = 0.3
+color_shift_delay = 0.5
+rotates_visual = false
+enemy_stats = SubResource("Resource_deprl")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1668917666]
+script = ExtResource("1_dsw4d")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1384760077]
+script = ExtResource("4_kpmgk")
+knockback_decay_coefficient = 14.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=1657266635]
+unique_name_in_owner = true
+script = ExtResource("5_wws4r")
+debug = true
+metadata/_custom_type_script = "uid://grs1kfqrof0u"
+
+[node name="Normal" type="Node" parent="StateMachine" unique_id=374292553]
+script = ExtResource("6_kpmgk")
+metadata/_custom_type_script = "uid://1d02a4dxhlmd"
+
+[node name="AnimationShake" type="Node2D" parent="." unique_id=386722101]
+script = ExtResource("3_fujrs")
+
+[node name="ScalePivot" type="Node2D" parent="AnimationShake" unique_id=962695420]
+unique_name_in_owner = true
+
+[node name="Node2D" type="Node2D" parent="AnimationShake/ScalePivot" unique_id=1255653640]
+rotation = -1.5707964
+scale = Vector2(10, 10)
+
+[node name="EnemySprite" type="Sprite2D" parent="AnimationShake/ScalePivot/Node2D" unique_id=1152360181]
+unique_name_in_owner = true
+material = ExtResource("11_pa0i8")
+rotation = 1.5707964
+texture = ExtResource("1_4b5fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=117225047]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("CircleShape2D_4qn7m")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=119320291 node_paths=PackedStringArray("enemy")]
+visible = false
+script = ExtResource("5_hsggl")
+enemy = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1141089423]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("CircleShape2D_4qn7m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=411621490]
+libraries/ = SubResource("AnimationLibrary_fujrs")

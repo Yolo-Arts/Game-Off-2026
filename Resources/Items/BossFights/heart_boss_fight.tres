@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dddx1ihv7gmpt"]
+
+[ext_resource type="Texture2D" uid="uid://duuaxdasxktw0" path="res://Assets/Enemy/heart_boss/HeartBoss.png" id="1_1a6lj"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_3536a"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_ubdby"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_opvy1"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_gn6tk"]
+
+[resource]
+script = ExtResource("4_opvy1")
+id = "testBossFight1"
+display_name = "Test Fight"
+description = "Super Scary Test Boss Fight"
+icon = ExtResource("1_1a6lj")
+will_change_scene = true
+target_scene = 4
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

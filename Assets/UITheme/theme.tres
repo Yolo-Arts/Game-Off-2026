@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=4 uid="uid://ctc3ilidqstex"]
 
 [ext_resource type="FontFile" uid="uid://b81fdlqs5aawj" path="res://Assets/Fonts/CyberpunkCraftpixPixel.otf" id="1_ono28"]
+[ext_resource type="StyleBox" uid="uid://cofxu4sc31gbu" path="res://Assets/UITheme/style_box_flat_2.tres" id="2_1htc4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1htc4"]
 content_margin_left = 4.0
@@ -24,6 +25,18 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5aog8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aog8"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_detail = 6
 
 [sub_resource type="Image" id="Image_jmri4"]
 data = {
@@ -1179,7 +1192,7 @@ variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
 base_font = SubResource("FontFile_bhdsm")
 variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
 
-[sub_resource type="Image" id="Image_ono28"]
+[sub_resource type="Image" id="Image_1htc4"]
 data = {
 "data": PackedByteArray("/////////////////////w=="),
 "format": "RGBA8",
@@ -1189,7 +1202,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_p8ph4"]
-image = SubResource("Image_ono28")
+image = SubResource("Image_1htc4")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52nap"]
 content_margin_left = 0.0
@@ -1210,6 +1223,13 @@ Label/font_sizes/font_size = 14
 Label/fonts/font = ExtResource("1_ono28")
 Label/styles/focus = SubResource("StyleBoxFlat_1htc4")
 Label/styles/normal = SubResource("StyleBoxEmpty_5aog8")
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 10
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/fonts/font = ExtResource("1_ono28")
+ProgressBar/styles/background = ExtResource("2_1htc4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5aog8")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
