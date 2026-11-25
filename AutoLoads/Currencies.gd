@@ -10,6 +10,7 @@ var round_data: Dictionary = {}
 func _init() -> void:
 	_register(Enums.CurrencyType.GEAR, "Gears", Color(0.78, 0.8, 0.85), 0)
 	_register(Enums.CurrencyType.STAR, "Stars", Color(1.0, 0.85, 0.3), 1)
+	_register(Enums.CurrencyType.HEART, "Hearts", Color(0.924, 0.114, 0.046, 1.0), 2)
 
 func _ready() -> void:
 	SaveManager.data_saved.connect(_on_data_saved)
@@ -88,6 +89,18 @@ func reset_round_data() -> void:
 
 
 func cheat_add_currency() -> void:
-	add(Enums.CurrencyType.GEAR, 1000)
-	add(Enums.CurrencyType.STAR, 1000)
+	add(Enums.CurrencyType.GEAR, 10000)
+	add(Enums.CurrencyType.STAR, 10000)
+	add(Enums.CurrencyType.HEART, 10000)
+	SaveManager.save_data()
+
+func cheat_add_specific_currency(currency_type: Enums.CurrencyType, value_to_add: int) -> void:
+	match currency_type:
+		Enums.CurrencyType.GEAR:
+			add(Enums.CurrencyType.GEAR, value_to_add)
+		Enums.CurrencyType.STAR:
+			add(Enums.CurrencyType.STAR, value_to_add)
+		Enums.CurrencyType.HEART:
+			add(Enums.CurrencyType.HEART, value_to_add)
+	
 	SaveManager.save_data()

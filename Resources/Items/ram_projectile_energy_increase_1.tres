@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://br2x2ielk3yjq"]
 
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_3yryn"]
-[ext_resource type="Texture2D" uid="uid://cmy4nq6ehejrb" path="res://Assets/Particles/ParticleCircle.png" id="1_hcjb5"]
+[ext_resource type="Texture2D" uid="uid://dptv4012u5n1v" path="res://Assets/Icons/Skill Tree/damage_increase_3.png" id="1_hcjb5"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_hcjb5"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_f4fks"]
 [ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_g6nuc"]

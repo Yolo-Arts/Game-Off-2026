@@ -24,6 +24,11 @@ var can_shoot: bool = true
 var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
 var is_dead: bool = false
 
+@onready var camera = %Camera2D
+@export_group("Camera Look Ahead")
+@export var look_ahead_factor: float = 0.2 
+@export var max_offset: float = 150.0
+@export var look_ahead_smoothing: float = 8.0
 
 func _ready() -> void:
 	#EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
@@ -45,6 +50,7 @@ func _ready() -> void:
 	EventSystem.player_spawned.emit(self)
 
 func _process(delta: float) -> void:
+	update_camera_offset(delta)
 	if OS.is_debug_build():
 		if Input.is_key_pressed(KEY_I):
 			health_component.add_invincibility(&"debug")
@@ -52,6 +58,16 @@ func _process(delta: float) -> void:
 			health_component.remove_invincibility(&"debug")
 	reduce_health(delta)
 
+func update_camera_offset(delta: float) -> void:
+	if camera == null or not camera.is_current():
+		return
+
+	var viewport_center := get_viewport_rect().size * 0.5
+	var mouse_from_center := get_viewport().get_mouse_position() - viewport_center
+	var target_offset := (mouse_from_center * look_ahead_factor).limit_length(max_offset)
+
+	var weight := 1.0 - exp(-look_ahead_smoothing * delta)
+	camera.offset = camera.offset.lerp(target_offset, weight)
 
 func _on_player_hit(damage_source: DamageSource) -> void:
 	if not health_component.take_damage(damage_source): return

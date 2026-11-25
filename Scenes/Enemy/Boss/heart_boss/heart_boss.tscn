@@ -26,6 +26,8 @@ script = ExtResource("2_kpmgk")
 max_health = 10000.0
 shift_color = 1
 damage = 10.0
+speed = 400.0
+opposite_speed = 600.0
 knockback_resistance = 0.0
 metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
