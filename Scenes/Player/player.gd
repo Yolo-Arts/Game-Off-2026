@@ -23,6 +23,7 @@ var can_reduce_health: bool = true
 var can_shoot: bool = true
 var shift_color: DamageSource.ShiftColor = DamageSource.ShiftColor.NONE
 var is_dead: bool = false
+var is_boosting: bool = false
 
 @onready var camera = %Camera2D
 @export_group("Camera Look Ahead")

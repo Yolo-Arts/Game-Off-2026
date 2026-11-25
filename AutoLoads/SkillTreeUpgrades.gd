@@ -12,7 +12,9 @@ const TREE = [
 			["BossFights/heart_boss_fight"]
 		]],
 		["gear_shift_1", [
-			["gear_shift_2"],
+			["gear_shift_2", [
+				["DynamicItems/DashSystem/dash_system_item"]
+			]],
 			["Shot_speed"]
 			#["energy_recharge_1"],
 		]],

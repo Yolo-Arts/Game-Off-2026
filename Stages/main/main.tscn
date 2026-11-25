@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://cncjxt72gacx3" path="res://Stages/main/energy_bar_label.gd" id="18_16xuu"]
 [ext_resource type="PackedScene" uid="uid://dtlgf06xl52c1" path="res://Scenes/Object Pool/object_pool.tscn" id="18_mwvqt"]
 [ext_resource type="Script" uid="uid://bmevo32mesato" path="res://UI/ProgressBarLabel/FuelProgressBarLabel.gd" id="19_r2vng"]
+[ext_resource type="PackedScene" uid="uid://bbunrloygxcse" path="res://UI/HUD/DashAbility/boost_ability.tscn" id="22_q0d0v"]
 [ext_resource type="PackedScene" uid="uid://dbabsmode2qmf" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.tscn" id="24_qqltb"]
 [ext_resource type="PackedScene" uid="uid://da6lsubuwmq1n" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_particles.tscn" id="26_h7dmi"]
 
@@ -218,6 +219,12 @@ text = "SPEED"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme_override_constants/separation = 45
+
+[node name="BoostAbility" parent="HUD/MarginContainer/VBoxContainer3" unique_id=829628110 instance=ExtResource("22_q0d0v")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="EnergyBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer3" unique_id=1845865454]
 layout_mode = 2

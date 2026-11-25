@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bbunrloygxcse"]
+
+[ext_resource type="Script" uid="uid://b1bwm5vr62urx" path="res://UI/HUD/DashAbility/boost_ability.gd" id="1_m8ggu"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="2_gurqf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7hjn6"]
+size = Vector2(128, 128)
+
+[node name="BoostAbility" type="Control" unique_id=829628110]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_m8ggu")
+
+[node name="CooldownBar" type="TextureProgressBar" parent="." unique_id=590715073]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 4
+texture_under = SubResource("PlaceholderTexture2D_7hjn6")
+texture_progress = ExtResource("2_gurqf")
+
+[node name="SpacebarLabel" type="Label" parent="." unique_id=582235950]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Spacebar"

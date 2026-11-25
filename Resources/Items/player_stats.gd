@@ -54,6 +54,11 @@ class_name PlayerStats extends Resource
 # TODO implement this: 
 @export var missile_explosion_knockback: float = 400.0
 
+@export_group("Dash")
+@export var dash_duration: float = 0.35
+@export var dash_cooldown: float = 3.0
+@export var dash_speed: float = 2400.0
+
 
 func get_computed_damage(shoot: bool = false) -> float:
 	var final_damage: float = damage if not shoot else shot_damage

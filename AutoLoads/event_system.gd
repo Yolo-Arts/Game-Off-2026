@@ -50,3 +50,8 @@ signal update_boss_healthbar_component
 signal play_boss_intro_animation
 signal start_boss_cutscene
 signal unfreeze_boss
+
+signal dash_unlocked
+signal dash_started(duration: float)
+signal dash_cooldown_updated(time_remaining: float, total_cooldown: float)
+signal dash_ready
