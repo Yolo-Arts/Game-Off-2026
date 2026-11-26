@@ -81,11 +81,9 @@ const TREE = [
 	["currency_gear_value_1", [
 		["currency_gear_value_2", [
 			["BossFights/test_boss_fight_1", [
-				["Enemy/projectile_enemy", [
-					["ram_projectile_fuel_increase_1"],
-					["ram_projectile_energy_increase_1"],
-					["Enemy/projectile_enemy_hp_increase"],
-				]],
+				["ram_projectile_fuel_increase_1"],
+				["ram_projectile_energy_increase_1"],
+				["Enemy/projectile_enemy_hp_increase"],
 			]],
 			["Enemy/gold_enemy_item", [
 					["currency_star_value_1"]

@@ -14,7 +14,8 @@ metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]
 script = ExtResource("3_o0c7q")
-initial_price = 15
+currency = 2
+initial_price = 1
 price_multiplier = 1.5
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 

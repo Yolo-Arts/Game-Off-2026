@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://b46j7qjcntvgo" path="res://Stages/main/speed_bar_label.gd" id="19_74vyf"]
 [ext_resource type="Texture2D" uid="uid://xl4h0ahkm66r" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryUnder.png" id="20_bcaue"]
 [ext_resource type="Texture2D" uid="uid://ggpt1pqm7wmc" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryOver.png" id="21_eo1aq"]
+[ext_resource type="PackedScene" uid="uid://bbunrloygxcse" path="res://UI/HUD/DashAbility/boost_ability.tscn" id="21_ydws0"]
 [ext_resource type="Texture2D" uid="uid://bykw3hiwphobg" path="res://Assets/UI/HUD/BatteryProgressBar/BatteryFill.png" id="22_cw8hk"]
 [ext_resource type="Script" uid="uid://4qe5t0x1fdm7" path="res://UI/energy_bar.gd" id="23_50ard"]
 [ext_resource type="FontFile" uid="uid://r64lhoc2qtel" path="res://Assets/Fonts/GravityBold8.ttf" id="24_ftba2"]
@@ -213,6 +214,12 @@ text = "SPEED"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme_override_constants/separation = 32
+
+[node name="BoostAbility" parent="HUD/MarginContainer/VBoxContainer3" unique_id=829628110 instance=ExtResource("21_ydws0")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="EnergyBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer3" unique_id=852589083]
 layout_mode = 2
