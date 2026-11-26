@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cvi82hv8eaas0"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_8qfcp"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_ccwed"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_8qfcp"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_sul3u"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_05nhk"]
+
+[sub_resource type="Resource" id="Resource_wfr41"]
+script = ExtResource("1_ccwed")
+stat = "max_pierce"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_xvhnw"]
+script = ExtResource("2_8qfcp")
+initial_price = 75
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_yqi3a"]
+script = ExtResource("4_05nhk")
+text = "pierce"
+color = Color(0, 0.84313726, 0.2627451, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("3_sul3u")
+id = "increase_pierce"
+display_name = "Piercing bullets"
+description = "bullets can now {pierce} [+1] enemies/projectiles"
+icon = ExtResource("1_8qfcp")
+modifiers = Array[ExtResource("1_ccwed")]([SubResource("Resource_wfr41")])
+max_level = 3
+min_level_to_unlock_children = 3
+price_data_array = Array[ExtResource("2_8qfcp")]([SubResource("Resource_xvhnw")])
+initial_increment_value = 1.0
+increment_value = 1.0
+text_injections = Array[ExtResource("4_05nhk")]([SubResource("Resource_yqi3a")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

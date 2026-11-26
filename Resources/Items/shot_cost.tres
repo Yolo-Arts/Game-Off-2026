@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dj4fg31eod52p"]
+
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="1_34gbm"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_qvykt"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="2_qvykt"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="3_aj1en"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="4_12r4i"]
+
+[sub_resource type="Resource" id="Resource_0lvau"]
+script = ExtResource("1_34gbm")
+stat = "shot_cost"
+add = -1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_qcsxa"]
+script = ExtResource("2_qvykt")
+initial_price = 50
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_q5jw4"]
+script = ExtResource("4_12r4i")
+text = "energy"
+color = Color(0.85882354, 0.28235295, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("3_aj1en")
+id = "shot_cost"
+display_name = "Shot Cost"
+description = "Decreases {energy} each shot consumes  [1]"
+icon = ExtResource("1_qvykt")
+modifiers = Array[ExtResource("1_34gbm")]([SubResource("Resource_0lvau")])
+max_level = 5
+min_level_to_unlock_children = 3
+price_data_array = Array[ExtResource("2_qvykt")]([SubResource("Resource_qcsxa")])
+initial_increment_value = 10.0
+increment_value = -1.0
+text_injections = Array[ExtResource("4_12r4i")]([SubResource("Resource_q5jw4")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

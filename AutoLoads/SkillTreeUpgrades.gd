@@ -13,7 +13,7 @@ const TREE = [
 		]],
 		["gear_shift_1", [
 			["gear_shift_2"],
-			["Shot_speed"]
+			["fire_rate"],
 			#["energy_recharge_1"],
 		]],
 		["missile_unlock", [
@@ -22,12 +22,20 @@ const TREE = [
 		["BossFights/test_boss_fight_1"],
 	]],
 	["energy_capacity_1", [
-		["energy_regen_1"],
+		["energy_regen_1", [
+		["railgun"],
+		]],
 		["energy_recharge_1"],
+		["shot_cost", [
+			["increase_max_pierce"],
+			["railgun"],
+		]],
 	]],
 	["beefier_hull", [
-		["beefier_hull_2"],
-		["energy_recharge_1"],
+		["recoil_decrease", [
+			["beefier_hull_2"],
+			["energy_recharge_1"],
+		]],
 	]],
 	["projectile_damage_1", [
 		["DynamicItems/shrapnel_item", [

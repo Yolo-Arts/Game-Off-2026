@@ -8,6 +8,8 @@ const GOLD_GRADIENT_MAP = preload("uid://bp8l8awsqscht")
 var _timer_started: bool = false
 var is_charging: bool = false
 var player: Player
+var pierce_count: int = 0
+var max_pierce: int = 1
 
 func _ready() -> void:
 	if not area_entered.is_connected(_on_area_entered):
@@ -25,9 +27,13 @@ func setup(stats: ProjectileData) -> void:
 		_apply_stats()
 
 func _apply_stats() -> void:
+	player = get_tree().get_first_node_in_group("player") as Player
+	
 	scale = projectile_stats.scale
 	projectile_stats.direction = projectile_stats.direction.normalized()
 	global_rotation = projectile_stats.direction.angle()
+	if not projectile_stats.enemy:
+		max_pierce = player.get_current_stats().max_pierce
 	
 	collision_layer = 0
 	collision_mask = 0
@@ -46,7 +52,7 @@ func _apply_stats() -> void:
 	if not is_charging:
 		_start_lifetime_timer()
 	
-	player = get_tree().get_first_node_in_group("player") as Player
+	
 
 func launch() -> void:
 	is_charging = false
@@ -82,7 +88,8 @@ func _physics_process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if projectile_stats == null:
 		return
-		
+	
+	
 	if not projectile_stats.enemy and area is BulletProjectile:
 		var other_bullet := area as BulletProjectile
 		if other_bullet.is_queued_for_deletion():
@@ -90,11 +97,15 @@ func _on_area_entered(area: Area2D) -> void:
 		if other_bullet.projectile_stats != null and other_bullet.projectile_stats.enemy:
 			other_bullet.break_projectile()
 			
+			if pierce_count <= max_pierce:
+				
+				return
 			# TODO add piercing to player bullet so that their shots pierce through enemy projectiles.
 			break_projectile() 
 			return
 	
 	if projectile_stats.enemy and area.is_in_group("player_hurtbox"):
+		pierce_count += 1
 		
 		if player and (player.shift_color == projectile_stats.shift_color) and (projectile_stats.shift_color != DamageSource.ShiftColor.NONE):
 			break_projectile()
@@ -108,12 +119,15 @@ func _on_area_entered(area: Area2D) -> void:
 			self
 		)
 		EventSystem.player_hit.emit(damage_source)
-		
+		if pierce_count <= max_pierce:
+				
+				return
 		break_projectile(false)
 
 func _on_body_entered(body: Node2D) -> void:
 	if projectile_stats == null:
 		return
+	pierce_count +=1
 	
 	# coz the bullet collides with player for some reason :pensive:
 	if body.is_in_group("player"):
@@ -135,12 +149,16 @@ func _on_body_entered(body: Node2D) -> void:
 			body.take_damage(damage_source)
 		else:
 			EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MetalHit)
-	
+	if pierce_count <= max_pierce:
+				
+		return
+				
 	break_projectile()
 
 func break_projectile(_same_color: bool = true) -> void:
 	# TODO make better projectile particles.
 	ObjectPool.spawn(ObjectPool.bullet_impact_scene, global_position)
+	pierce_count = 0
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
