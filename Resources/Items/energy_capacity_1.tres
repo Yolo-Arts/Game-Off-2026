@@ -29,13 +29,13 @@ script = ExtResource("4_6ub1r")
 id = "e_capacity_1"
 display_name = "Battery Size"
 description = "Raise max {energy capacity} 
-by [10%]"
+by [20%]"
 icon = ExtResource("1_3fivb")
 modifiers = Array[ExtResource("2_b8hvp")]([SubResource("Resource_354lq")])
 max_level = 5
 min_level_to_unlock_children = 2
 price_data_array = Array[ExtResource("3_m8iej")]([SubResource("Resource_muvpr")])
-increment_value = 0.1
+increment_value = 0.2
 is_increment_percentage = true
 text_injections = Array[ExtResource("5_tbyne")]([SubResource("Resource_v54o1")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

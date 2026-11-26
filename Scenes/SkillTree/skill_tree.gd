@@ -2,8 +2,9 @@ extends Node2D
 
 signal closed
 
-const EDGE := 200.0
-const FAN := deg_to_rad(35.0)
+const EDGE := 260.0
+const MIN_SPAN := deg_to_rad(30.0)    
+const MAX_SPAN := deg_to_rad(170.0)
 
 const INTRO_ANIMATION_DELAYS := 0.18
 const OUTRO_ANIMATION_DELAYS := 0.07  
@@ -41,10 +42,15 @@ var _is_closing: bool = false
 func _ready() -> void:
 	pivot.position = get_viewport_rect().size * 0.5
 	var roots: Array = SkillTreeUpgrades.TREE
-	
-	for i in roots.size():
-		var dir := Vector2.UP.rotated(i * TAU / roots.size())
-		_layout(roots[i], null, Vector2.ZERO, dir)
+	var total := 0
+	for r in roots:
+		total += _weight(r)
+
+	var cursor := -TAU * _weight(roots[0]) / total * 0.5   
+	for r in roots:
+		var span := TAU * _weight(r) / total
+		_layout(r, null, Vector2.ZERO, cursor, cursor + span)
+		cursor += span
 	
 	#for item in centers:
 		#item.try_unlock()
@@ -79,25 +85,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			pivot.scale = Vector2.ONE * new_scale
 
 # populates centers 
-func _layout(entry: Array, parent: ItemData, parent_pos: Vector2, dir: Vector2) -> void:
-	#var item := load(SkillTreeUpgrades.ITEM_PATH % entry[0]) as ItemData
-	
+func _layout(entry: Array, parent: ItemData, parent_pos: Vector2, a0: float, a1: float) -> void:
 	var item = SkillTreeUpgrades.get_item(entry[0])
 	if item == null:
 		return
-	
-	var is_new := not centers.has(item)
-	
-	#if is_new:
-		#item.parents.clear()
-		#item.children.clear()
-		#item.unlocked = false
-	
-	#if parent and not parent.children.has(item):
-		#parent.children.append(item)
-		#item.parents.append(parent)
-	
-	if not is_new:
+
+	var mid := (a0 + a1) * 0.5
+	var dir := Vector2.UP.rotated(mid)
+
+	if centers.has(item):
 		if parent and item.parents.size() >= 2:
 			var wanted := parent_pos + dir * EDGE
 			var pts := _circle_intersections(centers[item.parents[0]], parent_pos, EDGE)
@@ -105,15 +101,25 @@ func _layout(entry: Array, parent: ItemData, parent_pos: Vector2, dir: Vector2) 
 				pts.sort_custom(func(a, b): return a.distance_to(wanted) < b.distance_to(wanted))
 				_shift(item, pts[0] - centers[item])
 		return
-	
+
 	var pos := parent_pos + dir * EDGE
 	centers[item] = pos
+
+	if entry.size() <= 1:
+		return
+
+	var kids: Array = entry[1]
+	var total := 0
+	for kid in kids:
+		total += _weight(kid)
 	
-	if entry.size() > 1:
-		var kids: Array = entry[1]
-		for i in kids.size():
-			var spread := (i - (kids.size() - 1) / 2.0) * FAN
-			_layout(kids[i], item, pos, dir.rotated(spread))
+	var width := maxf(minf(a1 - a0, MAX_SPAN), kids.size() * MIN_SPAN)
+	var spare := width - kids.size() * MIN_SPAN
+	var cursor := mid - width * 0.5
+	for kid in kids:
+		var span := MIN_SPAN + spare * _weight(kid) / total
+		_layout(kid, item, pos, cursor, cursor + span)
+		cursor += span
 
 # some math to deal with radial skill trees.
 func _circle_intersections(a: Vector2, b: Vector2, r: float) -> Array[Vector2]:
@@ -218,6 +224,14 @@ func open_item_scene(item: ItemData) -> void:
 	close()
 	EventSystem.STA_change_stage.emit(item.target_scene)
 	
+
+func _weight(entry: Array) -> int:
+	if entry.size() <= 1:
+		return 1
+	var total := 0
+	for kid in entry[1]:
+		total += _weight(kid)
+	return maxi(total, 1)
 
 # ################
 # Animations:

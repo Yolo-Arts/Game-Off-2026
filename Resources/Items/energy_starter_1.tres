@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bykgb1lndlp4g"]
+
+[ext_resource type="Texture2D" uid="uid://jkslcmlhqkam" path="res://Assets/Icons/Skill Tree/projectile_recharge.png" id="1_jtexg"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_7ot31"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_ygu7p"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_ogm51"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_81j6a"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_7ot31")
+stat = "starting_energy"
+add = 20.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_ygu7p")
+initial_price = 5
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_81j6a")
+text = "energy"
+color = Color(0.3238051, 0.82986456, 0.9348958, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_ogm51")
+id = "e_starter_1"
+display_name = "Starter Energy"
+description = "Start each game with 
+[20] {energy}"
+icon = ExtResource("1_jtexg")
+modifiers = Array[ExtResource("2_7ot31")]([SubResource("Resource_354lq")])
+price_data_array = Array[ExtResource("3_ygu7p")]([SubResource("Resource_muvpr")])
+increment_value = 20.0
+text_injections = Array[ExtResource("5_81j6a")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

@@ -11,7 +11,8 @@ size = Vector2(32, 32)
 
 [sub_resource type="Resource" id="Resource_bnue5"]
 script = ExtResource("4_h5ihl")
-initial_price = 10
+currency = 2
+initial_price = 1
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
 [sub_resource type="Resource" id="Resource_jnm0b"]
