@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]
 script = ExtResource("3_nypyg")
-initial_price = 25
+initial_price = 15
 price_multiplier = 1.1
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
@@ -34,7 +34,7 @@ modifiers = Array[ExtResource("2_cka1n")]([SubResource("Resource_354lq")])
 max_level = 5
 min_level_to_unlock_children = 5
 price_data_array = Array[ExtResource("3_nypyg")]([SubResource("Resource_muvpr")])
-initial_increment_value = 30.0
+initial_increment_value = 50.0
 increment_value = 10.0
 text_injections = Array[ExtResource("5_7ien8")]([SubResource("Resource_enpt3")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

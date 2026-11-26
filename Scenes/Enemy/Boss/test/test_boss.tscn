@@ -2,6 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://tse4pcoof720" path="res://Scenes/Enemy/ProjectileEnemy/projectile_enemy.tscn" id="1_c5gcn"]
 [ext_resource type="Script" uid="uid://b56ou6bjbhq8o" path="res://Scenes/Enemy/Boss/test/test_boss.gd" id="2_w5x8q"]
+[ext_resource type="Script" uid="uid://xumjaybhya7b" path="res://Resources/projectile_data.gd" id="3_dxh33"]
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="3_oeqe0"]
+
+[sub_resource type="Resource" id="Resource_3vlbk"]
+script = ExtResource("3_dxh33")
+life_time_seconds = 30.0
+range_pixels = 8000.0
+use_range = false
+enemy = true
+metadata/_custom_type_script = "uid://xumjaybhya7b"
+
+[sub_resource type="Resource" id="Resource_dxh33"]
+script = ExtResource("3_oeqe0")
+max_health = 200.0
+shift_color = 0
+enemy_damage_type = 4
+damage = 15.0
+knockback = 700.0
+knockback_resistance = 0.0
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
 
 [node name="TestBoss" unique_id=437048349 instance=ExtResource("1_c5gcn")]
 script = ExtResource("2_w5x8q")
+fire_interval = 2.0
+projectile_data = SubResource("Resource_3vlbk")
+enemy_stats = SubResource("Resource_dxh33")

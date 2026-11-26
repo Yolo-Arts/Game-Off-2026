@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://boysde5ywmf08"]
+
+[ext_resource type="Texture2D" uid="uid://dew5t627vq41l" path="res://Assets/Icons/Skill Tree/fuel_3.png" id="1_eih71"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_a54be"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_yqbrt"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_r4os7"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_7exs8"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_a54be")
+stat = "max_health"
+add = 25.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_yqbrt")
+initial_price = 30
+price_multiplier = 1.15
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_enpt3"]
+script = ExtResource("5_7exs8")
+text = "fuel capacity"
+color = Color(0.3238051, 0.82986456, 0.9348958, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_r4os7")
+id = "eng3"
+display_name = "Fuel Capacity"
+description = "Increase ship {fuel capacity} by [+25]"
+icon = ExtResource("1_eih71")
+modifiers = Array[ExtResource("2_a54be")]([SubResource("Resource_354lq")])
+max_level = 4
+min_level_to_unlock_children = 4
+price_data_array = Array[ExtResource("3_yqbrt")]([SubResource("Resource_muvpr")])
+initial_increment_value = 100.0
+increment_value = 25.0
+text_injections = Array[ExtResource("5_7exs8")]([SubResource("Resource_enpt3")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

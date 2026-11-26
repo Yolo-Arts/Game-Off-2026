@@ -8,22 +8,28 @@ var active_scene_item_id: String = ""
 
 const TREE = [
 	["fuel_1", [
-		["fuel_2", [
-			["BossFights/heart_boss_fight"]
-		]],
 		["gear_shift_1", [
-
 			["gear_shift_2", [
+				["gear_shift_3", [
+					["gear_shift_4", [
+						["gear_shift_5"],
+					]],
+				]],
 				["DynamicItems/DashSystem/dash_system_item"]
 			]],
-			["fire_rate"]
-
 			#["energy_recharge_1"],
+		]],
+		["fuel_2", [
+			["BossFights/heart_boss_fight", [
+				["fuel_3", [
+					["fuel_4"],
+				]],
+			]],
 		]],
 		["missile_unlock", [
 			["missile_count"],
 		]],
-		["BossFights/test_boss_fight_1"],
+		#["BossFights/test_boss_fight_1"],
 	]],
 	["energy_capacity_1", [
 		["energy_regen_1", [
@@ -58,20 +64,26 @@ const TREE = [
 				]],
 			]],
 		]],
-		["unlock_left_turret", [
-			["unlock_right_turret"],
+		["fire_rate", [
+			["unlock_right_turret", [
+				["unlock_left_turret"],
+			]],
 		]],
 	]],
-	["currency_range_pickup_1", [
-		["currency_gear_value_1"], 
+	["currency_gear_value_1", [
+		["BossFights/test_boss_fight_1", [
+			["Enemy/projectile_enemy", [
+				["ram_projectile_fuel_increase_1"],
+				["ram_projectile_energy_increase_1"],
+				["Enemy/projectile_enemy_hp_increase"],
+			]],
+		]],
 		["Enemy/gold_enemy_item", [
 				["currency_star_value_1"]
 		]],
-		["Enemy/projectile_enemy", [
-			["ram_projectile_fuel_increase_1"],
-			["ram_projectile_energy_increase_1"],
-			["Enemy/projectile_enemy_hp_increase"],
-		]],
+		["currency_range_pickup_1", [
+			["currency_range_pickup_2"],
+		]], 
 	]],
 ]
 
