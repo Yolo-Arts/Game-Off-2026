@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://tmspni5xd5of" path="res://Resources/Items/ActionItem/unlock_enemy_action.gd" id="1_2v3fk"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_fsx2o"]
+[ext_resource type="Texture2D" uid="uid://bvymo7y72gmd8" path="res://Assets/Icons/Skill Tree/golden_icon.png" id="2_mq2mj"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_mq2mj"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_grlla"]
 [ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_u0gk2"]
+[ext_resource type="Texture2D" uid="uid://ceibgev1vriol" path="res://Assets/Currency/Star/star.tres" id="6_fsx2o"]
 
 [sub_resource type="Resource" id="Resource_7n06a"]
 script = ExtResource("1_2v3fk")
@@ -16,12 +18,23 @@ script = ExtResource("3_mq2mj")
 initial_price = 100
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
+[sub_resource type="Resource" id="Resource_c88ew"]
+script = ExtResource("5_u0gk2")
+text = "STARS"
+color = Color(1, 0.85, 0.3, 1)
+font_size = 28
+icon = ExtResource("6_fsx2o")
+icon_size = Vector2i(48, 48)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
 [resource]
 script = ExtResource("4_grlla")
 id = "gold_enemy"
 display_name = "Golden Enemy"
-description = "Unlock Golden enemy, which spawns more gears."
+description = "Unlock Golden enemy, which when killed drops {STARS}"
+icon = ExtResource("2_mq2mj")
 action = SubResource("Resource_7n06a")
 shape_type = 3
 price_data_array = Array[ExtResource("3_mq2mj")]([SubResource("Resource_uagnk")])
+text_injections = Array[ExtResource("5_u0gk2")]([SubResource("Resource_c88ew")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

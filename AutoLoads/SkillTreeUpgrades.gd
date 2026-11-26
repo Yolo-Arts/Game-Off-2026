@@ -88,7 +88,8 @@ const TREE = [
 				["Enemy/projectile_enemy_hp_increase"],
 			]],
 			["Enemy/gold_enemy_item", [
-					["currency_star_value_1"]
+				["Enemy/gold_enemy_spawn_chance"],
+				["currency_star_value_1"],
 			]],
 			#["currency_range_pickup_1", [
 				#["currency_range_pickup_2"],

@@ -60,6 +60,7 @@ folder_colors={
 "res://AutoLoads/": "red",
 "res://Game/Config/": "red",
 "res://Resources/": "gray",
+"res://Resources/Items/Enemy/": "red",
 "res://Scenes/": "pink",
 "res://Scripts/": "gray",
 "res://Shaders/": "purple",
