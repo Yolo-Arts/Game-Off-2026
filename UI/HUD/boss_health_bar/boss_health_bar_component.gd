@@ -1,4 +1,4 @@
-extends Control
+class_name BossHealthBar extends Control
 
 @export var boss: Boss
 @export var boss_name: String

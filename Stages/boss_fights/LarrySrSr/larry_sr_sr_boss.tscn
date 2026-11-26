@@ -2,50 +2,50 @@
 
 [ext_resource type="PackedScene" uid="uid://d2o78d2f3yc0r" path="res://Stages/boss_fights/boss_scene_template.tscn" id="1_2erq8"]
 [ext_resource type="PackedScene" uid="uid://cg1dfn5eqm61c" path="res://UI/BossFightIntro/boss_fight_intro.tscn" id="2_asjna"]
-[ext_resource type="Script" uid="uid://bv3ifttjbpx3" path="res://Scenes/Enemy/EnemyLarryJr/segment_maker.gd" id="2_k6v4t"]
 [ext_resource type="Script" uid="uid://dir7xxpyr1obv" path="res://Game/Managers/enemy_spawner.gd" id="2_olptn"]
+[ext_resource type="PackedScene" uid="uid://bbunrloygxcse" path="res://UI/HUD/DashAbility/boost_ability.tscn" id="2_snblt"]
 [ext_resource type="Texture2D" uid="uid://duuaxdasxktw0" path="res://Assets/Enemy/heart_boss/HeartBoss.png" id="3_00ey7"]
 [ext_resource type="PackedScene" uid="uid://cvxxvgftvqgh5" path="res://Scenes/Enemy/Boss/LarryBoss/boss_segment.tscn" id="3_1sp6y"]
-[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="4_asjna"]
+[ext_resource type="PackedScene" uid="uid://7heagqykgnip" path="res://UI/HUD/boss_health_bar/boss_health_bar_component.tscn" id="3_rrvdl"]
+[ext_resource type="Script" uid="uid://oeuanuhwjv2i" path="res://Scenes/Enemy/Boss/LarryBoss/larrysrsr.gd" id="4_00ey7"]
+[ext_resource type="Script" uid="uid://cb2lio00o3xog" path="res://UI/HUD/boss_health_bar/boss_larry_health_bar_component.gd" id="4_hc60m"]
+[ext_resource type="Resource" uid="uid://egoocx4v04qd" path="res://Scenes/Enemy/Boss/LarryBoss/larry_boss_stats.tres" id="6_t6jwh"]
 [ext_resource type="PackedScene" uid="uid://dbabsmode2qmf" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_animation.tscn" id="8_t6jwh"]
 [ext_resource type="PackedScene" uid="uid://da6lsubuwmq1n" path="res://Scenes/Enemy/spawn_animation/enemy_spawn_particles.tscn" id="9_fr1f1"]
 
-[sub_resource type="Resource" id="Resource_t6jwh"]
-script = ExtResource("4_asjna")
-max_health = 2000.0
-shift_color = 1
-damage = 15.0
-knockback = 2000.0
-speed = 1000.0
-opposite_speed = 1000.0
-drop = 1
-metadata/_custom_type_script = "uid://cee3blfn2lg47"
-
 [node name="LarrySrSrBossFight" unique_id=1423773352 node_paths=PackedStringArray("boss_fight_intro", "boss_enemy") instance=ExtResource("1_2erq8")]
 boss_fight_intro = NodePath("CanvasLayer2/BossFightIntro")
-boss_enemy = NodePath("SegmentMaker")
+boss_enemy = NodePath("LarrySrSr")
+
+[node name="BoostAbility" parent="HUD/MarginContainer/VBoxContainer3" parent_id_path=PackedInt32Array(1675038817) index="0" unique_id=829628110 instance=ExtResource("2_snblt")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="BossHealthBarComponent" parent="HUD" parent_id_path=PackedInt32Array(1797360132) index="1" unique_id=360296900 node_paths=PackedStringArray("boss") instance=ExtResource("3_rrvdl")]
+script = ExtResource("4_hc60m")
+boss = NodePath("../../LarrySrSr")
+boss_name = "Dad's Heart"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." index="2" unique_id=284147689]
 
 [node name="BossFightIntro" parent="CanvasLayer2" index="0" unique_id=2135750429 instance=ExtResource("2_asjna")]
 unique_name_in_owner = true
-boss_name = "Dad's Heart"
+boss_name = "Larry Sr. Sr."
 boss_sprite = ExtResource("3_00ey7")
 
-[node name="SegmentMaker" type="Node2D" parent="." index="9" unique_id=919478658]
-scale = Vector2(0.99999994, 0.99999994)
-script = ExtResource("2_k6v4t")
-segment_scene = ExtResource("3_1sp6y")
-segment_range = Vector2i(100, 100)
-enemy_stats = SubResource("Resource_t6jwh")
-metadata/_custom_type_script = "uid://bv3ifttjbpx3"
-
-[node name="EnemySpawner" type="Node2D" parent="." index="10" unique_id=1896253136 node_paths=PackedStringArray("enemy_spawn_timer")]
+[node name="EnemySpawner" type="Node2D" parent="." index="9" unique_id=1896253136 node_paths=PackedStringArray("enemy_spawn_timer")]
 script = ExtResource("2_olptn")
 auto_start = false
+enemy_spawn_timer = NodePath("Timer")
 spawn_animation_scene = ExtResource("8_t6jwh")
 spawn_particles_scene = ExtResource("9_fr1f1")
-enemy_spawn_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Timer" type="Timer" parent="EnemySpawner" index="0" unique_id=271305453]
+
+[node name="LarrySrSr" type="CharacterBody2D" parent="." index="10" unique_id=1383602302]
+script = ExtResource("4_00ey7")
+segment_scene = ExtResource("3_1sp6y")
+enemy_stats = ExtResource("6_t6jwh")
+metadata/_custom_type_script = "uid://oeuanuhwjv2i"

@@ -133,8 +133,8 @@ func _should_log(message: String) -> bool:
 
 func _warn(message: String) -> void:
 	if _should_log(message):
-		
-		push_warning(message)
+	
+		pass#push_warning(message)
 	warning.emit(message)
 
 ## Seconds of game time that Engine.time_scale and pausing leave alone, counted the way the engine
