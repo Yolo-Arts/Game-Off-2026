@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://egoocx4v04qd"]
+
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="1_oasad"]
+
+[resource]
+script = ExtResource("1_oasad")
+max_health = 10000.0
+shift_color = 0
+damage = 15.0
+knockback = 2000.0
+speed = 1200.0
+opposite_speed = 1200.0
+metadata/_custom_type_script = "uid://cee3blfn2lg47"

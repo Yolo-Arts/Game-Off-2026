@@ -39,5 +39,5 @@ func _physics_process(delta: float) -> void:
 			for j in range(i + 1, segments.size()):
 				segments[i].add_collision_exception_with(segments[j])
 		var head: BossSegment = segments[0] as BossSegment
-		head.state_machine.initialize(head, &"arena")
+		head.state_machine.initialize(head, &"roam")
 	queue_free()
