@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cnhspksnfye5s"]
+
+[ext_resource type="Script" uid="uid://cvm8314tfrgau" path="res://Resources/Items/ActionItem/enemy_drop_action_item.gd" id="1_d8xtr"]
+[ext_resource type="Texture2D" uid="uid://bvymo7y72gmd8" path="res://Assets/Icons/Skill Tree/golden_icon.png" id="2_d4dra"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="3_xx2pj"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="4_ue8ce"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="5_pe25u"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="6_rkoew"]
+
+[sub_resource type="Resource" id="Resource_23xye"]
+script = ExtResource("1_d8xtr")
+enemy_id = "gold_enemy"
+metadata/_custom_type_script = "uid://cvm8314tfrgau"
+
+[sub_resource type="Resource" id="Resource_uagnk"]
+script = ExtResource("4_ue8ce")
+currency = 1
+initial_price = 10
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_c88ew"]
+script = ExtResource("6_rkoew")
+text = "Star Drop"
+color = Color(1, 0.85, 0.3, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("5_pe25u")
+id = "gold_enemy"
+display_name = "More Stars"
+description = "Increase Golden Enemy {Star Drop} amount
+by [+1]"
+icon = ExtResource("2_d4dra")
+action = SubResource("Resource_23xye")
+max_level = 4
+price_data_array = Array[ExtResource("4_ue8ce")]([SubResource("Resource_uagnk")])
+initial_increment_value = 1.0
+increment_value = 1.0
+text_injections = Array[ExtResource("6_rkoew")]([SubResource("Resource_c88ew")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

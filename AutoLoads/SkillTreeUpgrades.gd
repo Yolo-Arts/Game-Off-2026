@@ -66,10 +66,10 @@ const TREE = [
 			]],
 			["projectile_damage_3"],
 			["crit_chance_1", [
-				["crit_chance_2"],
 				["crit_damage_1", [
 					["crit_damage_2"],
 				]],
+				["crit_chance_2"],
 			]],
 		]],
 		["fire_rate", [
@@ -87,13 +87,15 @@ const TREE = [
 				["ram_projectile_energy_increase_1"],
 				["Enemy/projectile_enemy_hp_increase"],
 			]],
+			["currency_gear_value_3"],
 			["Enemy/gold_enemy_item", [
-				["Enemy/gold_enemy_spawn_chance"],
-				["currency_star_value_1"],
+				["Enemy/gold_enemy_spawn_chance", [
+					["Enemy/gold_enemy_drop_amount"],
+				]],
+				["currency_star_value_1", [
+					["Enemy/gold_enemy_drop_amount"],
+				]],
 			]],
-			#["currency_range_pickup_1", [
-				#["currency_range_pickup_2"],
-			#]], 
 		]],
 		["currency_range_pickup_1", [
 					["currency_range_pickup_2"],

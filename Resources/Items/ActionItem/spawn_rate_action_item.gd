@@ -1,7 +1,7 @@
 extends ActionItem
 class_name SpawnRateActionItem
 
-@export_enum("projectile_enemy", "gold_enemy")
+@export_enum("projectile_enemy", "gold_enemy", "segment")
 var enemy_id: String
 @export var spawn_rate_increase: float = 0.05
 

@@ -2,8 +2,8 @@ extends Node2D
 
 signal closed
 
-const EDGE := 260.0
-const MIN_SPAN := deg_to_rad(30.0)    
+const EDGE := 275.0
+const MIN_SPAN := deg_to_rad(35.0)    
 const MAX_SPAN := deg_to_rad(170.0)
 
 const INTRO_ANIMATION_DELAYS := 0.18

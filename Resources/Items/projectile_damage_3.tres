@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://qw7e7o5bwlpa"]
 
-[ext_resource type="Texture2D" uid="uid://cnyhaap5s0o88" path="res://Assets/Icons/Skill Tree/damage_increase_2.png" id="1_vvtc7"]
+[ext_resource type="Texture2D" uid="uid://dptv4012u5n1v" path="res://Assets/Icons/Skill Tree/damage_increase_3.png" id="1_vvtc7"]
 [ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_1a8ku"]
 [ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_ov6o5"]
 [ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_1gbyh"]
@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://bigogxmuptah4"
 
 [resource]
 script = ExtResource("4_1gbyh")
-id = "ProjectileDamage2"
+id = "ProjectileDamage3"
 display_name = "Projectile Damage"
 description = "Increase ship {projectile damage} by [+20]"
 icon = ExtResource("1_vvtc7")

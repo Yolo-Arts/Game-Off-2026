@@ -1,9 +1,9 @@
 extends ActionItem
 class_name HealthIncreaseActionItem
 
-const ENEMY_IDS := ["projectile_enemy", "gold_enemy", "testenemy"]
+const ENEMY_IDS := ["projectile_enemy", "gold_enemy", "testenemy", "segment"]
 
-@export_enum("projectile_enemy", "gold_enemy", "testenemy", "all")
+@export_enum("projectile_enemy", "gold_enemy", "testenemy", "all", "segment")
 var enemy_id: String
 @export var increase_amount: int
 
