@@ -1,9 +1,6 @@
 shader_type canvas_item;
 
-// Spritesheet layout: one row, every frame the same size.
-// Each currency owns a block of `frames_per_animation` columns:
-//   sprite_index 0 (Gear) -> columns 0-3,  sprite_index 1 (Star) -> columns 4-7
-uniform int total_columns = 8;
+uniform int total_columns = 12;
 uniform int frames_per_animation = 4;
 uniform float animation_fps = 8.0;
 

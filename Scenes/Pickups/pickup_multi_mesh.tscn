@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dk4fudsdxrh2i" path="res://Scenes/Pickups/pickup_multi_mesh.gd" id="1_jnfa7"]
 [ext_resource type="Shader" uid="uid://cokx7meboiim8" path="res://Shaders/pickup.gdshader" id="1_qfh6x"]
-[ext_resource type="Texture2D" uid="uid://dgmx52rl8er4b" path="res://Assets/Currency/currency-Sheet-export.png" id="2_1f4rx"]
+[ext_resource type="Texture2D" uid="uid://t3epku032kpr" path="res://Assets/Currency/currency-Sheet-export.png" id="2_1f4rx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qaolu"]
 shader = ExtResource("1_qfh6x")
-shader_parameter/total_columns = 8
+shader_parameter/total_columns = 12
 shader_parameter/frames_per_animation = 4
 shader_parameter/animation_fps = 8.0
 
