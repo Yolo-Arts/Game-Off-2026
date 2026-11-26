@@ -31,14 +31,16 @@ const TREE = [
 		]],
 		#["BossFights/test_boss_fight_1"],
 	]],
-	["energy_capacity_1", [
-		["energy_regen_1", [
-		["railgun"],
-		]],
-		["energy_recharge_1"],
-		["shot_cost", [
-			["increase_max_pierce"],
+	["energy_starter_1", [
+		["energy_capacity_1", [
+			["energy_regen_1", [
 			["railgun"],
+			]],
+			["energy_recharge_1"],
+			["shot_cost", [
+				["increase_max_pierce"],
+				["railgun"],
+			]],
 		]],
 	]],
 	["beefier_hull", [
@@ -71,19 +73,21 @@ const TREE = [
 		]],
 	]],
 	["currency_gear_value_1", [
-		["BossFights/test_boss_fight_1", [
-			["Enemy/projectile_enemy", [
-				["ram_projectile_fuel_increase_1"],
-				["ram_projectile_energy_increase_1"],
-				["Enemy/projectile_enemy_hp_increase"],
+		["currency_gear_value_2", [
+			["BossFights/test_boss_fight_1", [
+				["Enemy/projectile_enemy", [
+					["ram_projectile_fuel_increase_1"],
+					["ram_projectile_energy_increase_1"],
+					["Enemy/projectile_enemy_hp_increase"],
+				]],
 			]],
+			["Enemy/gold_enemy_item", [
+					["currency_star_value_1"]
+			]],
+			["currency_range_pickup_1", [
+				["currency_range_pickup_2"],
+			]], 
 		]],
-		["Enemy/gold_enemy_item", [
-				["currency_star_value_1"]
-		]],
-		["currency_range_pickup_1", [
-			["currency_range_pickup_2"],
-		]], 
 	]],
 ]
 

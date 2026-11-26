@@ -9,6 +9,7 @@ class_name PlayerStats extends Resource
 @export var energy_increase: float = 2.0
 @export var energy_ram_cost: float = 20.0
 @export var energy_regen_rate: float = 0.0
+
 @export var invincibility_duration_seconds: float = 1.0
 @export var damage: float = 10.0
 @export var max_speed: float = 600.0

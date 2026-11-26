@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://beta8d4ffebha"]
+
+[ext_resource type="Script" uid="uid://c6qhvx1y0uoso" path="res://Resources/Items/ActionItem/health_increase_action_item.gd" id="1_ksljh"]
+[ext_resource type="Texture2D" uid="uid://wnu7xvmmx4gk" path="res://Assets/Currency/Gear/gear1.png" id="1_lmidx"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_ksljh"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_rp81o"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_sllj0"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_w0oex"]
+[ext_resource type="Texture2D" uid="uid://cwd7w8v22ql0w" path="res://Assets/Currency/Gear/gears.tres" id="6_g56pu"]
+
+[sub_resource type="Resource" id="Resource_hnjty"]
+script = ExtResource("1_ksljh")
+enemy_id = "all"
+increase_amount = 15
+metadata/_custom_type_script = "uid://c6qhvx1y0uoso"
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_ksljh")
+stat = "gear_currency_value"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_rp81o")
+initial_price = 30
+price_multiplier = 2.0
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_3g2si"]
+script = ExtResource("5_w0oex")
+text = "GEARS"
+color = Color(0.78, 0.8, 0.85, 1)
+font_size = 28
+icon = ExtResource("6_g56pu")
+icon_size = Vector2i(48, 48)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[sub_resource type="Resource" id="Resource_6ualv"]
+script = ExtResource("5_w0oex")
+text = "HP"
+color = Color(0.85882354, 0, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[sub_resource type="Resource" id="Resource_uk0c1"]
+script = ExtResource("5_w0oex")
+text = "15"
+color = Color(0.85882354, 0, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_sllj0")
+id = "GearValue1"
+display_name = "Gear Value"
+description = "Increase {GEARS} 
+by [1].
+
+However:
+All enemies {HP} increases by {15}."
+icon = ExtResource("1_lmidx")
+modifiers = Array[ExtResource("2_ksljh")]([SubResource("Resource_354lq")])
+action = SubResource("Resource_hnjty")
+max_level = 2
+price_data_array = Array[ExtResource("3_rp81o")]([SubResource("Resource_muvpr")])
+increment_value = 1.0
+text_injections = Array[ExtResource("5_w0oex")]([SubResource("Resource_3g2si"), SubResource("Resource_6ualv"), SubResource("Resource_uk0c1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"
