@@ -54,7 +54,7 @@ display_name = "Gear Value"
 description = "Increase {GEARS} 
 by [1].
 
-However:
+But:
 Basic enemy {HP} increases by {5}."
 icon = ExtResource("1_3g2si")
 modifiers = Array[ExtResource("2_mpowk")]([SubResource("Resource_354lq")])

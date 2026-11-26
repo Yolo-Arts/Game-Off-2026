@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d25ywwmr82eaf"]
+
+[ext_resource type="Texture2D" uid="uid://clkx8vw7207hc" path="res://Assets/Icons/Skill Tree/battery_2.png" id="1_nsjnt"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_ged0a"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_7gg5i"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_oowqy"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_wqoyd"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_ged0a")
+stat = "max_energy"
+mult = 1.1
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_7gg5i")
+initial_price = 5
+price_multiplier = 1.5
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_wqoyd")
+text = "energy capacity"
+color = Color(0.3238051, 0.82986456, 0.9348958, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_oowqy")
+id = "e_capacity_2"
+display_name = "Battery Size"
+description = "Raise max {energy capacity} 
+by [50%]"
+icon = ExtResource("1_nsjnt")
+modifiers = Array[ExtResource("2_ged0a")]([SubResource("Resource_354lq")])
+max_level = 4
+min_level_to_unlock_children = 2
+price_data_array = Array[ExtResource("3_7gg5i")]([SubResource("Resource_muvpr")])
+initial_increment_value = 1.0
+increment_value = 0.5
+is_increment_percentage = true
+text_injections = Array[ExtResource("5_wqoyd")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"
