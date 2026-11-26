@@ -108,6 +108,7 @@ metadata/_custom_type_script = "uid://blkue6yeehgx1"
 
 [node name="Arena" type="Node" parent="StateMachine" unique_id=1732051267]
 script = ExtResource("13_qt1qs")
+color_change_time = 5.0
 wormies = Array[ExtResource("14_hsd7f")]([ExtResource("15_ulbgu")])
 id = &"arena"
 metadata/_custom_type_script = "uid://c2pn0qhh2mrs2"
@@ -115,5 +116,6 @@ metadata/_custom_type_script = "uid://c2pn0qhh2mrs2"
 [node name="Final" type="Node" parent="StateMachine" unique_id=57950493]
 script = ExtResource("16_ulbgu")
 wormies = Array[ExtResource("14_hsd7f")]([ExtResource("15_ulbgu")])
+color_change_time = 5.0
 id = &"final"
 metadata/_custom_type_script = "uid://blkue6yeehgx1"
