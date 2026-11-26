@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://defjqynb5hx8i"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_l1ag5"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_ocgej"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_mvk5n"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_w2tx3"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_rk0jd"]
+
+[sub_resource type="Resource" id="Resource_7qf3t"]
+script = ExtResource("2_ocgej")
+stat = "recoil"
+add = -10.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_1cee0"]
+script = ExtResource("3_mvk5n")
+initial_price = 50
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_48w68"]
+script = ExtResource("5_rk0jd")
+text = "recoil"
+color = Color(0.85882354, 0.28235295, 0, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_w2tx3")
+id = "recoil_decrease"
+display_name = "Decrease Recoil"
+description = "Decrease {recoil} when shooting [10%]"
+icon = ExtResource("1_l1ag5")
+modifiers = Array[ExtResource("2_ocgej")]([SubResource("Resource_7qf3t")])
+max_level = 5
+min_level_to_unlock_children = 3
+price_data_array = Array[ExtResource("3_mvk5n")]([SubResource("Resource_1cee0")])
+initial_increment_value = 1.0
+increment_value = -0.1
+is_increment_percentage = true
+text_injections = Array[ExtResource("5_rk0jd")]([SubResource("Resource_48w68")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

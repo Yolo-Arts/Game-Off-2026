@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dxeokypurmqfd"]
+
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="1_xxu1n"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_1te8s"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_f4jqy"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_hcmna"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_mfgrl"]
+
+[sub_resource type="Resource" id="Resource_vbvyp"]
+script = ExtResource("2_1te8s")
+stat = "shots_per_second"
+add = 1.0
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_rc6nv"]
+script = ExtResource("3_f4jqy")
+initial_price = 10
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_vpfpp"]
+script = ExtResource("5_mfgrl")
+text = "Fire Rate"
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_hcmna")
+id = "fire_rate"
+display_name = "Fire Rate"
+description = "Increase {Fire Rate} by [5]"
+icon = ExtResource("1_xxu1n")
+modifiers = Array[ExtResource("2_1te8s")]([SubResource("Resource_vbvyp")])
+max_level = 5
+min_level_to_unlock_children = 3
+price_data_array = Array[ExtResource("3_f4jqy")]([SubResource("Resource_rc6nv")])
+increment_value = 0.5
+is_increment_percentage = true
+text_injections = Array[ExtResource("5_mfgrl")]([SubResource("Resource_vpfpp")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

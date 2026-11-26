@@ -43,9 +43,9 @@ metadata/_custom_type_script = "uid://bv3ifttjbpx3"
 [node name="EnemySpawner" type="Node2D" parent="." index="10" unique_id=1896253136 node_paths=PackedStringArray("enemy_spawn_timer")]
 script = ExtResource("2_olptn")
 auto_start = false
-enemy_spawn_timer = NodePath("Timer")
 spawn_animation_scene = ExtResource("8_t6jwh")
 spawn_particles_scene = ExtResource("9_fr1f1")
+enemy_spawn_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://dir7xxpyr1obv"
 
 [node name="Timer" type="Timer" parent="EnemySpawner" index="0" unique_id=271305453]
