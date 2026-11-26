@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_oasad")
-max_health = 500.0
+max_health = 1500.0
 shift_color = 0
 damage = 15.0
 knockback = 2000.0
