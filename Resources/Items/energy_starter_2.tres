@@ -33,6 +33,7 @@ description = "Start each game with
 icon = ExtResource("1_i0xf5")
 modifiers = Array[ExtResource("2_tkedi")]([SubResource("Resource_354lq")])
 price_data_array = Array[ExtResource("3_87vj5")]([SubResource("Resource_muvpr")])
+initial_increment_value = 20.0
 increment_value = 20.0
 text_injections = Array[ExtResource("5_a30xn")]([SubResource("Resource_v54o1")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

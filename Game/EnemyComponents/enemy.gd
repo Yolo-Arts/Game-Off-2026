@@ -21,9 +21,10 @@ func _ready() -> void:
 		enemy_sprite.material.set_shader_parameter("lerper", 1.0)
 	elif enemy_stats.shift_color == DamageSource.ShiftColor.BLUE:
 		enemy_sprite.material.set_shader_parameter("lerper", 0.0)
-	elif enemy_stats.shift_color == DamageSource.ShiftColor.NONE:
+	elif enemy_stats.shift_color == DamageSource.ShiftColor.NONE or enemy_stats.shift_color == DamageSource.ShiftColor.GOLD:
 		enemy_sprite.material = GOLD_GRADIENT_MAP
 		enemy_sprite.material.set_shader_parameter("lerper", 0.0)
+	
 	
 	EventSystem.player_shifted.connect(update_dimension_speed)
 	var player: Player = get_tree().get_first_node_in_group("player") as Player

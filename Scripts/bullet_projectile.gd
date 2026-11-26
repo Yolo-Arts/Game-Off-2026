@@ -138,7 +138,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	if not projectile_stats.enemy and body.has_method("take_damage"):
-		if body.enemy_stats.shift_color == player.shift_color:
+		if body.enemy_stats.shift_color == player.shift_color or body.enemy_stats.shift_color == DamageSource.ShiftColor.GOLD:
 			var damage_source := DamageSource.new(
 				projectile_stats.damage,
 				projectile_stats.knockback,

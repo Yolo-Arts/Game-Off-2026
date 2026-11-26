@@ -17,7 +17,7 @@ func setup(_enemy: Enemy) -> void:
 
 
 func take_damage(source: DamageSource, show_numbers: bool = true) -> void: 
-	if source.shift_color != enemy.enemy_stats.shift_color and source.shift_color != DamageSource.ShiftColor.NONE:
+	if source.shift_color != enemy.enemy_stats.shift_color and source.shift_color != DamageSource.ShiftColor.NONE and (enemy.enemy_stats.shift_color != DamageSource.ShiftColor.GOLD):
 		return
 	# Increasing player energy from the enemy script lol....
 	# TODO probably refactor this into the energy component but we ball.
