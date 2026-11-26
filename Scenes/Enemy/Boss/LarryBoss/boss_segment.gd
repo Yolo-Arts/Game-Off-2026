@@ -8,12 +8,33 @@ enum BossPhase {ROAM, ARENA, FINAL}
 var last_roam_state: StringName = ""
 var roam_states: Array[StringName] = ["random", "circle", "charge"]
 
-
-
 @export var state_machine: StateMachine
 
+const BLUE_LERP: float = 0.0
+const RED_LERP: float = 1.0
+var color_tween: Tween
 
 
+func change_color(time: float = 1.0) -> void:
+	if behind_segment:
+		behind_segment.change_color(time)
+	if color_tween:
+		color_tween.kill()
+	var target_color: DamageSource.ShiftColor =  DamageSource.ShiftColor.BLUE if enemy_stats.shift_color == DamageSource.ShiftColor.RED \
+	else DamageSource.ShiftColor.RED
+	color_tween = create_tween()
+	enemy_stats.shift_color = DamageSource.ShiftColor.NONE
+	var target_lerper: float = BLUE_LERP if target_color == DamageSource.ShiftColor.BLUE else RED_LERP
+	color_tween.tween_method(
+		func(val: float) -> void: enemy_sprite.material.set_shader_parameter("lerper", val),
+		enemy_sprite.material.get_shader_parameter("lerper"),
+		target_lerper,
+		time
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await color_tween.finished
+	enemy_stats.shift_color = target_color
+	
+	
 
 var current_phase: BossPhase = BossPhase.ROAM:
 	set(value):
@@ -30,13 +51,14 @@ func take_damage(damage_source: DamageSource, propogating: bool = false) -> void
 		
 			Juicee.impact_ring(self)
 		ObjectPool.spawn(ObjectPool.bullet_impact_scene, global_position)
+		EventSystem.enemy_hit.emit(self, damage_source)
 		health_component.damage_numbers.display_val(damage_source.damage, global_position)
 	if behind_segment:
 		behind_segment.take_damage(damage_source, true)
 		return
 	else:
 		health_component.take_damage(damage_source, false)
-		EventSystem.enemy_hit.emit(self, damage_source)
+		
 		if damage_source.source_node:
 			var knockback_amount: float = damage_source.knockback * enemy_stats.knockback_resistance
 			movement_component.current_knockback = knockback_amount * damage_source.source_node.global_position.direction_to(global_position)

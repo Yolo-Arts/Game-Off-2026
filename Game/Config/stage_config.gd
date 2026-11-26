@@ -6,6 +6,7 @@ enum Keys {
 	UpgradeView,
 	TestBossFight,
 	HeartBoss,
+	LarryBoss
 }
 
 static func get_stage(stage_key:Keys) -> Node:
@@ -17,4 +18,5 @@ const STAGE_PATHS := {
 	Keys.UpgradeView: "res://Scenes/UpgradeView/upgrade_view.tscn",
 	Keys.TestBossFight: "res://Stages/boss_fights/test/test_boss_fight_2.tscn",
 	Keys.HeartBoss: "uid://c7nanxoku28we",
+	Keys.LarryBoss: "uid://bysod6iwo1r8x"
 }

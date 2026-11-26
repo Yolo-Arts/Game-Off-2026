@@ -72,7 +72,9 @@ const TREE = [
 		]],
 		["fire_rate", [
 			["unlock_right_turret", [
-				["unlock_left_turret"],
+				["unlock_left_turret", [
+					["BossFights/larry_sr_sr"]
+				]],
 			]],
 		]],
 	]],

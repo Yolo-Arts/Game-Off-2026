@@ -20,4 +20,4 @@ gradient = SubResource("Gradient_30ubk")
 shader = ExtResource("1_ih8oo")
 shader_parameter/pal0 = SubResource("GradientTexture1D_valc0")
 shader_parameter/pal1 = SubResource("GradientTexture1D_ih8oo")
-shader_parameter/lerper = 1.0
+shader_parameter/lerper = 0.0

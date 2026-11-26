@@ -16,6 +16,7 @@
 [node name="LarrySrSrBossFight" unique_id=1423773352 node_paths=PackedStringArray("boss_fight_intro", "boss_enemy") instance=ExtResource("1_2erq8")]
 boss_fight_intro = NodePath("CanvasLayer2/BossFightIntro")
 boss_enemy = NodePath("LarrySrSr")
+stage_config_key = 5
 
 [node name="BoostAbility" parent="HUD/MarginContainer/VBoxContainer3" parent_id_path=PackedInt32Array(1675038817) index="0" unique_id=829628110 instance=ExtResource("2_snblt")]
 layout_mode = 2
@@ -25,7 +26,7 @@ size_flags_vertical = 0
 [node name="BossHealthBarComponent" parent="HUD" parent_id_path=PackedInt32Array(1797360132) index="1" unique_id=360296900 node_paths=PackedStringArray("boss") instance=ExtResource("3_rrvdl")]
 script = ExtResource("4_hc60m")
 boss = NodePath("../../LarrySrSr")
-boss_name = "Dad's Heart"
+boss_name = "Larry Sr. Sr."
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." index="2" unique_id=284147689]
 

@@ -2,7 +2,7 @@ class_name LarrySrSr extends Boss
 
 var head: BossSegment
 var larry: Array[BossSegment]
-
+@export var distance_from_player: float = 800.0
 @export var segment_scene: PackedScene
 @export var boss_size: int = 100
 @export var distance_between: float = 64
@@ -27,7 +27,15 @@ func _on_segment_destroyed() -> void:
 			head.current_phase = BossSegment.BossPhase.ARENA
 		50:
 			head.current_phase = BossSegment.BossPhase.FINAL
-
+		0:
+			Globals.beat_boss = true
+			SkillTreeUpgrades.complete_active_scene_item()
+			#EventSystem.STA_change_stage.emit(StageConfig.Keys.UpgradeView)
+			EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.GameOverScreen, "boss_fight")
+	
+			Currencies.cheat_add_specific_currency(Enums.CurrencyType.HEART, 1)
+			Currencies.cheat_add_specific_currency(Enums.CurrencyType.STAR, 10)
+			Currencies.cheat_add_specific_currency(Enums.CurrencyType.GEAR, 100)
 func spawn_larry() -> Array[BossSegment]:
 	var segments: Array[BossSegment]
 	var number_of_segments: int = boss_size
@@ -38,7 +46,7 @@ func spawn_larry() -> Array[BossSegment]:
 		var next_segment: Segment = segment_scene.instantiate() as BossSegment
 		if not next_segment:
 			print("WRONG SEGMENT")
-		next_segment.global_position = global_position + (player.global_position.direction_to(global_position) * distance_between * i)
+		next_segment.global_position = ((player.global_position + distance_from_player * Vector2.UP) + Vector2.UP * distance_between * i)
 		next_segment.enemy_stats = enemy_stats.duplicate()
 		
 		segments.append(next_segment)

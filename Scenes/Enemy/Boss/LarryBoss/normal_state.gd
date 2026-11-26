@@ -1,6 +1,8 @@
 class_name SegmentBossRoam extends SegmentBossState
 
 var roam_change_timer: float = 0.0
+@export var color_change_time: float = 10.0
+var color_change_timer: float = color_change_time
 @export var roam_change_time: float = 5.0
 var scheduled_roam_state: StringName = &""
 
@@ -47,10 +49,15 @@ func handle_roam_state(state: StringName) -> void:
 		
 
 func enter(_data: Variant) -> void:
-	pass
+	for child in segment.enemy_sprite.get_children():
+		child.show()
 
 func process_state(_delta: float) -> StringName:
 	roam_change_timer = max(0.0, roam_change_timer - _delta)
+	color_change_timer = max(0.0, color_change_timer - _delta)
+	if color_change_timer == 0.0:
+		segment.change_color(1.0)
+		color_change_timer = color_change_time
 	if roam_change_timer == 0.0:
 		if scheduled_roam_state != &"":
 			handle_roam_state(scheduled_roam_state)
