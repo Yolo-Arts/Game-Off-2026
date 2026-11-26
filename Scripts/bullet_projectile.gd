@@ -151,7 +151,7 @@ func _on_body_entered(body: Node2D) -> void:
 		else:
 			EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MetalHit)
 	if pierce_count < max_pierce:
-				
+		ObjectPool.spawn(ObjectPool.bullet_impact_scene, global_position)
 		return
 				
 	break_projectile()

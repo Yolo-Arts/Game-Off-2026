@@ -8,7 +8,10 @@ enum BossPhase {ROAM, ARENA, FINAL}
 var last_roam_state: StringName = ""
 var roam_states: Array[StringName] = ["random", "circle", "charge"]
 
+
+
 @export var state_machine: StateMachine
+
 
 
 

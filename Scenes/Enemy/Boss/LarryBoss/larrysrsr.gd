@@ -7,6 +7,9 @@ var larry: Array[BossSegment]
 @export var boss_size: int = 100
 @export var distance_between: float = 64
 var segments_left: int = 100
+
+
+
 func _ready() -> void:
 	larry = spawn_larry()
 	segments_left = larry.size()
@@ -17,7 +20,6 @@ func _ready() -> void:
 	head.state_machine.initialize(head, &"roam")
 	
 func _on_segment_destroyed() -> void:
-	print("AAAAAA")
 	segments_left -= 1
 	EventSystem.update_boss_healthbar_component.emit()
 	match segments_left:
