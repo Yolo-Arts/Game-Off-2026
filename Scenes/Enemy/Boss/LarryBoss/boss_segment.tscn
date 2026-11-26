@@ -8,8 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dub4ws6dksqyn" path="res://Assets/Enemy/worm_boss/head_main.png" id="6_j1jb3"]
 [ext_resource type="Texture2D" uid="uid://bo1eiq5g3ok0x" path="res://Assets/Enemy/worm_boss/upper_torso_big.png" id="7_y17cu"]
 [ext_resource type="Texture2D" uid="uid://dkte5p2cn508d" path="res://Assets/Enemy/worm_boss/lower_torso.png" id="8_xx2an"]
+[ext_resource type="Texture2D" uid="uid://b838bj7pdskxc" path="res://Assets/Enemy/worm_boss/eyeball.png" id="9_nga5m"]
 [ext_resource type="Script" uid="uid://b6g202tvlwed1" path="res://Game/EnemyComponents/enemy_hitbox_component.gd" id="9_s6ths"]
+[ext_resource type="Texture2D" uid="uid://c2poycjswouj1" path="res://Assets/Enemy/worm_boss/eyeball_blind.png" id="10_dkrlg"]
+[ext_resource type="Script" uid="uid://dld4yoeoyfjmx" path="res://Scenes/Enemy/Boss/LarryBoss/shake.gd" id="10_ew2eq"]
 [ext_resource type="Script" uid="uid://cpsk78tocuav3" path="res://Scenes/Enemy/Boss/LarryBoss/segment_boss_movement.gd" id="10_xx2an"]
+[ext_resource type="Texture2D" uid="uid://cpht88b2jsdx0" path="res://Assets/Enemy/worm_boss/mouth.png" id="11_ew2eq"]
 [ext_resource type="Script" uid="uid://grs1kfqrof0u" path="res://Game/StateMachine/state_machine.gd" id="11_xx2an"]
 [ext_resource type="Script" uid="uid://byyt4mvlmohyv" path="res://Scenes/Enemy/Boss/LarryBoss/normal_state.gd" id="12_xx2an"]
 [ext_resource type="Script" uid="uid://b5m4r5gvyeldv" path="res://Scenes/Enemy/Boss/LarryBoss/arena.gd" id="13_qt1qs"]
@@ -74,8 +78,30 @@ scale = Vector2(5, 5)
 unique_name_in_owner = true
 material = ExtResource("5_77njc")
 sprite_frames = SubResource("SpriteFrames_dkrlg")
-animation = &"middle"
+animation = &"head"
 autoplay = "head"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationShake/ScalePivot/Node2D/EnemySprite" unique_id=285678176]
+visible = false
+show_behind_parent = true
+position = Vector2(8.799999, -5.799999)
+texture = ExtResource("9_nga5m")
+script = ExtResource("10_ew2eq")
+power = 1.0
+
+[node name="EyeballBlind" type="Sprite2D" parent="AnimationShake/ScalePivot/Node2D/EnemySprite" unique_id=148700976]
+visible = false
+position = Vector2(-7.3999996, -5.4000006)
+texture = ExtResource("10_dkrlg")
+script = ExtResource("10_ew2eq")
+power = 1.0
+
+[node name="Mouth" type="Sprite2D" parent="AnimationShake/ScalePivot/Node2D/EnemySprite" unique_id=352598520]
+visible = false
+position = Vector2(2.9999998, 3)
+texture = ExtResource("11_ew2eq")
+script = ExtResource("10_ew2eq")
+power = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826381267]
 shape = SubResource("RectangleShape2D_xx2an")

@@ -49,7 +49,8 @@ func handle_roam_state(state: StringName) -> void:
 		
 
 func enter(_data: Variant) -> void:
-	pass
+	for child in segment.enemy_sprite.get_children():
+		child.show()
 
 func process_state(_delta: float) -> StringName:
 	roam_change_timer = max(0.0, roam_change_timer - _delta)

@@ -51,13 +51,14 @@ func take_damage(damage_source: DamageSource, propogating: bool = false) -> void
 		
 			Juicee.impact_ring(self)
 		ObjectPool.spawn(ObjectPool.bullet_impact_scene, global_position)
+		EventSystem.enemy_hit.emit(self, damage_source)
 		health_component.damage_numbers.display_val(damage_source.damage, global_position)
 	if behind_segment:
 		behind_segment.take_damage(damage_source, true)
 		return
 	else:
 		health_component.take_damage(damage_source, false)
-		EventSystem.enemy_hit.emit(self, damage_source)
+		
 		if damage_source.source_node:
 			var knockback_amount: float = damage_source.knockback * enemy_stats.knockback_resistance
 			movement_component.current_knockback = knockback_amount * damage_source.source_node.global_position.direction_to(global_position)
