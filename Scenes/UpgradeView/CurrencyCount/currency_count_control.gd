@@ -30,6 +30,9 @@ func _ready() -> void :
 
 func initial_setup() -> void:
 	_current_value = _data.amount
+	if _current_value > 0:
+		_data.is_visible = true
+	visible = _data.is_visible
 	
 	label.text = add_spaces_to_number("%d" % _current_value)
 	rectangle_shape.size.x = 170 + (label.size.x - 25)

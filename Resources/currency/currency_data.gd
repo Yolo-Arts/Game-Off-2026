@@ -19,9 +19,8 @@ func add(value: int) -> void:
 	if value == 0:
 		return
 	amount += value
-	amount_changed.emit()
-	
 	is_visible = true
+	amount_changed.emit()
 
 
 func can_afford(cost: int) -> bool:
