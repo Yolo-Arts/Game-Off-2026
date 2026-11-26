@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_354lq"]
 script = ExtResource("2_y4ckf")
 stat = "max_speed"
-mult = 1.1
+add = 100.0
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://bigogxmuptah4"
 script = ExtResource("4_8qdu4")
 id = "GearShift4"
 display_name = "Gear Shift"
-description = " {max speed} of ship is increased by [+25]"
+description = " {max speed} of ship is increased by [+50]"
 icon = ExtResource("1_crmx2")
 modifiers = Array[ExtResource("2_y4ckf")]([SubResource("Resource_354lq")])
 price_data_array = Array[ExtResource("3_7vdim")]([SubResource("Resource_muvpr")])

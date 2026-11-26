@@ -32,6 +32,7 @@ const TREE = [
 		#["BossFights/test_boss_fight_1"],
 	]],
 	["energy_recharge_1", [
+		["energy_recharge_2"],
 		["energy_capacity_1", [
 			["energy_capacity_2"],
 			["energy_regen_1", [
@@ -42,6 +43,7 @@ const TREE = [
 			]],
 		]],
 		["energy_starter_1", [
+			["energy_starter_2"],
 			["energy_regen_1"],
 		]],
 	]],

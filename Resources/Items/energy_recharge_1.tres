@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_354lq"]
 script = ExtResource("2_1711w")
 stat = "energy_increase"
-add = 3.0
+add = 2.5
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]
@@ -28,12 +28,13 @@ metadata/_custom_type_script = "uid://bigogxmuptah4"
 script = ExtResource("4_qilw7")
 id = "ER1"
 display_name = "Energy Recharge"
-description = "Increase ship {energy recharge} through ramming by [+5]"
+description = "Increase ship {energy recharge} through ramming 
+by [+100]"
 icon = ExtResource("1_ggrve")
 modifiers = Array[ExtResource("2_1711w")]([SubResource("Resource_354lq")])
-max_level = 6
+max_level = 4
 price_data_array = Array[ExtResource("3_4deau")]([SubResource("Resource_muvpr")])
-initial_increment_value = 10.0
-increment_value = 5.0
+increment_value = 1.0
+is_increment_percentage = true
 text_injections = Array[ExtResource("5_wyttx")]([SubResource("Resource_v54o1")])
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_y22of")
 max_health = 30.0
+energy_increase = 2.5
 max_speed = 1000.0
 acceleration = 200.0
 deacceleration = 800.0

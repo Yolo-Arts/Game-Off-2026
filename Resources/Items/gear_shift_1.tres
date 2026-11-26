@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_354lq"]
 script = ExtResource("2_llrgd")
 stat = "max_speed"
-mult = 1.1
+add = 60.0
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]
