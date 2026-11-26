@@ -8,11 +8,13 @@ var energy_ram_cost: float
 var can_regenerate: bool = false
 
 var player: Player
+var stats
 
 func setup(_player: Player) -> void:
 	player = _player
 	update_energy()
-	current_energy = max_energy
+	stats = player.get_current_stats()
+	current_energy = stats.starting_energy
 	EventSystem.energy_changed.emit(current_energy, max_energy)
 	EventSystem.stat_changed.connect(_on_stat_changed)
 
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		increase_energy(energy_regen_rate * delta)
 
 func update_energy():
-	var stats = player.get_current_stats()
+	stats = player.get_current_stats()
 	max_energy = stats.max_energy
 	energy_regen_rate = stats.energy_regen_rate
 	if energy_regen_rate > 0:

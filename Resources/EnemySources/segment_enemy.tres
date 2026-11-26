@@ -31,6 +31,7 @@ script = ExtResource("1_fb1ly")
 enemy_id = &"segment"
 enemy_group_id = &"normal"
 enemy_name = "Larry Sr."
+unlocked = false
 enemy_scene = ExtResource("2_rvgfc")
 base_enemy_stats = SubResource("Resource_5g3mc")
 spawn_animation_data = SubResource("Resource_p6a0q")

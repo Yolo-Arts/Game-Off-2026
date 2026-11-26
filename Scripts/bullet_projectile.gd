@@ -91,13 +91,14 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	
 	if not projectile_stats.enemy and area is BulletProjectile:
+		pierce_count += 1
 		var other_bullet := area as BulletProjectile
 		if other_bullet.is_queued_for_deletion():
 			return
 		if other_bullet.projectile_stats != null and other_bullet.projectile_stats.enemy:
 			other_bullet.break_projectile()
 			
-			if pierce_count <= max_pierce:
+			if pierce_count < max_pierce:
 				
 				return
 			# TODO add piercing to player bullet so that their shots pierce through enemy projectiles.
@@ -119,7 +120,7 @@ func _on_area_entered(area: Area2D) -> void:
 			self
 		)
 		EventSystem.player_hit.emit(damage_source)
-		if pierce_count <= max_pierce:
+		if pierce_count < max_pierce:
 				
 				return
 		break_projectile(false)
@@ -149,7 +150,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.take_damage(damage_source)
 		else:
 			EventSystem.SFX_play_sfx.emit(SFXConfig.Keys.MetalHit)
-	if pierce_count <= max_pierce:
+	if pierce_count < max_pierce:
 				
 		return
 				

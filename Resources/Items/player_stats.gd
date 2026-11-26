@@ -5,6 +5,7 @@ class_name PlayerStats extends Resource
 # TODO implement this: fuel_gain_on_currency_pickup
 @export var fuel_gain_on_currency_pickup: float = 0.0
 @export var max_energy: float = 100.0
+@export var starting_energy: float = 0.0
 @export var energy_increase: float = 2.0
 @export var energy_ram_cost: float = 20.0
 @export var energy_regen_rate: float = 0.0
