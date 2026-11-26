@@ -172,13 +172,13 @@ func _refresh() -> void:
 	for item in buttons:
 		buttons[item].refresh()
 	if intro_outro_animation_playing:
-		return  # the intro / close animation is playing, the intro syncs everything once it is done
+		return  
 	_sync_unlocks()
 
 
 func _on_item_hovered(item: ItemData) -> void:
 	_hovered_item = item
-	buttons[item].z_index = 20  # draw the hovered button above the description view
+	buttons[item].z_index = 20  
 	description_view.show_for(item, buttons[item].global_position)
 
 

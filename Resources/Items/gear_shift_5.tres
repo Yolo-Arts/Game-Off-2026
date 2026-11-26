@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://w1tc5vc27n4"]
+
+[ext_resource type="Texture2D" uid="uid://dhdbpe6m0h1mp" path="res://Assets/Icons/Skill Tree/gear_5.png" id="1_7h4qg"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_t2h8p"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_jy8n0"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_x8rok"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_57658"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_t2h8p")
+stat = "max_speed"
+mult = 1.1
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_jy8n0")
+initial_price = 25
+price_multiplier = 1.3
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_57658")
+text = "max speed"
+color = Color(0.3238051, 0.82986456, 0.9348958, 1)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_x8rok")
+id = "GearShift5"
+display_name = "Gear Shift"
+description = " {max speed} of ship is increased by [+100]"
+icon = ExtResource("1_7h4qg")
+modifiers = Array[ExtResource("2_t2h8p")]([SubResource("Resource_354lq")])
+price_data_array = Array[ExtResource("3_jy8n0")]([SubResource("Resource_muvpr")])
+initial_increment_value = 1.0
+increment_value = 0.5
+is_increment_percentage = true
+text_injections = Array[ExtResource("5_57658")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

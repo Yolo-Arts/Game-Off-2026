@@ -40,6 +40,8 @@ func _ready() -> void:
 	movement_component.setup(self)
 	hitbox.setup(self, true)
 	
+	await get_tree().process_frame
+
 	energy_component.setup(self)
 	state_machine.initialize(self, &"normal")
 	shoot_component.setup(self)

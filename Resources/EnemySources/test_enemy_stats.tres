@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_fuhsb")
-max_health = 30.0
+max_health = 10.0
 shift_color = 0
-damage = 10.0
+damage = 5.0
 knockback = 2000.0
 opposite_speed = 500.0
 drop = 1

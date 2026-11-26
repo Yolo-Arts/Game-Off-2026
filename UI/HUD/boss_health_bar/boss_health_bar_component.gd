@@ -1,6 +1,6 @@
 class_name BossHealthBar extends Control
 
-@export var boss: Boss
+@export var boss: Enemy
 @export var boss_name: String
 
 @onready var boss_name_label = %BossNameLabel

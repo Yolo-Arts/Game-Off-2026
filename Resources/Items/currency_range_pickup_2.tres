@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bmyxakcedtp6l"]
+
+[ext_resource type="Texture2D" uid="uid://dl2cll7al7rkp" path="res://Assets/Icons/Skill Tree/magnet_big.png" id="1_3uume"]
+[ext_resource type="Script" uid="uid://b6rvk2vhypt3a" path="res://Resources/Items/stat_modifier.gd" id="2_80v14"]
+[ext_resource type="Script" uid="uid://cwygifwmbqpua" path="res://Resources/prices/price_data.gd" id="3_5c64j"]
+[ext_resource type="Script" uid="uid://b8oub28nd0o4x" path="res://Resources/Items/item_data.gd" id="4_gny8q"]
+[ext_resource type="Script" uid="uid://bigogxmuptah4" path="res://Resources/TextInjections/TextInjection.gd" id="5_i56uq"]
+
+[sub_resource type="Resource" id="Resource_354lq"]
+script = ExtResource("2_80v14")
+stat = "currency_pickup_radius_multi"
+add = 0.25
+metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
+
+[sub_resource type="Resource" id="Resource_muvpr"]
+script = ExtResource("3_5c64j")
+initial_price = 15
+price_multiplier = 2.0
+metadata/_custom_type_script = "uid://cwygifwmbqpua"
+
+[sub_resource type="Resource" id="Resource_v54o1"]
+script = ExtResource("5_i56uq")
+text = "Pickup Range"
+color = Color(0.78, 0.8, 0.85, 1)
+font_size = 28
+icon_size = Vector2i(48, 48)
+metadata/_custom_type_script = "uid://bigogxmuptah4"
+
+[resource]
+script = ExtResource("4_gny8q")
+id = "PickupRange2"
+display_name = "Tractor Beam"
+description = "Increase {Pickup Range} by [50%]."
+icon = ExtResource("1_3uume")
+modifiers = Array[ExtResource("2_80v14")]([SubResource("Resource_354lq")])
+price_data_array = Array[ExtResource("3_5c64j")]([SubResource("Resource_muvpr")])
+initial_increment_value = 0.5
+increment_value = 0.5
+is_increment_percentage = true
+text_injections = Array[ExtResource("5_i56uq")]([SubResource("Resource_v54o1")])
+metadata/_custom_type_script = "uid://b8oub28nd0o4x"

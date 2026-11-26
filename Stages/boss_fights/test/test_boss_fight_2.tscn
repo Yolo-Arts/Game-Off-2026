@@ -3,9 +3,36 @@
 [ext_resource type="PackedScene" uid="uid://d2o78d2f3yc0r" path="res://Stages/boss_fights/boss_scene_template.tscn" id="1_4pmbi"]
 [ext_resource type="Script" uid="uid://blj37s6ejwfxs" path="res://Stages/boss_fights/test/test_boss_fight_2.gd" id="2_ep7b6"]
 [ext_resource type="PackedScene" uid="uid://cm1homtwcu2pk" path="res://Scenes/Enemy/Boss/test/test_boss.tscn" id="2_lsfdg"]
+[ext_resource type="PackedScene" uid="uid://7heagqykgnip" path="res://UI/HUD/boss_health_bar/boss_health_bar_component.tscn" id="3_6ualv"]
+[ext_resource type="PackedScene" uid="uid://cg1dfn5eqm61c" path="res://UI/BossFightIntro/boss_fight_intro.tscn" id="4_pwcym"]
+[ext_resource type="Texture2D" uid="uid://diwh064t1i4aq" path="res://Assets/Enemy/ear_enemy/Ear_Boss_Sprite.png" id="5_6ualv"]
 
-[node name="test_boss_fight_2" unique_id=1423773352 instance=ExtResource("1_4pmbi")]
+[node name="test_boss_fight_2" unique_id=1423773352 node_paths=PackedStringArray("boss_fight_intro", "boss_enemy") instance=ExtResource("1_4pmbi")]
 script = ExtResource("2_ep7b6")
+boss_fight_intro = NodePath("CanvasLayer2/BossFightIntro")
+boss_enemy = NodePath("TestBoss")
 
-[node name="TestBoss" parent="." index="7" unique_id=437048349 instance=ExtResource("2_lsfdg")]
-position = Vector2(1011, 1060)
+[node name="BossHealthBarComponent" parent="HUD" parent_id_path=PackedInt32Array(1797360132) index="1" unique_id=360296900 node_paths=PackedStringArray("boss") instance=ExtResource("3_6ualv")]
+boss = NodePath("../../TestBoss")
+boss_name = "Ears Enemy"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." index="2" unique_id=152101167]
+
+[node name="BossFightIntro" parent="CanvasLayer2" index="0" unique_id=2135750429 instance=ExtResource("4_pwcym")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1904.0
+offset_bottom = 1064.0
+grow_horizontal = 1
+grow_vertical = 1
+boss_name = "Ear Enemy"
+boss_sprite = ExtResource("5_6ualv")
+
+[node name="TestBoss" parent="." index="8" unique_id=437048349 instance=ExtResource("2_lsfdg")]
+position = Vector2(1011, -857)
+
+[node name="Camera2D" parent="Player" parent_id_path=PackedInt32Array(2000429350) index="8" unique_id=655410420]
+position = Vector2(0, -1337)

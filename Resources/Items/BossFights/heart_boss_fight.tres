@@ -14,4 +14,5 @@ description = "Super Scary Test Boss Fight"
 icon = ExtResource("1_1a6lj")
 will_change_scene = true
 target_scene = 4
+shape_type = 3
 metadata/_custom_type_script = "uid://b8oub28nd0o4x"

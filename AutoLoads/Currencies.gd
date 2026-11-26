@@ -40,6 +40,8 @@ func _on_data_loaded() -> void:
 	for type: Enums.CurrencyType in _by_type:
 		var saved_amount: int = SaveManager.data.currency_amounts.get(type, 0)
 		_by_type[type].amount = saved_amount
+		if saved_amount > 0:
+			_by_type[type].is_visible = true
 	changed.emit()
 
 func get_currency(type: Enums.CurrencyType) -> CurrencyData:
