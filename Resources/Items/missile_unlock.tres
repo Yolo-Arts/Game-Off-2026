@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 [sub_resource type="Resource" id="Resource_14f36"]
 script = ExtResource("2_ihua2")
 stat = "missile_count"
-add = 1.0
+add = 2.0
 metadata/_custom_type_script = "uid://b6rvk2vhypt3a"
 
 [sub_resource type="Resource" id="Resource_muvpr"]

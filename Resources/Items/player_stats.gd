@@ -46,7 +46,6 @@ class_name PlayerStats extends Resource
 @export var unlocked_missiles: int = 0
 @export var missile_count: int = 10
 @export var missile_speed: float = 3000.0
-# TODO implement this: 
 @export var missile_damage: int = 50
 # TODO implement this: 
 @export var missile_explosion_radius: float = 500.0
