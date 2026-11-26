@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://cwygifwmbqpua"
 script = ExtResource("3_pdp0k")
 currency = 1
 initial_price = 3
-price_multiplier = 2.0
+price_multiplier = 1.2
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
 [sub_resource type="Resource" id="Resource_v54o1"]
@@ -38,7 +38,7 @@ display_name = "Bombardment"
 description = "Increase {missile count} by [+1]"
 icon = ExtResource("1_ejv11")
 modifiers = Array[ExtResource("2_bqab0")]([SubResource("Resource_14f36")])
-max_level = 12
+max_level = 13
 min_level_to_unlock_children = 4
 shape_type = 1
 price_data_array = Array[ExtResource("3_pdp0k")]([SubResource("Resource_muvpr"), SubResource("Resource_l7mfo")])

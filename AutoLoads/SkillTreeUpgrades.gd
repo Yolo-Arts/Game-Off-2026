@@ -29,6 +29,7 @@ const TREE = [
 		["missile_unlock", [
 			["missile_count"],
 			["missile_damage_1"],
+			["missile_explosion_radius_1"],
 		]],
 		#["BossFights/test_boss_fight_1"],
 	]],

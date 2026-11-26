@@ -22,6 +22,7 @@ metadata/_custom_type_script = "uid://cwygifwmbqpua"
 script = ExtResource("3_pl0pc")
 currency = 1
 initial_price = 3
+price_multiplier = 1.2
 metadata/_custom_type_script = "uid://cwygifwmbqpua"
 
 [sub_resource type="Resource" id="Resource_v54o1"]
@@ -33,7 +34,7 @@ metadata/_custom_type_script = "uid://bigogxmuptah4"
 [resource]
 script = ExtResource("4_oy0g5")
 id = "Missiles_damage"
-display_name = "Missile arnaments"
+display_name = "Missile Firepower"
 description = "Increase {missile damage} by [50%]"
 icon = ExtResource("1_vejjr")
 modifiers = Array[ExtResource("2_oj3wv")]([SubResource("Resource_14f36")])
