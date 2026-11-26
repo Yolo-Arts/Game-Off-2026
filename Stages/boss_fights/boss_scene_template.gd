@@ -33,7 +33,7 @@ func _ready() -> void:
 	Globals.beat_boss = false
 	Globals.current_stage = stage_config_key
 	
-	player.state_machine.change_state(&"frozen")
+	player.state_machine.request_transition(&"frozen")
 	boss_enemy.process_mode = Node.PROCESS_MODE_DISABLED
 	EventSystem.start_boss_cutscene.emit()
 	cutscene()

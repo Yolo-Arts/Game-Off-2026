@@ -7,7 +7,7 @@ func setup_progress_bar() -> void:
 	await get_tree().process_frame
 	larry = boss as LarrySrSr
 	boss_name_label.text = boss_name
-	var max_health = larry.boss_size
+	var max_health: int = larry.boss_size
 	var paging = max_health * progress_bar_default_page_ratio_from_max_value
 	progress_bar.page = paging
 	progress_bar.max_value = max_health
