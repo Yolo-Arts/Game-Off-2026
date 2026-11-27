@@ -18,7 +18,7 @@ boss_fight_intro = NodePath("CanvasLayer2/BossFightIntro")
 boss_enemy = NodePath("LarrySrSr")
 stage_config_key = 5
 
-[node name="BoostAbility" parent="HUD/MarginContainer/VBoxContainer3" parent_id_path=PackedInt32Array(1675038817) index="0" unique_id=829628110 instance=ExtResource("2_snblt")]
+[node name="BoostAbility2" parent="HUD/MarginContainer/VBoxContainer3" parent_id_path=PackedInt32Array(1675038817) index="0" unique_id=829628110 instance=ExtResource("2_snblt")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="1_pe4qc"]
 [ext_resource type="Resource" uid="uid://c350ejkc56daf" path="res://Resources/EnemySources/projectile_enemy.tres" id="2_74u1i"]
+[ext_resource type="Resource" uid="uid://dq3p4keyo4pnr" path="res://Resources/EnemySources/laser.tres" id="2_c01xx"]
 [ext_resource type="Resource" uid="uid://bskyx75x7b3nd" path="res://Resources/EnemySources/test_enemy.tres" id="2_fba7i"]
 [ext_resource type="Resource" uid="uid://cekse2i4k64uc" path="res://Resources/EnemySources/segment_enemy.tres" id="3_063dc"]
 [ext_resource type="Script" uid="uid://dgl2hpf6fa4x6" path="res://Resources/enemy_registry.gd" id="3_74u1i"]
@@ -11,6 +12,7 @@
 script = ExtResource("3_74u1i")
 enemies = Dictionary[StringName, ExtResource("1_pe4qc")]({
 &"gold_enemy": ExtResource("3_fba7i"),
+&"laser_straight": ExtResource("2_c01xx"),
 &"projectile_enemy": ExtResource("2_74u1i"),
 &"segment": ExtResource("3_063dc"),
 &"testenemy": ExtResource("2_fba7i")

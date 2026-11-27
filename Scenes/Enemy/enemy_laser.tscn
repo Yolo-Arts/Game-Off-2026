@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://m513e3ds65i6"]
+
+[ext_resource type="Script" uid="uid://bub0xih5mxop4" path="res://Scenes/Enemy/enemy_laser.gd" id="1_g8up4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0sn"]
+size = Vector2(9788, 32)
+
+[node name="EnemyLaser" type="Area2D" unique_id=1413554802]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_g8up4")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=267850432]
+points = PackedVector2Array(-4894, 0, 4894, 0)
+width = 32.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2073980054]
+shape = SubResource("RectangleShape2D_bi0sn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

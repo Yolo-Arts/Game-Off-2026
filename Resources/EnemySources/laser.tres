@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dq3p4keyo4pnr"]
+
+[ext_resource type="PackedScene" uid="uid://m513e3ds65i6" path="res://Scenes/Enemy/enemy_laser.tscn" id="1_rt0dm"]
+[ext_resource type="Script" uid="uid://mahujeywww5p" path="res://Resources/EnemySources/enemy_data.gd" id="1_umvd1"]
+[ext_resource type="Script" uid="uid://cee3blfn2lg47" path="res://Resources/EnemySources/enemy_stats.gd" id="1_wulny"]
+
+[sub_resource type="Resource" id="Resource_g8up4"]
+script = ExtResource("1_wulny")
+max_health = 1.0
+damage = 20.0
+knockback = 0.0
+speed = 500.0
+opposite_speed = 1000.0
+metadata/_custom_type_script = "uid://cee3blfn2lg47"
+
+[resource]
+script = ExtResource("1_umvd1")
+enemy_id = &"laser_straight"
+enemy_group_id = &"laser"
+enemy_name = "Laser"
+enemy_scene = ExtResource("1_rt0dm")
+base_enemy_stats = SubResource("Resource_g8up4")
+spawn_distance_from_player = 9999.0
+metadata/_custom_type_script = "uid://mahujeywww5p"
