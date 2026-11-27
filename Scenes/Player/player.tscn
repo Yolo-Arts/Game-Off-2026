@@ -33,7 +33,7 @@ size = Vector2(134, 136)
 size = Vector2(120, 121)
 
 [node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["pickup_collector", "player"]]
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_4ntmi")
 _default_stats = ExtResource("2_htcer")
 

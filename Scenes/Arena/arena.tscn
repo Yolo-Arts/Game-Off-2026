@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ks1gmrbx21jq"]
+
+[ext_resource type="Script" uid="uid://bxahon3anpuo5" path="res://Scripts/arena/arena.gd" id="1_fp5lk"]
+[ext_resource type="Script" uid="uid://bjovio4igwvuq" path="res://Scripts/arena/arena_visuals.gd" id="2_6o3nl"]
+[ext_resource type="Shader" uid="uid://cpctd35gdws8m" path="res://Shaders/arena_border.gdshader" id="3_6o3nl"]
+[ext_resource type="Texture2D" uid="uid://cgs3aoe7dwymq" path="res://icon.svg" id="4_rm3sm"]
+[ext_resource type="Script" uid="uid://bisiwnfjoeeci" path="res://Scripts/arena/arena_border.gd" id="5_t7yvt"]
+
+[sub_resource type="Gradient" id="Gradient_6o3nl"]
+offsets = PackedFloat32Array(0, 0.33962265, 0.3899371, 1)
+colors = PackedColorArray(1, 1, 1, 0.3019608, 1, 1, 1, 0.3019608, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rm3sm"]
+gradient = SubResource("Gradient_6o3nl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fp5lk"]
+shader = ExtResource("3_6o3nl")
+shader_parameter/gradient = SubResource("GradientTexture1D_rm3sm")
+
+[sub_resource type="Curve2D" id="Curve2D_y3xcv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1500, 0, 0, 0, 0, 0, 1060.66, -1060.6603, 0, 0, 0, 0, 1060.6602, 1060.6602, 0, 0, 0, 0, 1.7887322e-05, -1500, 0, 0, 0, 0, -6.556708e-05, 1500, 0, 0, 0, 0, -1060.6603, -1060.66, 0, 0, 0, 0, -1060.6602, 1060.6602, 0, 0, 0, 0, -1500, -0.00013113416, 0, 0, 0, 0, -1500, -0.00013113416, 0, 0, 0, 0, -1060.6602, 1060.6602, 0, 0, 0, 0, -1060.6603, -1060.66, 0, 0, 0, 0, -6.556708e-05, 1500, 0, 0, 0, 0, 1.7887322e-05, -1500, 0, 0, 0, 0, 1060.6602, 1060.6602, 0, 0, 0, 0, 1060.66, -1060.6603, 0, 0, 0, 0, 1500, 0, 0, 0, 0, 0, 1500, 0, 0, 0, 0, 0, 1060.66, -1060.6603)
+}
+point_count = 18
+
+[node name="Arena" type="Node2D" unique_id=703426211 node_paths=PackedStringArray("turret_path", "reverse_turret_path", "visuals")]
+script = ExtResource("1_fp5lk")
+turret_path = NodePath("TurretPath")
+reverse_turret_path = NodePath("ReverseTurretPath")
+visuals = NodePath("ArenaVisuals")
+
+[node name="ArenaVisuals" type="Polygon2D" parent="." unique_id=156391638 node_paths=PackedStringArray("border", "collider", "turret_paths")]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(1500, 0, 1060.6602, 1060.6602, -6.556708e-05, 1500, -1060.6602, 1060.6602, -1500, -0.00013113416, -1060.6603, -1060.66, 1.7887322e-05, -1500, 1060.66, -1060.6603)
+uv = PackedVector2Array(1500, 0, 1060.6602, 1060.6602, -6.556708e-05, 1500, -1060.6602, 1060.6602, -1500, -0.00013113416, -1060.6603, -1060.66, 1.7887322e-05, -1500, 1060.66, -1060.6603)
+script = ExtResource("2_6o3nl")
+point_count = 8
+radius = 1500.0
+border = NodePath("Border")
+collider = NodePath("BorderWall/CollisionPolygon2D")
+turret_paths = [NodePath("../TurretPath"), NodePath("../ReverseTurretPath")]
+
+[node name="Border" type="Line2D" parent="ArenaVisuals" unique_id=730349520]
+material = SubResource("ShaderMaterial_fp5lk")
+points = PackedVector2Array(1500, 0, 1060.6602, 1060.6602, -6.556708e-05, 1500, -1060.6602, 1060.6602, -1500, -0.00013113416, -1060.6603, -1060.66, 1.7887322e-05, -1500, 1060.66, -1060.6603)
+closed = true
+width = 100.0
+texture = ExtResource("4_rm3sm")
+texture_mode = 1
+
+[node name="BorderWall" type="Area2D" parent="ArenaVisuals" unique_id=2013210135]
+collision_mask = 2
+script = ExtResource("5_t7yvt")
+knockback_strength = 1000.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArenaVisuals/BorderWall" unique_id=813513916]
+polygon = PackedVector2Array(1500, 0, 1060.6602, 1060.6602, -6.556708e-05, 1500, -1060.6602, 1060.6602, -1500, -0.00013113416, -1060.6603, -1060.66, 1.7887322e-05, -1500, 1060.66, -1060.6603)
+
+[node name="TurretPath" type="Path2D" parent="." unique_id=653282723]
+curve = SubResource("Curve2D_y3xcv")
+
+[node name="ReverseTurretPath" type="Path2D" parent="." unique_id=2059846557]
+curve = SubResource("Curve2D_y3xcv")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cbcwu5b7ayjr7" path="res://Stages/main/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ceb1pfyorany7" path="res://Scenes/Player/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://cbciax1qfh4hp" path="res://Assets/BG/Space Background.png" id="2_oajci"]
+[ext_resource type="PackedScene" uid="uid://ks1gmrbx21jq" path="res://Scenes/Arena/arena.tscn" id="3_7hjn6"]
 [ext_resource type="Shader" uid="uid://204n7sqcs6sq" path="res://Shaders/death_screen.gdshader" id="3_mwvqt"]
 [ext_resource type="Script" uid="uid://0jg8dve4yjgc" path="res://Scenes/Player/camera_2d.gd" id="3_t30ik"]
 [ext_resource type="Script" uid="uid://cck3p1i60tcyv" path="res://Scripts/death_screen_fx.gd" id="4_h7dmi"]
@@ -53,6 +54,8 @@ shader_parameter/intensity = 0.0
 [node name="Main" type="Node2D" unique_id=1485435742]
 script = ExtResource("1_bo1nx")
 currency_count_control = ExtResource("12_hyxu5")
+arena_corners = 6
+arena_radius = 3500.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1764506093]
 
@@ -264,6 +267,10 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_oajci")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 10000)
+
+[node name="Arena" parent="." unique_id=703426211 instance=ExtResource("3_7hjn6")]
+unique_name_in_owner = true
+position = Vector2(956, 487)
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=620326751 node_paths=PackedStringArray("enemy_spawn_timer")]
 scale = Vector2(0.99999994, 0.99999994)

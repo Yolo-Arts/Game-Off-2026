@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var currency_count_control: PackedScene
+@export var arena_corners: int = 8
+@export var arena_radius: float = 800.0
 
 @onready var death_screen = %DeathScreen
 @onready var hud = %HUD
@@ -9,6 +11,7 @@ extends Node2D
 @onready var currency_count_container = %CurrencyCountContainer
 @onready var player = %Player
 
+@onready var arena = %Arena
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -20,10 +23,17 @@ func _ready() -> void:
 	TweenManager.camera = camera
 	
 	EventSystem.player_died.connect(player_died)
-	
 	setup_currency_count_container(Currencies._by_type)
-	
 	Globals.current_stage = StageConfig.Keys.Main
+	
+	setup_arena()
+
+func setup_arena() -> void:
+	arena.global_position = Vector2.ZERO
+	arena.resize_arena(arena_corners, arena_radius)
+	
+	if player:
+		player.global_position = arena.global_position
 
 func setup_currency_count_container(dict: Dictionary) -> void:
 	for key in dict:
