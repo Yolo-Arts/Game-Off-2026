@@ -55,3 +55,6 @@ signal dash_unlocked
 signal dash_started(duration: float)
 signal dash_cooldown_updated(time_remaining: float, total_cooldown: float)
 signal dash_ready
+
+signal fuel_picked_up
+signal energy_picked_up

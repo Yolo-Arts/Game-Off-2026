@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ce8424hmrm8l7"]
+
+[ext_resource type="Script" uid="uid://x6f3esx4sitr" path="res://Scenes/Pickups/fuel_pickup.gd" id="1_yypb1"]
+[ext_resource type="Texture2D" uid="uid://dew5t627vq41l" path="res://Assets/Icons/Skill Tree/fuel_3.png" id="2_otmlg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx87x"]
+size = Vector2(16, 16)
+
+[node name="FuelPickup" type="Node2D" unique_id=1107103565]
+scale = Vector2(5, 5)
+script = ExtResource("1_yypb1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1384686168]
+texture = ExtResource("2_otmlg")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1943927748]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1478474339]
+shape = SubResource("RectangleShape2D_qx87x")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

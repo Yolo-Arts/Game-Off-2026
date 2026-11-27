@@ -30,7 +30,7 @@ size = Vector2(128, 129)
 size = Vector2(134, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi45h"]
-size = Vector2(138, 141)
+size = Vector2(120, 121)
 
 [node name="Player" type="CharacterBody2D" unique_id=2000429350 groups=["pickup_collector", "player"]]
 collision_layer = 2
@@ -154,7 +154,7 @@ script = ExtResource("7_0u5uq")
 metadata/_custom_type_script = "uid://bbdb481tg70y4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2141517331]
-position = Vector2(0, -0.5)
+position = Vector2(1, 2.5)
 shape = SubResource("RectangleShape2D_pi45h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=613795525]

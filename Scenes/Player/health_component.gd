@@ -63,7 +63,6 @@ func heal(amount: float) -> void:
 	EventSystem.player_healed.emit(amount)
 	EventSystem.health_increased.emit(current_health)
 
-
 func _start_iframes() -> void:
 	add_invincibility(&"iframes")
 	await get_tree().create_timer(player.get_current_stats().invincibility_duration_seconds).timeout

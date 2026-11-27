@@ -56,9 +56,11 @@ class_name PlayerStats extends Resource
 @export var dash_cooldown: float = 3.0
 @export var dash_speed: float = 2400.0
 
-
 @export var max_pierce: int = 1
 
+@export var fuel_pickup_amount_percentage: float = 0.2
+@export var pickup_spawn_chance: float = 0.2
+@export var energy_pickup_amount: float = 20
 
 func get_computed_damage(shoot: bool = false) -> float:
 	var final_damage: float = damage if not shoot else shot_damage

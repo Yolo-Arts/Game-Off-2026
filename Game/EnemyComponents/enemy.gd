@@ -10,6 +10,10 @@ var effect_timer: float = 0.0
 @onready var enemy_sprite = %EnemySprite
 var can_set_enemy_shift_speed: bool = true
 var dead: bool = false
+
+const FUEL_PICKUP = preload("uid://ce8424hmrm8l7")
+const ENERGY_PICKUP = preload("uid://p73pjvontcjs")
+
 func _ready() -> void:
 	add_to_group("enemies")
 	health_component.setup(self)
@@ -71,4 +75,36 @@ func die() -> void:
 	
 	# TODO Add enemy death SFX
 	Pickups.spawn(Enums.CurrencyType.GEAR, global_position, enemy_stats.drop)
+	
+	# separate to currency pickups
+	spawn_pickup()
+	
 	queue_free()
+
+func spawn_pickup():
+	var random = randf_range(0,1)
+	var player: Player = get_tree().get_first_node_in_group("player") as Player
+	var spawn_chance = player.get_current_stats().pickup_spawn_chance
+	
+	if random > spawn_chance:
+		return
+	
+	var coin_flip = randi_range(0,1)
+	
+	if coin_flip == 0:
+		spawn_fuel(self.position)
+		return
+	elif coin_flip == 1:
+		spawn_energy(self.position)
+		return
+
+func spawn_fuel(pos: Vector2):
+	var instance = FUEL_PICKUP.instantiate()
+	get_tree().get_current_scene().call_deferred("add_child", instance)
+	instance.global_position = pos
+	
+func spawn_energy(pos: Vector2):
+	var instance = ENERGY_PICKUP.instantiate()
+	get_tree().get_current_scene().call_deferred("add_child", instance)
+	instance.global_position = pos
+	

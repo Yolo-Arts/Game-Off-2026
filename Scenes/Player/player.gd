@@ -35,6 +35,8 @@ func _ready() -> void:
 	#EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.HUD)
 	EventSystem.player_hit.connect(_on_player_hit)
 	EventSystem.player_died.connect(die)
+	EventSystem.fuel_picked_up.connect(_on_fuel_pickup)
+	EventSystem.energy_picked_up.connect(_on_energy_pickup)
 	
 	item_manager.setup(self, _default_stats)
 	movement_component.setup(self)
@@ -133,3 +135,21 @@ func die() -> void:
 	state_machine.initialize(self, &"frozen")
 	
 	ObjectPool.spawn(ObjectPool.explosion_scene, global_position)
+
+func _on_fuel_pickup() -> void:
+	
+	var fuel_pickup_percentage = get_current_stats().fuel_pickup_amount_percentage
+	var max_health = get_current_stats().max_health
+	
+	health_component.heal(fuel_pickup_percentage*max_health)
+	
+	return
+
+func _on_energy_pickup() -> void:
+	
+	var energy_pickup_amount = get_current_stats().energy_pickup_amount
+	
+	energy_component.increase_energy(energy_pickup_amount)
+	
+	return
+	
